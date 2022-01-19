@@ -54,7 +54,7 @@ public class NPC : MonoBehaviour
     [YarnCommand("Flip")]
     public void Flip(float seconds = 0f)
     {
-        transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, 180, 0), seconds);
+        transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, -180, 0), seconds);
     }
 
     [YarnCommand("Wait")]

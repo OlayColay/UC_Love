@@ -7,8 +7,8 @@ Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
 -> Watch out, Dwayne!
     <<SetSprite Middle Dwayne/Eyebrow>>
     <<PlaySound Middle SFX/VineBoom>>
-    Dwayne: There's a giant Powell Cat behind me, you say?
     <<Wait 1>>
+    Dwayne: There's a giant Powell Cat behind me, you say?
     <<SetSprite Middle Dwayne/Idle>>
     Dwayne: Not to worry. I know of the secret Johnson family tehnique...
     <<ClearSprite Middle>>
@@ -19,6 +19,7 @@ Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
     <<Wait 1>>
     <<SetSprite Middle Dwayne/Eyebrow>>
     <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 1>>
     Dwayne: What do you mean? I already have a twin brother!
     <<SetSprite Middle Dwayne/Idle>>
     Dwayne: Say hi, The Rock!
