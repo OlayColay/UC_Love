@@ -10,6 +10,8 @@ public class NPC : MonoBehaviour
     [SerializeField] Yarn.Program script;
     [SerializeField] Color inactiveColor = Color.gray;
 
+    static Image background;
+    static Image blackScreen;
     Image image;
     AudioSource audioSource;
     Transform parent;
@@ -20,14 +22,22 @@ public class NPC : MonoBehaviour
         image = GetComponent<Image>();
         audioSource = GetComponent<AudioSource>();
         parent = transform.parent;
+
+        background = parent.parent.Find("Background").GetComponent<Image>();
+        blackScreen = parent.parent.Find("Black Screen").GetComponent<Image>();
     }
 
     [YarnCommand("SetSprite")]
     public void SetSprite(string spritePath)
     {
-        image.sprite = Resources.Load<Sprite>(spritePath);
+        if ((image.sprite = Resources.Load<Sprite>(spritePath)) == null)
+        {
+            Debug.LogError("Couldn't find character sprite in " + spritePath);
+            return;
+        }
         image.enabled = true;
     }
+    
     [YarnCommand("ClearSprite")]
     public void ClearSprite()
     {
@@ -47,7 +57,11 @@ public class NPC : MonoBehaviour
     [YarnCommand("PlaySound")]
     public void PlaySound(string soundPath)
     {
-        audioSource.clip = Resources.Load<AudioClip>(soundPath);
+        if ((audioSource.clip = Resources.Load<AudioClip>(soundPath)) == null)
+        {
+            Debug.LogError("Couldn't find audio clip in " + soundPath);
+            return;
+        }
         audioSource.Play();
     }
 
@@ -61,5 +75,17 @@ public class NPC : MonoBehaviour
     public static IEnumerator<WaitForSeconds> Wait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+    }
+
+    [YarnCommand("ChangeScene")]
+    public static IEnumerator ChangeScene(string bgPath, float seconds = 2f)
+    {
+        float halvedDuration = seconds / 2;
+        
+        BlackScreen.Instance.Fade(false, halvedDuration);
+        yield return new WaitForSeconds(halvedDuration);
+        Background.SetBackground(bgPath);
+        BlackScreen.Instance.Fade(true, halvedDuration);
+        yield return new WaitForSeconds(halvedDuration);
     }
 }

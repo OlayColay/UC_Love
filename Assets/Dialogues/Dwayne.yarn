@@ -1,5 +1,6 @@
 ﻿title: Start
 ---
+<<Fade true>>
 <<SetActiveChar Middle>>
 Dwayne: ITS ABOUT DRIVE - ITS ABOUT POWER - WE STAY HUNGRY - WE DEVOUR
 Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
@@ -30,5 +31,53 @@ Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
     The Rock: Oh yeah, Dwayne, which one of us is playing Black Adam again?
     <<SetActiveChar Middle>>
     Dwayne: It's gonna be both of us. We're gonna pull an Olsen Twins move and take turns.
--> I'm amazed!
+-> I'm amazed! Can I see your dorm room? owo
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 1>>
+    Dwayne: You want to see my dorm room even though we just met?
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Idle>>
+    Dwayne: Yeah sure, why not?
+    <<jump Room>>
+===
+title: Room
+position: 183,109
+---
+<<ChangeScene Backgrounds/SlobDormRoom>>
+Dwayne: Welcome to my humble abode.
+-> This place looks like s@&%.
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Idle>>
+    <<Wait 0.5>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 0.25>>
+    <<SetSprite Middle Dwayne/Idle>>
+    <<Wait 0.25>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 0.25>>
+    <<SetSprite Middle Dwayne/Idle>>
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 0.1>>
+    <<SetSprite Middle Dwayne/Idle>>
+    <<Wait 0.1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 0.1>>
+    <<SetSprite Middle Dwayne/Idle>>
+    <<Wait 0.1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    <<Wait 1>>
+    <<Fade false>>
+    <<Wait 0.5>>
+    YOU DIED
 ===
