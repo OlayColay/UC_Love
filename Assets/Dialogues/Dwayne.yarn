@@ -1,15 +1,33 @@
 ﻿title: Start
 ---
+<<SetActiveChar Middle>>
 Dwayne: ITS ABOUT DRIVE - ITS ABOUT POWER - WE STAY HUNGRY - WE DEVOUR
 Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
 
--> Watch out, The Rock!
-    <<SetSprite Character Dwayne/Eyebrow>>
-    <<PlaySound Character SFX/VineBoom>>
+-> Watch out, Dwayne!
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
     Dwayne: There's a giant Powell Cat behind me, you say?
-    <<SetSprite Character Dwayne/Idle>>
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Idle>>
     Dwayne: Not to worry. I know of the secret Johnson family tehnique...
+    <<ClearSprite Middle>>
+    <<SetSprite Left Dwayne/Running>>
+    <<SetActiveChar Left>>
     Dwayne: RUN!!!
--> Incredible!
+-> Incredible! Can you make a clone of yourself too?
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    Dwayne: What do you mean? I already have a twin brother!
+    <<SetSprite Middle Dwayne/Idle>>
+    Dwayne: Say hi, The Rock!
+    <<SetSprite Left Dwayne/Idle>>
+    <<SetActiveChar Left>>
+    The Rock: What do we got cooking here? I'm The Rock.
+    <<Flip Left 0.5>>
+    The Rock: Oh yeah, Dwayne, which one of us is playing Black Adam again?
+    <<SetActiveChar Middle>>
+    Dwayne: It's gonna be both of us. We're gonna pull an Olsen Twins move and take turns.
 -> I'm amazed!
 ===
