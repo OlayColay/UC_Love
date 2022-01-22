@@ -80,4 +80,5 @@ Dwayne: Welcome to my humble abode.
     <<Fade false>>
     <<Wait 0.5>>
     YOU DIED
+    <<jump Node>>
 ===

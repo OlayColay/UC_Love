@@ -1,0 +1,31 @@
+﻿title: Start
+position: 0,0.5
+---
+<<SetSprite Middle Dwayne/Idle>>
+<<Fade true>>
+Dwayne: Hello!
+-> Hello!
+    Dwayne: :)
+    <<jump Polite>>
+-> ...
+    Dwayne: :(
+    <<jump Rude>>
+===
+title: Polite
+position: 203,77
+---
+Dwayne: How are you doing today?
+<<jump End>>
+===
+title: Rude
+position: 201,-75
+---
+<<SetSprite Middle Dwayne/Eyebrow>>
+Dwayne: You're very rude.
+<<jump End>>
+===
+title: End
+position: 423,0
+---
+Dwayne: Bye!
+===
