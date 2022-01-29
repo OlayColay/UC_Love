@@ -1,14 +1,13 @@
-﻿title: Intro_Waking_Up_in_Dorm
+﻿title: IntroWakingUpinDorm
 position: -192,-155
 ---
-
 <<ChangeScene Backgrounds/Dorm 2>>
 Player: Ugh… my head… I shouldn't have slept so late last night…
 Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
 Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
 Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
 Player: Oh shoot! I better get going if I want to make it up the stairs without wheezing my lungs out!
-<<ChangeScene Backgrounds/Plaza_Noon 2>>
+<<ChangeScene Backgrounds/PlazaNoon 2>>
 <<SetSprite Middle BruinBox/Idle>>
 BruinBox: Hey welcome to campus!
 -> Whoa what the hell are you??!
@@ -30,20 +29,20 @@ BruinBox: Hey welcome to campus!
 BruinBox: We're giving away pronoun buttons to make introductions a little easier for everyone!
 BruinBox: Would you like one? 
 -> Yes! I'll take the he/him button please!
-    <<set $HeSheThey_lowercase to "he">>
-    <<set $HimHerThem_lowercase to "him">>
-    <<set $HeSheThey_Uppercase to "He">>
-    <<set $HimHerThem_Uppercase to "Him">>
+    <<set $HeSheTheyLowercase to "he">>
+    <<set $HimHerThemLowercase to "him">>
+    <<set $HeSheTheyUppercase to "He">>
+    <<set $HimHerThemUppercase to "Him">>
 -> Yes! I'll take the she/her button please!
-    <<set $HeSheThey_lowercase to "she">>
-    <<set $HimHerThem_lowercase to "her">>
-    <<set $HeSheThey_Uppercase to "She">>
-    <<set $HimHerThem_Uppercase to "Her">>
+    <<set $HeSheTheyLowercase to "she">>
+    <<set $HimHerThemLowercase to "her">>
+    <<set $HeSheTheyUppercase to "She">>
+    <<set $HimHerThemUppercase to "Her">>
 -> Yes! I'll take the they/them button please!
-    <<set $HeSheThey_lowercase to "they">>
-    <<set $HimHerThem_lowercase to "them">>
-    <<set $HeSheThey_Uppercase to "They">>
-    <<set $HimHerThem_Uppercase to "Them">>
+    <<set $HeSheTheyLowercase to "they">>
+    <<set $HimHerThemLowercase to "them">>
+    <<set $HeSheTheyUppercase to "They">>
+    <<set $HimHerThemUppercase to "Them">>
 BruinBox: Sure thing! Here you go! Have a great first day and stay out of trouble!
 <<ClearSprite Middle>>
 Player: Speaking of trouble...
@@ -53,5 +52,4 @@ Player: Speaking of trouble...
 Stanford: Hey! I didn't know that they made a university for LOSERS!
 <<SetActiveChar Right>>
 USC: Yeah! Smells like poor people in here! 
-
 ===
