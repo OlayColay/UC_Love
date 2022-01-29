@@ -1,31 +1,57 @@
-﻿title: Start
-position: 0,0.5
+﻿title: Intro_Waking_Up_in_Dorm
+position: -192,-155
 ---
-<<SetSprite Middle Dwayne/Idle>>
-<<Fade true>>
-Dwayne: Hello!
--> Hello!
-    Dwayne: :)
-    <<jump Polite>>
--> ...
-    Dwayne: :(
-    <<jump Rude>>
-===
-title: Polite
-position: 203,77
----
-Dwayne: How are you doing today?
-<<jump End>>
-===
-title: Rude
-position: 201,-75
----
-<<SetSprite Middle Dwayne/Eyebrow>>
-Dwayne: You're very rude.
-<<jump End>>
-===
-title: End
-position: 423,0
----
-Dwayne: Bye!
+
+<<ChangeScene Backgrounds/Dorm 2>>
+Player: Ugh… my head… I shouldn't have slept so late last night…
+Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
+Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
+Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
+Player: Oh shoot! I better get going if I want to make it up the stairs without wheezing my lungs out!
+<<ChangeScene Backgrounds/Plaza_Noon 2>>
+<<SetSprite Middle BruinBox/Idle>>
+BruinBox: Hey welcome to campus!
+-> Whoa what the hell are you??!
+    <<SetSprite Middle BruinBox/Angry>>
+    BruinBox: Excuse you! I'm the PREMIER delivery service for college students!
+    BruinBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BruinBox/Idle>>
+-> OH MY GOD!! Can I pet you?
+    <<SetSprite Middle BruinBox/Angry>>
+    BruinBox: Absolutely not! Who do you think you are? Hmph!
+    BruinBox: I'm the PREMIER delivery service for college students!
+    BruinBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BruinBox/Idle>>
+-> Thank you! Your hat is really cute!
+    <<SetSprite Middle BruinBox/Blush>>
+    BruinBox: Oh! Thank you! I'm part of the premier delivery service for college students here on campus. 
+    BruinBox: I love the job but the hat is a cool bonus!
+    <<SetSprite Middle BruinBox/Idle>>
+BruinBox: We're giving away pronoun buttons to make introductions a little easier for everyone!
+BruinBox: Would you like one? 
+-> Yes! I'll take the he/him button please!
+    <<set $HeSheThey_lowercase to "he">>
+    <<set $HimHerThem_lowercase to "him">>
+    <<set $HeSheThey_Uppercase to "He">>
+    <<set $HimHerThem_Uppercase to "Him">>
+-> Yes! I'll take the she/her button please!
+    <<set $HeSheThey_lowercase to "she">>
+    <<set $HimHerThem_lowercase to "her">>
+    <<set $HeSheThey_Uppercase to "She">>
+    <<set $HimHerThem_Uppercase to "Her">>
+-> Yes! I'll take the they/them button please!
+    <<set $HeSheThey_lowercase to "they">>
+    <<set $HimHerThem_lowercase to "them">>
+    <<set $HeSheThey_Uppercase to "They">>
+    <<set $HimHerThem_Uppercase to "Them">>
+BruinBox: Sure thing! Here you go! Have a great first day and stay out of trouble!
+<<ClearSprite Middle>>
+Player: Speaking of trouble...
+<<SetSprite Middle Stanford/Idle>>
+<<SetSprite Right USC/Idle>>
+<<SetActiveChar Middle>>
+Stanford: Hey! I didn't know that they made a university for LOSERS!
+<<SetActiveChar Right>>
+USC: Yeah! Smells like poor people in here! 
+
 ===

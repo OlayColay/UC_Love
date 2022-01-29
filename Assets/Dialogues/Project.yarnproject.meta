@@ -10,8 +10,41 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
   - {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - {fileID: 6391573757903218779, guid: f37b49ebfe56ace4b978250d57be6aba, type: 3}
   compileErrors: []
-  serializedDeclarations: []
+  serializedDeclarations:
+  - name: $HeSheThey_lowercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node Intro_Waking_Up_in_Dorm, line 29
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HimHerThem_lowercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node Intro_Waking_Up_in_Dorm, line 30
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HeSheThey_Uppercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node Intro_Waking_Up_in_Dorm, line 31
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HimHerThem_Uppercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node Intro_Waking_Up_in_Dorm, line 32
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0
