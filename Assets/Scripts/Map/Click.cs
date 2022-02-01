@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class Click : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask clickableLayer; // The layer that can be clicked
+    private LayerMask selectableLayer; // The layer that can be selected
+
+
+    private GameObject selectedLocation; // The currently selected location
 
     // Start is called before the first frame update
     void Start()
@@ -19,40 +22,48 @@ public class Click : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        GameObject newLocation = GetElementOverMouse();
+
+        if (newLocation != null)
         {
-            GetElementsClicked();
+            // If we ended up selecting something new, then tell the event system
+            if (selectedLocation == null || !selectedLocation.Equals(newLocation))
+            {
+                MapEvents.current.LocationSelected(newLocation);
+            }
+
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                Debug.Log("Travel to " + newLocation.name);
+            }
+
+            selectedLocation = newLocation;
         }
     }
 
-    void GetElementsClicked()
+    GameObject GetElementOverMouse()
     {
         // Get the location of the click
-        Vector3 clickLocation = Camera.main.ScreenToWorldPoint(new Vector3(
+        Vector3 mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
             Mouse.current.position.x.ReadValue(),
             Mouse.current.position.y.ReadValue(),
             Camera.main.nearClipPlane
         ));
 
         // Debug.Log(string.Format("Mouse position x={0} y={1} z={2}",
-        //     clickLocation.x,
-        //     clickLocation.y,
-        //     clickLocation.z
+        //     mouseLocation.x,
+        //     mouseLocation.y,
+        //     mouseLocation.z
         //     ));
 
         // Fire a raycast in place
-        RaycastHit2D clickResult = Physics2D.Raycast(new Vector2(clickLocation.x, clickLocation.y), Vector2.zero, 0, clickableLayer);
+        RaycastHit2D raycastResult = Physics2D.Raycast(new Vector2(mouseLocation.x, mouseLocation.y), Vector2.zero, 0, selectableLayer);
 
         // If we found something, select it
-        if (clickResult.transform != null)
+        if (raycastResult.transform != null)
         {
-            GameObject obj = clickResult.transform.gameObject;
-            // Debug.Log(obj.name);
-            MapEvents.current.LocationSelected(obj);
+            return raycastResult.transform.gameObject;
         }
-        else
-        {
-            // Debug.Log("No game objects found");
-        }
+        return null;
     }
 }

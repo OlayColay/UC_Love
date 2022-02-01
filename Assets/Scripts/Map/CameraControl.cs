@@ -8,9 +8,9 @@ public class CameraControl : MonoBehaviour
     private Vector3 target;
 
     [SerializeField]
-    private float panningFactor;
+    private float panningOffset;
     [SerializeField]
-    private float posLerp;
+    private float panningSpeed;
 
     
     void Start()
@@ -30,13 +30,14 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         // Smoothly pan the camera towards the target
-        transform.position = Vector3.Lerp(transform.position, target, posLerp);
+        transform.position = Vector3.Lerp(transform.position, target, panningSpeed);
     }
 
     private void PanCamera(GameObject location)
     {
         // Adjust the target based on the new location's transform
-        target.x = (location.transform.position.x - origin.x) * panningFactor + origin.x;
-        target.y = (location.transform.position.y - origin.y) * panningFactor + origin.y;
+        Vector3 pos = location.GetComponent<Collider2D>().bounds.center;
+        target.x = (pos.x - origin.x) * panningOffset + origin.x;
+        target.y = (pos.y - origin.y) * panningOffset + origin.y;
     }
 }
