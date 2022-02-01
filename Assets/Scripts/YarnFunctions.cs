@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using Yarn.Unity;
+
+public static class YarnFunctions
+{
+    [YarnFunction("RandomRange")]
+    public static int RandomRange(int a, int b)
+    {
+        Random rng = new Random();
+        return rng.Next(a, b + 1);
+    }
+
+    [YarnFunction("Random")]
+    public static float Random()
+    {
+        return (float)RandomRange(0, 100) / 100;
+    }
+
+    [YarnFunction("Dice")]
+    public static int Dice(int a)
+    {
+        return RandomRange(1, a);
+    }
+}
