@@ -12,6 +12,8 @@ public class Background : MonoBehaviour
 
     private Image background;
 
+    public AudioSource audioSource;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

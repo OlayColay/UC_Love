@@ -71,21 +71,9 @@ public class NPC : MonoBehaviour
         transform.DORotate(transform.rotation.eulerAngles + new Vector3(0, -180, 0), seconds);
     }
 
-    [YarnCommand("Wait")]
-    public static IEnumerator<WaitForSeconds> Wait(float seconds)
+    [YarnCommand("Shake")]
+    public void Shake(float seconds = 1f, float strength = 10f)
     {
-        yield return new WaitForSeconds(seconds);
-    }
-
-    [YarnCommand("ChangeScene")]
-    public static IEnumerator ChangeScene(string bgPath, float seconds = 2f)
-    {
-        float halvedDuration = seconds / 2;
-        
-        BlackScreen.Instance.Fade(false, halvedDuration);
-        yield return new WaitForSeconds(halvedDuration);
-        Background.SetBackground(bgPath);
-        BlackScreen.Instance.Fade(true, halvedDuration);
-        yield return new WaitForSeconds(halvedDuration);
+        transform.DOShakePosition(seconds, strength);
     }
 }

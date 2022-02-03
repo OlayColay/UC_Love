@@ -5,7 +5,7 @@ tags:
 <<ChangeScene Backgrounds/LibraryNoon>>
 <<SetSprite Middle Berkeley/Idle>>
 <<set $BerkeleyDialogue to Dice(3)>>
-<<set $BerkeleyRelationship to 0>>
+<<set $BerkeleyRelationship to GetRelationshipScore("Kelly")>>
 You: [i]Should I talk to her?[/i]
 -> Talk to Kelly
     <<jump TalktoBerkeley>>    
@@ -15,7 +15,7 @@ You: [i]Should I talk to her?[/i]
 title: TalktoBerkeley
 position: 164,-79
 ---
-<<set $BerkeleyRelationship to $BerkeleyRelationship + 1>>
+<<AddRelationshipScore Kelly 1>>
 <<if $BerkeleyDialogue == 1>>
     Kelly: I'm busy. 
 <<elseif $BerkeleyDialogue == 2>>
@@ -24,11 +24,13 @@ position: 164,-79
     Kelly: Are you looking for Ellie? 
     -> Yeah! Have you seen her around?
         Kelly: Ugh... bug off and look for her yourself. 
-        <<set $BerkeleyRelationship to $BerkeleyRelationship - 2>>
+        <<AddRelationshipScore Kelly -2>>
     -> No, I was looking for you!
         <<SetSprite Middle Berkeley/LightBlush>>
+        <<Shake Middle>>
         Kelly: Oh... um I'm a little busy studying right now, sorry.
         <<SetSprite Middle Berkeley/Idle>>
+        <<AddRelationshipScore Kelly 2>>
 <<endif>>
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>
