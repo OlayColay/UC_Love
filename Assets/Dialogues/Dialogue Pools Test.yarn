@@ -2,6 +2,7 @@
 tags:
 ---
 <<ClearSprite Middle>>
+<<PlayMusic Music/ApotosDay>>
 <<ChangeScene Backgrounds/LibraryNoon>>
 <<SetSprite Middle Berkeley/Idle>>
 <<set $BerkeleyDialogue to Dice(3)>>
@@ -34,6 +35,7 @@ position: 164,-79
 <<endif>>
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>
+<<PlayMusic Music/ApotosNight>>
 <<ChangeScene Backgrounds/Dorm>>
 Player: Wow! I actually talked to a girl today! I will remember this moment forever.
 Player: Time to go to sleep.
@@ -42,7 +44,8 @@ Player: Time to go to sleep.
 title: LeaveWithoutTalking
 position: 152,100
 ---
-<<ClearSprite>>
+<<ClearSprite Middle>>
+<<PlayMusic Music/ApotosNight>>
 <<ChangeScene Backgrounds/Dorm>>
 Player: Wow I can't talk to girls I guess. I should probably change my major to engineering or computer science.
 Player: Time to cry myself to sleep.

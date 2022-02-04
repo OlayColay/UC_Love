@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 
+[RequireComponent(typeof(Image))]
 public class BlackScreen : MonoBehaviour
 {
     private static BlackScreen _instance;

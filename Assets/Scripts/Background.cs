@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 
+[RequireComponent(typeof(Image), typeof(AudioSource))]
 public class Background : MonoBehaviour
 {
     private static Background _instance;
@@ -24,6 +25,7 @@ public class Background : MonoBehaviour
         {
             _instance = this;
             background = GetComponent<Image>();
+            audioSource = GetComponent<AudioSource>();
         }
     }
 

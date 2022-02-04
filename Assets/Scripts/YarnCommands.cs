@@ -25,7 +25,7 @@ public class YarnCommands : MonoBehaviour
     }
 
     [YarnCommand("PlayMusic")]
-    public void PlaySound(string soundPath)
+    public static void PlayMusic(string soundPath)
     {
         if ((Background.Instance.audioSource.clip = Resources.Load<AudioClip>(soundPath)) == null)
         {

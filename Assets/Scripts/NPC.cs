@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 
+[RequireComponent(typeof(Image), typeof(AudioSource))]
 public class NPC : MonoBehaviour
 {
     [SerializeField] Yarn.Program script;
