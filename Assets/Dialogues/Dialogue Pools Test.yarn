@@ -9,7 +9,7 @@ tags:
 <<set $BerkeleyRelationship to GetRelationshipScore("Kelly")>>
 You: [i]Should I talk to her?[/i]
 -> Talk to Kelly
-    <<jump TalktoBerkeley>>
+    <<jump TalktoBerkeley>>    
 -> Leave
     <<jump LeaveWithoutTalking>>
 ===
