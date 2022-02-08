@@ -13,7 +13,7 @@ public class YarnCommands : MonoBehaviour
     }
 
     [YarnCommand("ChangeScene")]
-    public static IEnumerator ChangeScene(string bgPath, float seconds = 2f)
+    public static IEnumerator<WaitForSeconds> ChangeScene(string bgPath, float seconds = 2f)
     {
         float halvedDuration = seconds / 2;
         

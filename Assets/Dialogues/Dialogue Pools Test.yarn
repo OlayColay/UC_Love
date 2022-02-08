@@ -1,7 +1,6 @@
 ﻿title: DialoguePoolsTest
 tags:
 ---
-<<ClearSprite Middle>>
 <<PlayMusic Music/ApotosDay>>
 <<ChangeScene Backgrounds/LibraryNoon>>
 <<SetSprite Middle Berkeley/Idle>>

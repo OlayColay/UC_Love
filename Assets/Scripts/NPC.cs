@@ -29,19 +29,27 @@ public class NPC : MonoBehaviour
     }
 
     [YarnCommand("SetSprite")]
-    public void SetSprite(string spritePath)
+    public IEnumerator<WaitForSeconds> SetSprite(string spritePath, float fadeTime = 0.5f)
     {
         if ((image.sprite = Resources.Load<Sprite>(spritePath)) == null)
         {
             Debug.LogError("Couldn't find character sprite in " + spritePath);
-            return;
         }
-        image.enabled = true;
+
+        if (image.color.a <= float.Epsilon || !image.enabled)
+        {
+            image.enabled = true;
+            image.DOFade(1f, fadeTime);
+            yield return new WaitForSeconds(fadeTime);
+        }        
     }
     
     [YarnCommand("ClearSprite")]
-    public void ClearSprite()
+    public IEnumerator<WaitForSeconds> ClearSprite(float fadeTime = 0.5f)
     {
+        image.DOFade(0f, fadeTime);
+        yield return new WaitForSeconds(fadeTime);
+
         image.enabled = false;
         image.sprite = null;
     }
