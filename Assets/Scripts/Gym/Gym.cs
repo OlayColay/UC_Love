@@ -35,6 +35,24 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jab"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b1e4153-f78a-459c-b4cb-59201827f09a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cross"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5e7be43-3b75-480b-864c-0382927c1781"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -59,6 +77,50 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                     ""action"": ""Lift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3359767b-24a3-4c91-be1c-7e3ba8405936"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f092b07f-732b-479c-a60a-5353dde99aac"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b37e3715-636d-4c83-91cd-a7a672c060b0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cross"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78cf159a-6214-4bc1-946d-a6f7b108f9bc"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cross"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -68,6 +130,8 @@ public partial class @Gym : IInputActionCollection2, IDisposable
         // GymActions
         m_GymActions = asset.FindActionMap("GymActions", throwIfNotFound: true);
         m_GymActions_Lift = m_GymActions.FindAction("Lift", throwIfNotFound: true);
+        m_GymActions_Jab = m_GymActions.FindAction("Jab", throwIfNotFound: true);
+        m_GymActions_Cross = m_GymActions.FindAction("Cross", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -128,11 +192,15 @@ public partial class @Gym : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GymActions;
     private IGymActionsActions m_GymActionsActionsCallbackInterface;
     private readonly InputAction m_GymActions_Lift;
+    private readonly InputAction m_GymActions_Jab;
+    private readonly InputAction m_GymActions_Cross;
     public struct GymActionsActions
     {
         private @Gym m_Wrapper;
         public GymActionsActions(@Gym wrapper) { m_Wrapper = wrapper; }
         public InputAction @Lift => m_Wrapper.m_GymActions_Lift;
+        public InputAction @Jab => m_Wrapper.m_GymActions_Jab;
+        public InputAction @Cross => m_Wrapper.m_GymActions_Cross;
         public InputActionMap Get() { return m_Wrapper.m_GymActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -145,6 +213,12 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                 @Lift.started -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnLift;
                 @Lift.performed -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnLift;
                 @Lift.canceled -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnLift;
+                @Jab.started -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnJab;
+                @Jab.performed -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnJab;
+                @Jab.canceled -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnJab;
+                @Cross.started -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
+                @Cross.performed -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
+                @Cross.canceled -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
             }
             m_Wrapper.m_GymActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -152,6 +226,12 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                 @Lift.started += instance.OnLift;
                 @Lift.performed += instance.OnLift;
                 @Lift.canceled += instance.OnLift;
+                @Jab.started += instance.OnJab;
+                @Jab.performed += instance.OnJab;
+                @Jab.canceled += instance.OnJab;
+                @Cross.started += instance.OnCross;
+                @Cross.performed += instance.OnCross;
+                @Cross.canceled += instance.OnCross;
             }
         }
     }
@@ -159,5 +239,7 @@ public partial class @Gym : IInputActionCollection2, IDisposable
     public interface IGymActionsActions
     {
         void OnLift(InputAction.CallbackContext context);
+        void OnJab(InputAction.CallbackContext context);
+        void OnCross(InputAction.CallbackContext context);
     }
 }
