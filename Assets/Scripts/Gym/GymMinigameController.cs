@@ -8,6 +8,9 @@ public class GymMinigameController : MonoBehaviour
 {
     private Gym gymControls;
     private Coroutine currentMicrogame;
+    public string[] microgames = new string[3] {"LiftMicrogame", "PunchMicrogame", "PushupMicrogame"};
+    public float timeBetweenMicrogames = 1f;
+    private int curGame = 0;
 
     // Lift microgame variables
     public int liftTarget = 10000;
@@ -20,6 +23,8 @@ public class GymMinigameController : MonoBehaviour
     // Punch microgame variables
     public int punchTarget = 3; // How many punches until success
     public float punchTime = 3f;
+    public GameObject LeftClick;
+    public GameObject RightClick;
     private int punchSide; // 0 is left, 1 is right
     private int curPunches = 0;
 
@@ -42,7 +47,19 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Cross.started += ctx => Cross();
         gymControls.GymActions.Pushup.started += ctx => Pushup();
 
-        currentMicrogame = StartCoroutine("PushupMicrogame");
+        // Randomize order of microgames
+        int n = microgames.Length;
+        System.Random rng = new System.Random();
+        while (n > 1) 
+        {
+            int k = rng.Next(n--);
+            string temp = microgames[n];
+            microgames[n] = microgames[k];
+            microgames[k] = temp;
+        }
+
+        currentMicrogame = StartCoroutine(microgames[0]);
+        curGame = 0;
     }
 
     #region Lift
@@ -67,17 +84,25 @@ public class GymMinigameController : MonoBehaviour
             yield return null; // Wait a frame before repeating
         }
 
+        gymControls.GymActions.Lift.Disable();
+        liftSlider.gameObject.SetActive(false);
+
         liftSlider.value = liftAmount;
         if (liftAmount >= liftTarget)
         {
             Debug.Log("Succeeded at lifting!");
+
+            curGame++;
+            if (curGame < microgames.Length)
+            {
+                yield return new WaitForSeconds(timeBetweenMicrogames);
+                currentMicrogame = StartCoroutine(microgames[curGame]);
+            }
         }
         else
         {
             Debug.Log("Failed at lifting!");
         }
-
-        gymControls.GymActions.Lift.Disable();
     }
 
     void Lift()
@@ -98,8 +123,7 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Cross.Enable();
         curPunches = 0;
         float currentTime = 0f;
-        punchSide = YarnFunctions.RandomRange(0, 1); // Damn, I'm so clever for this
-        Debug.Log((punchSide == 0) ? "Punch left!" : "Punch right!");
+        NewPunch();
 
         // Repeat every frame until punch target is reached or time limit is exceeded
         while (curPunches < punchTarget && currentTime < punchTime)
@@ -113,6 +137,13 @@ public class GymMinigameController : MonoBehaviour
             Debug.Log("Succeeded at punching!");
             gymControls.GymActions.Jab.Disable();
             gymControls.GymActions.Cross.Disable();
+
+            curGame++;
+            if (curGame < microgames.Length)
+            {
+                yield return new WaitForSeconds(timeBetweenMicrogames);
+                currentMicrogame = StartCoroutine(microgames[curGame]);
+            }
         }
         else
         {
@@ -125,9 +156,12 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 0)
         {
+            LeftClick.SetActive(false);
             curPunches++;
-            punchSide = YarnFunctions.RandomRange(0, 1);
-            Debug.Log((punchSide == 0) ? "Punch left!" : "Punch right!");
+            if (curPunches < punchTarget)
+            {
+                NewPunch();
+            }
         }
         else
         {
@@ -140,13 +174,31 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 1)
         {
+            RightClick.SetActive(false);
             curPunches++;
-            punchSide = YarnFunctions.RandomRange(0, 1);
-            Debug.Log((punchSide == 0) ? "Punch left!" : "Punch right!");
+            if (curPunches < punchTarget)
+            {
+                NewPunch();
+            }
         }
         else
         {
             PunchFail();
+        }
+    }
+
+    void NewPunch()
+    {
+        punchSide = YarnFunctions.RandomRange(0, 1);
+        Debug.Log((punchSide == 0) ? "Punch left!" : "Punch right!");
+
+        if (punchSide == 0)
+        {
+            LeftClick.SetActive(true);
+        }
+        else
+        {
+            RightClick.SetActive(true);
         }
     }
 
@@ -181,11 +233,21 @@ public class GymMinigameController : MonoBehaviour
             pushupSlider.value += pushupSpeed;
             yield return null; // Wait a frame before repeating
         }
+        
+        pushupSlider.gameObject.SetActive(false);
+        pushupArea.gameObject.SetActive(false);
 
         if (curPushups >= pushupTarget)
         {
             Debug.Log("Succeeded at pushups!");
             gymControls.GymActions.Pushup.Disable();
+
+            curGame++;
+            if (curGame < microgames.Length)
+            {
+                yield return new WaitForSeconds(timeBetweenMicrogames);
+                currentMicrogame = StartCoroutine(microgames[curGame]);
+            }
         }
         else
         {
@@ -211,6 +273,9 @@ public class GymMinigameController : MonoBehaviour
     {
         StopCoroutine(currentMicrogame);
         gymControls.GymActions.Pushup.Disable();
+        
+        pushupSlider.gameObject.SetActive(false);
+        pushupArea.gameObject.SetActive(false);
 
         Debug.Log("Failed at pushups!");
     }
