@@ -53,6 +53,15 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pushup"",
+                    ""type"": ""Button"",
+                    ""id"": ""502cb47d-7aff-4ef4-850a-48237a0f5aab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -121,6 +130,39 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                     ""action"": ""Cross"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce8a7187-5fc0-4ef4-b3a9-757c6623685e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pushup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6316c836-ece4-4b92-b68d-70c8a3e559a5"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pushup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67f42a8d-f46c-4d7d-95b8-2184c9408d31"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pushup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -132,6 +174,7 @@ public partial class @Gym : IInputActionCollection2, IDisposable
         m_GymActions_Lift = m_GymActions.FindAction("Lift", throwIfNotFound: true);
         m_GymActions_Jab = m_GymActions.FindAction("Jab", throwIfNotFound: true);
         m_GymActions_Cross = m_GymActions.FindAction("Cross", throwIfNotFound: true);
+        m_GymActions_Pushup = m_GymActions.FindAction("Pushup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,6 +237,7 @@ public partial class @Gym : IInputActionCollection2, IDisposable
     private readonly InputAction m_GymActions_Lift;
     private readonly InputAction m_GymActions_Jab;
     private readonly InputAction m_GymActions_Cross;
+    private readonly InputAction m_GymActions_Pushup;
     public struct GymActionsActions
     {
         private @Gym m_Wrapper;
@@ -201,6 +245,7 @@ public partial class @Gym : IInputActionCollection2, IDisposable
         public InputAction @Lift => m_Wrapper.m_GymActions_Lift;
         public InputAction @Jab => m_Wrapper.m_GymActions_Jab;
         public InputAction @Cross => m_Wrapper.m_GymActions_Cross;
+        public InputAction @Pushup => m_Wrapper.m_GymActions_Pushup;
         public InputActionMap Get() { return m_Wrapper.m_GymActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -219,6 +264,9 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                 @Cross.started -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
                 @Cross.performed -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
                 @Cross.canceled -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnCross;
+                @Pushup.started -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnPushup;
+                @Pushup.performed -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnPushup;
+                @Pushup.canceled -= m_Wrapper.m_GymActionsActionsCallbackInterface.OnPushup;
             }
             m_Wrapper.m_GymActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -232,6 +280,9 @@ public partial class @Gym : IInputActionCollection2, IDisposable
                 @Cross.started += instance.OnCross;
                 @Cross.performed += instance.OnCross;
                 @Cross.canceled += instance.OnCross;
+                @Pushup.started += instance.OnPushup;
+                @Pushup.performed += instance.OnPushup;
+                @Pushup.canceled += instance.OnPushup;
             }
         }
     }
@@ -241,5 +292,6 @@ public partial class @Gym : IInputActionCollection2, IDisposable
         void OnLift(InputAction.CallbackContext context);
         void OnJab(InputAction.CallbackContext context);
         void OnCross(InputAction.CallbackContext context);
+        void OnPushup(InputAction.CallbackContext context);
     }
 }

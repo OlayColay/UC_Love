@@ -23,6 +23,15 @@ public class GymMinigameController : MonoBehaviour
     private int punchSide; // 0 is left, 1 is right
     private int curPunches = 0;
 
+    // Pushup microgame variables
+    public int pushupTarget = 3; // How many pushups until success
+    public int pushupSpeed = 5; // How fast the slider travels
+    public int pushupThreshold = 7500; // Where the player has to press the key. Don't set above 10000
+    public Slider pushupSlider;
+    public Slider pushupArea;
+    private int pushupMax = 10000;
+    private int curPushups = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +40,9 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Lift.started += ctx => Lift();
         gymControls.GymActions.Jab.started += ctx => Jab();
         gymControls.GymActions.Cross.started += ctx => Cross();
+        gymControls.GymActions.Pushup.started += ctx => Pushup();
 
-        currentMicrogame = StartCoroutine(PunchMicrogame());
+        currentMicrogame = StartCoroutine("PushupMicrogame");
     }
 
     #region Lift
@@ -147,6 +157,62 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Cross.Disable();
 
         Debug.Log("Failed at punching!");
+    }
+
+    #endregion
+    #region Pushup
+
+    IEnumerator PushupMicrogame()
+    {
+        Debug.Log("Pushup microgame start!");
+
+        // Initialize variables
+        gymControls.GymActions.Pushup.Enable();
+        curPushups = 0;
+        pushupSlider.maxValue = pushupMax;
+        pushupArea.maxValue = pushupMax;
+        pushupArea.value = pushupMax - pushupThreshold;
+        pushupSlider.gameObject.SetActive(true);
+        pushupArea.gameObject.SetActive(true);
+
+        // Repeat every frame until punch target is reached or time limit is exceeded
+        while (curPushups < pushupTarget && pushupSlider.value < pushupMax)
+        {
+            pushupSlider.value += pushupSpeed;
+            yield return null; // Wait a frame before repeating
+        }
+
+        if (curPushups >= pushupTarget)
+        {
+            Debug.Log("Succeeded at pushups!");
+            gymControls.GymActions.Pushup.Disable();
+        }
+        else
+        {
+            PushupFail();
+        }
+    }
+
+    void Pushup()
+    {
+        if (pushupSlider.value >= pushupThreshold)
+        {
+            Debug.Log("Nice pushup!");
+            pushupSlider.value = 0;
+            curPushups++;
+        }
+        else
+        {
+            PushupFail();
+        }
+    }
+
+    void PushupFail()
+    {
+        StopCoroutine(currentMicrogame);
+        gymControls.GymActions.Pushup.Disable();
+
+        Debug.Log("Failed at pushups!");
     }
 
     #endregion
