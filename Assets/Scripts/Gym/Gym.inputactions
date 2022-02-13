@@ -1,0 +1,45 @@
+{
+    "name": "Gym",
+    "maps": [
+        {
+            "name": "GymActions",
+            "id": "8a41c21a-e481-4b23-8fcd-a65ee1d1bc9a",
+            "actions": [
+                {
+                    "name": "Lift",
+                    "type": "Button",
+                    "id": "c125d3b6-87fc-4145-9d5d-8f51faac597e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2d513460-6442-4f4d-8e8c-1d37fe4f1ff0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f8682ee-8beb-49c7-a7be-b87854087508",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
