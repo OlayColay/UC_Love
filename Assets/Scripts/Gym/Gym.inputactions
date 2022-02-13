@@ -56,6 +56,17 @@
                 },
                 {
                     "name": "",
+                    "id": "05398b12-8ab2-42bd-94f1-29b64a0bfda6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0f8682ee-8beb-49c7-a7be-b87854087508",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
