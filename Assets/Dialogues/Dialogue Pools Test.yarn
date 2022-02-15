@@ -8,7 +8,9 @@ tags:
 <<set $BerkeleyRelationship to GetRelationshipScore("Kelly")>>
 You: [i]Should I talk to her?[/i]
 -> Talk to Kelly
-    <<jump TalktoBerkeley>>    
+    // <<SetColor Middle 0 0 0 0.75>>
+    // <<SetColorHex Middle #ffcfcc>>
+    <<jump TalktoBerkeley>>
 -> Leave
     <<jump LeaveWithoutTalking>>
 ===
