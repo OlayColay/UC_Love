@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GymMinigame.unity
+    guid: 1ca738bd9b8c70a41b5d40690a0803db
   m_configObjects: {}

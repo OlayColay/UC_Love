@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 /// <summary> Static Yarn Spinner commands. Commands either return nothing or are coroutines </summary>
@@ -45,5 +46,23 @@ public class YarnCommands : MonoBehaviour
     public static void AddRelationshipScore(string character, int addedScore)
     {
         // TODO: Increment relationship score based on enum converted from string
+    }
+
+    [YarnCommand("GymMinigame")]
+    public static IEnumerator GymMinigame(int liftGainPerPress, int punchTarget, float punchTime, int pushupSpeed, int pushupThreshold)
+    {
+        var sceneLoad = SceneManager.LoadSceneAsync("GymMinigame", LoadSceneMode.Additive);
+        while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
+        {
+            yield return null;
+        }
+
+        FindObjectOfType<GymMinigameController>().NewGymMinigame(liftGainPerPress, punchTarget, punchTime, pushupSpeed, pushupThreshold);
+        while (!GymMinigameController.minigameDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync("GymMinigame");
     }
 }
