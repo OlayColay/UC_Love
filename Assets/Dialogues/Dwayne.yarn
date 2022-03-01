@@ -49,7 +49,7 @@ Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
 title: Room
 position: 183,109
 ---
-<<ChangeScene Backgrounds/SlobDormRoom>>
+<<FadeBackground Backgrounds/SlobDormRoom>>
 Dwayne: Welcome to my humble abode.
 -> This place looks like s@&%.
     <<Wait 1>>

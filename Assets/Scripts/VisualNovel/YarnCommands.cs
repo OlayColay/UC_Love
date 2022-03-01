@@ -13,8 +13,8 @@ public class YarnCommands : MonoBehaviour
         yield return new WaitForSeconds(seconds);
     }
 
-    [YarnCommand("ChangeScene")]
-    public static IEnumerator<WaitForSeconds> ChangeScene(string bgPath, float seconds = 2f)
+    [YarnCommand("FadeBackground")]
+    public static IEnumerator<WaitForSeconds> FadeBackground(string bgPath, float seconds = 2f)
     {
         float halvedDuration = seconds / 2;
         
@@ -64,5 +64,11 @@ public class YarnCommands : MonoBehaviour
         }
 
         SceneManager.UnloadSceneAsync("GymMinigame");
+    }
+
+    [YarnCommand("LoadScene")]
+    public static void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
