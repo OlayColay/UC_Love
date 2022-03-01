@@ -19,7 +19,7 @@ public class EnemyChaser : MonoBehaviour
     
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
 
         //chaser
         // Debug.Log(Vector3.Distance(transform.position, playerPos.position));
