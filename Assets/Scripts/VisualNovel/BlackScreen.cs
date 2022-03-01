@@ -26,13 +26,18 @@ public class BlackScreen : MonoBehaviour
         }
     }
 
-    public void Fade(bool fadeIn, float seconds = 1f)
+    public void Fade(bool fadeIn, float seconds = 1f, string colorHex = "#000000")
     {
-        StartCoroutine(FadeHelper(fadeIn, seconds));
+        StartCoroutine(FadeHelper(fadeIn, seconds, colorHex));
     }
     [YarnCommand("Fade")]
-    public static IEnumerator<WaitForSeconds> FadeHelper(bool fadeIn, float seconds = 1f)
+    public static IEnumerator FadeHelper(bool fadeIn, float seconds = 1f, string colorHex = "#000000")
     {
+        colorHex += fadeIn ? "ff" : "00";
+        Color newColor = Color.black;
+        ColorUtility.TryParseHtmlString(colorHex, out newColor);
+        _instance.blackScreen.color = newColor;
+
         _instance.blackScreen.DOFade(fadeIn ? 0f : 1f, seconds);
         yield return new WaitForSeconds(seconds);
     }

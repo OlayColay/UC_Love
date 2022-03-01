@@ -31,4 +31,10 @@ public static class YarnFunctions
         // TODO: Return relationship score based on enum converted from string
         return 0;
     }
+
+    [YarnFunction("GymMinigameWon")]
+    public static bool GymMinigameWon()
+    {
+        return GymMinigameController.minigameWon;
+    }
 }
