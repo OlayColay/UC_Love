@@ -15,7 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
         // Enable controls so the player's inputs do stuff
         controls.Enable();
         // Another option just for the Move part to be enabled:
-        // controls.player.Move.Enable();
+        // controls.Land.Move.Enable();
     }
 
     private void Update()
