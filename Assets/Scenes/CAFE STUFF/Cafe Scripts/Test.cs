@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Test : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Test : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current[Key.Space].wasPressedThisFrame)
             Destroy(gameObject);
     }
 }
