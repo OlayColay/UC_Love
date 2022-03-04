@@ -6,6 +6,15 @@
             "id": "0b580d8c-4e13-4c76-b6a4-a4f9c8abbbd6",
             "actions": [
                 {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "f35bb4ee-79fa-4729-89ff-2f785a7fa004",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Blend",
                     "type": "Button",
                     "id": "3366854e-a489-47f0-9393-a439364b2fae",
@@ -27,15 +36,6 @@
                     "name": "Stir",
                     "type": "Button",
                     "id": "3caf6c8a-708c-4170-8b3d-b2460cdc6256",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Start",
-                    "type": "Button",
-                    "id": "f35bb4ee-79fa-4729-89ff-2f785a7fa004",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -105,7 +105,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Black tea",
+                    "name": "Black Tea",
                     "type": "Button",
                     "id": "b4b64c45-73fb-4b30-881b-9af8cf7a961d",
                     "expectedControlType": "Button",
@@ -186,7 +186,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "2% Milk",
+                    "name": "Skim Milk",
                     "type": "Button",
                     "id": "bac2f0e6-8028-484a-a569-948e301dc1ed",
                     "expectedControlType": "Button",
@@ -321,17 +321,6 @@
                 },
                 {
                     "name": "",
-                    "id": "545912fc-fa53-4513-a122-9b2d941f48a4",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8312fa5f-a9ec-4fae-af9e-c2794fe0cda9",
                     "path": "<Keyboard>/i",
                     "interactions": "",
@@ -414,7 +403,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "keyboard and mouse",
-                    "action": "Black tea",
+                    "action": "Black Tea",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -513,7 +502,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "keyboard and mouse",
-                    "action": "2% Milk",
+                    "action": "Skim Milk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -624,6 +613,17 @@
                     "processors": "",
                     "groups": "keyboard and mouse",
                     "action": "Iced",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "545912fc-fa53-4513-a122-9b2d941f48a4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
