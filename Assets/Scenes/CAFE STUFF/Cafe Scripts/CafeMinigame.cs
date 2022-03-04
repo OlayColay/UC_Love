@@ -81,6 +81,7 @@ public class CafeMinigame : MonoBehaviour
         // If the order isn't started, nothing should happen when we try to add an ingredient
         if (!orderStarted)
         {
+            Debug.Log("Order not started! Press SPACE");
             return;
         }
 
@@ -108,7 +109,7 @@ public class CafeMinigame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong ingredient!\nYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
+            Debug.Log("Wrong ingredient!\tYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
 
             // Add stuff that happens if you get an ingredient wrong here
         }

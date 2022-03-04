@@ -653,7 +653,6 @@ GameObject:
   - component: {fileID: 659060743}
   - component: {fileID: 659060742}
   - component: {fileID: 659060741}
-  - component: {fileID: 659060740}
   - component: {fileID: 659060745}
   m_Layer: 0
   m_Name: torchic png
@@ -662,19 +661,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &659060740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659060739}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff2ce3d501fab14aa7b631e4e569379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 1
 --- !u!50 &659060741
 Rigidbody2D:
   serializedVersion: 4
