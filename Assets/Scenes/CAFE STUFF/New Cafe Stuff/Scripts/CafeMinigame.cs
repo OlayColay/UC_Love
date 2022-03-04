@@ -78,6 +78,7 @@ public class CafeMinigame : MonoBehaviour
 
     void AddIngredient(string attemptedIngredient)
     {
+        // If the order isn't started, nothing should happen when we try to add an ingredient
         if (!orderStarted)
         {
             return;
