@@ -2,13 +2,15 @@
 tags:
 ---
 <<PlayMusic Music/ApotosDay>>
-<<ChangeScene Backgrounds/LibraryNoon>>
+<<FadeBackground Backgrounds/LibraryNoon>>
 <<SetSprite Middle Berkeley/Idle>>
 <<set $BerkeleyDialogue to Dice(3)>>
 <<set $BerkeleyRelationship to GetRelationshipScore("Kelly")>>
 You: [i]Should I talk to her?[/i]
 -> Talk to Kelly
-    <<jump TalktoBerkeley>>    
+    // <<SetColor Middle 0 0 0 0.75>>
+    // <<SetColorHex Middle #ffcfcc>>
+    <<jump TalktoBerkeley>>
 -> Leave
     <<jump LeaveWithoutTalking>>
 ===
@@ -35,18 +37,20 @@ position: 164,-79
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>
 <<PlayMusic Music/ApotosNight>>
-<<ChangeScene Backgrounds/Dorm>>
+<<FadeBackground Backgrounds/Dorm>>
 Player: Wow! I actually talked to a girl today! I will remember this moment forever.
 Player: Time to go to sleep.
 <<Fade false 3>>
+<<LoadScene MapScene>>
 ===
 title: LeaveWithoutTalking
 position: 152,100
 ---
 <<ClearSprite Middle>>
 <<PlayMusic Music/ApotosNight>>
-<<ChangeScene Backgrounds/Dorm>>
+<<FadeBackground Backgrounds/Dorm>>
 Player: Wow I can't talk to girls I guess. I should probably change my major to engineering or computer science.
 Player: Time to cry myself to sleep.
 <<Fade false 3>>
+<<LoadScene MapScene>>
 ===

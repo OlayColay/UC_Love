@@ -85,4 +85,17 @@ public class NPC : MonoBehaviour
     {
         transform.DOShakePosition(seconds, strength);
     }
+
+    [YarnCommand("SetColor")]
+    public void SetColor(float red, float green, float blue, float alpha = 1f)
+    {
+        image.color = new Color(red, green, blue, alpha);
+    }
+    [YarnCommand("SetColorHex")]
+    public void SetColorHex(string hexCode)
+    {
+        Color newColor = new Color();
+        ColorUtility.TryParseHtmlString(hexCode, out newColor);
+        image.color = newColor;
+    }
 }

@@ -1,7 +1,8 @@
-﻿title: Start
+﻿title: DwayneStart
 ---
 <<Fade true>>
 <<SetActiveChar Middle>>
+<<SetSprite Middle Dwayne/Idle>>
 Dwayne: ITS ABOUT DRIVE - ITS ABOUT POWER - WE STAY HUNGRY - WE DEVOUR
 Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
 
@@ -41,11 +42,14 @@ Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
     <<SetSprite Middle Dwayne/Idle>>
     Dwayne: Yeah sure, why not?
     <<jump Room>>
+-> Yo, Dwayne, do you want to do a workout together?
+    <<jump Workout>>
+    
 ===
 title: Room
 position: 183,109
 ---
-<<ChangeScene Backgrounds/SlobDormRoom>>
+<<FadeBackground Backgrounds/SlobDormRoom>>
 Dwayne: Welcome to my humble abode.
 -> This place looks like s@&%.
     <<Wait 1>>
@@ -81,4 +85,28 @@ Dwayne: Welcome to my humble abode.
     <<Wait 0.5>>
     YOU DIED
     <<jump Node>>
+===
+title: Workout
+position: -85,115
+---
+Dwayne: Now THAT is what I like to hear!
+Dwayne: How difficult of a workout are you up for?
+-> Easy
+    <<Fade false 1 #ffffff>>
+    <<GymMinigame 1500 3 5 5 7500>>
+-> Medium
+    <<Fade false 1 #ffffff>>
+    <<GymMinigame 1000 3 3 10 7500>>
+-> Hard
+    <<Fade false 1 #ffffff>>
+    <<GymMinigame 500 5 4 10 9000>>
+<<Fade true 1 #ffffff>>
+<<if GymMinigameWon()>>
+    Dwayne: Nice work! Do you want to go again?
+<<else>>
+    Dwayne: Oof, do you want to give it another shot?
+<<endif>>
+-> Yes!
+    <<jump Workout>>
+-> No way!
 ===
