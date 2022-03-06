@@ -38,6 +38,8 @@ public class Projectile : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle") )
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health--;
+            Debug.Log("hit");
             Destroy(gameObject);
         }
 

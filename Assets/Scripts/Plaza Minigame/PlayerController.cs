@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+    
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float smoothTime = 0.25f;
     private Vector2 moveInput;

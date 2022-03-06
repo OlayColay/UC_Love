@@ -8,6 +8,8 @@ public class EnemyRunner : MonoBehaviour
     [SerializeField] private float activationRange = 15f;
     [SerializeField] private float smoothTime = 0.1f;
     private Rigidbody2D rb;
+    private Animator animator;
+
     private Vector3 currentVelocity = Vector3.zero;
     private Transform playerPos;
     public bool startCharge = false;
@@ -17,6 +19,7 @@ public class EnemyRunner : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -26,6 +29,8 @@ public class EnemyRunner : MonoBehaviour
         {
             startCharge = false;
             finishCharge = true;
+            animator.SetBool("charge", false);
+
         }
 
     }
@@ -43,6 +48,11 @@ public class EnemyRunner : MonoBehaviour
         float horizDistanceToPlayer = Mathf.Abs(transform.position.x - playerPos.position.x);
 
         if (finishCharge) {
+            if(transform.position.x > playerPos.position.x)
+                GetComponent<SpriteRenderer>().flipX = true;
+            else
+                GetComponent<SpriteRenderer>().flipX = false;
+
             direction = 0;
 
             if (!startCharge) {
@@ -50,6 +60,9 @@ public class EnemyRunner : MonoBehaviour
                     // touchingObject = false;
                     startCharge = true;
                     finishCharge = false;
+                    
+                    animator.SetBool("charge", true);
+
                     if (playerPos.position.x - transform.position.x < 0)
                         direction = -1;
                     else
