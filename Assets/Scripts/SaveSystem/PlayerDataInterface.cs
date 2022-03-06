@@ -19,13 +19,13 @@ public class PlayerDataInterface : MonoBehaviour
     public void SetRelationshipScore(string name, int score) { PlayerData.SetRelationshipScore(name, score); }
     public void ChangeRelationshipScore(string name, int change) { PlayerData.ChangeRelationshipScore(name, change); }
 
-    public void ChangeKellyScore(int change) { PlayerData.ChangeRelationshipScore("kelly", change); }
-    public void ChangeEllieScore(int change) { PlayerData.ChangeRelationshipScore("ellie", change); }
+    public void ChangeKellyScore(int change) { PlayerData.ChangeRelationshipScore("Kelly", change); }
+    public void ChangeEllieScore(int change) { PlayerData.ChangeRelationshipScore("Ellie", change); }
 
     public void SaveGame() { PlayerData.SaveGame(); }
     public void LoadGame() { PlayerData.LoadGame(); }
 
     void Update() {
-        relationshipText.SetText("Day: {0}\nKelly: {1}\nEllie: {2}", GetDayNumber(), GetRelationshipScore("kelly"), GetRelationshipScore("ellie"));
+        relationshipText.SetText("Day: {0}\nKelly: {1}\nEllie: {2}", GetDayNumber(), GetRelationshipScore("Kelly"), GetRelationshipScore("Ellie"));
     }
 }

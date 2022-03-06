@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public static class PlayerData
 {
     public static Dictionary<string, int> RelationshipScores { get; private set; }
     private static int _day;
 
-    private static string[] names = { "kelly", "ellie" }; 
+    private static string[] names = { "Kelly", "Ellie" }; 
 
     // Static constructor
     static PlayerData() {
@@ -31,8 +32,11 @@ public static class PlayerData
     public static void ChangeDayNumber(int change) { DayNumber += change; }
 
     // Getters and setters for relationship scores
+    [YarnFunction("GetRelationshipScore")]
     public static int GetRelationshipScore(string name) { return RelationshipScores[name]; }
+    [YarnCommand("SetRelationshipScore")]
     public static void SetRelationshipScore(string name, int score) { RelationshipScores[name] = score; }
+    [YarnCommand("AddRelationshipScore")]
     public static void ChangeRelationshipScore(string name, int change) { RelationshipScores[name] += change; }
 
     // Save to the save system

@@ -36,18 +36,6 @@ public class YarnCommands : MonoBehaviour
         Background.Instance.audioSource.Play();
     }
 
-    [YarnCommand("SetRelationshipScore")]
-    public static void SetRelationshipScore(string character, int newScore)
-    {
-        // TODO: Set relationship score based on enum converted from string
-    }
-
-    [YarnCommand("AddRelationshipScore")]
-    public static void AddRelationshipScore(string character, int addedScore)
-    {
-        // TODO: Increment relationship score based on enum converted from string
-    }
-
     [YarnCommand("GymMinigame")]
     public static IEnumerator GymMinigame(int liftGainPerPress, int punchTarget, float punchTime, int pushupSpeed, int pushupThreshold)
     {

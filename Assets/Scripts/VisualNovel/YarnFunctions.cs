@@ -25,13 +25,6 @@ public static class YarnFunctions
         return RandomRange(1, a);
     }
 
-    [YarnFunction("GetRelationshipScore")]
-    public static int GetRelationshipScore(string character)
-    {
-        // TODO: Return relationship score based on enum converted from string
-        return 0;
-    }
-
     [YarnFunction("GymMinigameWon")]
     public static bool GymMinigameWon()
     {
