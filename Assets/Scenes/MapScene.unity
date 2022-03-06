@@ -1495,7 +1495,7 @@ GameObject:
   - component: {fileID: 1676470704}
   - component: {fileID: 1676470703}
   m_Layer: 8
-  m_Name: Student Store
+  m_Name: StudentStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

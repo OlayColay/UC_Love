@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 
 public class Click : MonoBehaviour
@@ -35,6 +37,7 @@ public class Click : MonoBehaviour
             if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
                 Debug.Log("Travel to " + newLocation.name);
+                StartCoroutine(LoadYarnScene(newLocation.name));
             }
 
             selectedLocation = newLocation;
@@ -65,5 +68,19 @@ public class Click : MonoBehaviour
             return raycastResult.transform.gameObject;
         }
         return null;
+    }
+
+    IEnumerator LoadYarnScene(string sceneName)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync("VisualNovel", LoadSceneMode.Additive);
+
+        // Wait until scene finishes loading
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+
+        FindObjectOfType<DialogueRunner>().StartDialogue(sceneName);
+        SceneManager.UnloadSceneAsync("MapScene");
     }
 }
