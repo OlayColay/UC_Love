@@ -1,0 +1,68 @@
+﻿title: Interaction_Test_for_Showcase
+tags:
+---
+<<PlayMusic Music/ApotosDay>>
+<<FadeBackground Backgrounds/LibraryNoon>>
+Day 1
+<<SetSprite Middle Berkeley/Idle>>
+<<set $BerkeleyDialogue to Dice(3)>>
+<<set $BerkeleyRelationship to GetRelationshipScore("Kelly")>>
+You: [i]Should I talk to her?[/i]
+-> Talk to Kelly
+    // <<SetColor Middle 0 0 0 0.75>>
+    // <<SetColorHex Middle #ffcfcc>>
+    <<jump TalktoBerkeley>>
+-> Leave
+    <<jump LeaveWithoutTalking>>
+===
+title: TalktoBerkeley
+position: 185,-96
+---
+<<AddRelationshipScore Kelly 1>>
+<<if $BerkeleyDialogue == 1>>
+    Kelly: I'm busy. 
+<<elseif $BerkeleyDialogue == 2>>
+    Kelly: Don't you have some studying to do?
+<<else>>
+    Kelly: Are you looking for Ellie? 
+    -> Yeah! Have you seen her around?
+        Kelly: Ugh... bug off and look for her yourself. 
+        <<AddRelationshipScore Kelly -2>>
+    -> No, I was looking for you!
+        <<SetSprite Middle Berkeley/LightBlush>>
+        <<Shake Middle>>
+        Kelly: Oh... um I'm a little busy studying right now, sorry.
+        <<SetSprite Middle Berkeley/Idle>>
+        <<AddRelationshipScore Kelly 2>>
+<<endif>>
+Player: Oh look at the time, I gotta go do homework!
+<<ClearSprite Middle>>
+<<PlayMusic Music/ApotosNight>>
+<<FadeBackground Backgrounds/Dorm>>
+Player: Wow! I actually talked to a girl today! I will remember this moment forever.
+Player: Maybe I can talk to her again tomorrow...
+Player: ...
+Player: What if...
+Player: Jeez I'm not even asleep and I'm having unrealistic dreams...
+Player: Time to go to sleep.
+<<Fade false 3>>
+<<jump Day2>>
+===
+title: LeaveWithoutTalking
+position: 152,100
+---
+<<ClearSprite Middle>>
+<<PlayMusic Music/ApotosNight>>
+<<FadeBackground Backgrounds/Dorm>>
+Player: Wow I can't talk to girls I guess. I should probably change my major to engineering or computer science.
+Player: Time to cry myself to sleep.
+<<Fade false 3>>
+Four years pass by and you somehow manage to graduate without ever talking to a girl.
+That's kind of cringe bro. :/
+===
+
+title: Day2
+position: 405,-96
+---
+
+===

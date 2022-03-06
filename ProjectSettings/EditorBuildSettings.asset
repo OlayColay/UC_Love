@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GymMinigame.unity
     guid: 1ca738bd9b8c70a41b5d40690a0803db
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlazaMinigame.unity
     guid: dfbd86e66d4910f4391a44390d44c92e
+  - enabled: 1
+    path: Assets/Scenes/UiScene.unity
+    guid: 3829042fc16d24649a6c3667decb6c76
   m_configObjects: {}
