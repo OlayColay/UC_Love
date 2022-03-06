@@ -9,6 +9,9 @@ public class EnemyLitterer : MonoBehaviour
     private float timeBetweenShots;
 
     private Rigidbody2D rb;
+    private Animator animator;
+    // private SpriteRenderer m_SpriteRenderer;
+
     private Vector3 currentVelocity = Vector3.zero;
     private Transform playerPos;
     public GameObject projectile;
@@ -17,6 +20,9 @@ public class EnemyLitterer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        // m_SpriteRenderer = GetComponent<SpriteRenderer>();
+
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
 
         timeBetweenShots = startTimeBetweenShots + Random.Range(0, 1.0f);
@@ -25,10 +31,18 @@ public class EnemyLitterer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(transform.position.x > playerPos.position.x)
+            GetComponent<SpriteRenderer>().flipX = true;
+        else
+            GetComponent<SpriteRenderer>().flipX = false;
+
+
         if (Vector3.Distance(transform.position, playerPos.position) < activationRange) {
             if (timeBetweenShots <= 0) {
+                animator.SetTrigger("throw");
+                //add a small delay?
                 Instantiate(projectile, transform.position, Quaternion.identity);
-                timeBetweenShots = startTimeBetweenShots;
+                timeBetweenShots = startTimeBetweenShots + Random.Range(0, 1.0f);
             }
 
             else {
