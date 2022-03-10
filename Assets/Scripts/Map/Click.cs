@@ -13,17 +13,28 @@ public class Click : MonoBehaviour
     [SerializeField]
     private LayerMask selectableLayer; // The layer that can be selected
 
-
     private GameObject selectedLocation; // The currently selected location
+
+    private bool isActive = true; // If this script should be active
+    private int delayFrames = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Subscribe to the event system
+        MapEvents.current.onGamePaused += SetDisabled;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isActive) return; // Don't do anything if the game is paused
+        if (delayFrames > 0)
+        {
+            delayFrames--;
+            return;
+        }
+
         GameObject newLocation = GetElementOverMouse();
 
         if (newLocation != null)
@@ -37,12 +48,22 @@ public class Click : MonoBehaviour
             if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
                 Debug.Log("Travel to " + newLocation.name);
-                StartCoroutine(LoadYarnScene(newLocation.name));
+                
+                // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
+                // instead of as a Coroutine?
+                
+                //StartCoroutine(LoadYarnScene(newLocation.name));
             }
 
             selectedLocation = newLocation;
         }
     }
+
+    public void SetActive(bool val) {
+        if (!isActive && val) delayFrames = 3; // This prevents the same click from resuming the game AND traveling somewhere simultaneously
+        isActive = val;
+    }
+    public void SetDisabled(bool val) { SetActive(!val); }
 
     GameObject GetElementOverMouse()
     {

@@ -20,4 +20,10 @@ public class MapEvents : MonoBehaviour
             onLocationSelected(location);
         }
     }
+
+    public event Action<bool> onGamePaused;
+    public void GamePaused(bool isPaused)
+    {
+        onGamePaused(isPaused);
+    }
 }

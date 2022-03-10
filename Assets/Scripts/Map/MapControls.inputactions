@@ -1,0 +1,51 @@
+{
+    "name": "MapControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "a5f7efd3-e7f8-4afd-bc75-ef73074c5a16",
+            "actions": [
+                {
+                    "name": "Pause Game",
+                    "type": "Button",
+                    "id": "a2b16203-c627-4ff9-b615-00586be05184",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8cee660c-b272-45d3-9259-ec9519209b2f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Pause Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard and Mouse",
+            "bindingGroup": "Keyboard and Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
