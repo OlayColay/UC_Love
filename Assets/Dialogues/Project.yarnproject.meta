@@ -12,6 +12,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
   - {fileID: 6391573757903218779, guid: f37b49ebfe56ace4b978250d57be6aba, type: 3}
   - {fileID: 6391573757903218779, guid: 4d3fb399b2078c74fb8e6c062efea728, type: 3}
+  - {fileID: 6391573757903218779, guid: 48b9f80bc715f2947a5a34fbeeeea3b1, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $HeSheTheyLowercase
