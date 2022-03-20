@@ -7,6 +7,7 @@ TagManager:
   - Character
   - Enemy
   - Obstacle
+  - Inventory
   layers:
   - Default
   - TransparentFX

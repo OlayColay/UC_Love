@@ -6,25 +6,42 @@ using UnityEngine.UI;
 public class InventoryScreen : MonoBehaviour
 {
     [SerializeField] GameObject[] itemButtons = new GameObject[9];
+    [SerializeField] GameObject itemSwitch;
+    [SerializeField] GameObject keyItemSwitch;
+    [SerializeField] GameObject background;
     [HideInInspector] public Item selectedItem = null;
+    private bool isKeyItems = false;
 
     void OnEnable()
     {
-        selectedItem = null;
-        GetComponent<Image>().enabled = true;
-
-        for (int i = 0; i < Inventory.list.Count; i++)
+        if (isKeyItems)
         {
-            itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.list[i].name;
-            itemButtons[i].transform.GetChild(1).GetComponent<Image>().sprite = Inventory.list[i].sprite;
-            itemButtons[i].SetActive(true);
-            itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
-                Debug.Log("Selecting " + (i-1));
-                SelectItem(Inventory.list[i-1].name); 
-            });
+            for (int i = 0; i < Inventory.keyItemList.Count; i++)
+            {
+                itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.keyItemList[i].name;
+                itemButtons[i].transform.GetChild(1).GetComponent<Image>().sprite = Inventory.keyItemList[i].sprite;
+                itemButtons[i].SetActive(true);
+                itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
+                    Debug.Log("Selecting " + (i-1));
+                    SelectItem(Inventory.keyItemList[i-1].name); 
+                });
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Inventory.list.Count; i++)
+            {
+                itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.list[i].name;
+                itemButtons[i].transform.GetChild(1).GetComponent<Image>().sprite = Inventory.list[i].sprite;
+                itemButtons[i].SetActive(true);
+                itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
+                    Debug.Log("Selecting " + (i-1));
+                    SelectItem(Inventory.list[i-1].name); 
+                });
+            }
         }
 
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0]);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
     }
 
     void OnDisable()
@@ -36,7 +53,6 @@ public class InventoryScreen : MonoBehaviour
             item.GetComponent<Button>().onClick.RemoveAllListeners();
             item.SetActive(false);
         }
-        GetComponent<Image>().enabled = false;
     }
 
     public void SelectItem(string itemName)
@@ -44,6 +60,19 @@ public class InventoryScreen : MonoBehaviour
         Debug.Log("Selected " + itemName);
         selectedItem = Inventory.list.Find(i => i.name == itemName);
 
-        gameObject.SetActive(false);
+        if (selectedItem == null)
+        {
+            selectedItem = Inventory.keyItemList.Find(i => i.name == itemName);
+            Inventory.keyItemList.Remove(selectedItem);
+        }
+
+        Inventory.list.Remove(selectedItem);
+    }
+
+    public void SwitchInventory(bool isKeyItems)
+    {
+        OnDisable();
+        this.isKeyItems = isKeyItems;
+        OnEnable();
     }
 }

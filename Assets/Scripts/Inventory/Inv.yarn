@@ -7,17 +7,22 @@ tags:
 Dog: Quieres?
 -> Yes
     <<AddItem 3 -1 4 5 0 Gifts/Boof Boof>>
+    <<AddItem 3 -1 4 5 0 Gifts/SuperBoof "Super Boof" true>>
 -> No
 <<SetSprite Middle Dwayne/Idle>>
 Dwayne: Hello
-<<set $item1 = GetItemName(0)>>
-<<set $item1Sprite = GetItemSprite(0)>>
+<<set $item1 = GetItemName(0, false)>>
+<<set $item1Sprite = GetItemSprite(0, false)>>
 // -> Give {GetItemName(0)} <<if $item1 != "nothing">>
 //     <<SetSprite Left {$item1Sprite}>>
 //     <<GiveItem Kelly {$item1}>>
 //     Dwayne: Damn! Thanks for the {$item1}
--> Give Item <<if GetInventoryLength() > 0>>
+-> Give Item <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
     <<OpenInventory>>
-    Dwayne: Thanks!
+    Dwayne: Hmm... Anything else?
+    -> Give Item <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
+        <<OpenInventory>>
+        Dwayne: Thanks!
+    -> Give nothing
 -> Give nothing
 ===
