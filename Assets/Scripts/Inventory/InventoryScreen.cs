@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class InventoryScreen : MonoBehaviour
 {
-    [SerializeField] GameObject[] itemButtons = new GameObject[9];
+    [SerializeField] GameObject[] itemButtons = new GameObject[6];
     [SerializeField] GameObject itemSwitch;
     [SerializeField] GameObject keyItemSwitch;
-    [SerializeField] GameObject background;
+    [SerializeField] Image background;
+    [SerializeField] Sprite itemsBackground;
+    [SerializeField] Sprite keyItemsBackground;
     [HideInInspector] public Item selectedItem = null;
     private bool isKeyItems = false;
 
@@ -16,10 +18,11 @@ public class InventoryScreen : MonoBehaviour
     {
         if (isKeyItems)
         {
+            background.sprite = keyItemsBackground;
             for (int i = 0; i < Inventory.keyItemList.Count; i++)
             {
                 itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.keyItemList[i].name;
-                itemButtons[i].transform.GetChild(1).GetComponent<Image>().sprite = Inventory.keyItemList[i].sprite;
+                itemButtons[i].GetComponent<Image>().sprite = Inventory.keyItemList[i].sprite;
                 itemButtons[i].SetActive(true);
                 itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
                     Debug.Log("Selecting " + (i-1));
@@ -29,10 +32,11 @@ public class InventoryScreen : MonoBehaviour
         }
         else
         {
+            background.sprite = itemsBackground;
             for (int i = 0; i < Inventory.list.Count; i++)
             {
                 itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.list[i].name;
-                itemButtons[i].transform.GetChild(1).GetComponent<Image>().sprite = Inventory.list[i].sprite;
+                itemButtons[i].GetComponent<Image>().sprite = Inventory.list[i].sprite;
                 itemButtons[i].SetActive(true);
                 itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
                     Debug.Log("Selecting " + (i-1));
@@ -49,7 +53,7 @@ public class InventoryScreen : MonoBehaviour
         foreach (GameObject item in itemButtons)
         {
             item.transform.GetChild(0).GetComponent<Text>().text = "ItemName";
-            item.transform.GetChild(1).GetComponent<Image>().sprite = null;
+            item.GetComponent<Image>().sprite = null;
             item.GetComponent<Button>().onClick.RemoveAllListeners();
             item.SetActive(false);
         }
