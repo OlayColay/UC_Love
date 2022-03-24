@@ -11,7 +11,9 @@ public class InventoryScreen : MonoBehaviour
     [SerializeField] Image background;
     [SerializeField] Sprite itemsBackground;
     [SerializeField] Sprite keyItemsBackground;
-    [HideInInspector] public Item selectedItem = null;
+    public GameObject cancelButton;
+    [HideInInspector] public static Item selectedItem = null;
+    [HideInInspector] public static bool canceled = false;
     private bool isKeyItems = false;
 
     void OnEnable()
@@ -78,5 +80,10 @@ public class InventoryScreen : MonoBehaviour
         OnDisable();
         this.isKeyItems = isKeyItems;
         OnEnable();
+    }
+
+    public static void Cancel()
+    {
+        canceled = true;
     }
 }

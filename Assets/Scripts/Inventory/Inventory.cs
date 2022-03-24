@@ -47,16 +47,18 @@ public static class Inventory
     }
 
     [YarnCommand("OpenInventory")]
-    public static IEnumerator OpenInventory()
+    public static IEnumerator OpenInventory(bool cancelable = true)
     {
         if (!inventoryScreen)
         {
             inventoryScreen = Resources.FindObjectsOfTypeAll<InventoryScreen>()[0];
         }
+        inventoryScreen.cancelButton.SetActive(cancelable);
         inventoryScreen.gameObject.SetActive(true);
 
-        inventoryScreen.selectedItem = null;
-        while (inventoryScreen.selectedItem == null)
+        InventoryScreen.selectedItem = null;
+        InventoryScreen.canceled = false;
+        while (InventoryScreen.selectedItem == null && !InventoryScreen.canceled)
         {
             yield return null;
         }
@@ -105,5 +107,11 @@ public static class Inventory
     public static int GetInventoryLength(bool isKeyItems = false)
     {
         return isKeyItems ? keyItemList.Count : list.Count;
+    }
+
+    [YarnFunction("GetInventoryCanceled")]
+    public static bool GetInventoryCanceled()
+    {
+        return InventoryScreen.canceled;
     }
 }

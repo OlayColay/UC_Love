@@ -10,6 +10,11 @@ Dog: Quieres?
     <<AddItem 3 -1 4 5 0 Gifts/SuperBoof "Super Boof" true>>
 -> No
 <<SetSprite Middle Dwayne/Idle>>
+<<jump Give>>
+===
+title: Give
+position: 0,89
+---
 Dwayne: Hello
 <<set $item1 = GetItemName(0, false)>>
 <<set $item1Sprite = GetItemSprite(0, false)>>
@@ -19,10 +24,15 @@ Dwayne: Hello
 //     Dwayne: Damn! Thanks for the {$item1}
 -> Give Item <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
     <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump Give>>
+    <<endif>>
     Dwayne: Hmm... Anything else?
-    -> Give Item <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
-        <<OpenInventory>>
+    <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
+        <<OpenInventory false>>
         Dwayne: Thanks!
-    -> Give nothing
+    <<else>>
+        Dwayne: How do you have no other items? That should be impossible!
+    <<endif>>
 -> Give nothing
 ===
