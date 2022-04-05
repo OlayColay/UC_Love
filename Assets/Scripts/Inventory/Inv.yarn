@@ -16,12 +16,11 @@ title: Give
 position: 0,89
 ---
 Dwayne: Hello
-<<set $item1 = GetItemName(0, false)>>
-<<set $item1Sprite = GetItemSprite(0, false)>>
-// -> Give {GetItemName(0)} <<if $item1 != "nothing">>
-//     <<SetSprite Left {$item1Sprite}>>
-//     <<GiveItem Kelly {$item1}>>
-//     Dwayne: Damn! Thanks for the {$item1}
+-> Give Super Boof <<if ItemExists("Super Boof", true)>>
+    <<set $item1Sprite = GetItemSprite("Super Boof", true)>>
+    <<SetSprite Left {$item1Sprite}>>
+    <<GiveItem Kelly "Super Boof" true>>
+    Dwayne: Damn! Thanks for the Super Boof!
 -> Give Item <<if GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
