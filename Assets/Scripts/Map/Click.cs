@@ -52,7 +52,7 @@ public class Click : MonoBehaviour
                 // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
                 // instead of as a Coroutine?
                 
-                //StartCoroutine(LoadYarnScene(newLocation.name));
+                StartCoroutine(LoadYarnScene(newLocation.name));
             }
 
             selectedLocation = newLocation;

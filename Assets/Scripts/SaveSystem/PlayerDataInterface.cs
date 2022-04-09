@@ -11,19 +11,23 @@ public class PlayerDataInterface : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI relationshipText;
 
-    public int GetDayNumber() { return PlayerData.GetDayNumber(); }
-    public void SetDayNumber(int day) { PlayerData.SetDayNumber(day); }
-    public void ChangeDayNumber(int change) { PlayerData.ChangeDayNumber(change); }
+    public int GetDayNumber() { return Inventory.GetDay(); }
+    public void SetDayNumber(int day) { Inventory.SetDay(day); }
+    public void ChangeDayNumber(int change) { Inventory.ChangeDay(change); }
 
-    public int GetRelationshipScore(string name) { return PlayerData.GetRelationshipScore(name); }
-    public void SetRelationshipScore(string name, int score) { PlayerData.SetRelationshipScore(name, score); }
-    public void ChangeRelationshipScore(string name, int change) { PlayerData.ChangeRelationshipScore(name, change); }
+    public int GetMoney() { return Inventory.GetMoney(); }
+    public void SetMoney(int day) { Inventory.SetMoney(day); }
+    public void ChangeMoney(int change) { Inventory.ChangeMoney(change); }
 
-    public void ChangeKellyScore(int change) { PlayerData.ChangeRelationshipScore("Kelly", change); }
-    public void ChangeEllieScore(int change) { PlayerData.ChangeRelationshipScore("Ellie", change); }
+    public int GetRelationshipScore(string name) { return Inventory.relationshipScores[name]; }
+    public void SetRelationshipScore(string name, int score) { Inventory.relationshipScores[name] = score; }
+    public void ChangeRelationshipScore(string name, int change) { Inventory.relationshipScores[name] += change; }
 
-    public void SaveGame() { PlayerData.SaveGame(); }
-    public void LoadGame() { PlayerData.LoadGame(); }
+    public void ChangeKellyScore(int change) { ChangeRelationshipScore("Kelly", change); }
+    public void ChangeEllieScore(int change) { ChangeRelationshipScore("Ellie", change); }
+
+    public void SaveGame() { Inventory.SaveGame(); }
+    public void LoadGame() { Inventory.LoadGame(); }
 
     void Update() {
         relationshipText.SetText("Day: {0}\nKelly: {1}\nEllie: {2}", GetDayNumber(), GetRelationshipScore("Kelly"), GetRelationshipScore("Ellie"));
