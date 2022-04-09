@@ -13,7 +13,6 @@ public class ShopScreen : MonoBehaviour
     public GameObject cancelButton;
 
     [HideInInspector] public static Item selectedItem = null;
-    private static int selectedIndex = 0;
 
     public static Item[] shopItems = new Item[6];
     public static bool[] keyItems = new bool[6];
@@ -33,12 +32,17 @@ public class ShopScreen : MonoBehaviour
                 break;
             }
 
+            // Debug.Log("Setting " + itemButtons[i].name + " as item " + i);
+
             itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].name;
             itemButtons[i].GetComponent<Image>().sprite = shopItems[i].sprite;
-            itemButtons[i].SetActive(true);
+            // Only enable button if this isn't a key item or we don't have this key item yet
+            itemButtons[i].SetActive(!(keyItems[i] && Inventory.keyItemList.Find(j => j.name == shopItems[i].name) != null)); 
+
+            int index = i; // Needed because the listener doesn't remember what i is, only what i is after the end of the for loop
             itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
-                Debug.Log("Selecting " + (i-2));
-                BuyItem(shopItems[i-2].name); 
+                Debug.Log("Selecting " + index);
+                BuyItem(index); 
             });
         }
 
@@ -56,36 +60,35 @@ public class ShopScreen : MonoBehaviour
         }
     }
 
-    public void BuyItem(string itemName)
+    public void BuyItem(int index)
     {
-        Debug.Log("Buying " + itemName);
+        // Debug.Log("Buying " + shopItems[index].name);
 
-        selectedIndex = Array.FindIndex<Item>(shopItems, i => i.name == itemName);
-
-        if (keyItems[selectedIndex] && Inventory.keyItemList.Count == 6)
+        if (keyItems[index] && Inventory.keyItemList.Count == 6)
         {
             Debug.Log("Key Item inventory is full!");
             return;
         }
-        else if (!keyItems[selectedIndex] && Inventory.list.Count == 6)
+        else if (!keyItems[index] && Inventory.list.Count == 6)
         {
             Debug.Log("Item inventory is full!");
             return;
         }
 
         // If not enough currency, can't buy the item
-        if (false /*< costs[selectedIndex]*/)
+        if (false /*< costs[index]*/)
         {
             Debug.Log("Not enough cash for item!");
             return;
         }
 
-        selectedItem = shopItems[selectedIndex];
+        selectedItem = shopItems[index];
         // Reduce player currency here
 
-        if (keyItems[selectedIndex])
+        if (keyItems[index])
         {
-            shopItems[selectedIndex] = null;
+            shopItems[index] = null;
+            itemButtons[index].SetActive(false);
             Inventory.keyItemList.Add(selectedItem);
         }
         else
@@ -101,6 +104,12 @@ public class ShopScreen : MonoBehaviour
         if (index < 0 || index >= 6)
         {
             Debug.LogError("Index of item must be between 0 and 5 inclusive!");
+            return;
+        }
+
+        // Prevent adding duplicate items to the shop
+        if (shopItems[index] != null && shopItems[index].name == name)
+        {
             return;
         }
 

@@ -3169,8 +3169,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryScreen, Assembly-CSharp
+      - m_Target: {fileID: 2087984719}
+        m_TargetAssemblyTypeName: ShopScreen, Assembly-CSharp
         m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
