@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI; // for array of sprites
 using System;
+using DG.Tweening;
 
 public class CafeMinigame : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class CafeMinigame : MonoBehaviour
 
     // Make orders a global 
     //public array of sprites called "images" - go back into unity and assign
+    //CO-routine for blend - inside coroutine wait 1 second then do fade
 
     public Sprite[] Sprites;
     public Transform Blender;
@@ -50,6 +52,12 @@ public class CafeMinigame : MonoBehaviour
             case "Vanilla":
             Blender.GetChild(6).GetComponent<SpriteRenderer>().sprite = result;
             break;
+            case "Blend":
+            Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = result;
+            Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
+            Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
+            break;
+            
         }
     }
     void Start()
@@ -104,8 +112,11 @@ public class CafeMinigame : MonoBehaviour
         nextIngredient = currentOrder[i];
     }
 
+    
+
     void StartOrder()
     {
+        
         // Make sure there's an order to start
         if (currentOrder == null || currentOrder.Length == 0)
         {
