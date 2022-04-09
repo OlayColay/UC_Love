@@ -1,5 +1,5 @@
 {
-    "name": "master",
+    "name": "Cafe",
     "maps": [
         {
             "name": "player",
@@ -18,24 +18,6 @@
                     "name": "Blend",
                     "type": "Button",
                     "id": "3366854e-a489-47f0-9393-a439364b2fae",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Shake",
-                    "type": "Button",
-                    "id": "1785f5c6-0c57-4d52-9987-bf4dacdbc65a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Stir",
-                    "type": "Button",
-                    "id": "3caf6c8a-708c-4170-8b3d-b2460cdc6256",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -105,34 +87,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Black Tea",
-                    "type": "Button",
-                    "id": "b4b64c45-73fb-4b30-881b-9af8cf7a961d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Green Tea",
-                    "type": "Button",
-                    "id": "6e18fd1c-e204-432f-9d0e-8f24b7ed4590",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Chai Tea",
-                    "type": "Button",
-                    "id": "bc8adb7f-f602-4050-b429-14b91fc77ea7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Passion Tea",
+                    "name": "Strawberry",
                     "type": "Button",
                     "id": "bacd307f-0454-4f6b-9ebe-b327cc2e3982",
                     "expectedControlType": "Button",
@@ -265,24 +220,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Hot",
-                    "type": "Button",
-                    "id": "fc4a3486-fc4e-4615-85af-8a13b0c1da37",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Iced",
-                    "type": "Button",
-                    "id": "2d7041c1-ef7a-48e6-bcd8-5bc1ac6b7400",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -294,28 +231,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Blend",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "15c2831c-a3f4-4ec9-b84d-99559666e82c",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shake",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1a54a121-06ee-445b-b1c6-a72f18adeb1c",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Stir",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -398,45 +313,12 @@
                 },
                 {
                     "name": "",
-                    "id": "26f09049-85ea-4cfe-9038-72d829e83f93",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard and mouse",
-                    "action": "Black Tea",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a03449a4-8de7-4a0c-a9bd-e420fb80a4b6",
-                    "path": "<Keyboard>/g",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard and mouse",
-                    "action": "Green Tea",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d3a1c5e-5a72-4cbb-8d39-3a4a617b512e",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard and mouse",
-                    "action": "Chai Tea",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fcb6184d-aa77-4ef7-b76f-50ffac42dea1",
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "keyboard and mouse",
-                    "action": "Passion Tea",
+                    "action": "Strawberry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -591,28 +473,6 @@
                     "processors": "",
                     "groups": "keyboard and mouse",
                     "action": "Frappucino",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9927a5ae-9193-490f-9114-1d35deb9fbe9",
-                    "path": "<Keyboard>/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard and mouse",
-                    "action": "Hot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "69a2fbbd-4657-4c6a-9a2e-4f8163d64cad",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard and mouse",
-                    "action": "Iced",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
