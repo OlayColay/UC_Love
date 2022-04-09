@@ -70,14 +70,14 @@ public static class Inventory
     {
         if (isKeyItem)
         {
-            if (index >= keyItemList.Count)
+            if (index >= keyItemList.Count || index < 0)
             {
                 return "nothing";
             }
             return keyItemList[index].name;
         }
 
-        if (index >= list.Count)
+        if (index >= list.Count || index < 0)
         {
             return "nothing";
         }
@@ -85,22 +85,22 @@ public static class Inventory
     }
 
     [YarnFunction("GetItemSprite")]
-    public static string GetItemSprite(int index, bool isKeyItem = false)
+    public static string GetItemSprite(string itemName, bool isKeyItem = false)
     {
+        Item item;
         if (isKeyItem)
         {
-            if (index >= list.Count)
-            {
-                return "nothing";
-            }
-            return "Gifts/" + keyItemList[index].sprite.name;
-        }
-
-        if (index >= list.Count)
-        {
+            item = keyItemList.Find(i => i.name == itemName);
+            if (item != null)
+                return "Gifts/" + item.sprite.name;
+            Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
             return "nothing";
         }
-        return "Gifts/" + list[index].sprite.name;
+        item = list.Find(i => i.name == itemName);
+        if (item != null)
+            return "Gifts/" + item.sprite.name;
+        Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
+        return "nothing";
     }
 
     [YarnFunction("GetInventoryLength")]
@@ -113,5 +113,11 @@ public static class Inventory
     public static bool GetInventoryCanceled()
     {
         return InventoryScreen.canceled;
+    }
+
+    [YarnFunction("ItemExists")]
+    public static bool ItemExists(string itemName, bool isKeyItem = false)
+    {
+        return isKeyItem ? (keyItemList.Find(i => i.name == itemName) != null ? true : false) : (list.Find(i => i.name == itemName) != null ? true : false);
     }
 }
