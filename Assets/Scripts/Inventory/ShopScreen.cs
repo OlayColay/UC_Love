@@ -35,13 +35,14 @@ public class ShopScreen : MonoBehaviour
             // Debug.Log("Setting " + itemButtons[i].name + " as item " + i);
 
             itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = shopItems[i].name;
+            itemButtons[i].transform.GetChild(1).GetComponent<Text>().text = '$' + costs[i].ToString();
             itemButtons[i].GetComponent<Image>().sprite = shopItems[i].sprite;
             // Only enable button if this isn't a key item or we don't have this key item yet
             itemButtons[i].SetActive(!(keyItems[i] && Inventory.keyItemList.Find(j => j.name == shopItems[i].name) != null)); 
 
             int index = i; // Needed because the listener doesn't remember what i is, only what i is after the end of the for loop
             itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
-                Debug.Log("Selecting " + index);
+                // Debug.Log("Selecting " + index);
                 BuyItem(index); 
             });
         }

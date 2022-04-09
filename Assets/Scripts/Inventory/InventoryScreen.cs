@@ -26,9 +26,10 @@ public class InventoryScreen : MonoBehaviour
                 itemButtons[i].transform.GetChild(0).GetComponent<Text>().text = Inventory.keyItemList[i].name;
                 itemButtons[i].GetComponent<Image>().sprite = Inventory.keyItemList[i].sprite;
                 itemButtons[i].SetActive(true);
+                int index = i; // Needed because the listener doesn't remember what i is, only what i is after the end of the for loop
                 itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
-                    Debug.Log("Selecting " + (i-1));
-                    SelectItem(Inventory.keyItemList[i-1].name); 
+                    // Debug.Log("Selecting " + index);
+                    SelectItem(Inventory.keyItemList[index].name); 
                 });
             }
         }
@@ -42,7 +43,7 @@ public class InventoryScreen : MonoBehaviour
                 itemButtons[i].SetActive(true);
                 int index = i; // Needed because the listener doesn't remember what i is, only what i is after the end of the for loop
                 itemButtons[i].GetComponent<Button>().onClick.AddListener(() => {
-                    Debug.Log("Selecting " + index);
+                    // Debug.Log("Selecting " + index);
                     SelectItem(Inventory.list[index].name); 
                 });
             }
@@ -64,7 +65,7 @@ public class InventoryScreen : MonoBehaviour
 
     public void SelectItem(string itemName)
     {
-        Debug.Log("Selected " + itemName);
+        // Debug.Log("Selected " + itemName);
         selectedItem = Inventory.list.Find(i => i.name == itemName);
 
         if (selectedItem == null)

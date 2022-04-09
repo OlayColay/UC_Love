@@ -1,9 +1,9 @@
 ﻿title: Inv
 tags:
 ---
-<<Fade true>>
 <<SetActiveChar Middle>>
 <<SetSprite Middle quieres>>
+<<Fade true>>
 
 // Adding Items to Shop
 <<AddToShop 0 3 -1 4 5 0 Gifts/Boof Boof 10>>
@@ -36,7 +36,11 @@ Dwayne: Hello
         <<OpenInventory false>>
         Dwayne: Thanks!
     <<else>>
-        Dwayne: How do you have no other items? That should be impossible!
+        Dwayne: Lol, you only had one item to give. I am the type of guy that needs at least two gifts in order to be sated.
+        Dwayne: Leave, dummy.
     <<endif>>
 -> Give nothing
+<<Fade false>>
+<<ClearSprite Left>>
+<<jump Inv>>
 ===
