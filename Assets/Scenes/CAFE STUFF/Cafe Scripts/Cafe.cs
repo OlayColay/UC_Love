@@ -46,24 +46,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shake"",
-                    ""type"": ""Button"",
-                    ""id"": ""1785f5c6-0c57-4d52-9987-bf4dacdbc65a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Stir"",
-                    ""type"": ""Button"",
-                    ""id"": ""3caf6c8a-708c-4170-8b3d-b2460cdc6256"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Ice"",
                     ""type"": ""Button"",
                     ""id"": ""04b5fc49-6a2d-4035-a171-97bd3c39e32c"",
@@ -127,34 +109,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Black Tea"",
-                    ""type"": ""Button"",
-                    ""id"": ""b4b64c45-73fb-4b30-881b-9af8cf7a961d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Green Tea"",
-                    ""type"": ""Button"",
-                    ""id"": ""6e18fd1c-e204-432f-9d0e-8f24b7ed4590"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Chai Tea"",
-                    ""type"": ""Button"",
-                    ""id"": ""bc8adb7f-f602-4050-b429-14b91fc77ea7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Passion Tea"",
+                    ""name"": ""Strawberry"",
                     ""type"": ""Button"",
                     ""id"": ""bacd307f-0454-4f6b-9ebe-b327cc2e3982"",
                     ""expectedControlType"": ""Button"",
@@ -287,24 +242,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Hot"",
-                    ""type"": ""Button"",
-                    ""id"": ""fc4a3486-fc4e-4615-85af-8a13b0c1da37"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Iced"",
-                    ""type"": ""Button"",
-                    ""id"": ""2d7041c1-ef7a-48e6-bcd8-5bc1ac6b7400"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -316,28 +253,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Blend"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""15c2831c-a3f4-4ec9-b84d-99559666e82c"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Shake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1a54a121-06ee-445b-b1c6-a72f18adeb1c"",
-                    ""path"": ""<Keyboard>/u"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Stir"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -420,45 +335,12 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""26f09049-85ea-4cfe-9038-72d829e83f93"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Black Tea"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a03449a4-8de7-4a0c-a9bd-e420fb80a4b6"",
-                    ""path"": ""<Keyboard>/g"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Green Tea"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6d3a1c5e-5a72-4cbb-8d39-3a4a617b512e"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Chai Tea"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""fcb6184d-aa77-4ef7-b76f-50ffac42dea1"",
                     ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Passion Tea"",
+                    ""action"": ""Strawberry"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -618,28 +500,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9927a5ae-9193-490f-9114-1d35deb9fbe9"",
-                    ""path"": ""<Keyboard>/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Hot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""69a2fbbd-4657-4c6a-9a2e-4f8163d64cad"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Iced"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""545912fc-fa53-4513-a122-9b2d941f48a4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -675,8 +535,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
         m_player_Start = m_player.FindAction("Start", throwIfNotFound: true);
         m_player_Blend = m_player.FindAction("Blend", throwIfNotFound: true);
-        m_player_Shake = m_player.FindAction("Shake", throwIfNotFound: true);
-        m_player_Stir = m_player.FindAction("Stir", throwIfNotFound: true);
         m_player_Ice = m_player.FindAction("Ice", throwIfNotFound: true);
         m_player_Espresso = m_player.FindAction("Espresso", throwIfNotFound: true);
         m_player_Caramel = m_player.FindAction("Caramel", throwIfNotFound: true);
@@ -684,10 +542,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         m_player_Peppermint = m_player.FindAction("Peppermint", throwIfNotFound: true);
         m_player_Hazelnut = m_player.FindAction("Hazelnut", throwIfNotFound: true);
         m_player_Mocha = m_player.FindAction("Mocha", throwIfNotFound: true);
-        m_player_BlackTea = m_player.FindAction("Black Tea", throwIfNotFound: true);
-        m_player_GreenTea = m_player.FindAction("Green Tea", throwIfNotFound: true);
-        m_player_ChaiTea = m_player.FindAction("Chai Tea", throwIfNotFound: true);
-        m_player_PassionTea = m_player.FindAction("Passion Tea", throwIfNotFound: true);
+        m_player_Strawberry = m_player.FindAction("Strawberry", throwIfNotFound: true);
         m_player_Matcha = m_player.FindAction("Matcha", throwIfNotFound: true);
         m_player_WhippedCream = m_player.FindAction("Whipped Cream", throwIfNotFound: true);
         m_player_CremeBase = m_player.FindAction("Creme Base", throwIfNotFound: true);
@@ -702,8 +557,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         m_player_CaramelDrizzle = m_player.FindAction("Caramel Drizzle", throwIfNotFound: true);
         m_player_Cherry = m_player.FindAction("Cherry", throwIfNotFound: true);
         m_player_Frappucino = m_player.FindAction("Frappucino", throwIfNotFound: true);
-        m_player_Hot = m_player.FindAction("Hot", throwIfNotFound: true);
-        m_player_Iced = m_player.FindAction("Iced", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -765,8 +618,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_player_Start;
     private readonly InputAction m_player_Blend;
-    private readonly InputAction m_player_Shake;
-    private readonly InputAction m_player_Stir;
     private readonly InputAction m_player_Ice;
     private readonly InputAction m_player_Espresso;
     private readonly InputAction m_player_Caramel;
@@ -774,10 +625,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
     private readonly InputAction m_player_Peppermint;
     private readonly InputAction m_player_Hazelnut;
     private readonly InputAction m_player_Mocha;
-    private readonly InputAction m_player_BlackTea;
-    private readonly InputAction m_player_GreenTea;
-    private readonly InputAction m_player_ChaiTea;
-    private readonly InputAction m_player_PassionTea;
+    private readonly InputAction m_player_Strawberry;
     private readonly InputAction m_player_Matcha;
     private readonly InputAction m_player_WhippedCream;
     private readonly InputAction m_player_CremeBase;
@@ -792,16 +640,12 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
     private readonly InputAction m_player_CaramelDrizzle;
     private readonly InputAction m_player_Cherry;
     private readonly InputAction m_player_Frappucino;
-    private readonly InputAction m_player_Hot;
-    private readonly InputAction m_player_Iced;
     public struct PlayerActions
     {
         private @Cafe m_Wrapper;
         public PlayerActions(@Cafe wrapper) { m_Wrapper = wrapper; }
         public InputAction @Start => m_Wrapper.m_player_Start;
         public InputAction @Blend => m_Wrapper.m_player_Blend;
-        public InputAction @Shake => m_Wrapper.m_player_Shake;
-        public InputAction @Stir => m_Wrapper.m_player_Stir;
         public InputAction @Ice => m_Wrapper.m_player_Ice;
         public InputAction @Espresso => m_Wrapper.m_player_Espresso;
         public InputAction @Caramel => m_Wrapper.m_player_Caramel;
@@ -809,10 +653,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         public InputAction @Peppermint => m_Wrapper.m_player_Peppermint;
         public InputAction @Hazelnut => m_Wrapper.m_player_Hazelnut;
         public InputAction @Mocha => m_Wrapper.m_player_Mocha;
-        public InputAction @BlackTea => m_Wrapper.m_player_BlackTea;
-        public InputAction @GreenTea => m_Wrapper.m_player_GreenTea;
-        public InputAction @ChaiTea => m_Wrapper.m_player_ChaiTea;
-        public InputAction @PassionTea => m_Wrapper.m_player_PassionTea;
+        public InputAction @Strawberry => m_Wrapper.m_player_Strawberry;
         public InputAction @Matcha => m_Wrapper.m_player_Matcha;
         public InputAction @WhippedCream => m_Wrapper.m_player_WhippedCream;
         public InputAction @CremeBase => m_Wrapper.m_player_CremeBase;
@@ -827,8 +668,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         public InputAction @CaramelDrizzle => m_Wrapper.m_player_CaramelDrizzle;
         public InputAction @Cherry => m_Wrapper.m_player_Cherry;
         public InputAction @Frappucino => m_Wrapper.m_player_Frappucino;
-        public InputAction @Hot => m_Wrapper.m_player_Hot;
-        public InputAction @Iced => m_Wrapper.m_player_Iced;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -844,12 +683,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Blend.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlend;
                 @Blend.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlend;
                 @Blend.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlend;
-                @Shake.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShake;
-                @Shake.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShake;
-                @Shake.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShake;
-                @Stir.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStir;
-                @Stir.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStir;
-                @Stir.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStir;
                 @Ice.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIce;
                 @Ice.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIce;
                 @Ice.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIce;
@@ -871,18 +704,9 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Mocha.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMocha;
                 @Mocha.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMocha;
                 @Mocha.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMocha;
-                @BlackTea.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlackTea;
-                @BlackTea.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlackTea;
-                @BlackTea.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlackTea;
-                @GreenTea.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenTea;
-                @GreenTea.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenTea;
-                @GreenTea.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGreenTea;
-                @ChaiTea.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChaiTea;
-                @ChaiTea.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChaiTea;
-                @ChaiTea.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChaiTea;
-                @PassionTea.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPassionTea;
-                @PassionTea.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPassionTea;
-                @PassionTea.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPassionTea;
+                @Strawberry.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrawberry;
+                @Strawberry.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrawberry;
+                @Strawberry.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrawberry;
                 @Matcha.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
                 @Matcha.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
                 @Matcha.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
@@ -925,12 +749,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Frappucino.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
                 @Frappucino.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
                 @Frappucino.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
-                @Hot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHot;
-                @Hot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHot;
-                @Hot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHot;
-                @Iced.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIced;
-                @Iced.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIced;
-                @Iced.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIced;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -941,12 +759,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Blend.started += instance.OnBlend;
                 @Blend.performed += instance.OnBlend;
                 @Blend.canceled += instance.OnBlend;
-                @Shake.started += instance.OnShake;
-                @Shake.performed += instance.OnShake;
-                @Shake.canceled += instance.OnShake;
-                @Stir.started += instance.OnStir;
-                @Stir.performed += instance.OnStir;
-                @Stir.canceled += instance.OnStir;
                 @Ice.started += instance.OnIce;
                 @Ice.performed += instance.OnIce;
                 @Ice.canceled += instance.OnIce;
@@ -968,18 +780,9 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Mocha.started += instance.OnMocha;
                 @Mocha.performed += instance.OnMocha;
                 @Mocha.canceled += instance.OnMocha;
-                @BlackTea.started += instance.OnBlackTea;
-                @BlackTea.performed += instance.OnBlackTea;
-                @BlackTea.canceled += instance.OnBlackTea;
-                @GreenTea.started += instance.OnGreenTea;
-                @GreenTea.performed += instance.OnGreenTea;
-                @GreenTea.canceled += instance.OnGreenTea;
-                @ChaiTea.started += instance.OnChaiTea;
-                @ChaiTea.performed += instance.OnChaiTea;
-                @ChaiTea.canceled += instance.OnChaiTea;
-                @PassionTea.started += instance.OnPassionTea;
-                @PassionTea.performed += instance.OnPassionTea;
-                @PassionTea.canceled += instance.OnPassionTea;
+                @Strawberry.started += instance.OnStrawberry;
+                @Strawberry.performed += instance.OnStrawberry;
+                @Strawberry.canceled += instance.OnStrawberry;
                 @Matcha.started += instance.OnMatcha;
                 @Matcha.performed += instance.OnMatcha;
                 @Matcha.canceled += instance.OnMatcha;
@@ -1022,12 +825,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Frappucino.started += instance.OnFrappucino;
                 @Frappucino.performed += instance.OnFrappucino;
                 @Frappucino.canceled += instance.OnFrappucino;
-                @Hot.started += instance.OnHot;
-                @Hot.performed += instance.OnHot;
-                @Hot.canceled += instance.OnHot;
-                @Iced.started += instance.OnIced;
-                @Iced.performed += instance.OnIced;
-                @Iced.canceled += instance.OnIced;
             }
         }
     }
@@ -1045,8 +842,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
     {
         void OnStart(InputAction.CallbackContext context);
         void OnBlend(InputAction.CallbackContext context);
-        void OnShake(InputAction.CallbackContext context);
-        void OnStir(InputAction.CallbackContext context);
         void OnIce(InputAction.CallbackContext context);
         void OnEspresso(InputAction.CallbackContext context);
         void OnCaramel(InputAction.CallbackContext context);
@@ -1054,10 +849,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         void OnPeppermint(InputAction.CallbackContext context);
         void OnHazelnut(InputAction.CallbackContext context);
         void OnMocha(InputAction.CallbackContext context);
-        void OnBlackTea(InputAction.CallbackContext context);
-        void OnGreenTea(InputAction.CallbackContext context);
-        void OnChaiTea(InputAction.CallbackContext context);
-        void OnPassionTea(InputAction.CallbackContext context);
+        void OnStrawberry(InputAction.CallbackContext context);
         void OnMatcha(InputAction.CallbackContext context);
         void OnWhippedCream(InputAction.CallbackContext context);
         void OnCremeBase(InputAction.CallbackContext context);
@@ -1072,7 +864,5 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         void OnCaramelDrizzle(InputAction.CallbackContext context);
         void OnCherry(InputAction.CallbackContext context);
         void OnFrappucino(InputAction.CallbackContext context);
-        void OnHot(InputAction.CallbackContext context);
-        void OnIced(InputAction.CallbackContext context);
     }
 }
