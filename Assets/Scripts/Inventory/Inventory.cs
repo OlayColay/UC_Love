@@ -9,6 +9,47 @@ public static class Inventory
     public static List<Item> keyItemList = new List<Item>();
     public static InventoryScreen inventoryScreen;
 
+    public static readonly string[] names = { "Kelly", "Ellie", "UCSB", "UCR", "UCI" };
+    public static Dictionary<string, int> relationshipScores = new Dictionary<string, int>();
+    private static int day;
+    private static int money;
+
+    
+    static Inventory()
+    {
+        foreach (string name in names)
+            relationshipScores.Add(name, 0);
+    }
+
+    public static int GetDay() { return day; }
+    public static bool SetDay(int Day)
+    {
+        if (Day < 0)
+            return false;
+        day = Day;
+        return true;
+    }
+    public static bool ChangeDay(int change) { return SetDay(GetDay() + change); }
+    public static int GetMoney() { return money; }
+    public static bool SetMoney(int Money)
+    {
+        if (Money < 0)
+            return false;
+        money = Money;
+        return true;
+    }
+    public static bool ChangeMoney(int change) { return SetMoney(GetMoney() + change); }
+
+    // Relationship scores
+    [YarnFunction("GetRelationshipScore")]
+    public static int GetRelationshipScore(string name) { return relationshipScores[name]; }
+    [YarnCommand("SetRelationshipScore")]
+    public static void SetRelationshipScore(string name, int score) { relationshipScores[name] = score; }
+    [YarnCommand("AddRelationshipScore")]
+    public static void ChangeRelationshipScore(string name, int change) { relationshipScores[name] += change; }
+
+    // Inventory
+
     [YarnCommand("AddItem")]
     public static void AddItem(int LAScore, int BScore, int SBScore, int RScore, int IScore, string spritePath, string name, bool isKeyItem = false)
     {
@@ -43,7 +84,7 @@ public static class Inventory
             return;
         }
         
-        PlayerData.ChangeRelationshipScore(recipientName, givenItem.scores[recipientName]);
+        ChangeRelationshipScore(recipientName, givenItem.scores[recipientName]);
     }
 
     [YarnCommand("OpenInventory")]
@@ -119,5 +160,37 @@ public static class Inventory
     public static bool ItemExists(string itemName, bool isKeyItem = false)
     {
         return isKeyItem ? (keyItemList.Find(i => i.name == itemName) != null ? true : false) : (list.Find(i => i.name == itemName) != null ? true : false);
+    }
+
+    // Save system stuff
+
+    // Save to the save system
+    public static void SaveGame()
+    {
+        SaveSystem.SaveGame();
+    }
+
+    // Load from the save system
+    public static void LoadGame()
+    {
+        SaveData data = SaveSystem.LoadGame();
+
+        if (data == null) return;
+
+        // Reconstruct the save data
+
+        // 1. Reconstruct relationship scores
+        HashtableToDictionary(data.relationshipScores, relationshipScores);
+        // 2. Reconstruct day
+        day = data.day;
+        money = data.money;
+    }
+
+    // Utility function
+    public static void HashtableToDictionary<K, V>(Hashtable table, Dictionary<K, V> result)
+    {
+        result.Clear();
+        foreach (DictionaryEntry entry in table)
+            result.Add((K)entry.Key, (V)entry.Value);
     }
 }
