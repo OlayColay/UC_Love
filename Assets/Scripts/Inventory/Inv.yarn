@@ -20,7 +20,7 @@ Dog: Quieres?
 title: Give
 position: 0,89
 ---
-Dwayne: Hello
+Dwayne: According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don't care what humans think is impossible.
 -> Give Super Boof <<if ItemExists("Super Boof", true)>>
     <<set $item1Sprite = GetItemSprite("Super Boof", true)>>
     <<SetSprite Left {$item1Sprite}>>
