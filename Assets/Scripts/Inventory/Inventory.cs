@@ -162,6 +162,13 @@ public static class Inventory
         return isKeyItem ? (keyItemList.Find(i => i.name == itemName) != null ? true : false) : (list.Find(i => i.name == itemName) != null ? true : false);
     }
 
+    [YarnFunction("GetItemScore")]
+    public static int GetItemScore(string recipientName)
+    {
+        // Debug.Log(InventoryScreen.selectedItem.scores[recipientName]);
+        return InventoryScreen.selectedItem.scores[recipientName];
+    }
+
     // Save system stuff
 
     // Save to the save system
