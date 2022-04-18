@@ -52,4 +52,8 @@ Player: Speaking of trouble...
 Stanford: Hey! I didn't know that they made a university for LOSERS!
 <<SetActiveChar Right>>
 USC: Yeah! Smells like poor people in here! 
+Player: Hey look, I'm just trying to get through my day alright?
+<<SetSprite Left BruinBox/Angry>>
+BruinBox: Hey! What do you guys think you're doing?
+
 ===
