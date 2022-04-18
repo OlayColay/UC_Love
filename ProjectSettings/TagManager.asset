@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Obstacle
   - Inventory
+  - Flyer
+  - Goal
+  - Spawn
   layers:
   - Default
   - TransparentFX

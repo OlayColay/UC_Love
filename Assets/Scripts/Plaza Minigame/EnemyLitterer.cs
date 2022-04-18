@@ -21,7 +21,6 @@ public class EnemyLitterer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        // m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
 

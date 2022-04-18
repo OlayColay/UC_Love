@@ -36,12 +36,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Obstacle") )
+        if (collision.gameObject.tag == "Player")
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health--;
             Debug.Log("hit");
             Destroy(gameObject);
         }
 
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
     }
 }
