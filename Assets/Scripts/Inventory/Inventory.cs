@@ -21,7 +21,9 @@ public static class Inventory
             relationshipScores.Add(name, 0);
     }
 
+    [YarnFunction("GetDay")]
     public static int GetDay() { return day; }
+    [YarnCommand("SetDay")]
     public static bool SetDay(int Day)
     {
         if (Day < 0)
@@ -30,7 +32,9 @@ public static class Inventory
         return true;
     }
     public static bool ChangeDay(int change) { return SetDay(GetDay() + change); }
+    [YarnFunction("GetMoney")]
     public static int GetMoney() { return money; }
+    [YarnCommand("SetMoney")]
     public static bool SetMoney(int Money)
     {
         if (Money < 0)
@@ -38,6 +42,7 @@ public static class Inventory
         money = Money;
         return true;
     }
+    [YarnCommand("AddMoney")]
     public static bool ChangeMoney(int change) { return SetMoney(GetMoney() + change); }
 
     // Relationship scores
