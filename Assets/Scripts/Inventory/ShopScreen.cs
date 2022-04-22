@@ -99,7 +99,7 @@ public class ShopScreen : MonoBehaviour
     }
 
     [YarnCommand("AddToShop")]
-    public static void AddToShop(int index, int LAScore, int BScore, int SBScore, int RScore, int IScore,
+    public static void AddToShop(int index, int LAScore, int BScore, int SBScore, int RScore, int IScore, int USCScore,
                                  string spritePath, string name, int cost, bool isKeyItem = false)
     {
         if (index < 0 || index >= 6)
@@ -114,7 +114,7 @@ public class ShopScreen : MonoBehaviour
             return;
         }
 
-        shopItems[index] = new Item(LAScore, BScore, SBScore, RScore, IScore, spritePath, name);
+        shopItems[index] = new Item(LAScore, BScore, SBScore, RScore, IScore, USCScore, spritePath, name);
         keyItems[index] = isKeyItem;
         costs[index] = cost;
     }

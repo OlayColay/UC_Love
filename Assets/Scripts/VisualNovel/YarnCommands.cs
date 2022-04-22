@@ -57,6 +57,7 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("LoadScene")]
     public static void LoadScene(string scene)
     {
+        GameObject.FindObjectOfType<DialogueRunner>().Stop();
         SceneManager.LoadScene(scene);
     }
 }

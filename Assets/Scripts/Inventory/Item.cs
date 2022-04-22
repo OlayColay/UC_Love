@@ -8,13 +8,14 @@ public class Item
     public Sprite sprite;
     public string name;
 
-    public Item(int LAScore, int BScore, int SBScore, int RScore, int IScore, string spritePath, string name)
+    public Item(int LAScore, int BScore, int SBScore, int RScore, int IScore, int USCScore, string spritePath, string name)
     {
         scores.Add("Ellie", LAScore);
         scores.Add("Kelly", BScore);
-        scores.Add("UCSB", SBScore);
-        scores.Add("UCR", RScore);
-        scores.Add("UCI", IScore);
+        scores.Add("Santana", SBScore);
+        scores.Add("Riviera", RScore);
+        scores.Add("Irene", IScore);
+        scores.Add("Tommy", USCScore);
 
         sprite = Resources.Load<Sprite>(spritePath);
 
