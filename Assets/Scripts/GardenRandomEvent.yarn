@@ -27,8 +27,6 @@ position: -107,2
 title: USC
 position: 210,112
 ---
-
-Four interaction options (talk, gift, ask, LEAVE)
 <<if $RandomEvent == 3>>
     <<SetSprite Middle USC/Idle>>
     <<SetActiveChar Middle>>
@@ -42,7 +40,7 @@ Four interaction options (talk, gift, ask, LEAVE)
         //but since USC is "rare" and shows up at night, I decided to lower his standards. 
         <<if GetRelationshipScore("Tommy") < 80>>
             // Strangers
-            <<set $USC_Dialogue to RandomRange(1,5)>>
+            <<set $USC_Dialogue = Dice(5)>>
             <<if $USC_Dialogue == 1>>
                 Tommy: Be careful not to get your... dirt... on my Bucci shoes. 
             <<elseif $USC_Dialogue == 2>>
@@ -57,7 +55,7 @@ Four interaction options (talk, gift, ask, LEAVE)
             <<endif>>
         <<elseif GetRelationshipScore("Tommy") >= 80 && GetRelationshipScore("Tommy") < 160>>
             //Acquaintances
-            <<<set $USC_Dialogue to RandomRange(1,5)>>
+            <<set $USC_Dialogue = Dice(5)>>
             <<if $USC_Dialogue == 1>>
                 Tommy: Oh it's you again. You seem to come here often. 
             <<elseif $USC_Dialogue == 2>>
@@ -75,7 +73,7 @@ Four interaction options (talk, gift, ask, LEAVE)
                         Tommy: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
                         Tommy: Creep. 
                     -> No, I just came here to fight you!
-                        <<AddRelationshipScore USC - 20>>
+                        <<AddRelationshipScore USC -20>>
                         Player: No, I just came here to fight you!
                         Tommy: I'd totally take you on but uh... 
                         Tommy: I'm carrying... eggs... in my....pocket... 
@@ -92,7 +90,7 @@ Four interaction options (talk, gift, ask, LEAVE)
                 Tommy: Hey real quick, which color combination do you think looks better?
                 Tommy: Red and yellow or red and green?
                     -> Red and yellow!
-                        <<AddRelationshipScore USC + 10>>
+                        <<AddRelationshipScore USC 10>>
                         Player: Red and yellow!
                         Tommy: FINALLY a person with culture. 
                         Tommy: I've been trying to tell my friend this but he won't listen.
@@ -102,7 +100,7 @@ Four interaction options (talk, gift, ask, LEAVE)
             <<endif>>
         <<elseif GetRelationshipScore("Tommy") >= 160 && GetRelationshipScore("Tommy") < 240>>
             // Friends
-            <<set $USC_Dialogue to RandomRange(1,5)>>
+            <<set $USC_Dialogue = Dice(5)>>
             <<if $USC_Dialogue == 1>>
                 Tommy: Living a fast-paced life is nice and all, but sometimes things feel kind of overwhelming or complicated.
                 Tommy: Majoring in business can get pretty tiring at times. 
@@ -115,7 +113,7 @@ Four interaction options (talk, gift, ask, LEAVE)
                     Tommy: I'm starting to think that they're wrong though. 
                     Tommy: I really like the conversations that I have with you.
                 -> Your social circle sucks!
-                    <<AddRelationshipScore USC - 20>>
+                    <<AddRelationshipScore USC -20>>
                     Player: Your social circle sucks!
                     Tommy: Hey, I don't agree with all their ideas but I have a lot of respect for them...
                     Tommy: Maybe they were right about some things. Geez. 
@@ -142,12 +140,12 @@ Four interaction options (talk, gift, ask, LEAVE)
             <<endif>>
         <<elseif GetRelationshipScore("Tommy") >= 240 && GetRelationshipScore("Tommy") < 320>>
             // Crushing
-            <<set $USC_Dialogue to RandomRange(1,5)>>
+            <<set $USC_Dialogue = Dice(5)>>
             <<if $USC_Dialogue == 1>>
                 Tommy: It's kind of chilly tonight.
                 Tommy: Are you cold?
                     -> Yeah...
-                        <<AddRelationshipScore USC + 10>>
+                        <<AddRelationshipScore USC 10>>
                         Player: Yeah... 
                         Tommy: Oh! Do you want to borrow my jacket?  
                             -> Take the jacket.
@@ -170,7 +168,7 @@ Four interaction options (talk, gift, ask, LEAVE)
                 Tommy: But still, that doesn't excuse my behavior. 
                 Tommy: I'm sorry... I hope that I can make it up to you. 
                     -> It's alright! Just treat me out for food some time alright?
-                        <<AddRelationshipScore USC + 10>>
+                        <<AddRelationshipScore USC 10>>
                         Player: It's alright! Just treat me out for food some time alright?
                     -> Yeah that was pretty awful of you...
                         Player: Yeah... that was pretty awful of you...
@@ -186,7 +184,7 @@ Four interaction options (talk, gift, ask, LEAVE)
                 Tommy: Nothing major. I hope you like it though...
             <<endif>>
         <<else>>
-            <<set $USC_Dialogue to RandomRange(1,5)>>
+            <<set $USC_Dialogue = Dice(5)>>
             //Lovers
             <<if $USC_Dialogue == 1>>
                 Tommy: I was going through my closet this weekend and I was thinking that I have a ton of clothes.

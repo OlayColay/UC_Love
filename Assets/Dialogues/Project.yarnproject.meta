@@ -13,8 +13,49 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: f37b49ebfe56ace4b978250d57be6aba, type: 3}
   - {fileID: 6391573757903218779, guid: 4d3fb399b2078c74fb8e6c062efea728, type: 3}
   - {fileID: 6391573757903218779, guid: 48b9f80bc715f2947a5a34fbeeeea3b1, type: 3}
+  - {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   compileErrors: []
-  serializedDeclarations: []
+  serializedDeclarations:
+  - name: $HeSheTheyLowercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node IntroWakingUpinDorm, line 28
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HimHerThemLowercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node IntroWakingUpinDorm, line 29
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HeSheTheyUppercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node IntroWakingUpinDorm, line 30
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $HimHerThemUppercase
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Tutorial.yarn, node IntroWakingUpinDorm, line 31
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: bf3c8b9e6e7ab5643a7d893b50bd1a6e, type: 3}
+  - name: $BerkeleyDialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dialogue Pools Test.yarn, node TalktoBerkeley, line 1
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: f37b49ebfe56ace4b978250d57be6aba, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0
