@@ -85,10 +85,19 @@ public class GymMinigameController : MonoBehaviour
         else
         {
             // Debug.Log("You win!");
-
+            GainMoney();
             minigameDone = true;
             minigameWon = true;
         }
+    }
+
+    private void GainMoney()
+    {
+        int liftMoney = 5 * (liftTarget + 100*liftLossPerFrame - 50*(int)liftTime)/liftGainPerPress;
+        int punchMoney = (int)(100 * (punchTarget/punchTime));
+        int pushupMoney = (int)(pushupTarget*pushupSpeed / (5*(float)(pushupMax - pushupThreshold)/pushupMax));
+        Inventory.ChangeMoney(liftMoney + punchMoney + pushupMoney);
+        Debug.Log("Money gained: " + liftMoney + ' ' + punchMoney + ' ' + pushupMoney);
     }
 
     #region Lift
