@@ -1,0 +1,110 @@
+﻿title: Library
+tags:
+---
+<<if $TimeOfDay == 0>>
+    <<FadeBackground Backgrounds/Gym/Morning 0>>
+<<elseif $TimeOfDay == 1>>
+    <<FadeBackground Backgrounds/Gym/Noon 0>>
+<<else>>
+    <<FadeBackground Backgrounds/Gym/Night 0>>
+<<endif>>
+-> Meet someone
+    <<jump UCB>>
+-> Work
+    Player: Oops! There's no job to do here currently.
+    <<jump Library>>
+===
+title: UCB
+position: 194,-58
+---
+<<set $TalkKelly to false>>
+<<set $GiftKelly to false>>
+<<set $AskKelly to false>>
+<<SetSprite Middle Kelly/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Kelly <<if $TalkKelly == false>>
+    <<set $TalkKelly to true>>
+    <<AddRelationshipScore Kelly 10>>
+    <<set $UCB_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Kelly") < 100>>
+        // Strangers
+        <<if $UCB_Dialogue == 1>>
+            Kelly: I'm busy.
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Don't you have some studying to do?
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: Are you looking for Ellie?
+                -> Yeah! Have you seen her around?
+                    Player: Yeah! Have you seen her around?
+                    <<SetSprite Middle Kelly/Angry>>
+                    <<AddRelationshipScore -20>>
+                    Kelly: Ugh... BUG OFF and look for her yourself!
+                    <<SetSprite Middle Kelly/Idle>>
+                -> No, I was just heading to the library to study!
+                    Player: No, I was just heading to the library to study!
+                    Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
+                    Kelly: I've been a little on edge... sorry. 
+                    Kelly: 
+                -> No, I was looking for you!
+                    Player: No, I was just looking for you!
+                    <<SetSprite Middle Berkeley/lbom>>
+                    <<Shake Middle>>
+                    Kelly: Oh!
+                    Kelly: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
+                    <<SetSprite Middle Berkeley/Idle>>
+                    Kelly: ...I have to get back to studying though, sorry.
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: What an... interesting... choice of an outfit...
+        <<else>> 
+            Kelly: Looking for a fight or something?
+            Kelly: I'd totally take you on but uh... I don't want to scuff my Bucci watch. 
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>>
+        //Acquaintances
+        <<if $UCB_Dialogue == 1>>
+            Kelly: Oh it's you again. You seem to come here often. 
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Y'know? You're not so bad for a public school kid.
+                -> Thanks?
+                    Player: Thanks?
+                    Kelly: You're welcome!
+                    Kelly: Our business school is objectively better though.
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: Do you like taking night time walks too?
+                -> Yeah!
+                    Kelly: Me too. It's nice to take a break from the city life once in a while. 
+                -> I just come here to see you. 
+                    Player: To be honest, I just come here to see you.
+                    Kelly: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
+                    Kelly: Creep. 
+                -> No, I just came here to fight you!
+                    <<AddRelationshipScore Kelly -20>>
+                    Player: No, I just came here to fight you!
+                    Kelly: I'd totally take you on but uh... 
+                    Kelly: I'm carrying... eggs... in my....pocket... 
+                    Kelly: ...AND I DON'T WANT THEM TO BREAK!!
+                    Kelly: ...so maybe another day...
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: Sometimes you can see the squirrels do funny things at night.
+            Kelly: One time I was eating and a squirrel started yelling at me to give it food.
+            Kelly: You have to resist feeding them though. 
+            Kelly: The writer of this dialogue sequence got a nasty squirrel bite trying to feed one of those bastards. 
+            Kelly: It made her bleed a ton and she still has the scar.
+            Kelly: But I digress.
+        <<else>> 
+            Kelly: Hey real quick, which color combination do you think looks better?
+            Kelly: Red and yellow or red and green?
+                -> Red and yellow!
+                    <<AddRelationshipScore Kelly 10>>
+                    Player: Red and yellow!
+                    Kelly: FINALLY a person with culture. 
+                    Kelly: I've been trying to tell my friend this but he won't listen.
+                -> Red and green!
+                    Player: Red and green!
+                    Kelly: I think they clash a little too much but whatever.
+<<endif>>
+-> Leave
+    <<jump Library>>
+
+===

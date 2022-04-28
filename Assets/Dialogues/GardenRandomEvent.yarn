@@ -4,9 +4,6 @@ position: -107,2
 ---
 // REMOVE THIS
 <<AddItem 10 10 10 10 10 20 Gifts/BucciWallet "Bucci Wallet">>
-<<set $TalkTommy to false>>
-<<set $GiftTommy to false>>
-<<set $AskTommy to false>>
 <<set $TimeOfDay to GetTimeOfDay()>>
 <<if $TimeOfDay == 0>>
     <<FadeBackground Backgrounds/Garden/Morning 0>>
@@ -29,8 +26,12 @@ position: -107,2
 title: USC
 position: 210,112
 ---
+<<set $TalkTommy to false>>
+<<set $GiftTommy to false>>
+<<set $AskTommy to false>>
 <<SetSprite Middle Tommy/Idle>>
 <<SetActiveChar Middle>>
+Player: What should I do?
 -> Talk to Tommy <<if $TalkTommy == false>>
     <<set $TalkTommy to true>>
     <<AddRelationshipScore Tommy 10>>
@@ -168,6 +169,7 @@ position: 210,112
                 -> It's alright! Just treat me out for food some time alright?
                     <<AddRelationshipScore Tommy 10>>
                     Player: It's alright! Just treat me out for food some time alright?
+                    Tommy: Yeah! Of course!
                 -> Yeah that was pretty awful of you...
                     Player: Yeah... that was pretty awful of you...
                     Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
@@ -265,6 +267,7 @@ position: 204,-37
     Player: Woah! I found $200 on the ground! Sweet!
 <<elseif $Random_Event_Dialogue == 2>>
     Player: Woah! I found $50 on the ground! Sweet!
+    <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 3>>
     Player: I just heard a voice telling me that Kelly loves sheet masks...
     Player: Makes sense since she's stressed all the time...
@@ -286,9 +289,11 @@ position: 204,-37
 <<elseif $Random_Event_Dialogue == 9>>
     Player: Goddammit! The squirrel took $50 from me.
     Player: Literally what does he even need it for?!
+    <<AddMoney -50>>
 <<elseif $Random_Event_Dialogue == 10>>
     Player: Goddammit! The squirrel took $100 from me.
     Player: Literally what does he even need it for?!
+    <<AddMoney -100>>
 <<elseif $Random_Event_Dialogue == 11>>
     Player: I just heard a voice telling me something about a person wearing red and liking Bucci wallets.
     Player: I must be sleep deprived or something.
