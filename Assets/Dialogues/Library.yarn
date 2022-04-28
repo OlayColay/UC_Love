@@ -103,7 +103,8 @@ Player: What should I do?
                 -> Red and green!
                     Player: Red and green!
                     Kelly: I think they clash a little too much but whatever.
-<<endif>>
+        <<endif>>
+    <<endif>>
 -> Leave
     <<jump Library>>
 
