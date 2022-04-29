@@ -2,8 +2,6 @@
 tags:
 position: -107,2
 ---
-// REMOVE THIS
-<<AddItem 10 10 10 10 10 20 Gifts/BucciWallet "Bucci Wallet">>
 <<set $TimeOfDay to GetTimeOfDay()>>
 <<if $TimeOfDay == 0>>
     <<FadeBackground Backgrounds/Garden/Morning 0>>

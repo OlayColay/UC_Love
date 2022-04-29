@@ -27,13 +27,13 @@ position: 185,-96
     Kelly: Are you looking for Ellie? 
     -> Yeah! Have you seen her around?
         Kelly: Ugh... bug off and look for her yourself. 
-        <<AddRelationshipScore Kelly -2>>
+        <<AddRelationshipScore Kelly -20>>
     -> No, I was looking for you!
+        <<AddRelationshipScore Kelly 10>>
         <<SetSprite Middle Berkeley/LightBlush>>
         <<Shake Middle>>
         Kelly: Oh... um I'm a little busy studying right now, sorry.
         <<SetSprite Middle Berkeley/Idle>>
-        <<AddRelationshipScore Kelly 2>>
 <<endif>>
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>

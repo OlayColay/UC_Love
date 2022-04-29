@@ -9,10 +9,17 @@ tags:
     <<FadeBackground Backgrounds/Gym/Night 0>>
 <<endif>>
 -> Meet someone
-    <<jump UCB>>
+    <<if $TimeOfDay == 1 || $TimeOfDay == 2>>
+        <<jump UCB>>
+    <<else>>
+        <<jump UCLA>>
+    <<endif>>
 -> Work
     Player: Oops! There's no job to do here currently.
     <<jump Library>>
+    //After Working works, update time
+-> Leave  
+    <<LoadScene MapScene>>
 ===
 title: UCB
 position: 194,-58
@@ -38,14 +45,46 @@ Player: What should I do?
                 -> Yeah! Have you seen her around?
                     Player: Yeah! Have you seen her around?
                     <<SetSprite Middle Kelly/Angry>>
-                    <<AddRelationshipScore -20>>
+                    <<Shake Middle>>
+                    <<AddRelationshipScore Kelly -20>>
                     Kelly: Ugh... BUG OFF and look for her yourself!
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: sigh...
                     <<SetSprite Middle Kelly/Idle>>
                 -> No, I was just heading to the library to study!
                     Player: No, I was just heading to the library to study!
                     Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
                     Kelly: I've been a little on edge... sorry. 
-                    Kelly: 
+                    Kelly: What subject are you studying for today?
+                    -> Computer Science!
+                        <<AddRelationshipScore Kelly 10>>
+                        Player: Computer science! 
+                        <<SetSprite Middle Kelly/lbcm>>
+                        Kelly: Oh! I'm a computer science major!
+                        Kelly: Well... a computer science and political science double major actually...science squared?
+                        <<SetSprite Middle Kelly/sad>>
+                        Kelly: Sorry... that was kind of a lame joke. 
+                        <<SetSprite Middle Kelly/lbom>>
+                        Kelly: Um... 
+                        Kelly: Ah... nevermind... sorry...
+                    -> Chemical Engineering!
+                        Player: Chemical engineering! 
+                        Kelly: Oh! Cool. Um... good luck studying.
+                    -> Psychology!
+                        Player: Psychology!
+                        Kelly: Oh! Cool. Um... good luck studying.
+                    -> Political Science!
+                        <<AddRelationshipScore Kelly 10>>
+                        <<SetSprite Middle Kelly/lbcm>>
+                        Kelly: Oh! I'm a political science major!
+                        Kelly: Well... a computer science and political science major actually...science squared?
+                        <<SetSprite Middle Kelly/sad>>
+                        Kelly: Sorry... that was kind of a lame joke. 
+                        <<SetSprite Middle Kelly/lbom>>
+                        Kelly: Um... if you ever need help...
+                        <<SetSprite Middle Kelly/sad>>
+                        Kelly: ... ah nevermind...sorry...
+                        <<SetSprite Middle Kelly/Idle>>
                 -> No, I was looking for you!
                     Player: No, I was just looking for you!
                     <<SetSprite Middle Berkeley/lbom>>
@@ -55,57 +94,177 @@ Player: What should I do?
                     <<SetSprite Middle Berkeley/Idle>>
                     Kelly: ...I have to get back to studying though, sorry.
         <<elseif $UCB_Dialogue == 4>> 
-            Kelly: What an... interesting... choice of an outfit...
+            Kelly: Ah sorry, I have an assignment due in bit...
         <<else>> 
-            Kelly: Looking for a fight or something?
-            Kelly: I'd totally take you on but uh... I don't want to scuff my Bucci watch. 
+            Kelly: Sorry, I have a test I have to study for today.
         <<endif>>
     <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>>
         //Acquaintances
         <<if $UCB_Dialogue == 1>>
-            Kelly: Oh it's you again. You seem to come here often. 
-        <<elseif $UCB_Dialogue == 2>>
-            Kelly: Y'know? You're not so bad for a public school kid.
-                -> Thanks?
-                    Player: Thanks?
-                    Kelly: You're welcome!
-                    Kelly: Our business school is objectively better though.
-        <<elseif $UCB_Dialogue == 3>>
-            Kelly: Do you like taking night time walks too?
-                -> Yeah!
-                    Kelly: Me too. It's nice to take a break from the city life once in a while. 
-                -> I just come here to see you. 
-                    Player: To be honest, I just come here to see you.
-                    Kelly: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
-                    Kelly: Creep. 
-                -> No, I just came here to fight you!
-                    <<AddRelationshipScore Kelly -20>>
-                    Player: No, I just came here to fight you!
-                    Kelly: I'd totally take you on but uh... 
-                    Kelly: I'm carrying... eggs... in my....pocket... 
-                    Kelly: ...AND I DON'T WANT THEM TO BREAK!!
-                    Kelly: ...so maybe another day...
-        <<elseif $UCB_Dialogue == 4>> 
-            Kelly: Sometimes you can see the squirrels do funny things at night.
-            Kelly: One time I was eating and a squirrel started yelling at me to give it food.
-            Kelly: You have to resist feeding them though. 
-            Kelly: The writer of this dialogue sequence got a nasty squirrel bite trying to feed one of those bastards. 
-            Kelly: It made her bleed a ton and she still has the scar.
-            Kelly: But I digress.
-        <<else>> 
-            Kelly: Hey real quick, which color combination do you think looks better?
-            Kelly: Red and yellow or red and green?
-                -> Red and yellow!
+            Kelly: You seem to come here often.
+                -> Yeah, it's one of my favorite study spots!
                     <<AddRelationshipScore Kelly 10>>
-                    Player: Red and yellow!
-                    Kelly: FINALLY a person with culture. 
-                    Kelly: I've been trying to tell my friend this but he won't listen.
-                -> Red and green!
-                    Player: Red and green!
-                    Kelly: I think they clash a little too much but whatever.
+                    Player: Yeah, it's one of my favorite study spots!
+                    <<SetSprite Middle Kelly/lbcm>>
+                    Kelly: Oh! It's my favorite study spot too.
+                -> Yeah, it's a nice place to nap!
+                    <<AddRelationshipScore Kelly -20>>
+                    Player: Yeah, it's a nice place to nap! Especially in the reading section.
+                    <<SetSprite Middle Kelly/Angry>>
+                    Kelly: Sigh... the library is crowded enough as is.
+                    Kelly: You do realize that people need to work here, right?
+                    Kelly: Ugh...
+                    <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Ugh... my skin has been so dry lately...
+            Kelly: Staying up late studying and drinking all this coffee is really messing with my skin.
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: 
+        <<else>> 
+            Kelly: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>>
+        // Friends
+        <<if $UCB_Dialogue == 1>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly:
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: 
+        <<else>> 
+            Kelly:
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>>
+        // Crushing
+        <<if $UCB_Dialogue == 1>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly:
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: 
+        <<else>> 
+            Kelly:
+        <<endif>>    
+    <<else>>
+        // Lovers
+        <<if $UCB_Dialogue == 1>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: 
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly:
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: 
+        <<else>> 
+            Kelly:
+        <<endif>>   
+    <<endif>>
+-> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCB>>
+    <<endif>> 
+    <<set $GiftKelly = true>>
+    <<set $GiftScore = GetItemScore("Kelly")>>
+    <<AddRelationshipScore Kelly {$GiftScore}>>
+    <<if $GiftScore == 20>>
+        //Loved Gift
+        <<SetSprite Middle Kelly/hbom>>
+        Kelly: H-huh? T-thank you! How'd you know that I really love these...
+        <<SetSprite Middle Kelly/Idle>>
+    <<elseif $GiftScore == 10>>
+        //Liked Gift
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: Oh! Uh… thanks!
+        <<SetSprite Middle Kelly/Idle>>
+    <<else>>
+        //Hated Gift
+        <<SetSprite Middle Kelly/Angry>>
+        Kelly: Is this a joke?
+        <<SetSprite Middle Kelly/Idle>>
+    <<endif>>
+    <<jump UCB>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+
+===
+title: UCLA
+position: 194,65
+---
+Player: What should I do?
+-> Talk to Ellie
+    <<if GetRelationshipScore("Ellie") < 100>>
+        //Strangers
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie:
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: 
+        <<else>> 
+            Ellie:
+        <<endif>>
+    <<elseif GetRelationshipScore("Ellie") >= 100 && GetRelationshipScore("Ellie") < 200>>
+        //Acquaintances
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie:
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: 
+        <<else>> 
+            Ellie:
+        <<endif>>
+    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Kelly") < 300>>
+        // Friends
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie:
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: 
+        <<else>> 
+            Ellie:
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>>
+        // Crushing
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie:
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: 
+        <<else>> 
+            Ellie:
+        <<endif>>    
+    <<else>>
+        // Lovers
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: 
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie:
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: 
+        <<else>> 
+            Ellie:
         <<endif>>
     <<endif>>
--> Leave
-    <<jump Library>>
 
 ===
