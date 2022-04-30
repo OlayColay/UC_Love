@@ -64,8 +64,7 @@ Player: What should I do?
                 -> Thanks?
                     Player: Thanks?
                     Tommy: You're welcome!
-                    Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card.
-                    Tommy: So your tuition is free! 
+                    Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card, so your tuition is free! 
                     Player: ...
         <<elseif $USC_Dialogue == 3>>
             Tommy: Do you like taking night time walks too?
@@ -84,16 +83,14 @@ Player: What should I do?
                     Tommy: ...so maybe another day...
         <<elseif $USC_Dialogue == 4>> 
             Tommy: Sometimes you can see the squirrels do funny things at night.
-            Tommy: One time I was eating and a squirrel started yelling at me to give it food.
-            Tommy: You have to resist feeding them though. 
+            Tommy: One time I was eating and a squirrel started yelling at me to give it food. You have to resist feeding them though. 
             Tommy: The writer of this dialogue sequence got a nasty squirrel bite trying to feed one of those bastards. 
             Tommy: It made her bleed a ton and she still has the scar.
             Tommy: But I digress.
         <<else>> 
             Tommy: To be honest, I don't really know why we still have national debt.
-            Tommy: Can't the government just print more money or something?
-            Tommy: That's what I would do if I was president.
-            Tommy: Maybe I should run for president after college! I'll make my own party
+            Tommy: Can't the government just print more money or something? That's what I would do if I was president.
+            Tommy: Maybe I should run for president after college! I'll make my own party! I'll call it the "Deez Nuts" party!
         <<endif>>
     <<elseif GetRelationshipScore("Tommy") >= 160 && GetRelationshipScore("Tommy") < 240>>
         // Friends
@@ -265,7 +262,8 @@ Player: What should I do?
 title: RandomEvent
 position: 204,-37
 ---
-<<set $Random_Event_Dialogue to RandomRange (1,18)>>
+//<<set $Random_Event_Dialogue to RandomRange (1,20)>>
+<<set $Random_Event_Dialogue to 18>>
     <<set $TimeOfDay to $TimeOfDay + 1>>
 <<if $Random_Event_Dialogue == 1>>
     <<AddMoney 200>>
@@ -323,16 +321,19 @@ position: 204,-37
     //USC special item
     Player: Oh! I found a watch! It looks expensive... I wonder who it belongs to...
 <<elseif $Random_Event_Dialogue == 18>>
-    <<SetSprite Middle Squirrel>>
+    <<SetSprite Middle Squirrel/Idle>>
     Player: Oh! A squirrel! Hey there buddy!
     <<Shake Middle>>
     Player: Oh? You're approaching me? 
+    <<SetSprite Middle Squirrel/Menacing>>
+    <<Shake Middle>>
     Player: Instead of running away, you're coming right to me...
     Squirrel: ...
     Player: ...?
-    <<Shake Middle>>
+    <<SetSprite Middle Squirrel/Idle>>
+    <<Shake Middle 999 60>>
     Squirrel: !!!
-    Player: OH MY GOD! HOLY SHIT!!! I'M BEING ATTACKED BY A SQUIRREL!!!!
+    Player: OH MY GOD! HELP ME!!! HOLY SHIT!!! I'M BEING ATTACKED BY A SQUIRREL!!!!
     <<ClearSprite Middle>>
     Player: .... owww... that hurt a lot more than I anticipated...
     Player: AND HE TOOK $50??? WHY!!!

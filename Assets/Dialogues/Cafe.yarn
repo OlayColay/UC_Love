@@ -1,0 +1,39 @@
+﻿title: Cafe
+tags:
+---
+<<FadeBackground Backgrounds/Cafe 0>>
+<<set $TimeOfDay to GetTimeOfDay()>>
+Player: What should I do?
+-> Meet someone
+    <<if $TimeOfDay == 0>>
+        <<jump UCB>>
+    <<elseif $TimeOfDay == 1>>
+        <<jump UCR>>
+    <<else>>
+        <<jump UCI>>
+    <<endif>>
+-> Work
+    //ADD CAFE MINIGAME IN HERE WHEN IT IS DONE
+    Player: Oops! The cafe mini game isn't done yet.
+    Player: Wait... why do I know this?
+    <<jump Cafe>>
+-> Leave
+    <<jump MapScene>>
+
+
+===
+title: UCB
+position: 204,-73
+---
+//PASTE UCB CODE HERE WHEN YOU FINISH IT ON THE LIBRARY FILE
+===
+title: UCI
+position: 205,-2
+---
+//WRITE UCI CODE HERE
+===
+title: UCR
+position: 207,66
+---
+//WRITE UCR CODE HERE
+===
