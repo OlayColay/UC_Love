@@ -142,8 +142,7 @@ Player: What should I do?
                     Tommy: Oh! Do you want to borrow my jacket?  
                         -> Take the jacket.
                             Player: Thanks! 
-                            Tommy: Don't mention it. 
-                            Tommy: Don't worry about washing it or returning it! I have plenty.
+                            Tommy: Don't mention it. Don't worry about washing it or returning it! I have plenty.
                             Tommy: ...Besides you look really good with it on. 
                         -> Turn him down. 
                             Player: Oh no, I'm good!
@@ -152,12 +151,36 @@ Player: What should I do?
                     Player: Not really.
                     Tommy: Oh ok. But if you catch a cold don't spread it to me!
         <<elseif $USC_Dialogue == 2>>
-            Tommy: I'm kind of hungry. 
-            Tommy: We should grab dinner together some time. My treat!
+            Tommy: I made a lot of random businesses when I was growing up.
+            Tommy: I remember for one of them I would charge people $5 to generate a password for them.
+            Tommy: My parents' friends would all support my business too, which is kind of weird because now I know the password of the governor's email.
+            Tommy: I wonder if he still uses that same password... that'd be a state security crisis wouldn't it?
+            Tommy: What if we tried logging into his email? We could reverse the whole merging thing of the UC schools... if you want...
+            Tommy: I'd really miss seeing you around at night though, but I want you to be happy.
+                -> Let's do it!
+                    Tommy: Just give me a minute to punch in his login information... done!
+                    Tommy: Hey...Are you sure you want to do this?
+                        -> Yes! I can't wait to get back to how things were before all of this mess!
+                            Tommy: Alright... I logged in! I'm sending out an executive order to reverse the UC consolidation. 
+                            Tommy: Ok... it's done! I guess starting tomorrow, you can start going to class normally.
+                            Tommy: I'm not sure why, but I'll really miss seeing you around!
+                            Tommy: I can't seem to shake the feeling that we were supposed be something more though...
+                            Tommy: Take care alright? Goodbye...
+                            <<FadeBackground BadEndClassroom 5>>
+                            Player: I can't believe that Tommy was actually able to deconsolidate the UCs! 
+                            Player: It feels great to go back to school normally again... but I can't help but feel incomplete for some reason...
+                            <<Fade false>>
+                            <<LoadScene UiScene>>
+                        -> Actually, this might not be a good idea...
+                            Player: Actually, this might not be a good idea...
+                            Tommy: Yeah... we could get in major trouble for this... the kind my family probably can't bail me out of...
+                -> We probably shouldn't hack into the governor's email...
+                    Player: We probably shouldn't hack into the governor's email...
+                    Tommy: Yeah...you're right. We could get in major trouble for this... the kind my family probably can't bail me out of...
+                    Tommy: More days to spend with you I suppose!
         <<elseif $USC_Dialogue == 3>>
             Tommy: Sorry I was kind of an ass to you when we first met.
-            Tommy: I guess I grew up pretty sheltered...
-            Tommy: But still, that doesn't excuse my behavior. 
+            Tommy: I guess I grew up pretty sheltered...but still, that doesn't excuse my behavior. 
             Tommy: I'm sorry... I hope that I can make it up to you. 
                 -> It's alright! Just treat me out for food some time alright?
                     <<AddRelationshipScore Tommy 10>>
@@ -167,11 +190,10 @@ Player: What should I do?
                     Player: Yeah... that was pretty awful of you...
                     Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
         <<elseif $USC_Dialogue == 4>> 
-            Tommy: Y'know, I wouldn't mind going out sometime with you... 
-            Tommy: Maybe to some place nice. 
+            Tommy: Y'know, I wouldn't mind going out sometime with you... maybe to some place nice. 
         <<else>> 
             Tommy: I saw this sweater at the Bucci store the other day.
-            Tommy: It had a bear on it and it reminded me of you.
+            Tommy: It had a bear on it and it reminded me of you. 
             Tommy: Anyways, I bought it for you. 
             Tommy: Oh it's not that expensive or anything. It was on sale for like $2000.
             Tommy: Nothing major. I hope you like it though...
@@ -205,8 +227,17 @@ Player: What should I do?
                     Tommy: ... but there's this charity I was looking at that I think could better use them.
         <<elseif $USC_Dialogue == 2>>
             Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
-            Tommy: There's this one kid that comes from a more disadvantaged family, but he works really hard and he's really smart.
-            Tommy: It made me think about how 
+                -> I hope you aren't tutoring in economics Mr. Money Grows on Trees!
+                    Player: I hope you aren't tutoring him in economics Mr. Money Grows on Trees!
+                    Tommy: Hey! I know money doesn't grow on trees! 
+                    Tommy: Supply and demand confuses me... and I'm still not sure how a credit card works, but that was kind of mean!
+                    Tommy: I'm tutoring him in English and public speaking, for your information...
+                -> What's that like?
+                    Tommy: Oh! It's pretty cool! I tutor kids in English and in public speaking. 
+                    Tommy: There's this one kid that comes from a more disadvantaged family, but he works really hard and he's really smart.
+                    Tommy: It made me think about how lucky I am to be born off in a well-off family...
+                    Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
+                    Tommy: I'm a lot more grateful for what I have. I think I still want to do something more for people like my tutee though.
         <<elseif $USC_Dialogue == 3>>
             Tommy: 
         <<elseif $USC_Dialogue == 4>> 
@@ -344,7 +375,7 @@ position: 204,-37
     Player: Hey there buddy!
     Squirrel: Hey.
     Player: Wait did that squirrel just TALK??
-    <<ClearSprite>>
+    <<ClearSprite Middle>>
     Player: Wait where'd it go? Wait, why do I have $300 more dollars in my pocket?
     Player: I swear there was a squirrel here just now...
     Player: I need to get more sleep...

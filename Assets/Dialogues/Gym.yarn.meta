@@ -11,16 +11,4 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages:
-  - '5:0: Error: $TimeOfDay (Number) cannot be assigned a undefined
-
-    <<set $TimeOfDay
-    to GetTimeOfDay()>>
-
-'
-  - '5:0: Error: $TimeOfDay (Number) cannot be assigned a undefined
-
-    <<set $TimeOfDay
-    to GetTimeOfDay()>>
-
-'
+  parseErrorMessages: []
