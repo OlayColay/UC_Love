@@ -12,7 +12,7 @@ public static class Inventory
     public static readonly string[] names = { "Kelly", "Ellie", "Santana", "Riviera", "Irene", "Tommy" };
     public static Dictionary<string, int> relationshipScores = new Dictionary<string, int>();
     private static int day;
-    private static int time = 2;    // 0 for morning, 1 for afternoon, 2 for night
+    private static int time = 0;    // 0 for morning, 1 for afternoon, 2 for night
     private static int money;
 
     

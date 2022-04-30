@@ -2,12 +2,12 @@
 tags:
 ---
 <<FadeBackground Backgrounds/Cafe 0>>
-<<set $TimeOfDay to GetTimeOfDay()>>
+<<set $TimeOfDayCafe to GetTimeOfDay()>>
 Player: What should I do?
 -> Meet someone
-    <<if $TimeOfDay == 0>>
+    <<if $TimeOfDayCafe == 0>>
         <<jump UCB>>
-    <<elseif $TimeOfDay == 1>>
+    <<elseif $TimeOfDayCafe == 1>>
         <<jump UCR>>
     <<else>>
         <<jump UCI>>

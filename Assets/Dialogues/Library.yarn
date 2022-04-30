@@ -1,7 +1,7 @@
 ﻿title: Library
 tags:
 ---
-<<set $TimeofDay to GetTimeofDay()>>
+<<set $TimeofDay to GetTimeOfDay()>>
 <<if $TimeofDay == 0>>
     <<FadeBackground Backgrounds/Gym/Morning 0>>
 <<elseif $TimeofDay == 1>>

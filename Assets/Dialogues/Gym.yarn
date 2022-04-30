@@ -2,11 +2,11 @@
 tags:
 ---
 //BACKGROUND 
-<<set $TimeOfDay to GetTimeOfDay()>>
-<<if $TimeOfDay == 0>>
+<<set $TimeOfDayGym to GetTimeOfDay()>>
+<<if $TimeOfDayGym == 0>>
     <<FadeBackground Backgrounds/Gym/Morning 0>>
     //Sets background as Gym Morning if it is Daytime
-<<elseif $TimeOfDay == 1>>
+<<elseif $TimeOfDayGym == 1>>
     <<FadeBackground Backgrounds/Gym/Noon 0>>
     //Sets background as Gym Afternoon if it is Afternoon
 <<else>>

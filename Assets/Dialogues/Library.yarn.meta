@@ -11,10 +11,4 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages:
-  - '175:4: Error: $GiftScore (Number) cannot be assigned a undefined
-
-    <<set
-    $GiftScore = GetItemScore("Kelly")>>
-
-'
+  parseErrorMessages: []
