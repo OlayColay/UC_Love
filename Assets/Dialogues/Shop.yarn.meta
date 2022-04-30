@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 121438914b2cb8e42be993d55ec94f57
+guid: b0de4173aeac5394c996ef379b49055b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,10 +11,4 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages:
-  - '175:4: Error: $GiftScore (Number) cannot be assigned a undefined
-
-    <<set
-    $GiftScore = GetItemScore("Kelly")>>
-
-'
+  parseErrorMessages: []

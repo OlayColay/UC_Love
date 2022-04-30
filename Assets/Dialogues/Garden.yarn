@@ -21,7 +21,7 @@ position: -107,2
         <<jump USC>>
     <<endif>>  
 -> Leave
-    <<jump MapScene>>
+    <<LoadScene MapScene>>
 ===
 title: USC
 position: 210,112

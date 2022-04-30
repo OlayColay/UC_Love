@@ -1,16 +1,16 @@
 ﻿title: Library
 tags:
 ---
-<<set $TimeOfDay to GetTimeOfDay()>>
-<<if $TimeOfDay == 0>>
+<<set $TimeofDay to GetTimeofDay()>>
+<<if $TimeofDay == 0>>
     <<FadeBackground Backgrounds/Gym/Morning 0>>
-<<elseif $TimeOfDay == 1>>
+<<elseif $TimeofDay == 1>>
     <<FadeBackground Backgrounds/Gym/Noon 0>>
 <<else>>
     <<FadeBackground Backgrounds/Gym/Night 0>>
 <<endif>>
 -> Meet someone
-    <<if $TimeOfDay == 1 || $TimeOfDay == 2>>
+    <<if $TimeofDay == 1 || $TimeofDay == 2>>
         <<jump UCB>>
     <<else>>
         <<jump UCLA>>
@@ -172,14 +172,14 @@ Player: What should I do?
         <<jump UCB>>
     <<endif>> 
     <<set $GiftKelly = true>>
-    <<set $GiftScore = GetItemScore("Kelly")>>
-    <<AddRelationshipScore Kelly {$GiftScore}>>
-    <<if $GiftScore == 20>>
+    <<set $GiftScoreK = GetItemScore("Kelly")>>
+    <<AddRelationshipScore Kelly {$GiftScoreK}>>
+    <<if $GiftScoreK == 20>>
         //Loved Gift
         <<SetSprite Middle Kelly/hbom>>
         Kelly: H-huh? T-thank you! How'd you know that I really love these...
         <<SetSprite Middle Kelly/Idle>>
-    <<elseif $GiftScore == 10>>
+    <<elseif $GiftScoreK == 10>>
         //Liked Gift
         <<SetSprite Middle Kelly/lbcm>>
         Kelly: Oh! Uh… thanks!
@@ -218,7 +218,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCB>>
 -> Leave
-    <<UpdateTimeOfDay>>
+    <<UpdateTimeofDay>>
     <<LoadScene MapScene>>
 ===
 title: UCLA

@@ -1,0 +1,15 @@
+﻿title: StudentStore
+tags:
+---
+<<Fade true>>
+
+// Adding Items to Shop
+// <<AddToShop index LAScore BScore SBScore RScore IScore USCScore spritePath name cost isKeyItem?>>
+<<AddToShop 0 3 -1 4 5 0 3 Gifts/Boof Boof 10>>
+<<AddToShop 1 3 1 4 5 0 6 Gifts/SuperBoof "Super Boof" 20 true>>
+
+-> Shop
+    <<OpenShop>>
+-> Leave
+    <<LoadScene MapScene>>
+===
