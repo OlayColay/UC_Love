@@ -293,8 +293,7 @@ Player: What should I do?
 title: RandomEvent
 position: 204,-37
 ---
-//<<set $Random_Event_Dialogue to RandomRange (1,20)>>
-<<set $Random_Event_Dialogue to 18>>
+<<set $Random_Event_Dialogue to RandomRange (1,20)>>
     <<set $TimeOfDay to $TimeOfDay + 1>>
 <<if $Random_Event_Dialogue == 1>>
     <<AddMoney 200>>
