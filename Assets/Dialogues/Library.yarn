@@ -1,6 +1,7 @@
 ﻿title: Library
 tags:
 ---
+<<set $TimeOfDay to GetTimeOfDay()>>
 <<if $TimeOfDay == 0>>
     <<FadeBackground Backgrounds/Gym/Morning 0>>
 <<elseif $TimeOfDay == 1>>
@@ -190,10 +191,35 @@ Player: What should I do?
         <<SetSprite Middle Kelly/Idle>>
     <<endif>>
     <<jump UCB>>
+-> Ask <<if $AskKelly == false>>
+    -> Ask on a date
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 300>>
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I can make time for a date!
+            <<jump KellyDate>>
+        <<else>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: No, I have a test to study for.
+            <<SetSprite Middle Kelly/Idle>>>>
+            <<jump UCB>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Kelly: Y-yes! I'd love to!
+        <<else>>
+            Kelly: I have a project I have to work on...
+            <<AddRelationshipScore Kelly -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCB>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
-
 ===
 title: UCLA
 position: 194,65

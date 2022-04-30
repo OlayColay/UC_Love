@@ -20,6 +20,8 @@ position: -107,2
     <<else>>
         <<jump USC>>
     <<endif>>  
+-> Leave
+    <<jump MapScene>>
 ===
 title: USC
 position: 210,112
@@ -62,7 +64,9 @@ Player: What should I do?
                 -> Thanks?
                     Player: Thanks?
                     Tommy: You're welcome!
-                    Tommy: Our business school is objectively better though.
+                    Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card.
+                    Tommy: So your tuition is free! 
+                    Player: ...
         <<elseif $USC_Dialogue == 3>>
             Tommy: Do you like taking night time walks too?
                 -> Yeah!
@@ -86,16 +90,10 @@ Player: What should I do?
             Tommy: It made her bleed a ton and she still has the scar.
             Tommy: But I digress.
         <<else>> 
-            Tommy: Hey real quick, which color combination do you think looks better?
-            Tommy: Red and yellow or red and green?
-                -> Red and yellow!
-                    <<AddRelationshipScore Tommy 10>>
-                    Player: Red and yellow!
-                    Tommy: FINALLY a person with culture. 
-                    Tommy: I've been trying to tell my friend this but he won't listen.
-                -> Red and green!
-                    Player: Red and green!
-                    Tommy: I think they clash a little too much but whatever.
+            Tommy: To be honest, I don't really know why we still have national debt.
+            Tommy: Can't the government just print more money or something?
+            Tommy: That's what I would do if I was president.
+            Tommy: Maybe I should run for president after college! I'll make my own party
         <<endif>>
     <<elseif GetRelationshipScore("Tommy") >= 160 && GetRelationshipScore("Tommy") < 240>>
         // Friends
@@ -209,7 +207,9 @@ Player: What should I do?
                     Tommy: I guess I could...
                     Tommy: ... but there's this charity I was looking at that I think could better use them.
         <<elseif $USC_Dialogue == 2>>
-            Tommy: 
+            Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
+            Tommy: There's this one kid that comes from a more disadvantaged family, but he works really hard and he's really smart.
+            Tommy: It made me think about how 
         <<elseif $USC_Dialogue == 3>>
             Tommy: 
         <<elseif $USC_Dialogue == 4>> 
@@ -244,11 +244,18 @@ Player: What should I do?
         <<if GetRelationshipScore("Tommy") >= 240>>
             <<jump TommyDate>>
         <<else>>
-            Tommy: Do I look like a charity to you? Ew...
+            Tommy: Uhhh... ew...
             <<jump USC>>
         <<endif>>
     -> Ask to the dance
         <<set $AskTommy = true>>
+        <<if GetRelationshipScore("Tommy") >= 400>>
+            Player: Would you like to go to the dance with me?
+            Tommy: I would love to!
+        <<else>>
+            Tommy: Uhhhh... no thanks.
+            <<AddRelationshipScore Tommy -20>>
+        <<endif>>
     -> Cancel
         <<jump USC>>
 -> Leave
@@ -285,13 +292,14 @@ position: 204,-37
 <<elseif $Random_Event_Dialogue == 8>>
     Player: I have a feeling that if I take a walk at night, I'll meet someone unexpected. 
 <<elseif $Random_Event_Dialogue == 9>>
-    Player: Goddammit! The squirrel took $50 from me.
+    Player: Dang it! The squirrel took $50 from me when I wasn't looking. 
     Player: Literally what does he even need it for?!
     <<AddMoney -50>>
 <<elseif $Random_Event_Dialogue == 10>>
-    Player: Goddammit! The squirrel took $100 from me.
-    Player: Literally what does he even need it for?!
-    <<AddMoney -100>>
+    Player: Huh... a squirrel...
+    Player: Oh?! He's giving me $100.
+    Player: Thanks buddy! I'll give you some GFuel sometime. 
+    <<AddMoney 100>>
 <<elseif $Random_Event_Dialogue == 11>>
     Player: I just heard a voice telling me something about a person wearing red and liking Bucci wallets.
     Player: I must be sleep deprived or something.
@@ -301,7 +309,7 @@ position: 204,-37
     Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
 <<elseif $Random_Event_Dialogue == 13>>
     //UCLA special item
-    Player: Oh! I found a INSERT ITEM! It looks special... I wonder who it belongs to...
+    Player: Oh! I found a recipe book! It looks special... I wonder who it belongs to...
 <<elseif $Random_Event_Dialogue == 14>>
     //UCR special item
     Player: Oh! I found a pen! It looks special... I wonder who it belongs to...
@@ -314,11 +322,38 @@ position: 204,-37
 <<elseif $Random_Event_Dialogue == 17>>
     //USC special item
     Player: Oh! I found a watch! It looks expensive... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 18>>
+    <<SetSprite Middle Squirrel>>
+    Player: Oh! A squirrel! Hey there buddy!
+    <<Shake Middle>>
+    Player: Oh? You're approaching me? 
+    Player: Instead of running away, you're coming right to me...
+    Squirrel: ...
+    Player: ...?
+    <<Shake Middle>>
+    Squirrel: !!!
+    Player: OH MY GOD! HOLY SHIT!!! I'M BEING ATTACKED BY A SQUIRREL!!!!
+    <<ClearSprite Middle>>
+    Player: .... owww... that hurt a lot more than I anticipated...
+    Player: AND HE TOOK $50??? WHY!!!
+    <<AddMoney -50>>
+<<elseif $Random_Event_Dialogue == 19>>
+    <<SetSprite Middle Squirrel>>
+    Player: Oh! A squirrel! 
+    Player: Hey there buddy!
+    Squirrel: Hey.
+    Player: Wait did that squirrel just TALK??
+    <<ClearSprite>>
+    Player: Wait where'd it go? Wait, why do I have $300 more dollars in my pocket?
+    Player: I swear there was a squirrel here just now...
+    Player: I need to get more sleep...
+    <<AddMoney 300>>
 <<else>>
     Player: DAMMIT! I sprained my ankle walking near Paines Hall. 
     Player: Better book a urgent care appointment...
-    Player: Looks like my pockets are going to be $200 lighter.
+    Player: Looks like my pockets are going to be $100 lighter.
     PLayer: I wish I went to a private school. 
+    <<AddMoney -100>>
 <<endif>>
 -> Leave
     <<UpdateTimeOfDay>>
