@@ -77,14 +77,14 @@ public class ShopScreen : MonoBehaviour
         }
 
         // If not enough currency, can't buy the item
-        if (false /*< costs[index]*/)
+        if (Inventory.GetMoney() < costs[index])
         {
             Debug.Log("Not enough cash for item!");
             return;
         }
 
         selectedItem = shopItems[index];
-        // Reduce player currency here
+        Inventory.ChangeMoney(-costs[index]);
 
         if (keyItems[index])
         {
