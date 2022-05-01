@@ -18,7 +18,7 @@ Player: What should I do?
     Player: Wait... why do I know this?
     <<jump Cafe>>
 -> Leave
-    <<jump MapScene>>
+    <<LoadScene MapScene>>
 
 
 ===
@@ -26,14 +26,93 @@ title: UCB
 position: 204,-73
 ---
 //PASTE UCB CODE HERE WHEN YOU FINISH IT ON THE LIBRARY FILE
+-> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCB>>
+    <<endif>> 
+    <<set $GiftKelly = true>>
+    <<set $GiftScoreK = GetItemScore("Kelly")>>
+    <<AddRelationshipScore Kelly {$GiftScoreK}>>
+    <<if $GiftScoreK == 20>>
+        //Loved Gift
+        <<SetSprite Middle Kelly/hbom>>
+        Kelly: H-huh? T-thank you! How'd you know that I really love these...
+        <<SetSprite Middle Kelly/Idle>>
+    <<elseif $GiftScoreK == 10>>
+        //Liked Gift
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: Oh! Uh… thanks!
+        <<SetSprite Middle Kelly/Idle>>
+    <<else>>
+        //Hated Gift
+        <<SetSprite Middle Kelly/Angry>>
+        Kelly: Is this a joke?
+        <<SetSprite Middle Kelly/Idle>>
+    <<endif>>
+    <<jump UCB>>
+-> Ask <<if $AskKelly == false>>
+    -> Ask on a date
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 300>>
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I can make time for a date!
+            <<jump KellyDate>>
+        <<else>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: No, I have a test to study for.
+            <<SetSprite Middle Kelly/Idle>>>>
+            <<jump UCB>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Kelly: Y-yes! I'd love to!
+        <<else>>
+            Kelly: I have a project I have to work on...
+            <<AddRelationshipScore Kelly -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCB>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===
 title: UCI
 position: 205,-2
 ---
 //WRITE UCI CODE HERE
+-> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCI>>
+    <<endif>> 
+    <<set $GiftIrene = true>>
+    <<set $GiftScore = GetItemScore("Irene")>>
+    <<AddRelationshipScore Irene {$GiftScore}>>
+    <<if $GiftScore == 20>>
+        //Loved Gift
+        Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
+    <<elseif $GiftScore == 10>>
+        //Liked Gift
+        Irene: Oh pog! Thanks bro!
+    <<else>>
+        //Hated Gift
+        Irene: Bruh...
+    <<endif>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===
 title: UCR
 position: 207,66
 ---
 //WRITE UCR CODE HERE
+
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===

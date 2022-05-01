@@ -129,11 +129,19 @@ Player: What should I do?
     <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>>
         // Friends
         <<if $UCB_Dialogue == 1>>
-            Kelly: 
+            Kelly: Have you tried the campus cafe yet?
+            Kelly: The black coffee there is pretty strong and the lines are never too bad.
+            Kelly: I usually like to stop by in the mornings before spending the rest of my day at the library.
         <<elseif $UCB_Dialogue == 2>>
-            Kelly: 
+            Kelly: Could I get your opinion on something?
+            Kelly: Be honest, do I look intimidating?
+                -> Yeah, a little!
+                <<AddRelationshipScore Kelly 10>>
+                -> No, not at all!
+                    Kelly: I find that hard to believe. 
         <<elseif $UCB_Dialogue == 3>>
-            Kelly:
+            Kelly: I can't believe that midterm season is almost here. 
+            Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
         <<elseif $UCB_Dialogue == 4>> 
             Kelly: 
         <<else>> 
