@@ -5,11 +5,16 @@ tags:
 
 // Adding Items to Shop
 // <<AddToShop index LAScore BScore SBScore RScore IScore USCScore spritePath name cost isKeyItem?>>
-<<AddToShop 0 3 -1 4 5 0 3 Gifts/Boof Boof 10>>
-<<AddToShop 1 3 1 4 5 0 6 Gifts/SuperBoof "Super Boof" 20 true>>
+<<AddToShop 0 10 -10 20 -10 10 -10 Gifts/Bear "Bear Plush" 100>>
+<<AddToShop 1 10 -10 -10 -10 20 -10 "Gifts/B-Fuel" "B-Fuel" 100>>
+<<AddToShop 2 20 -10 10 -10 10 10 Gifts/Flowers Flowers 100>>
+<<AddToShop 3 10 20 10 10 -10 10 Gifts/FaceMask "Sheet Masks" 100>>
+<<AddToShop 4 -10 10 -10 20 10 -10 Gifts/Stationery Stationery 100>>
+<<AddToShop 5 10 10 10 10 10 20 Gifts/BucciWallet "Bucci Wallet" 500>>
 
 -> Shop
     <<OpenShop>>
+    <<jump StudentStore>>
 -> Leave
     <<LoadScene MapScene>>
 ===
