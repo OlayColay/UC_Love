@@ -4,15 +4,16 @@ tags:
 //BACKGROUND 
 <<set $TimeOfDayGym to GetTimeOfDay()>>
 <<if $TimeOfDayGym == 0>>
-    <<FadeBackground Backgrounds/Gym/Morning 0>>
+    <<SetBackground Backgrounds/Gym/Morning>>
     //Sets background as Gym Morning if it is Daytime
 <<elseif $TimeOfDayGym == 1>>
-    <<FadeBackground Backgrounds/Gym/Noon 0>>
+    <<SetBackground Backgrounds/Gym/Noon>>
     //Sets background as Gym Afternoon if it is Afternoon
 <<else>>
-    <<FadeBackground Backgrounds/Gym/NightWarm 0>>
+    <<SetBackground Backgrounds/Gym/NightWarm>>
     //Sets background as Gym Night if it Evening
 <<endif>>
+<<Fade true>>
 //-----------------------------------------------------------------
 //Locations: Library, Cafe, Gym, Garden, Plaza 3 TOD ea -1 for USC Garden night slot -> 14 time slots, 5 girls
 Player: What should I do?

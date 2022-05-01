@@ -3,12 +3,13 @@ tags:
 ---
 <<set $TimeofDay to GetTimeOfDay()>>
 <<if $TimeofDay == 0>>
-    <<FadeBackground Backgrounds/Gym/Morning 0>>
+    <<SetBackground Backgrounds/Gym/Morning>>
 <<elseif $TimeofDay == 1>>
-    <<FadeBackground Backgrounds/Gym/Noon 0>>
+    <<SetBackground Backgrounds/Gym/Noon>>
 <<else>>
-    <<FadeBackground Backgrounds/Gym/Night 0>>
+    <<SetBackground Backgrounds/Gym/Night>>
 <<endif>>
+<<Fade true>>
 -> Meet someone
     <<if $TimeofDay == 1 || $TimeofDay == 2>>
         <<jump UCB>>

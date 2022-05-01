@@ -4,15 +4,16 @@ position: -107,2
 ---
 <<set $TimeOfDay to GetTimeOfDay()>>
 <<if $TimeOfDay == 0>>
-    <<FadeBackground Backgrounds/Garden/Morning 0>>
+    <<SetBackground Backgrounds/Garden/Morning>>
     //Sets background as Garden Morning if it is Daytime
 <<elseif $TimeOfDay == 1>>
-    <<FadeBackground Backgrounds/Garden/Noon 0>>
+    <<SetBackground Backgrounds/Garden/Noon>>
     //Sets background as Garden Afternoon if it is Afternoon
 <<else>>
-    <<FadeBackground Backgrounds/Garden/NightWarm 0>>
+    <<SetBackground Backgrounds/Garden/NightWarm>>
     //Sets background as Garden Night if it Evening
 <<endif>>
+<<Fade true>>
 -> Meet someone
 -> Take a Walk
     <<if $TimeOfDay == 0 || $TimeOfDay == 1>>

@@ -1,7 +1,8 @@
 ﻿title: Cafe
 tags:
 ---
-<<FadeBackground Backgrounds/Cafe 0>>
+<<SetBackground Backgrounds/Cafe>>
+<<Fade true>>
 <<set $TimeOfDayCafe to GetTimeOfDay()>>
 Player: What should I do?
 -> Meet someone
