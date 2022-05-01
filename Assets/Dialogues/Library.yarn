@@ -138,11 +138,21 @@ Player: What should I do?
             Kelly: Be honest, do I look intimidating?
                 -> Yeah, a little!
                 <<AddRelationshipScore Kelly 10>>
+                // UNFINISHED
+                    Kelly: Yeah... I think so too. I do kind of have a grumpy face...
+                    Kelly: To be honest, it was kind of rough growing up with my sister. 
+                    Kelly: I love my sister and she's really sweet, but everyone would always compare me to her and it really cuts deep after a while.
+                    Kelly: I started comparing myself a lot to her too and it has caused a rift between us. 
+                    Kelly: It's something that I still struggle with a lot.
+                    Kelly: She's a lot
+                    Kelly: Thank you for being honest with me though. It makes me feel like I can trust you a lot more.
+                        -> Of course!
+                            Player: Of course!
+                        -> Can I be a little more honest with y
                 -> No, not at all!
                     Kelly: I find that hard to believe. 
         <<elseif $UCB_Dialogue == 3>>
-            Kelly: I can't believe that midterm season is almost here. 
-            Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
+            Kelly:
         <<elseif $UCB_Dialogue == 4>> 
             Kelly: 
         <<else>> 
@@ -151,11 +161,13 @@ Player: What should I do?
     <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>>
         // Crushing
         <<if $UCB_Dialogue == 1>>
-            Kelly: 
+            Kelly: I can't believe that midterm season is almost here. 
+            Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
         <<elseif $UCB_Dialogue == 2>>
-            Kelly: 
+            Kelly: If you're having trouble with your classes, I can try to make some time to tutor you...
+            Kelly: ... if you want...
         <<elseif $UCB_Dialogue == 3>>
-            Kelly:
+            Kelly: 
         <<elseif $UCB_Dialogue == 4>> 
             Kelly: 
         <<else>> 

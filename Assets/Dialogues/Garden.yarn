@@ -120,17 +120,34 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 3>>
             Tommy: What if we were all just living in a simulation or something?
             Tommy: Like just think about all of the philosophical implications of that!
-            Tommy: Like does it even matter that I'm grinding my ass off in my business major?
+            Tommy: None of the designer stuff I collect would really matter since nothing would be real.
+            Tommy: All the business stuff I learned wouldn't really matter since I'm just a ton of code. 
             Tommy: What if my whole personality is just code made by some weird UCLA kid based off of school stereotypes?
             Tommy: Wouldn't that be weird?
         <<elseif $USC_Dialogue == 4>> 
             Tommy: Your outfit's not bad today. I think your sense of style is improving!
         <<else>> 
-            Tommy: Check out my new shoes! 
-            Tommy: They're the new Bucci x Bupreme collaboration!
-            Tommy: Usually, you have to wait in line for like five hours for a chance at buying these.
-            Tommy: But I just bribed a pleb to wait in line for me.
-            Tommy: Work smart not hard. Business major mindset. 
+            Tommy: Even though I'm a business major, I think that I'm pretty nice!
+            Tommy: I saw a tortoise walking around away from water so I picked him up and put him back in the water.
+                -> Wait... tortoises can't swim!
+                    Player: Wait... tortoises can't swim!
+                    Tommy: ...
+                    <<Shake Middle>>
+                    Tommy: They what?!
+                    Tommy: Wait right here! I gotta go fish him out!
+                    <<ClearSprite Middle>>
+                    <<SetSprite Middle USC/Idle>>
+                    Tommy: I got him! Here he is safe and sound!
+                        -> Oh! That's a turtle...
+                            Player: Oh! That's a turtle...
+                            Tommy: OH! I guess I did do the right thing then. That's a relief. 
+                            Tommy: I'm going to go put him back!
+                            <<ClearSprite Middle>>
+                            <<SetSprite Middle USC/Idle>>
+                            Tommy: Alright! He's back home sweet home. What a relief!
+                -> That's nice of you!
+                    Player: That's nice of you!
+                    Tommy: I know right?
         <<endif>>
     <<elseif GetRelationshipScore("Tommy") >= 240 && GetRelationshipScore("Tommy") < 320>>
         // Crushing
@@ -229,6 +246,7 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 2>>
             Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
                 -> I hope you aren't tutoring in economics Mr. Money Grows on Trees!
+                    <<AddRelationshipScore Tommy -10>>
                     Player: I hope you aren't tutoring him in economics Mr. Money Grows on Trees!
                     Tommy: Hey! I know money doesn't grow on trees! 
                     Tommy: Supply and demand confuses me... and I'm still not sure how a credit card works, but that was kind of mean!
@@ -240,11 +258,20 @@ Player: What should I do?
                     Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
                     Tommy: I'm a lot more grateful for what I have. I think I still want to do something more for people like my tutee though.
         <<elseif $USC_Dialogue == 3>>
-            Tommy: 
+            Tommy: I think that the most lovely part about you is your personality.
+            Tommy: I feel like I can talk to you for hours and never get bored.
+            Tommy: You make my days a lot better.
         <<elseif $USC_Dialogue == 4>> 
-            Tommy: 
+            Tommy: Do you ever get scared walking around at night?
+            Tommy: The squirrels around here can be really dangerous if you aren't careful.
+            Tommy: That's why I carry around squirrel repellant when walking around here. 
+            Tommy: I'm not the best fighter, but I would fight off a squirrel to save you, even if it tore my shirt.
+            Tommy: You mean a lot to me.
         <<else>> 
-            Tommy: 
+            Tommy: I used to be really materialistic, but I think that meeting you changed a lot of my perspective. 
+            Tommy: Money really isn't everything, and while having money can alleviate a lot of sources of stress, I think that the best happiness comes from spending time with people you care about.
+            Tommy: There's this show that came out recently that I think you'd like...
+            Tommy: Maybe you can come over to my place and we can watch it together sometime...
         <<endif>>
     <<endif>>
     <<jump USC>>
