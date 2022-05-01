@@ -86,6 +86,12 @@ title: UCI
 position: 205,-2
 ---
 //WRITE UCI CODE HERE
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
 -> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
@@ -112,7 +118,30 @@ title: UCR
 position: 207,66
 ---
 //WRITE UCR CODE HERE
-
+<<set $TalkRiviera to false>>
+<<set $GiftRiviera to false>>
+<<set $AskRiviera to false>>
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+-> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCR>>
+    <<endif>> 
+    <<set $GiftRiviera = true>>
+    <<set $GiftScore = GetItemScore("Riviera")>>
+    <<AddRelationshipScore Riviera {$GiftScore}>>
+    <<if $GiftScore == 20>>
+        //Loved Gift
+        Riviera: Oh thanks! I'm always running out of these! I really love these!
+    <<elseif $GiftScore == 10>>
+        //Liked Gift
+        Riviera: This is pretty nice! Thanks.
+    <<else>>
+        //Hated Gift
+        Riviera: Err… I'm not sure what I'm supposed to do with these…
+    <<endif>>
+    <<jump UCR>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>

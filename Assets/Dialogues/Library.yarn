@@ -36,8 +36,7 @@ Player: What should I do?
     <<set $TalkKelly to true>>
     <<AddRelationshipScore Kelly 10>>
     <<set $UCB_Dialogue = Dice(5)>>
-    <<if GetRelationshipScore("Kelly") < 100>>
-        // Strangers
+    <<if GetRelationshipScore("Kelly") < 100>> //Strangers
         <<if $UCB_Dialogue == 1>>
             Kelly: I'm busy.
         <<elseif $UCB_Dialogue == 2>>
@@ -100,8 +99,7 @@ Player: What should I do?
         <<else>> 
             Kelly: Sorry, I have a test I have to study for today.
         <<endif>>
-    <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>>
-        //Acquaintances
+    <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>> //Acquaintances
         <<if $UCB_Dialogue == 1>>
             Kelly: You seem to come here often.
                 -> Yeah, it's one of my favorite study spots!
@@ -127,8 +125,7 @@ Player: What should I do?
         <<else>> 
             Kelly: 
         <<endif>>
-    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>>
-        // Friends
+    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>> //Friends
         <<if $UCB_Dialogue == 1>>
             Kelly: Have you tried the campus cafe yet?
             Kelly: The black coffee there is pretty strong and the lines are never too bad.
@@ -158,8 +155,7 @@ Player: What should I do?
         <<else>> 
             Kelly:
         <<endif>>
-    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>>
-        // Crushing
+    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>> //Crushing
         <<if $UCB_Dialogue == 1>>
             Kelly: I can't believe that midterm season is almost here. 
             Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
@@ -173,8 +169,7 @@ Player: What should I do?
         <<else>> 
             Kelly:
         <<endif>>    
-    <<else>>
-        // Lovers
+    <<else>> //Lovers
         <<if $UCB_Dialogue == 1>>
             Kelly: 
         <<elseif $UCB_Dialogue == 2>>
