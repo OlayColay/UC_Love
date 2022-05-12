@@ -309,7 +309,26 @@ Player: What should I do?
     <<elseif GetRelationshipScore("Ellie") >= 100 && GetRelationshipScore("Ellie") < 200>>
         //Acquaintances
         <<if $UCLA_Dialogue == 1>>
-            Ellie: 
+            Ellie: Oh hey! It's you again. How's your day so far?
+                -> It's going good! How about yours?
+                    Player: It's going good! How about yours?
+                    Ellie: Oh that's good to hear! My day's been really good, just a little hectic.
+                    Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today. 
+                    <<SetSprite Ellie/cmo>>
+                    Ellie: I feel a little burnt out... but I don't want to let my friends down...
+                    <<SetSprite Ellie/smc>>
+                    Ellie: Hopefully tomorrow is a little better!
+                    <<SetSprite Ellie/Idle>>
+                -> It's a bit rough... How's your day so far?
+                    Player: It's a bit rough... How's your day so far?
+                    <<SetSprite Ellie/sad>>
+                    Ellie: Oh, I'm sorry to hear that. Some days are kind of cruddy. 
+                    <<SetSprite Ellie/smc>>
+                    Ellie: Tomorrow is a new day though! 
+                    Ellie: My day's going alright... it's just been a little hectic...
+                    Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today.
+                    Ellie: Hopefully tomorrow is a little better for the both of us!
+                    <<SetSprite Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
             Ellie: 
         <<elseif $UCLA_Dialogue == 3>>
@@ -319,7 +338,7 @@ Player: What should I do?
         <<else>> 
             Ellie:
         <<endif>>
-    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Kelly") < 300>>
+    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Ellie") < 300>>
         // Friends
         <<if $UCLA_Dialogue == 1>>
             <<SetSprite Ellie/cmo>>
@@ -378,7 +397,7 @@ Player: What should I do?
         <<else>> 
             Ellie:
         <<endif>>
-    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>>
+    <<elseif GetRelationshipScore("Ellie") >= 300 && GetRelationshipScore("Ellie") < 400>>
         // Crushing
         <<if $UCLA_Dialogue == 1>>
             Ellie: 
