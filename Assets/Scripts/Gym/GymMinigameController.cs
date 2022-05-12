@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GymMinigameController : MonoBehaviour
 {
@@ -40,6 +41,15 @@ public class GymMinigameController : MonoBehaviour
     [SerializeField] private int pushupMax = 10000;
     private int curPushups = 0;
 
+    // Art
+    public Image background;
+    public Image pushupBackground;
+    public Image punchingBag;
+    public Sprite[] punchingBagSprites;
+    public Image weight1;
+    public Image weight2;
+    public Image keyboard;
+
     /// <summary> Constructor of the Gym minigame where difficulties are set <summary>
     public void NewGymMinigame(int liftGainPerPress, int punchTarget, float punchTime, int pushupSpeed, int pushupThreshold)
     {
@@ -70,6 +80,7 @@ public class GymMinigameController : MonoBehaviour
             microgames[k] = temp;
         }
 
+        background.DOFade(1f, 1f);
         currentMicrogame = StartCoroutine(microgames[0]);
         curGame = 0;
     }
@@ -86,6 +97,7 @@ public class GymMinigameController : MonoBehaviour
         {
             // Debug.Log("You win!");
             GainMoney();
+            background.DOFade(0f, 1f);
             minigameDone = true;
             minigameWon = true;
         }
@@ -105,6 +117,10 @@ public class GymMinigameController : MonoBehaviour
     IEnumerator LiftMicrogame()
     {
         // Debug.Log("Lifting microgame start!");
+        weight1.DOFade(1f, 1f);
+        weight2.DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
+        keyboard.enabled = true;
 
         // Initialize variables
         gymControls.GymActions.Lift.Enable();
@@ -123,12 +139,14 @@ public class GymMinigameController : MonoBehaviour
         }
 
         gymControls.GymActions.Lift.Disable();
-        liftSlider.gameObject.SetActive(false);
 
         liftSlider.value = liftAmount;
         if (liftAmount >= liftTarget)
         {
             // Debug.Log("Succeeded at lifting!");
+            weight1.DOFade(0f, 1f);
+            weight2.DOFade(0f, 1f);
+            keyboard.enabled = false;
 
             StartCoroutine(MicrogameWon());
         }
@@ -139,6 +157,9 @@ public class GymMinigameController : MonoBehaviour
             minigameDone = true;
             minigameWon = false;
         }
+
+        yield return new WaitForSecondsRealtime(1f);
+        liftSlider.gameObject.SetActive(false);
     }
 
     void Lift()
@@ -153,6 +174,8 @@ public class GymMinigameController : MonoBehaviour
     IEnumerator PunchMicrogame()
     {
         // Debug.Log("Punch microgame start!");
+        punchingBag.DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         // Initialize variables
         gymControls.GymActions.Jab.Enable();
@@ -174,6 +197,8 @@ public class GymMinigameController : MonoBehaviour
             gymControls.GymActions.Jab.Disable();
             gymControls.GymActions.Cross.Disable();
             
+            punchingBag.DOFade(0f, 1f);
+
             StartCoroutine("MicrogameWon");
         }
         else
@@ -187,6 +212,8 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 0)
         {
+            punchingBag.sprite = punchingBagSprites[2];
+
             LeftClick.SetActive(false);
             curPunches++;
             if (curPunches < punchTarget)
@@ -205,6 +232,8 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 1)
         {
+            punchingBag.sprite = punchingBagSprites[1];
+
             RightClick.SetActive(false);
             curPunches++;
             if (curPunches < punchTarget)
@@ -251,6 +280,8 @@ public class GymMinigameController : MonoBehaviour
     IEnumerator PushupMicrogame()
     {
         // Debug.Log("Pushup microgame start!");
+        pushupBackground.DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         // Initialize variables
         gymControls.GymActions.Pushup.Enable();
@@ -261,7 +292,9 @@ public class GymMinigameController : MonoBehaviour
         pushupSlider.gameObject.SetActive(true);
         pushupArea.gameObject.SetActive(true);
 
-        // Repeat every frame until punch target is reached or time limit is exceeded
+        pushupBackground.transform.DOScale(2f, 10f);
+
+        // Repeat every frame until pushup target is reached or time limit is exceeded
         while (curPushups < pushupTarget && pushupSlider.value < pushupMax)
         {
             pushupSlider.value += pushupSpeed;
@@ -275,6 +308,8 @@ public class GymMinigameController : MonoBehaviour
         {
             // Debug.Log("Succeeded at pushups!");
             gymControls.GymActions.Pushup.Disable();
+            pushupBackground.DOFade(0f, 1f);
+            yield return new WaitForSecondsRealtime(1f);
 
             StartCoroutine(MicrogameWon());
         }
@@ -291,6 +326,9 @@ public class GymMinigameController : MonoBehaviour
             // Debug.Log("Nice pushup!");
             pushupSlider.value = 0;
             curPushups++;
+
+            DOTween.Clear();
+            pushupBackground.transform.DOScale(1f, 0.5f).OnComplete(() => pushupBackground.transform.DOScale(2f, 10f));
         }
         else
         {
