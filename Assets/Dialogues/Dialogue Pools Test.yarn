@@ -1,7 +1,7 @@
 ﻿title: DialoguePoolsTest
 tags:
 ---
-<<PlayMusic Music/ApotosDay>>
+<<PlayMusic Music/ApotosDay Music/ApotosNight>>
 <<FadeBackground Backgrounds/LibraryNoon>>
 <<SetSprite Middle Berkeley/Idle>>
 <<set $BerkeleyDialogue to Dice(3)>>
@@ -36,7 +36,7 @@ position: 164,-79
 <<endif>>
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>
-<<PlayMusic Music/ApotosNight>>
+<<PlayMusic Music/ApotosNight "">>
 <<FadeBackground Backgrounds/Dorm>>
 Player: Wow! I actually talked to a girl today! I will remember this moment forever.
 Player: Time to go to sleep.
@@ -47,7 +47,7 @@ title: LeaveWithoutTalking
 position: 152,100
 ---
 <<ClearSprite Middle>>
-<<PlayMusic Music/ApotosNight>>
+<<PlayMusic Music/ApotosNight "">>
 <<FadeBackground Backgrounds/Dorm>>
 Player: Wow I can't talk to girls I guess. I should probably change my major to engineering or computer science.
 Player: Time to cry myself to sleep.
