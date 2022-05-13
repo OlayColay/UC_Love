@@ -19,6 +19,7 @@ tags:
     <<else>>
         <<SetBackground Backgrounds/Library/NightCat>>
     <<endif>>
+<<endif>>
 <<Fade true>>
 -> Meet someone
     <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
