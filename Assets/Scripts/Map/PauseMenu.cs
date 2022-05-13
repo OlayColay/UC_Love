@@ -42,12 +42,13 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Debug.Log("Loading menu...");
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("UiScene");
     }
 
-    public void SaveAndQuit()
+    public void Save()
     {
-        Debug.Log("Saving and quitting...");
+        Debug.Log("Saving...");
+        Inventory.SaveGame();
     }
 }
