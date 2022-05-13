@@ -51,7 +51,10 @@ public class Click : MonoBehaviour
                 
                 // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
                 // instead of as a Coroutine?
-                
+                // The reason that I use a Coroutine is so that we can wait for the scene to load with a
+                // while loop without freezing the game :)
+                        
+                FindObjectOfType<AudioListener>().enabled = false;
                 StartCoroutine(LoadYarnScene(newLocation.name));
             }
 
