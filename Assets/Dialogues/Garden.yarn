@@ -2,6 +2,10 @@
 tags:
 position: -107,2
 ---
+<<set $TalkTommy to false>>
+<<set $GiftTommy to false>>
+<<set $AskTommy to false>>
+
 <<set $TimeOfDayGarden to GetTimeOfDay()>>
 <<if $TimeOfDayGarden == 0>>
     <<SetBackground Backgrounds/Garden/Morning>>
@@ -32,9 +36,6 @@ position: -107,2
 title: USC
 position: 139,58
 ---
-<<set $TalkTommy to false>>
-<<set $GiftTommy to false>>
-<<set $AskTommy to false>>
 <<SetSprite Middle Tommy/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?

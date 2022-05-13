@@ -10,12 +10,32 @@ tags:
     <<SetBackground Backgrounds/Gym/Noon>>
     //Sets background as Gym Afternoon if it is Afternoon
 <<else>>
-    <<SetBackground Backgrounds/Gym/NightWarm>>
+    <<SetBackground Backgrounds/Gym/Night>>
     //Sets background as Gym Night if it Evening
 <<endif>>
 <<Fade true>>
 //-----------------------------------------------------------------
-//Locations: Library, Cafe, Gym, Garden, Plaza 3 TOD ea -1 for USC Garden night slot -> 14 time slots, 5 girls
 Player: What should I do?
+-> Meet someone
+-> Work as a workout trainer
+    -> Easy
+        <<Fade false 1 #ffffff>>
+        <<GymMinigame 150 3 5 5 750>>
+    -> Medium
+        <<Fade false 1 #ffffff>>
+        <<GymMinigame 100 3 3 10 750>>
+    -> Hard
+        <<Fade false 1 #ffffff>>
+        <<GymMinigame 50 5 4 10 900>>
+    <<Fade true 1 #ffffff>>
+    <<if GymMinigameWon()>>
+        Player: I think that I did a good job!
+    <<else>>
+        Player: That was embarassing... I guess I'm a little out of shape. 
+    <<endif>>
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+-> Leave
+    <<LoadScene MapScene>>
 
 ===

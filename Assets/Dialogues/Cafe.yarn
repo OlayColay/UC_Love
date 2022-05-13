@@ -1,6 +1,19 @@
 ﻿title: Cafe
 tags:
 ---
+---
+<<set $TalkKelly to false>>
+<<set $GiftKelly to false>>
+<<set $AskKelly to false>>
+
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
+
+<<set $TalkRiviera to false>>
+<<set $GiftRiviera to false>>
+<<set $AskRiviera to false>>
+
 <<SetBackground Backgrounds/Cafe>>
 <<Fade true>>
 <<set $TimeOfDayCafe to GetTimeOfDay()>>
@@ -22,11 +35,8 @@ Player: What should I do?
     <<LoadScene MapScene>>
 ===
 title: UCB
-position: 204,-73
+position: 216,-14
 ---
-<<set $TalkKelly to false>>
-<<set $GiftKelly to false>>
-<<set $AskKelly to false>>
 <<SetSprite Middle Kelly/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -86,11 +96,11 @@ Player: What should I do?
                         <<SetSprite Middle Kelly/Idle>>
                 -> No, I was looking for you!
                     Player: No, I was just looking for you!
-                    <<SetSprite Middle Berkeley/lbom>>
+                    <<SetSprite Middle Kelly/lbom>>
                     <<Shake Middle>>
                     Kelly: Oh!
                     Kelly: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
-                    <<SetSprite Middle Berkeley/Idle>>
+                    <<SetSprite Middle Kelly/Idle>>
                     Kelly: ...I have to get back to studying though, sorry.
         <<elseif $UCB_Dialogue == 4>> 
             Kelly: Ah sorry, I have an assignment due in bit...
@@ -300,6 +310,7 @@ Player: What should I do?
             <<SetSprite Kelly/Idle>>
         <<endif>>   
     <<endif>>
+    <<jump UCB>>
 -> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>

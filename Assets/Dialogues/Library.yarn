@@ -1,6 +1,14 @@
 ﻿title: Library
 tags:
 ---
+<<set $TalkKelly to false>>
+<<set $GiftKelly to false>>
+<<set $AskKelly to false>>
+
+<<set $TalkEllie to false>>
+<<set $GiftEllie to false>>
+<<set $AskEllie to false>>
+
 <<set $TimeofDayLibrary to GetTimeOfDay()>>
 <<set $OptionalPowellCat = Dice(10)>>
 <<if $OptionalPowellCat == 9>>
@@ -13,11 +21,11 @@ tags:
     <<endif>>
 <<else>>
     <<if $TimeofDayLibrary == 0>>
-        <<SetBackground Backgrounds/Library/MorningCat>>
+        <<SetBackground Backgrounds/Library/Morning>>
     <<elseif $TimeofDayLibrary == 1>>
-        <<SetBackground Backgrounds/Library/NoonCat>>
+        <<SetBackground Backgrounds/Library/Noon>>
     <<else>>
-        <<SetBackground Backgrounds/Library/NightCat>>
+        <<SetBackground Backgrounds/Library/Night>>
     <<endif>>
 <<endif>>
 <<Fade true>>
@@ -37,9 +45,6 @@ tags:
 title: UCB
 position: 194,-58
 ---
-<<set $TalkKelly to false>>
-<<set $GiftKelly to false>>
-<<set $AskKelly to false>>
 <<SetSprite Middle Kelly/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -99,11 +104,11 @@ Player: What should I do?
                         <<SetSprite Middle Kelly/Idle>>
                 -> No, I was looking for you!
                     Player: No, I was just looking for you!
-                    <<SetSprite Middle Berkeley/lbom>>
+                    <<SetSprite Middle Kelly/lbom>>
                     <<Shake Middle>>
                     Kelly: Oh!
                     Kelly: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
-                    <<SetSprite Middle Berkeley/Idle>>
+                    <<SetSprite Middle Kelly/Idle>>
                     Kelly: ...I have to get back to studying though, sorry.
         <<elseif $UCB_Dialogue == 4>> 
             Kelly: Ah sorry, I have an assignment due in bit...
@@ -313,6 +318,7 @@ Player: What should I do?
             <<SetSprite Kelly/Idle>>
         <<endif>>   
     <<endif>>
+    <<jump UCB>>
 -> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
@@ -365,15 +371,12 @@ Player: What should I do?
     -> Cancel
         <<jump UCB>>
 -> Leave
-    <<UpdateTimeofDayLibrary>>
+    <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
 title: UCLA
 position: 194,65
 ---
-<<set $TalkEllie to false>>
-<<set $GiftEllie to false>>
-<<set $AskEllie to false>>
 <<SetSprite Middle Ellie/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
