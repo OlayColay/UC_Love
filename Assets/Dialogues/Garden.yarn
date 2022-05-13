@@ -2,11 +2,11 @@
 tags:
 position: -107,2
 ---
-<<set $TimeOfDay to GetTimeOfDay()>>
-<<if $TimeOfDay == 0>>
+<<set $TimeOfDayGarden to GetTimeOfDay()>>
+<<if $TimeOfDayGarden == 0>>
     <<SetBackground Backgrounds/Garden/Morning>>
     //Sets background as Garden Morning if it is Daytime
-<<elseif $TimeOfDay == 1>>
+<<elseif $TimeOfDayGarden == 1>>
     <<SetBackground Backgrounds/Garden/Noon>>
     //Sets background as Garden Afternoon if it is Afternoon
 <<else>>
@@ -15,13 +15,13 @@ position: -107,2
 <<endif>>
 <<Fade true>>
 -> Meet someone
-    <<if $TimeOfDay == 0 || $TimeofDay == 1>>
+    <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump UCSB>>
     <<else>>
         <<jump UCI>>
     <<endif>>
 -> Take a Walk
-    <<if $TimeOfDay == 0 || $TimeOfDay == 1>>
+    <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump RandomEvent>>
     <<else>>
         <<jump USC>>
@@ -327,7 +327,7 @@ title: RandomEvent
 position: 125,-26
 ---
 <<set $Random_Event_Dialogue to RandomRange (1,20)>>
-    <<set $TimeOfDay to $TimeOfDay + 1>>
+    <<set $TimeOfDayGarden to $TimeOfDayGarden + 1>>
 <<if $Random_Event_Dialogue == 1>>
     <<AddMoney 200>>
     Player: Woah! I found $200 on the ground! Sweet!

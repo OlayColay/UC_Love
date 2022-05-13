@@ -1,17 +1,17 @@
 ﻿title: Library
 tags:
 ---
-<<set $TimeofDay to GetTimeOfDay()>>
-<<if $TimeofDay == 0>>
+<<set $TimeofDayLibrary to GetTimeOfDay()>>
+<<if $TimeofDayLibrary == 0>>
     <<SetBackground Backgrounds/Library/Morning>>
-<<elseif $TimeofDay == 1>>
+<<elseif $TimeofDayLibrary == 1>>
     <<SetBackground Backgrounds/Library/Noon>>
 <<else>>
     <<SetBackground Backgrounds/Library/Night>>
 <<endif>>
 <<Fade true>>
 -> Meet someone
-    <<if $TimeofDay == 1 || $TimeofDay == 2>>
+    <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
         <<jump UCB>>
     <<else>>
         <<jump UCLA>>
@@ -354,7 +354,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCB>>
 -> Leave
-    <<UpdateTimeofDay>>
+    <<UpdateTimeofDayLibrary>>
     <<LoadScene MapScene>>
 ===
 title: UCLA
