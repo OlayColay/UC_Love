@@ -93,13 +93,13 @@ Dwayne: Now THAT is what I like to hear!
 Dwayne: How difficult of a workout are you up for?
 -> Easy
     <<Fade false 1 #ffffff>>
-    <<GymMinigame 1500 3 5 5 7500>>
+    <<GymMinigame 150 3 5 5 750>>
 -> Medium
     <<Fade false 1 #ffffff>>
-    <<GymMinigame 1000 3 3 10 7500>>
+    <<GymMinigame 100 3 3 10 750>>
 -> Hard
     <<Fade false 1 #ffffff>>
-    <<GymMinigame 500 5 4 10 9000>>
+    <<GymMinigame 50 5 4 10 900>>
 <<Fade true 1 #ffffff>>
 <<if GymMinigameWon()>>
     Dwayne: Nice work! Do you want to go again?
