@@ -2,13 +2,23 @@
 tags:
 ---
 <<set $TimeofDayLibrary to GetTimeOfDay()>>
-<<if $TimeofDayLibrary == 0>>
-    <<SetBackground Backgrounds/Library/Morning>>
-<<elseif $TimeofDayLibrary == 1>>
-    <<SetBackground Backgrounds/Library/Noon>>
+<<set $OptionalPowellCat = Dice(10)>>
+<<if $OptionalPowellCat == 9>>
+    <<if $TimeofDayLibrary == 0>>
+        <<SetBackground Backgrounds/Library/MorningCat>>
+    <<elseif $TimeofDayLibrary == 1>>
+        <<SetBackground Backgrounds/Library/NoonCat>>
+    <<else>>
+        <<SetBackground Backgrounds/Library/NightCat>>
+    <<endif>>
 <<else>>
-    <<SetBackground Backgrounds/Library/Night>>
-<<endif>>
+    <<if $TimeofDayLibrary == 0>>
+        <<SetBackground Backgrounds/Library/MorningCat>>
+    <<elseif $TimeofDayLibrary == 1>>
+        <<SetBackground Backgrounds/Library/NoonCat>>
+    <<else>>
+        <<SetBackground Backgrounds/Library/NightCat>>
+    <<endif>>
 <<Fade true>>
 -> Meet someone
     <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
