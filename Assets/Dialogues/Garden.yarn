@@ -15,6 +15,11 @@ position: -107,2
 <<endif>>
 <<Fade true>>
 -> Meet someone
+    <<if $TimeOfDay == 0 || $TimeofDay == 1>>
+        <<jump UCSB>>
+    <<else>>
+        <<jump UCI>>
+    <<endif>>
 -> Take a Walk
     <<if $TimeOfDay == 0 || $TimeOfDay == 1>>
         <<jump RandomEvent>>
@@ -25,7 +30,7 @@ position: -107,2
     <<LoadScene MapScene>>
 ===
 title: USC
-position: 210,112
+position: 139,58
 ---
 <<set $TalkTommy to false>>
 <<set $GiftTommy to false>>
@@ -319,7 +324,7 @@ Player: What should I do?
     <<LoadScene MapScene>>
 ===
 title: RandomEvent
-position: 204,-37
+position: 125,-26
 ---
 <<set $Random_Event_Dialogue to RandomRange (1,20)>>
     <<set $TimeOfDay to $TimeOfDay + 1>>
@@ -417,4 +422,14 @@ position: 204,-37
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
+===
+title: UCSB
+position: 126,-113
+---
+
+===
+title: UCI
+position: 128,-182
+---
+
 ===

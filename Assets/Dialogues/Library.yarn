@@ -128,12 +128,29 @@ Player: What should I do?
             Kelly: sigh... 
         <<else>> 
             Kelly: I think I got two hours of sleep last night.
-        <<endif>>
-    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>> //Friends
-        <<if $UCB_Dialogue == 1>>
             Kelly: Have you tried the campus cafe yet?
             Kelly: The black coffee there is pretty strong and the lines are never too bad.
             Kelly: I usually like to stop by in the mornings before spending the rest of my day at the library.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>> //Friends
+        <<if $UCB_Dialogue == 1>>
+            Kelly: Sometimes when I'm working late at night, my sister will go into my room and nag at me to go to sleep.
+            Kelly: It's really annoying... can't she see that I have work to do? Not all of us can spend our days lolligagging...
+                -> Yeah, that is really annoying of her...
+                    Player: Yeah, that is really annoying of her...
+                    Kelly: Yeah...
+                    <<SetSprite Kelly/sad>>
+                    Kelly: I know she probably does it because she worries about my health though...
+                    Kelly: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
+                    <<SetSprite Kelly/Idle>>
+                -> Maybe she's worried about you...
+                    Player: Maybe she's worried about you...
+                    <<SetSprite Kelly/lbom>>
+                    <<AddRelationshipScore Kelly 10>>
+                    Kelly: ...oh... I never thought about it that way....
+                    Kelly: I think that she does care a lot about me... I feel guilty because I've been pushing her away...
+                    Kelly: I've really been taking her for granted... I definitely should appreciate her more.
+                    Kelly: I think I'll buy her one of the new bear plushies she loves so much as an apology...
         <<elseif $UCB_Dialogue == 2>>
             Kelly: Could I get your opinion on something? Be honest, do I look intimidating?
                 -> Yeah, a little!
@@ -186,30 +203,103 @@ Player: What should I do?
             Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
             <<SetSprite Kelly/Idle>>
         <<elseif $UCB_Dialogue == 2>>
-            Kelly: If you're having trouble with your classes, I can try to make some time to tutor you...
-            Kelly: ... if you want...
+            Kelly: I wish I had a little more time to spend on my hobbies.
+            <<SetSprite Kelly/sad>>
+            Kelly: I really enjoy playing chess, but I've been so swamped with schoolwork that I barely have time to take care of myself.
+            Kelly: Lately, my little sister Ellie started doing better academically than I did... and my parents have been pushing me to catch up...
+            Kelly: I'm putting so much pressure on myself, and I feel like I'm going to break...
+            Kelly: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
+                -> School is tough, but you can hang in there! 
+                    Player: School is tough, but you can hang in there! 
+                    Kelly: ... I guess so... I'm really not feeling well though...
+                -> I know that school is really important to you, but your mental and physical health matter too!
+                    Player: I know that school is really important to you, but your mental health matter too!
+                    Kelly: I know... I should be taking better care of myself.
+                -> How can I support you?
+                    Player: How can I support you?
+                    <<SetSprite Kelly/lbom>>
+                    Kelly: Hmm? ...Support? Ah you don't have to do anything! I don't want to trouble you!
+                        -> Insist on helping Kelly
+                            <<AddRelationshipScore Kelly 10>>
+                            Player: No, no! I insist. You mean a lot to me. I want you to take care of your health, but I know that your goals mean a lot to you.
+                            Player: So I want to do what I can to help you reach your goals!
+                            <<SetSprite Kelly/hbom>>
+                            Kelly: I...
+                            <<SetSprite Kelly/lbom>>
+                            Player: What if I brought you a sandwich from the dining hall while you're studying?
+                            Player: That can save you some time and make sure that you still get a healthy meal.
+                            <<SetSprite Kelly/hbcm>>
+                            Kelly: I'd... I'd really appreciate that. Thank you. 
+                        -> Drop the subject
+                            Player: Oh... ok!
+                            <<SetSprite Kelly/sad>>
+                            Kelly: I'm fine on my own... I promise...
         <<elseif $UCB_Dialogue == 3>>
-            Kelly: I was analyzing some love poems for one of my classes... and I don't know why but I thought this one set of lines was really pretty.
+            Kelly: I was analyzing some love stories for one of my classes... and I don't know why but I thought this one line was really pretty.
             <<SetSprite Kelly/lbom>>
-            Kelly: It was "I melt you?" and "You burn me."
+            Kelly: It was "Love is just a word until someone comes along and gives it meaning."
             <<SetSprite Kelly/hbom>>
             Kelly: Ah! Sorry! For a moment it sounded like I was saying that sappy of a line to you...
+            <<SetSprite Kelly/Idle>>
         <<elseif $UCB_Dialogue == 4>> 
-            Kelly: 
+            Kelly: Sometimes I forget to drink my coffee and I get really tired.
+            <<SetSprite Kelly/lbom>>
+            Kelly: ...I feel a lot less tired when I'm around you though...
+            Kelly: ... which is weird because I think that violates the Law of Conservation!
+            <<SetSprite Kelly/Idle>>
         <<else>> 
-            Kelly:
+            Kelly: Are you taking the class with Professor BruinBox next quarter?
+            <<SetSprite Kelly/Angry>>
+            Kelly: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
+            <<SetSprite Kelly/lbom>>
+            Kelly: If you take the class, we could work on the projects together... if you want...
+            <<SetSprite Kelly/lbcm>>
+            Kelly: I think that you'd make a good partner...
         <<endif>>    
     <<else>> //Lovers
         <<if $UCB_Dialogue == 1>>
-            Kelly: 
+            Kelly: I dropped this one computer science class that was really stressing me out.
+            <<SetSprite Kelly/Angry>>
+            Kelly: The workload was excruciatingly heavy and the professor wasn't very understanding.
+            <<SetSprite Kelly/sad>>
+            Kelly: I had a lot on my plate... and I've decided that I want to start prioritizing my health a little more!
+            Kelly: I still struggle with feeling a little guilty about taking it easier on myself, but I try to remind myself to be patient with myself.
+            <<SetSprite Kelly/lbcm>>
+            Kelly: I have a bit more time to spend on things I actually care about like the chess club now that I'm not wasting it on obsolete assignments.
+            Kelly: I'm really thankful for my loved ones... my sister has been really supportive of me even though we've been a bit distant these past few years.
+            <<SetSprite Kelly/hbom>>
+            Kelly: You've been really supportive of me too...
+            <<SetSprite Kelly/hbom>>
+            Kelly: Thank you.
+            <<SetSprite Kelly/Idle>>
         <<elseif $UCB_Dialogue == 2>>
-            Kelly: 
+            <<SetSprite Kelly/lbcm>>
+            Kelly: I've been experimenting a bit more with fashion lately.
+            Kelly: I found some vintage outfits at a thrift store and sometimes I put it on to wear around the house.
+            Kelly: I still feel a little shy about wearing something deviating from my usual style around on campus... but it feels really fun to not limit my wardrobe to pratical academic-wear.
+            Kelly: I feel a lot more free.
+            <<SetSprite Kelly/Idle>>
         <<elseif $UCB_Dialogue == 3>>
-            Kelly:
+            <<SetSprite Kelly/lbcm>>
+            Kelly: My sister and I have been getting a little closer lately. 
+            <<SetSprite Kelly/sad>>
+            Kelly: We were best friends as kids and used to do everything together... but we drifted apart as we grew older.
+            Kelly: I think that growing up in such a competitive environment pit us against each other and wedged us apart.
+            <<SetSprite Kelly/lbcm>>
+            Kelly: This weekend we went out for a girls' day brunch together. Next weekend, we're going to go thrifting together too!
+            Kelly: All the advice you gave me really helped me patch my relationship with my sister.
         <<elseif $UCB_Dialogue == 4>> 
-            Kelly: 
+            <<SetSprite Kelly/lbom>>
+            Kelly: I heard that there's a rooftop nearby that we can climb. I heard that the sunset there is really pretty and romantic.
+            <<SetSprite Kelly/lbcm>>
+            Kelly: I'd really love to go with you sometime... I can make some time!
+            <<SetSprite Kelly/Idle>>
         <<else>> 
-            Kelly:
+            <<SetSprite Kelly/lbcm>>
+            Kelly: I've been feeling a lot better overall lately... I think that self-care has really improved my mental and physical health.
+            Kelly: After a long day, I try to make time to do some yoga with my sister, cook a healthy meal, and do a bit of skincare. 
+            Kelly: I have this really great soondubu recipe that you should try sometime. 
+            <<SetSprite Kelly/Idle>>
         <<endif>>   
     <<endif>>
 -> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
@@ -249,7 +339,7 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
-            <<SetSprite Middle Kelly/Idle>>>>
+            <<SetSprite Middle Kelly/Idle>>
             <<jump UCB>>
         <<endif>>
     -> Ask to the dance
