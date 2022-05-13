@@ -51,4 +51,21 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Saving...");
         Inventory.SaveGame();
     }
+
+    public void OpenInventory()
+    {
+        Debug.Log("Opening inventory...");
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+        MapEvents.current.GamePaused(true);
+        Inventory.OpenInventoryFromMap();
+    }
+
+    public void CloseInventory()
+    {
+        Inventory.inventoryScreen.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        MapEvents.current.GamePaused(false);
+    }
 }

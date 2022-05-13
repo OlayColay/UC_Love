@@ -134,6 +134,15 @@ public static class Inventory
         }
         inventoryScreen.gameObject.SetActive(false);
     }
+    public static void OpenInventoryFromMap()
+    {
+        if (!inventoryScreen)
+        {
+            inventoryScreen = Resources.FindObjectsOfTypeAll<InventoryScreen>()[0];
+        }
+        inventoryScreen.cancelButton.SetActive(true);
+        inventoryScreen.gameObject.SetActive(true);
+    }
 
     [YarnFunction("GetItemName")]
     public static string GetItemName(int index, bool isKeyItem = false)

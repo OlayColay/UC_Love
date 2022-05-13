@@ -14,7 +14,7 @@ tags:
 
 -> Shop
     <<OpenShop>>
-    <<jump StudentStore>>
+    <<jump Store>>
 -> Leave
     <<LoadScene MapScene>>
 ===
