@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInput playerInput;
-    private Rigidbody2D rb;
-    
-    [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float smoothTime = 0.25f;
-    private Vector2 moveInput;
-    private Vector3 currentVelocityPlayer = Vector3.zero;
-    public int health;
+    public bool gameOver = false;
+    public bool gameWon = false;
 
+    //player stats
+    public int health = 3;
+    public float maxSpeed = 7f; //player's max speed
+    public float smoothTime = 0.2f; //time to reach min/max speed
+   
+    private PlayerInput playerInput;
+    private Vector2 moveInput;
+    private Rigidbody2D rb;
+    private Vector3 currentVelocityPlayer = Vector3.zero;
+  
+    //flyers (screen cover)
     public GameObject flyer1;
     public GameObject flyer2;
     public GameObject flyer3;
-
     private Vector3 currentVelocityFlyer1 = Vector3.zero;
     private Vector3 currentVelocityFlyer2 = Vector3.zero;
     private Vector3 currentVelocityFlyer3 = Vector3.zero;
-
     private Vector3 flyer1offset;
     private Vector3 flyer2offset;
     private Vector3 flyer3offset;
@@ -30,8 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-
-        health = 3;
 
         flyer1offset = (flyer1.transform.position - Camera.main.transform.position);
         flyer2offset = (flyer2.transform.position - Camera.main.transform.position);
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
             flyer3.transform.position = Vector3.SmoothDamp(flyer3.transform.position, Camera.main.transform.position + flyer3offset, ref currentVelocityFlyer3, smoothTime);
             Debug.Log("you lose!!!!!!!!!!!!!!!!!!!");
 
+            gameOver = true;
+            gameWon = false;
             //game over stuff
         }
 
@@ -101,6 +104,9 @@ public class PlayerController : MonoBehaviour
         if ((collision.gameObject.tag == "Goal") && (health > 0))
          {
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
+            gameOver = true;
+            gameWon = true;
+
             ///do whatever else
          }
     }
