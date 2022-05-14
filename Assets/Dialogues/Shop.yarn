@@ -1,6 +1,7 @@
 ﻿title: Store
 tags:
 ---
+<<SetBackground Backgrounds/Store/store>>
 <<Fade true>>
 
 // Adding Items to Shop
