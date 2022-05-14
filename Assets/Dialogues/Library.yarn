@@ -33,9 +33,9 @@ tags:
 <<Fade true>>
 -> Meet someone
     <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
-        <<jump UCB>>
+        <<jump UCBLibrary>>
     <<else>>
-        <<jump UCLA>>
+        <<jump UCLALibrary>>
     <<endif>>
 -> Work
     Player: Oops! There's no job to do here currently.
@@ -44,7 +44,7 @@ tags:
 -> Leave  
     <<LoadScene MapScene>>
 ===
-title: UCB
+title: UCBLibrary
 position: 194,-58
 ---
 <<SetSprite Middle Kelly/Idle>>
@@ -320,11 +320,11 @@ Player: What should I do?
             <<SetSprite Kelly/Idle>>
         <<endif>>   
     <<endif>>
-    <<jump UCB>>
+    <<jump UCBLibrary>>
 -> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
-        <<jump UCB>>
+        <<jump UCBLibrary>>
     <<endif>> 
     <<set $GiftKelly = true>>
     <<set $GiftScoreK = GetItemScore("Kelly")>>
@@ -345,7 +345,7 @@ Player: What should I do?
         Kelly: Is this a joke?
         <<SetSprite Middle Kelly/Idle>>
     <<endif>>
-    <<jump UCB>>
+    <<jump UCBLibrary>>
 -> Ask <<if $AskKelly == false>>
     -> Ask on a date
         <<set $AskKelly = true>>
@@ -359,7 +359,7 @@ Player: What should I do?
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
             <<SetSprite Middle Kelly/Idle>>
-            <<jump UCB>>
+            <<jump UCBLibrary>>
         <<endif>>
     -> Ask to the dance
         <<set $AskKelly = true>>
@@ -371,12 +371,12 @@ Player: What should I do?
             <<AddRelationshipScore Kelly -20>>
         <<endif>>
     -> Cancel
-        <<jump UCB>>
+        <<jump UCBLibrary>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
-title: UCLA
+title: UCLALibrary
 position: 194,65
 ---
 <<SetSprite Middle Ellie/Idle>>

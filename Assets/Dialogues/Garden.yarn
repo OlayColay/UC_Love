@@ -30,20 +30,20 @@ position: -107,2
 <<Fade true>>
 -> Meet someone
     <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
-        <<jump UCSB>>
+        <<jump UCSBGarden>>
     <<else>>
-        <<jump UCI>>
+        <<jump UCIGarden>>
     <<endif>>
 -> Take a Walk
     <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump RandomEvent>>
     <<else>>
-        <<jump USC>>
+        <<jump USCGarden>>
     <<endif>>  
 -> Leave
     <<LoadScene MapScene>>
 ===
-title: USC
+title: USCGarden
 position: 139,58
 ---
 <<SetSprite Middle Tommy/Idle>>
@@ -290,11 +290,11 @@ Player: What should I do?
             Tommy: Maybe you can come over to my place and we can watch it together sometime...
         <<endif>>
     <<endif>>
-    <<jump USC>>
+    <<jump USCGarden>>
 -> Give Gift <<if $GiftTommy == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
-        <<jump USC>>
+        <<jump USCGarden>>
     <<endif>> 
     <<set $GiftTommy = true>>
     <<set $GiftScore = GetItemScore("Tommy")>>
@@ -309,7 +309,7 @@ Player: What should I do?
         //Hated Gift
         Tommy: Ick… did you pick these off the clearance rack?
     <<endif>>
-    <<jump USC>>
+    <<jump USCGarden>>
 -> Ask <<if $AskTommy == false>>
     -> Ask on a date
         <<set $AskTommy = true>>
@@ -317,7 +317,7 @@ Player: What should I do?
             <<jump TommyDate>>
         <<else>>
             Tommy: Uhhh... ew...
-            <<jump USC>>
+            <<jump USCGarden>>
         <<endif>>
     -> Ask to the dance
         <<set $AskTommy = true>>
@@ -329,7 +329,7 @@ Player: What should I do?
             <<AddRelationshipScore Tommy -20>>
         <<endif>>
     -> Cancel
-        <<jump USC>>
+        <<jump USCGarden>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
@@ -436,12 +436,12 @@ position: 125,-26
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
-title: UCSB
+title: UCSBGarden
 position: 126,-113
 ---
 
 ===
-title: UCI
+title: UCIGarden
 position: 128,-182
 ---
 

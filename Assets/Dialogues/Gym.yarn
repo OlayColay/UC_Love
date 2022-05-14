@@ -31,11 +31,11 @@ tags:
 Player: What should I do?
 -> Meet someone
     <<if $TimeOfDayGym == 0>>
-        <<jump UCR>>
+        <<jump UCRGym>>
     <<elseif $TimeOfDayGym == 1>>
-        <<jump UCLA>>
+        <<jump UCLAGym>>
     <<else>>
-        <<jump UCSB>>
+        <<jump UCSBGym>>
     <<endif>>
 -> Work as a workout trainer
     -> Easy
@@ -59,17 +59,17 @@ Player: What should I do?
     <<LoadScene MapScene>>
 
 ===
-title: UCR
+title: UCRGym
 position: 241,-105
 ---
 
 ===
-title: UCLA
+title: UCLAGym
 position: 242,-21
 ---
 
 ===
-title: UCSB
+title: UCSBGym
 position: 242,62
 ---
 

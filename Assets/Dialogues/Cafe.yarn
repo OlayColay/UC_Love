@@ -22,11 +22,11 @@ tags:
 Player: What should I do?
 -> Meet someone
     <<if $TimeOfDayCafe == 0>>
-        <<jump UCB>>
+        <<jump UCBCafe>>
     <<elseif $TimeOfDayCafe == 1>>
-        <<jump UCI>>
+        <<jump UCICafe>>
     <<else>>
-        <<jump UCR>>
+        <<jump UCRCafe>>
     <<endif>>
 -> Work
     //ADD CAFE MINIGAME IN HERE WHEN IT IS DONE
@@ -36,7 +36,7 @@ Player: What should I do?
 -> Leave
     <<LoadScene MapScene>>
 ===
-title: UCB
+title: UCBCafe
 position: 216,-14
 ---
 <<SetSprite Middle Kelly/Idle>>
@@ -312,11 +312,11 @@ Player: What should I do?
             <<SetSprite Kelly/Idle>>
         <<endif>>   
     <<endif>>
-    <<jump UCB>>
+    <<jump UCBCafe>>
 -> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
-        <<jump UCB>>
+        <<jump UCBCafe>>
     <<endif>> 
     <<set $GiftKelly = true>>
     <<set $GiftScoreK = GetItemScore("Kelly")>>
@@ -337,7 +337,7 @@ Player: What should I do?
         Kelly: Is this a joke?
         <<SetSprite Middle Kelly/Idle>>
     <<endif>>
-    <<jump UCB>>
+    <<jump UCBCafe>>
 -> Ask <<if $AskKelly == false>>
     -> Ask on a date
         <<set $AskKelly = true>>
@@ -351,7 +351,7 @@ Player: What should I do?
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
             <<SetSprite Middle Kelly/Idle>>
-            <<jump UCB>>
+            <<jump UCBCafe>>
         <<endif>>
     -> Ask to the dance
         <<set $AskKelly = true>>
@@ -363,12 +363,12 @@ Player: What should I do?
             <<AddRelationshipScore Kelly -20>>
         <<endif>>
     -> Cancel
-        <<jump UCB>>
+        <<jump UCBCafe>>
 -> Leave
     <<UpdateTimeofDay>>
     <<LoadScene MapScene>>
 ===
-title: UCR
+title: UCRCafe
 position: 207,66
 ---
 //WRITE UCR CODE HERE
@@ -380,7 +380,7 @@ position: 207,66
 -> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
-        <<jump UCR>>
+        <<jump UCRCafe>>
     <<endif>> 
     <<set $GiftRiviera = true>>
     <<set $GiftScore = GetItemScore("Riviera")>>
@@ -395,12 +395,12 @@ position: 207,66
         //Hated Gift
         Riviera: Err… I'm not sure what I'm supposed to do with these…
     <<endif>>
-    <<jump UCR>>
+    <<jump UCRCafe>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
-title: UCI
+title: UCICafe
 position: 203,-155
 ---
 ===
