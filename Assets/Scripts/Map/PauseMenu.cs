@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Saving...");
         Inventory.SaveGame();
+        Notification.Notify("Game saved!", "SFX/Buy");
     }
 
     public void OpenInventory()
