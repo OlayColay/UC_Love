@@ -2,9 +2,19 @@
 tags:
 position: -107,2
 ---
+//Interaction Settings
+//Tommy 
 <<set $TalkTommy to false>>
 <<set $GiftTommy to false>>
 <<set $AskTommy to false>>
+//Santana
+<<set $TalkSantana to false>>
+<<set $GiftSantana to false>>
+<<set $AskSantana to false>>
+//Irene
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
 
 <<set $TimeOfDayGarden to GetTimeOfDay()>>
 <<if $TimeOfDayGarden == 0>>
@@ -358,9 +368,11 @@ position: 125,-26
     Player: Literally what does he even need it for?!
     <<AddMoney -50>>
 <<elseif $Random_Event_Dialogue == 10>>
+    <<SetSprite Middle Squirrel/Idle>>
     Player: Huh... a squirrel...
     Player: Oh?! He's giving me $100.
     Player: Thanks buddy! I'll give you some GFuel sometime. 
+    <<ClearSprite Middle>>
     <<AddMoney 100>>
 <<elseif $Random_Event_Dialogue == 11>>
     Player: I just heard a voice telling me something about a person wearing red and liking Bucci wallets.
@@ -403,7 +415,7 @@ position: 125,-26
     Player: AND HE TOOK $50??? WHY!!!
     <<AddMoney -50>>
 <<elseif $Random_Event_Dialogue == 19>>
-    <<SetSprite Middle Squirrel>>
+    <<SetSprite Middle Squirrel/Idle>>
     Player: Oh! A squirrel! 
     Player: Hey there buddy!
     Squirrel: Hey.

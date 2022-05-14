@@ -1,6 +1,19 @@
 ﻿title: Gym
 tags:
 ---
+//Interaction Settings
+//Riviera
+<<set $TalkRiviera to false>>
+<<set $GiftRiviera to false>>
+<<set $AskRiviera to false>>
+//Ellie
+<<set $TalkEllie to false>>
+<<set $GiftEllie to false>>
+<<set $AskEllie to false>>
+//Santana
+<<set $TalkSantana to false>>
+<<set $GiftSantana to false>>
+<<set $AskSantana to false>>
 //BACKGROUND 
 <<set $TimeOfDayGym to GetTimeOfDay()>>
 <<if $TimeOfDayGym == 0>>
@@ -17,6 +30,13 @@ tags:
 //-----------------------------------------------------------------
 Player: What should I do?
 -> Meet someone
+    <<if $TimeOfDayGym == 0>>
+        <<jump UCR>>
+    <<elseif $TimeOfDayGym == 1>>
+        <<jump UCLA>>
+    <<else>>
+        <<jump UCSB>>
+    <<endif>>
 -> Work as a workout trainer
     -> Easy
         <<Fade false 1 #ffffff>>
@@ -37,5 +57,20 @@ Player: What should I do?
     <<LoadScene MapScene>>
 -> Leave
     <<LoadScene MapScene>>
+
+===
+title: UCR
+position: 241,-105
+---
+
+===
+title: UCLA
+position: 242,-21
+---
+
+===
+title: UCSB
+position: 242,62
+---
 
 ===

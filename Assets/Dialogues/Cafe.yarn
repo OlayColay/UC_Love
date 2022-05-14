@@ -2,14 +2,16 @@
 tags:
 ---
 ---
+//Interaction Settings
+//Kelly
 <<set $TalkKelly to false>>
 <<set $GiftKelly to false>>
 <<set $AskKelly to false>>
-
+//Irene
 <<set $TalkIrene to false>>
 <<set $GiftIrene to false>>
 <<set $AskIrene to false>>
-
+//Riviera
 <<set $TalkRiviera to false>>
 <<set $GiftRiviera to false>>
 <<set $AskRiviera to false>>

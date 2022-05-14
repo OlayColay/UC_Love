@@ -1,10 +1,12 @@
 ﻿title: Library
 tags:
 ---
+//Interaction Settings
+//Kelly 
 <<set $TalkKelly to false>>
 <<set $GiftKelly to false>>
 <<set $AskKelly to false>>
-
+//Ellie
 <<set $TalkEllie to false>>
 <<set $GiftEllie to false>>
 <<set $AskEllie to false>>

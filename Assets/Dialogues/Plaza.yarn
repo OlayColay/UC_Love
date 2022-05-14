@@ -1,5 +1,17 @@
 ﻿title: Plaza
 tags:
 ---
-
+//Interaction Settings
+//Irene
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
+//Riviera
+<<set $TalkRiviera to false>>
+<<set $GiftRiviera to false>>
+<<set $AskRiviera to false>>
+//Ellie
+<<set $TalkEllie to false>>
+<<set $GiftEllie to false>>
+<<set $AskEllie to false>>
 ===
