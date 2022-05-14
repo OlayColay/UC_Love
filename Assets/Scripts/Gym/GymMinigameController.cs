@@ -161,7 +161,7 @@ public class GymMinigameController : MonoBehaviour
         {
             // Debug.Log("Failed at lifting!");
 
-            background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
+            background.DOFade(0f, 1.5f).OnComplete( () => minigameDone = true);
             minigameWon = false;
         }
 

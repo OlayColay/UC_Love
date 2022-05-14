@@ -30,4 +30,10 @@ public static class YarnFunctions
     {
         return GymMinigameController.minigameWon;
     }
+
+    [YarnFunction("PlazaMinigameWon")]
+    public static bool PlazaMinigameWon()
+    {
+        return PlayerController.gameWon;
+    }
 }

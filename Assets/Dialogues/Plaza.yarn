@@ -14,4 +14,27 @@ tags:
 <<set $TalkEllie to false>>
 <<set $GiftEllie to false>>
 <<set $AskEllie to false>>
+
+<<set $TimeOfDayPlaza to GetTimeOfDay()>>
+<<if $TimeOfDayPlaza == 0>>
+    <<SetBackground Backgrounds/Plaza/plaza_morning>>
+    //Sets background as Plaza Morning if it is Daytime
+<<elseif $TimeOfDayPlaza == 1>>
+    <<SetBackground Backgrounds/Plaza/plaza_noon>>
+    //Sets background as Plaza Afternoon if it is Afternoon
+<<else>>
+    <<SetBackground Backgrounds/Plaza/plaza_night>>
+    //Sets background as Plaza Night if it Evening
+<<endif>>
+<<Fade true>>
+
+-> Deliver food
+    <<PlazaMinigame>>
+    <<if PlazaMinigameWon()>>
+        Player: I think that I did a good job!
+    <<else>>
+        Player: That was embarassing... I guess I'm a little out of shape. 
+    <<endif>>
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===

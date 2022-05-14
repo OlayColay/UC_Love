@@ -39,15 +39,11 @@ Player: What should I do?
     <<endif>>
 -> Work as a workout trainer
     -> Easy
-        // <<Fade false 1 #ffffff>>
         <<GymMinigame 150 3 5 5 750>>
     -> Medium
-        // <<Fade false 1 #ffffff>>
         <<GymMinigame 100 3 3 10 750>>
     -> Hard
-        // <<Fade false 1 #ffffff>>
         <<GymMinigame 50 5 4 10 900>>
-    // <<Fade true 1 #ffffff>>
     <<if GymMinigameWon()>>
         Player: I think that I did a good job!
     <<else>>

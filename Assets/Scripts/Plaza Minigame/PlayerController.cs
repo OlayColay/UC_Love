@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool gameOver = false;
-    public bool gameWon = false;
+    public static bool gameOver = false;
+    public static bool gameWon = false;
 
     //player stats
     public int health = 3;
@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameOver = false;
+        gameWon = false;
+        
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
 
