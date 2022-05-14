@@ -346,7 +346,7 @@ position: 125,-26
     Player: Woah! I found $50 on the ground! Sweet!
     <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 3>>
-    Player: I just heard a voice telling me that Kelly loves sheet masks...
+    Player: I just heard a voice telling me that Irene loves sheet masks...
     Player: Makes sense since she's stressed all the time...
     Player: She's in the library late at night. 
 <<elseif $Random_Event_Dialogue == 4>>
@@ -378,7 +378,7 @@ position: 125,-26
     Player: I just heard a voice telling me something about a person wearing red and liking Bucci wallets.
     Player: I must be sleep deprived or something.
 <<elseif $Random_Event_Dialogue == 12>>
-    //UCB special item
+    //UCI special item
     //NOTE: Finalize special items then add AddItem commands after "Oh!"
     Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
 <<elseif $Random_Event_Dialogue == 13>>
@@ -439,10 +439,341 @@ position: 125,-26
 title: UCSBGarden
 position: 126,-113
 ---
-
+Player: What should I do?
+//ADD IN TALK, GIFT, ASK
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===
 title: UCIGarden
 position: 128,-182
 ---
-
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
+    <<set $TalkIrene to true>>
+    <<AddRelationshipScore Irene 10>>
+    <<set $UCI_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+        <<if $UCI_Dialogue == 1>>
+            Irene: I'm busy.
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: Don't you have some studying to do?
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: Are you looking for Ellie?
+                -> Yeah! Have you seen her around?
+                    Player: Yeah! Have you seen her around?
+                    <<SetSprite Middle Irene/Angry>>
+                    <<Shake Middle>>
+                    <<AddRelationshipScore Irene -20>>
+                    Irene: Ugh... BUG OFF and look for her yourself!
+                    <<SetSprite Middle Irene/sad>>
+                    Irene: sigh...
+                    <<SetSprite Middle Irene/Idle>>
+                -> No, I was just heading to the library to study!
+                    Player: No, I was just heading to the library to study!
+                    Irene: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
+                    Irene: I've been a little on edge... sorry. 
+                    Irene: What subject are you studying for today?
+                    -> Computer Science!
+                        <<AddRelationshipScore Irene 10>>
+                        Player: Computer science! 
+                        <<SetSprite Middle Irene/lbcm>>
+                        Irene: Oh! I'm a computer science major!
+                        Irene: Well... a computer science and political science double major actually...science squared?
+                        <<SetSprite Middle Irene/sad>>
+                        Irene: Sorry... that was kind of a lame joke. 
+                        <<SetSprite Middle Irene/lbom>>
+                        Irene: Um... 
+                        Irene: Ah... nevermind... sorry...
+                    -> Chemical Engineering!
+                        Player: Chemical engineering! 
+                        Irene: Oh! Cool. Um... good luck studying.
+                    -> Psychology!
+                        Player: Psychology!
+                        Irene: Oh! Cool. Um... good luck studying.
+                    -> Political Science!
+                        <<AddRelationshipScore Irene 10>>
+                        <<SetSprite Middle Irene/lbcm>>
+                        Irene: Oh! I'm a political science major!
+                        Irene: Well... a computer science and political science major actually...science squared?
+                        <<SetSprite Middle Irene/sad>>
+                        Irene: Sorry... that was kind of a lame joke. 
+                        <<SetSprite Middle Irene/lbom>>
+                        Irene: Um... if you ever need help...
+                        <<SetSprite Middle Irene/sad>>
+                        Irene: ... ah nevermind...sorry...
+                        <<SetSprite Middle Irene/Idle>>
+                -> No, I was looking for you!
+                    Player: No, I was just looking for you!
+                    <<SetSprite Middle Irene/lbom>>
+                    <<Shake Middle>>
+                    Irene: Oh!
+                    Irene: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
+                    <<SetSprite Middle Irene/Idle>>
+                    Irene: ...I have to get back to studying though, sorry.
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: Ah sorry, I have an assignment due in bit...
+        <<else>> 
+            Irene: Sorry, I have a test I have to study for today.
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
+        <<if $UCI_Dialogue == 1>>
+            Irene: You seem to come here often.
+                -> Yeah, it's one of my favorite study spots!
+                    <<AddRelationshipScore Irene 10>>
+                    Player: Yeah, it's one of my favorite study spots!
+                    <<SetSprite Middle Irene/lbcm>>
+                    Irene: Oh! It's my favorite study spot too.
+                -> Yeah, it's a nice place to talk to friends in!
+                    <<AddRelationshipScore Irene -20>>
+                    Player: Yeah, it's a nice place to talk to friends in! Especially in the reading section.
+                    <<SetSprite Middle Irene/Angry>>
+                    Irene: Sigh... You do realize that people need to work here, right?
+                    Irene: Ugh...
+                    <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: Ugh... my skin has been so dry lately...
+            Irene: Staying up late studying and drinking all this coffee is really messing with my skin.
+        <<elseif $UCI_Dialogue == 3>>
+            <<SetSprite Irene/Angry>>
+            Irene: Whatever you do, don't take Political Science 124. It's one of the worst classes I've taken here.
+            <<Shake Middle>>
+            Irene: International political economy. Never again. 
+            <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: I have three ten-page papers and a giant coding assignment due this week.
+            Irene: sigh... 
+        <<else>> 
+            Irene: I think I got two hours of sleep last night.
+            Irene: Have you tried the campus cafe yet?
+            Irene: The black coffee there is pretty strong and the lines are never too bad.
+            Irene: I usually like to stop by in the mornings before spending the rest of my day at the library.
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
+        <<if $UCI_Dialogue == 1>>
+            Irene: Sometimes when I'm working late at night, my sister will go into my room and nag at me to go to sleep.
+            Irene: It's really annoying... can't she see that I have work to do? Not all of us can spend our days lolligagging...
+                -> Yeah, that is really annoying of her...
+                    Player: Yeah, that is really annoying of her...
+                    Irene: Yeah...
+                    <<SetSprite Irene/sad>>
+                    Irene: I know she probably does it because she worries about my health though...
+                    Irene: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
+                    <<SetSprite Irene/Idle>>
+                -> Maybe she's worried about you...
+                    Player: Maybe she's worried about you...
+                    <<SetSprite Irene/lbom>>
+                    <<AddRelationshipScore Irene 10>>
+                    Irene: ...oh... I never thought about it that way....
+                    Irene: I think that she does care a lot about me... I feel guilty because I've been pushing her away...
+                    Irene: I've really been taking her for granted... I definitely should appreciate her more.
+                    Irene: I think I'll buy her one of the new bear plushies she loves so much as an apology...
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: Could I get your opinion on something? Be honest, do I look intimidating?
+                -> Yeah, a little!
+                <<AddRelationshipScore Irene 10>>
+                    <<AddRelationshipScore Irene 10>>
+                    Irene: Yeah... I think so too. I do kind of have a grumpy face... my parents say this a lot too...
+                    Irene: To be honest, it was kind of rough growing up with my sister. 
+                    Irene: I love my sister, but everyone would always compare me to her and it really cuts deep after a while.
+                    Irene: I started comparing myself a lot to her too and it has caused a rift between us. 
+                    <<SetSprite Middle Irene/sad>>
+                    Irene: It's something that I still struggle with a lot.
+                    Irene: ... She's a lot more cheery and sociable than I am... Our aunties would call me "raincloud" and call her "sunshine."
+                    <<SetSprite Middle Irene/lbom>>
+                    Irene: Ah! Sorry... I'm rambling again. 
+                    Irene: Thank you for being honest with me though. It makes me feel like I can trust you a lot more.
+                    <<SetSprite Middle Irene/lbcm>>
+                        -> Of course!
+                            Player: Of course!
+                -> No, not at all!
+                    Irene: I find that hard to believe. 
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: I've been getting a lot of ads for cute "ClickClock" outfits... but they're pretty different from what I usually wear.
+            Irene: I want to try changing up what I wear... but I get really self-conscious about how I'll look...
+            Irene: I feel like other styles will look weird on me... I'd probably look like a fool.
+                -> You should try something new! I'm sure that you'll look great!
+                    <<AddRelationshipScore Irene 10>>
+                    Player: You should try something new! I'm sure that you'll look great!
+                    <<SetSprite Irene/lbom>>
+                    Irene: Thank you for the encouragement... it means a lot...
+                    Irene: I think it will be a while before I'm ready to wear anything new outside though.
+                    <<SetSprite Irene/Idle>>
+                -> I don't think that the "ClickClock" style would suit you...
+                    Player: I don't think that the "ClickClock" style would suit you...
+                    <<SetSprite Irene/sad>>
+                    Irene: Yeah... who am I kidding... I don't think I could ever be anything other than what I am right now.
+                    Irene: Thanks for the reality check.
+                    <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: If you have room in your schedule, you should take the Game Theory course here.
+            Irene: I found it really interesting and it's pretty easy if you do the problem sets and pay attention to lecture.
+            Irene: If you take it, let me know and I'll send my notes over to you!
+        <<else>> 
+            Irene: I'd really like to see the sunset in Los Angeles one day... I don't really go outside that often. 
+            Irene: I wish I had more time to do things that I care about or more time to take care of myself.
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
+        <<if $UCI_Dialogue == 1>>
+            Irene: I can't believe that midterm season is almost here. 
+            <<SetSprite Irene/lbom>>
+            Irene: Do you need a place to study? I have an extra seat at my table... if you want.
+            <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: I wish I had a little more time to spend on my hobbies.
+            <<SetSprite Irene/sad>>
+            Irene: I really enjoy playing chess, but I've been so swamped with schoolwork that I barely have time to take care of myself.
+            Irene: Lately, my little sister Ellie started doing better academically than I did... and my parents have been pushing me to catch up...
+            Irene: I'm putting so much pressure on myself, and I feel like I'm going to break...
+            Irene: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
+                -> School is tough, but you can hang in there! 
+                    Player: School is tough, but you can hang in there! 
+                    Irene: ... I guess so... I'm really not feeling well though...
+                -> I know that school is really important to you, but your mental and physical health matter too!
+                    Player: I know that school is really important to you, but your mental health matter too!
+                    Irene: I know... I should be taking better care of myself.
+                -> How can I support you?
+                    Player: How can I support you?
+                    <<SetSprite Irene/lbom>>
+                    Irene: Hmm? ...Support? Ah you don't have to do anything! I don't want to trouble you!
+                        -> Insist on helping Irene
+                            <<AddRelationshipScore Irene 10>>
+                            Player: No, no! I insist. You mean a lot to me. I want you to take care of your health, but I know that your goals mean a lot to you.
+                            Player: So I want to do what I can to help you reach your goals!
+                            <<SetSprite Irene/hbom>>
+                            Irene: I...
+                            <<SetSprite Irene/lbom>>
+                            Player: What if I brought you a sandwich from the dining hall while you're studying?
+                            Player: That can save you some time and make sure that you still get a healthy meal.
+                            <<SetSprite Irene/hbcm>>
+                            Irene: I'd... I'd really appreciate that. Thank you. 
+                        -> Drop the subject
+                            Player: Oh... ok!
+                            <<SetSprite Irene/sad>>
+                            Irene: I'm fine on my own... I promise...
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: I was analyzing some love stories for one of my classes... and I don't know why but I thought this one line was really pretty.
+            <<SetSprite Irene/lbom>>
+            Irene: It was "Love is just a word until someone comes along and gives it meaning."
+            <<SetSprite Irene/hbom>>
+            Irene: Ah! Sorry! For a moment it sounded like I was saying that sappy of a line to you...
+            <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: Sometimes I forget to drink my coffee and I get really tired.
+            <<SetSprite Irene/lbom>>
+            Irene: ...I feel a lot less tired when I'm around you though...
+            Irene: ... which is weird because I think that violates the Law of Conservation!
+            <<SetSprite Irene/Idle>>
+        <<else>> 
+            Irene: Are you taking the class with Professor BruinBox next quarter?
+            <<SetSprite Irene/Angry>>
+            Irene: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
+            <<SetSprite Irene/lbom>>
+            Irene: If you take the class, we could work on the projects together... if you want...
+            <<SetSprite Irene/lbcm>>
+            Irene: I think that you'd make a good partner...
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCI_Dialogue == 1>>
+            Irene: I dropped this one computer science class that was really stressing me out.
+            <<SetSprite Irene/Angry>>
+            Irene: The workload was excruciatingly heavy and the professor wasn't very understanding.
+            <<SetSprite Irene/sad>>
+            Irene: I had a lot on my plate... and I've decided that I want to start prioritizing my health a little more!
+            Irene: I still struggle with feeling a little guilty about taking it easier on myself, but I try to remind myself to be patient with myself.
+            <<SetSprite Irene/lbcm>>
+            Irene: I have a bit more time to spend on things I actually care about like the chess club now that I'm not wasting it on obsolete assignments.
+            Irene: I'm really thankful for my loved ones... my sister has been really supportive of me even though we've been a bit distant these past few years.
+            <<SetSprite Irene/hbom>>
+            Irene: You've been really supportive of me too...
+            <<SetSprite Irene/hbom>>
+            Irene: Thank you.
+            <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 2>>
+            <<SetSprite Irene/lbcm>>
+            Irene: I've been experimenting a bit more with fashion lately.
+            Irene: I found some vintage outfits at a thrift store and sometimes I put it on to wear around the house.
+            Irene: I still feel a little shy about wearing something deviating from my usual style around on campus... but it feels really fun to not limit my wardrobe to pratical academic-wear.
+            Irene: I feel a lot more free.
+            <<SetSprite Irene/Idle>>
+        <<elseif $UCI_Dialogue == 3>>
+            <<SetSprite Irene/lbcm>>
+            Irene: My sister and I have been getting a little closer lately. 
+            <<SetSprite Irene/sad>>
+            Irene: We were best friends as kids and used to do everything together... but we drifted apart as we grew older.
+            Irene: I think that growing up in such a competitive environment pit us against each other and wedged us apart.
+            <<SetSprite Irene/lbcm>>
+            Irene: This weekend we went out for a girls' day brunch together. Next weekend, we're going to go thrifting together too!
+            Irene: All the advice you gave me really helped me patch my relationship with my sister.
+        <<elseif $UCI_Dialogue == 4>> 
+            <<SetSprite Irene/lbom>>
+            Irene: I heard that there's a rooftop nearby that we can climb. I heard that the sunset there is really pretty and romantic.
+            <<SetSprite Irene/lbcm>>
+            Irene: I'd really love to go with you sometime... I can make some time!
+            <<SetSprite Irene/Idle>>
+        <<else>> 
+            <<SetSprite Irene/lbcm>>
+            Irene: I've been feeling a lot better overall lately... I think that self-care has really improved my mental and physical health.
+            Irene: After a long day, I try to make time to do some yoga with my sister, cook a healthy meal, and do a bit of skincare. 
+            Irene: I have this really great soondubu recipe that you should try sometime. 
+            <<SetSprite Irene/Idle>>
+        <<endif>>   
+    <<endif>>
+    <<jump UCIGarden>>
+-> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>//Lines in but sprite names need to be swapped out
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCIGarden>>
+    <<endif>> 
+    <<set $GiftIrene = true>>
+    <<set $GiftScoreI = GetItemScore("Irene")>>
+    <<AddRelationshipScore Irene {$GiftScoreI}>>
+    <<if $GiftScoreI == 20>> //Loved Gift
+        <<SetSprite Middle Irene/hbom>>
+        Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
+        <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreI == 10>> //Liked Gift
+        <<SetSprite Middle Irene/lbcm>>
+        Irene: Oh pog! Thanks!
+        <<SetSprite Middle Irene/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Irene/Angry>>
+        Irene: These are kinda cringe...
+        <<SetSprite Middle Irene/Idle>>
+    <<endif>>
+    <<jump UCIGarden>>
+-> Ask <<if $AskIrene == false>> //Lines and Sprite Names need to be swapped out
+    -> Ask on a date
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 300>>
+            <<SetSprite Middle Irene/lbom>>
+            Irene: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Irene/lbcm>>
+            Irene: I can make time for a date!
+            <<jump IreneDate>>
+        <<else>>
+            <<SetSprite Middle Irene/Angry>>
+            Irene: No, I have a test to study for.
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIGarden>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Irene: Y-yes! I'd love to!
+        <<else>>
+            Irene: I have a project I have to work on...
+            <<AddRelationshipScore Irene -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCIGarden>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
 ===
