@@ -22,6 +22,7 @@ public class Notification : MonoBehaviour
     [YarnCommand("Notify")]
     public static void Notify(string text, string soundPath)
     {
+        audioSource.Stop();
         audioSource.PlayOneShot(Resources.Load<AudioClip>(soundPath));
         DOTween.Clear();
 

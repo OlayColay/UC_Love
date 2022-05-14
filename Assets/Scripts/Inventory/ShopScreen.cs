@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Yarn.Unity;
 
 public class ShopScreen : MonoBehaviour
@@ -10,6 +11,7 @@ public class ShopScreen : MonoBehaviour
     [SerializeField] GameObject[] itemButtons = new GameObject[6];
     [SerializeField] Image background;
     [SerializeField] Sprite shopBackground;
+    [SerializeField] TextMeshProUGUI cash;
     public GameObject cancelButton;
 
     [HideInInspector] public static Item selectedItem = null;
@@ -25,6 +27,7 @@ public class ShopScreen : MonoBehaviour
     void OnEnable()
     {
         background.sprite = shopBackground;
+        cash.text = '$' + Inventory.GetMoney().ToString();
         for (int i = 0; i < shopItems.Length; i++)
         {
             if (shopItems[i] == null)
@@ -86,6 +89,7 @@ public class ShopScreen : MonoBehaviour
         selectedItem = shopItems[index];
         Inventory.ChangeMoney(-costs[index]);
         Notification.Notify(selectedItem.name + " purchased!", "SFX/Buy");
+        cash.text = '$' + Inventory.GetMoney().ToString();
 
         if (keyItems[index])
         {
