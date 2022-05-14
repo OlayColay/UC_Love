@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
-    public void PlayGame()
+    public void NewGame()
     {
-        SceneManager.LoadScene(1); // This is MapScene's buildIndex in the current build order
-        
-        // Load the next scene in the build order
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Inventory.ClearSave();
+        SceneManager.LoadScene("MapScene");
+    }
+
+    public void LoadGame()
+    {
+        Inventory.LoadGame();
+        SceneManager.LoadScene("MapScene");
     }
 
     public void QuitGame()
