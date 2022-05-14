@@ -408,7 +408,11 @@ Player: What should I do?
         <<elseif $UCLA_Dialogue == 3>>
             Ellie: Hey! Sorry, I'm running late for the cooking club meeting!
         <<elseif $UCLA_Dialogue == 4>> 
-            Ellie: 
+            Ellie: Oh hey! You're new around here right?
+            Ellie: Are you pre-med or pre-health? You should join the Fitness Club here!
+            <<SetSprite Ellie/smc>>
+            Ellie: We usually meet in the gym during the afternoon if you're interested! 
+            <<SetSprite Ellie/Idle>>
         <<else>> 
             Ellie:
         <<endif>>
