@@ -101,8 +101,7 @@ public class GymMinigameController : MonoBehaviour
         {
             // Debug.Log("You win!");
             GainMoney();
-            background.DOFade(0f, 1f);
-            minigameDone = true;
+            background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
             minigameWon = true;
         }
     }
@@ -162,7 +161,7 @@ public class GymMinigameController : MonoBehaviour
         {
             // Debug.Log("Failed at lifting!");
 
-            minigameDone = true;
+            background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
             minigameWon = false;
         }
 
@@ -281,7 +280,7 @@ public class GymMinigameController : MonoBehaviour
 
         // Debug.Log("Failed at punching!");
 
-        minigameDone = true;
+        background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
         minigameWon = false;
     }
 
@@ -357,7 +356,7 @@ public class GymMinigameController : MonoBehaviour
 
         // Debug.Log("Failed at pushups!");
 
-        minigameDone = true;
+        background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
         minigameWon = false;
     }
 
