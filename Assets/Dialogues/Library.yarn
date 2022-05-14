@@ -414,7 +414,8 @@ Player: What should I do?
             Ellie: We usually meet in the gym during the afternoon if you're interested! 
             <<SetSprite Ellie/Idle>>
         <<else>> 
-            Ellie:
+            Ellie: The weather is nice today, isn't it? 
+            Ellie: Nice weather always puts me in a better mood. 
         <<endif>>
     <<elseif GetRelationshipScore("Ellie") >= 100 && GetRelationshipScore("Ellie") < 200>>
         //Acquaintances
@@ -448,8 +449,7 @@ Player: What should I do?
         <<else>> 
             Ellie:
         <<endif>>
-    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Ellie") < 300>>
-        // Friends
+    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Ellie") < 300>> // Friends
         <<if $UCLA_Dialogue == 1>>
             <<SetSprite Ellie/cmo>>
             Ellie: I'm a little worried about my sister Kelly... 
@@ -520,8 +520,7 @@ Player: What should I do?
         <<else>> 
             Ellie:
         <<endif>>    
-    <<else>>
-        // Lovers
+    <<else>> // Lovers
         <<if $UCLA_Dialogue == 1>>
             Ellie: 
         <<elseif $UCLA_Dialogue == 2>>
@@ -534,5 +533,58 @@ Player: What should I do?
             Ellie:
         <<endif>>
     <<endif>>
+-> Give Gift <<if $GiftEllie == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCLALibrary>>
+    <<endif>> 
+    <<set $GiftEllie = true>>
+    <<set $GiftScoreE = GetItemScore("Ellie")>>
+    <<AddRelationshipScore Ellie {$GiftScoreE}>>
+    <<if $GiftScoreE == 20>> //Loved Gift
+        <<SetSprite Middle Ellie/lb>>
+        Ellie: Oh my God! I absolutely love this!
+        <<SetSprite Middle Ellie/Idle>>
+    <<elseif $GiftScoreE == 10>> //Liked Gift
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: That's so sweet of you!
+        <<SetSprite Middle Ellie/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Ellie/Angry>>
+        Ellie: Ehhhm….. thanks?
+        <<SetSprite Middle Ellie/Idle>>
+    <<endif>>
+    <<jump UCLALibrary>>
+-> Ask <<if $AskEllie == false>>
+    -> Ask on a date
+        <<set $AskEllie = true>>
+        <<if GetRelationshipScore("Ellie") >= 300>>
+            <<SetSprite Middle Ellie/lbom>>
+            Ellie: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Ellie/lbcm>>
+            Ellie: I can make time for a date!
+            <<jump EllieDate>>
+        <<else>>
+            <<SetSprite Middle Ellie/Angry>>
+            Ellie: Umm.. sorry... I don't feel that way about you...
+            <<SetSprite Middle Ellie/Idle>>
+            <<jump UCLALibrary>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Kelly: Y-yes! I'd love to!
+        <<else>>
+            Kelly: I have a project I have to work on...
+            <<AddRelationshipScore Kelly -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCLALibrary>>
+->Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+
+
 
 ===
