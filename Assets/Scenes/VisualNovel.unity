@@ -3648,14 +3648,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434976753272, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_text
-      value: According to all known laws of aviation, there is no way that a bee
+      value: 'According to all known laws of aviation, there is no way that a bee
         should be able to fly. Its wings are too small to get its fat little body
-        off the ground. The bee, of course, flies anyway. Because bees don't care
+        off the ground. The bee, of course, flies anyway. Because bees don''t care
         what humans think is impossible.
+
+        Hrnnnnnggg...'
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434976753272, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_fontSize
-      value: 37.8
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434976753272, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_fontAsset
@@ -3679,7 +3681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434976753272, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_fontSizeBase
-      value: 37.8
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7778558434976753272, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
       propertyPath: m_RaycastTarget
