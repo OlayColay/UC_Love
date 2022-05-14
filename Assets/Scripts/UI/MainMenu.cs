@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    private Image blackScreen;
+
     public void NewGame()
     {
         // Inventory.ClearSave();
-        SceneManager.LoadScene("MapScene");
+        blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
     }
 
     public void LoadGame()
     {
         Inventory.LoadGame();
-        SceneManager.LoadScene("MapScene");
+        blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
     }
 
     public void QuitGame()

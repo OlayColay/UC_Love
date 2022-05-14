@@ -6,12 +6,14 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
-
+using DG.Tweening;
 
 public class Click : MonoBehaviour
 {
     [SerializeField]
     private LayerMask selectableLayer; // The layer that can be selected
+    [SerializeField]
+    private Image blackScreen;
 
     private GameObject selectedLocation; // The currently selected location
 
@@ -55,7 +57,8 @@ public class Click : MonoBehaviour
                 // while loop without freezing the game :)
                         
                 FindObjectOfType<AudioListener>().enabled = false;
-                StartCoroutine(LoadYarnScene(newLocation.name));
+                FindObjectOfType<EventSystem>().enabled = false;
+                blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(LoadYarnScene(newLocation.name)));
             }
 
             selectedLocation = newLocation;

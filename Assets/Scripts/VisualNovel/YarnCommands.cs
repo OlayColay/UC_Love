@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
+using DG.Tweening;
 
 /// <summary> Static Yarn Spinner commands. Commands either return nothing or are coroutines </summary>
 public class YarnCommands : MonoBehaviour
@@ -76,7 +77,8 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("LoadScene")]
     public static void LoadScene(string scene)
     {
-        GameObject.FindObjectOfType<DialogueRunner>().Stop();
-        SceneManager.LoadScene(scene);
+        // GameObject.FindObjectOfType<DialogueRunner>().Stop();
+        // DOTween.Clear();
+        BlackScreen.Instance.blackScreen.DOFade(1f, 0.5f).OnComplete(() => SceneManager.LoadScene(scene));
     }
 }
