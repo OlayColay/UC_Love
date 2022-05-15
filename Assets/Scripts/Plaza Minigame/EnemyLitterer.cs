@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyLitterer : MonoBehaviour
 {
-    [SerializeField] private float activationRange = 14f;
+    [SerializeField] private float activationRange = 15f;
     [SerializeField] private float startTimeBetweenShots = 2f;
     private float timeBetweenShots;
 
@@ -50,5 +50,26 @@ public class EnemyLitterer : MonoBehaviour
         }
 
         rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref currentVelocity, 0.8f);
+    }
+
+    public void SetDifficulty(string difficulty)
+    {
+        // Debug.Log("litter " + difficulty);
+
+        if (difficulty == "easy")
+        {
+            activationRange = 12f;
+            startTimeBetweenShots = 3f;
+        }
+        else if (difficulty == "medium")
+        {
+            activationRange = 15f;
+            startTimeBetweenShots = 2f;
+        }
+        else if (difficulty == "hard")
+        {
+            activationRange = 16f;
+            startTimeBetweenShots = 1.5f;
+        }
     }
 }

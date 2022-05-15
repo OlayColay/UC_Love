@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 flyer2offset;
     private Vector3 flyer3offset;
 
-    // Start is called before the first frame update
     void Awake()
     {
         gameOver = false;
@@ -79,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
             gameOver = true;
             gameWon = false;
-            //game over stuff
+            // DeleteEnemies();
         }
 
     }
@@ -102,15 +101,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.gameObject.tag == "Goal") && (health > 0))
          {
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
             gameOver = true;
             gameWon = true;
-
-            ///do whatever else
+            // DeleteEnemies();
          }
     }
+
+    public void DeleteEnemies()
+    {
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        GameObject.Destroy(enemy);
+    }
+
 }

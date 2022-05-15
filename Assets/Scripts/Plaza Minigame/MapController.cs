@@ -5,41 +5,72 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
+    public string difficulty = "easy";
+
     public GameObject enemyChaser;
     public GameObject enemyRunner;
     public GameObject enemyLitterer;
     public GameObject enemySlacker;
-    public int minEnemyCount = 5;
-    public int maxEnemyCount = 10;
+    public int minEnemyCount = 15;
+    public int maxEnemyCount = 20;
 
-    //public GameObject layout1;
-    // ...
-
-    void Awake()
+    public void SetEnemyDifficulty(string difficulty)
     {
+        this.difficulty = difficulty;
+        Debug.Log("plaza difficulty: " + difficulty);
 
-        //        goal.GetComponent<SpriteRenderer>().enabled = false;
-    
-        //select a map layout randomly?
-            //maybe harder maps only appear on hard difficulty?
-        //some positions will have guaranteed enemy spots, placed in the scene
+        // (speed, activationrange)
+        //easy      150, 8
+        //medium    200, 10
+        //hard      270, 12
+        enemyChaser.GetComponent<EnemyChaser>().SetDifficulty(difficulty);
 
+        // (activationRange, starttimeBetweenShots) projectilespeed?
+        //easy      12, 3
+        //medium    15, 2
+        //hard      16, 1.5
+        enemyLitterer.GetComponent<EnemyLitterer>().SetDifficulty(difficulty);
 
-        SpawnEnemies();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        // (speed) 
+        //easy      25
+        //medium    35
+        //hard      50
+        enemySlacker.GetComponent<EnemySlacker>().SetDifficulty(difficulty);
         
+        // (activationRange)
+        //easy      13
+        //medium    15
+        //hard      17    
+        enemyRunner.GetComponent<EnemyRunner>().SetDifficulty(difficulty);
     }
 
-    void SpawnEnemies() //difficulty argument
+    public void SpawnEnemies(string difficulty)
     {
+        //easy: 10-15
+        //medium: 15-20
+        //hard: 20-25
+        if (difficulty == "easy")
+        {
+            minEnemyCount = 10;
+            maxEnemyCount = 15;
+        }
+        else if (difficulty == "medium")
+        {
+            minEnemyCount = 15;
+            maxEnemyCount = 20;
+        }
+        else if (difficulty == "hard")
+        {
+            minEnemyCount = 20;
+            maxEnemyCount = 25;
+        }
+
         var enemyTypes = new GameObject[] {enemyChaser, enemyRunner, enemyLitterer, enemySlacker};
         var spawnIndexList = new List<int>();
         int currentCount = 0;
         int enemyCount = Random.Range(minEnemyCount, maxEnemyCount);
+
+        Debug.Log("Plaza enemies spawned: " + enemyCount);
 
         GameObject[] spawnPositions = GameObject.FindGameObjectsWithTag("Spawn");
         spawnIndexList.AddRange(Enumerable.Range(0, spawnPositions.Length));
@@ -47,7 +78,7 @@ public class MapController : MonoBehaviour
 
         if (minEnemyCount > spawnPositions.Length)
         {
-            Debug.Log("too many enemies (min), not enough spawn positions");
+            Debug.Log("min number of enemies too large, not enough spawn positions");
         }
 
         while (currentCount <= enemyCount)
@@ -64,7 +95,7 @@ public class MapController : MonoBehaviour
         }
     }
     
-    static List<int> Shuffle (List<int> aList)
+    private static List<int> Shuffle (List<int> aList)
     {
         // Fisher Yates Card Deck Shuffle
         System.Random _random = new System.Random ();

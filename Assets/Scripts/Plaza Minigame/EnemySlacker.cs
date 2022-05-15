@@ -9,6 +9,7 @@ public class EnemySlacker : MonoBehaviour
 
     private Vector3 currentVelocity = Vector3.zero;
     [SerializeField] private float startTimeBetweenMove = 0.2f;
+    [SerializeField] private float speed = 30f;
     private float timeBetweenMove;
 
     void Awake()
@@ -24,7 +25,7 @@ public class EnemySlacker : MonoBehaviour
         if (timeBetweenMove <= 0) {
                 // animator.SetTrigger("move");
  
-                Vector3 targetVelocity = (Random.insideUnitSphere) * 30;
+                Vector3 targetVelocity = (Random.insideUnitSphere) * speed;
                 if(targetVelocity.x >= 0)
                     GetComponent<SpriteRenderer>().flipX = true;
                 else
@@ -39,5 +40,23 @@ public class EnemySlacker : MonoBehaviour
             }
         
         rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref currentVelocity, 0.6f);
+    }
+
+    public void SetDifficulty(string difficulty)
+    {
+        // Debug.Log("slacker " + difficulty);
+
+        if (difficulty == "easy")
+        {
+            speed = 25;
+        }
+        else if (difficulty == "medium")
+        {
+            speed = 35;
+        }
+        else if (difficulty == "hard")
+        {
+            speed = 50;
+        }
     }
 }
