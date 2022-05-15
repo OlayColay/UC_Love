@@ -53,10 +53,8 @@ public class EnemyRunner : MonoBehaviour
             else
                 GetComponent<SpriteRenderer>().flipX = false;
 
-            direction = 0;
-
             if (!startCharge) {
-                if (vertDistanceToPlayer < 0.5 && horizDistanceToPlayer < activationRange) {
+                if (vertDistanceToPlayer < 1 && horizDistanceToPlayer < activationRange) {
                     // touchingObject = false;
                     startCharge = true;
                     finishCharge = false;
@@ -79,6 +77,24 @@ public class EnemyRunner : MonoBehaviour
         else
         {
             rb.velocity = Vector3.SmoothDamp(rb.velocity, Vector3.zero, ref currentVelocity, smoothTime);
+        }
+    }
+
+    public void SetDifficulty(string difficulty)
+    {
+        // Debug.Log("runner " + difficulty);
+
+        if (difficulty == "easy")
+        {
+            activationRange = 13;
+        }
+        else if (difficulty == "medium")
+        {
+            activationRange = 15;
+        }
+        else if (difficulty == "hard")
+        {
+            activationRange = 17;
         }
     }
 }

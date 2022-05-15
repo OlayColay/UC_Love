@@ -76,7 +76,7 @@ public class YarnCommands : MonoBehaviour
     }
 
     [YarnCommand("PlazaMinigame")]
-    public static IEnumerator PlazaMinigame(/* Difficulty variables here */)
+    public static IEnumerator PlazaMinigame(string difficulty)
     {
         BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
         yield return new WaitForSecondsRealtime(1f);
@@ -93,8 +93,10 @@ public class YarnCommands : MonoBehaviour
         Background.Instance.gameObject.SetActive(false);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
 
-        // Set up minigame here (if needed - seems like it's all sone in Awake)
-        // FindObjectOfType<GymMinigameController>().NewGymMinigame(liftGainPerPress, punchTarget, punchTime, pushupSpeed, pushupThreshold);
+        // Set up minigame here
+        FindObjectOfType<MapController>().SetEnemyDifficulty(difficulty); //set enemy parameters like speed, projectile rate
+        FindObjectOfType<MapController>().SpawnEnemies(difficulty); //set min & max number of enemies and spawn enemies
+
         while (!PlayerController.gameOver)
         {
             yield return null;
@@ -103,6 +105,7 @@ public class YarnCommands : MonoBehaviour
         BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
         yield return new WaitForSecondsRealtime(1f);
 
+        FindObjectOfType<PlayerController>().DeleteEnemies();
         var unload = SceneManager.UnloadSceneAsync("PlazaMinigame");
         while (!unload.isDone) // We have to wait for the scene to finish unloading
         {

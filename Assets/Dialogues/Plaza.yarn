@@ -29,7 +29,12 @@ tags:
 <<Fade true>>
 -> Meet someone
 -> Deliver food
-    <<PlazaMinigame>>
+    -> Easy
+        <<PlazaMinigame "easy">>
+    -> Medium
+        <<PlazaMinigame "medium">>
+    -> Hard
+        <<PlazaMinigame "hard">>
     <<if PlazaMinigameWon()>>
         Player: I think that I did a good job!
     <<else>>
