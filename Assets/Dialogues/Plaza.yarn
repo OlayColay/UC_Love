@@ -27,14 +27,18 @@ tags:
     //Sets background as Plaza Night if it Evening
 <<endif>>
 <<Fade true>>
-
+-> Meet someone
 -> Deliver food
     <<PlazaMinigame>>
     <<if PlazaMinigameWon()>>
         Player: I think that I did a good job!
     <<else>>
-        Player: That was embarassing... I guess I'm a little out of shape. 
+        Player: That was embarassing... I can't believe I ran over three people...
+        Player: I hope that no one saw that...
     <<endif>>
-    <<UpdateTimeOfDay>>
+    -> Leave
+        <<UpdateTimeOfDay>>
+        <<LoadScene MapScene>>
+-> Leave
     <<LoadScene MapScene>>
 ===

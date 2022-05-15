@@ -348,7 +348,7 @@ position: 125,-26
 <<elseif $Random_Event_Dialogue == 3>>
     Player: I just heard a voice telling me that Irene loves sheet masks...
     Player: Makes sense since she's stressed all the time...
-    Player: She's in the library late at night. 
+    Player: She's in the Garden late at night. 
 <<elseif $Random_Event_Dialogue == 4>>
     Player: I just heard a voice telling me that Irene loves B-Fuel...
     Player: That kind of fits with her gamer personality...
@@ -441,6 +441,122 @@ position: 126,-113
 ---
 Player: What should I do?
 //ADD IN TALK, GIFT, ASK
+<<SetSprite Middle Santana/Idle>>
+<<SetActiveChar Middle>>
+-> Talk to Santana <<if $TalkSantana == false>>
+    <<set $TalkSantana to true>>
+    <<AddRelationshipScore Santana 10>>
+    <<set $UCSB_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Santana") < 100>> //Strangers
+        <<if $UCSB_Dialogue == 1>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: 
+        <<else>> 
+            Santana: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 100 && GetRelationshipScore("Santana") < 200>> //Acquaintances
+        <<if $UCSB_Dialogue == 1>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: 
+        <<else>> 
+            Santana: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 200 && GetRelationshipScore("Santana") < 300>> //Friends
+        <<if $UCSB_Dialogue == 1>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: 
+        <<else>> 
+            Santana: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 300 && GetRelationshipScore("Santana") < 400>> //Crushing
+        <<if $UCSB_Dialogue == 1>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: 
+        <<else>> 
+            Santana: 
+        <<endif>>
+    <<else>> //Lovers
+        <<if $UCSB_Dialogue == 1>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: 
+        <<else>> 
+            Santana: 
+        <<endif>>
+    <<endif>>
+    <<jump UCSBGarden>>
+-> Give Gift <<if $GiftSantana == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCSBGarden>>
+    <<endif>> 
+    <<set $GiftSantana = true>>
+    <<set $GiftScoreS = GetItemScore("Santana")>>
+    <<AddRelationshipScore Santana {$GiftScoreS}>>
+    <<if $GiftScoreS == 20>> //Loved Gift
+        <<SetSprite Middle Santana/hbom>>
+        Santana: Oh! These are lovely! I love these... thank you so much!
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreS == 10>> //Liked Gift
+        <<SetSprite Middle Santana/lbcm>>
+        Santana: Thank you!
+        <<SetSprite Middle Santana/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Santana/Angry>>
+        Santana: Erm… I’m not sure what to do with these… but thank you...
+        <<SetSprite Middle Santana/Idle>>
+    <<endif>>
+    <<jump UCSBGarden>>
+-> Ask <<if $AskSantana == false>>
+    -> Ask on a date
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 300>>
+            <<SetSprite Middle Santana/LB>>
+            Santana: That would be lovely!
+            <<jump SantanaDate>>
+        <<else>>
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Ummm... sorry... I don't feel that way about you.
+            Santana: We can still be friends though! I enjoy your company. 
+            <<SetSprite Middle Santana/Idle>>
+            <<jump UCSBGarden>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Santana: I would love to!
+        <<else>>
+            <<SetSprite Middle/Santana/Angry>>
+            Santana: Oh... I'm flattered but I don't know if I'm going to go...
+            <<AddRelationshipScore Santana -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCSBGarden>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
@@ -474,8 +590,8 @@ Player: What should I do?
                     <<SetSprite Middle Irene/sad>>
                     Irene: sigh...
                     <<SetSprite Middle Irene/Idle>>
-                -> No, I was just heading to the library to study!
-                    Player: No, I was just heading to the library to study!
+                -> No, I was just heading to the Garden to study!
+                    Player: No, I was just heading to the Garden to study!
                     Irene: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
                     Irene: I've been a little on edge... sorry. 
                     Irene: What subject are you studying for today?
@@ -552,7 +668,7 @@ Player: What should I do?
             Irene: I think I got two hours of sleep last night.
             Irene: Have you tried the campus cafe yet?
             Irene: The black coffee there is pretty strong and the lines are never too bad.
-            Irene: I usually like to stop by in the mornings before spending the rest of my day at the library.
+            Irene: I usually like to stop by in the mornings before spending the rest of my day at the Garden.
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
         <<if $UCI_Dialogue == 1>>

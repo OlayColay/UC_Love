@@ -1,0 +1,13 @@
+﻿title: Dorm
+tags:
+---
+<<SetBackground Backgrounds/Dorm>>
+Player: What should I do?
+    -> Take a nap (Pass Time)
+        <<UpdateTimeOfDay>>
+        <<Fade false>>
+        <<Fade true>>
+        Player: Wow... that was a good nap!
+    -> Leave
+        <<LoadScene MapScene>>
+===

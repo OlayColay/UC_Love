@@ -49,8 +49,9 @@ Player: What should I do?
     <<else>>
         Player: That was embarassing... I guess I'm a little out of shape. 
     <<endif>>
-    <<UpdateTimeOfDay>>
-    <<LoadScene MapScene>>
+        -> Leave
+        <<UpdateTimeOfDay>>
+        <<LoadScene MapScene>>
 -> Leave
     <<LoadScene MapScene>>
 
