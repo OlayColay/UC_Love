@@ -13,9 +13,14 @@ tags:
 <<AddToShop 4 -10 10 -10 20 10 -10 Gifts/Stationery Stationery 100>>
 <<AddToShop 5 10 10 10 10 10 20 Gifts/BucciWallet "Bucci Wallet" 500>>
 
+<<jump ActualStore>>
+===
+title: ActualStore
+tags:
+---
 -> Shop
     <<OpenShop>>
-    <<jump Store>>
+    <<jump ActualStore>>
 -> Leave
     <<LoadScene MapScene>>
 ===

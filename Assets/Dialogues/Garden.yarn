@@ -439,10 +439,10 @@ position: 125,-26
 title: UCSBGarden
 position: 126,-113
 ---
-Player: What should I do?
 //ADD IN TALK, GIFT, ASK
 <<SetSprite Middle Santana/Idle>>
 <<SetActiveChar Middle>>
+Player: What should I do?
 -> Talk to Santana <<if $TalkSantana == false>>
     <<set $TalkSantana to true>>
     <<AddRelationshipScore Santana 10>>
@@ -564,9 +564,6 @@ Player: What should I do?
 title: UCIGarden
 position: 128,-182
 ---
-<<SetSprite Middle Irene/Idle>>
-<<SetActiveChar Middle>>
-Player: What should I do?
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?

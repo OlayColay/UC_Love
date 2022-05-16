@@ -658,6 +658,7 @@ Player: What should I do?
             Ellie:
         <<endif>>
     <<endif>>
+    <<jump UCLALibrary>>
 -> Give Gift <<if $GiftEllie == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
@@ -712,7 +713,4 @@ Player: What should I do?
 ->Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
-
-
-
 ===
