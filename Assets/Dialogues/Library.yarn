@@ -628,14 +628,44 @@ Player: What should I do?
             Ellie: Kelly keeps telling me that if a stranger asked for my kidney, I'd give them two.
             Ellie: She's kind of right though... I have a hard time telling people a direct no. 
         <<elseif $UCLA_Dialogue == 4>> 
-            Ellie: 
+            Ellie: It's kind of silly but I really like collecting Rikakume plushies!
+            Ellie: They're the really chubby bear ones. Sometimes the student stores have them in stock, but they're kind of expensive. 
+            Ellie: They make really good pillows. 
         <<else>> 
-            Ellie:
+            <<SetSprite Middle Ellie/cmo>>
+            Ellie: Sigh...
+                -> What's wrong?
+                    Player: What's wrong?
+                    <<Shake Middle>>
+                    Ellie: Oh!
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: Sorry! I didn't see you there... my... allergies... usually make me tear up this time of year.
+                        -> Are you doing ok?
+                            Player: Are you doing ok? 
+                            <<SetSprite Middle Ellie/cmc>>
+                            Ellie: Yeah! 
+                                -> How are you really doing?
+                                -> Alright....
+                                    Player: Alright...
+                                    <<SetSprite Middle Ellie/smc>>
+                                    Ellie: I have to get going but take care of yourself, kay? 
+                                    <<SetSprite Middle Ellie/Idle>>
+                        -> Oh I see!
+                            Player: Oh I see!
+                            Ellie: Yeah... the... pollen in the area really irritates my eyes.
+                            <<SetSprite Middle Ellie/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Ellie") >= 300 && GetRelationshipScore("Ellie") < 400>> // Crushing
         <<if $UCLA_Dialogue == 1>>
-            Ellie: I cut back on a couple of my extracurriculars and overall I feel a lot better!
-            Ellie: I'm able to focus more on the ones that I really care about. 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: The fitness club I'm in is hosting a field day soon and I was wondering if you'd be interested in joining!
+            Ellie: There will be a couple of relay games, some group competitions, and a water balloon fight.
+            <<SetSprite Middle Ellie/Idle>>
+            Ellie: I might not look like it, but I'm actually really good at tug-of-war. 
+            Ellie: The trick is to lean back right at the start until your opponent tires out, then start pulling!
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I'd really love to have you as my partner if you join! 
+            <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
             Ellie: 
         <<elseif $UCLA_Dialogue == 3>>
