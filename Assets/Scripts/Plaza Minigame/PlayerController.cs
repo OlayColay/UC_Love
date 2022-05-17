@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
             gameOver = true;
             gameWon = false;
-            // DeleteEnemies();
         }
 
     }
@@ -108,9 +107,33 @@ public class PlayerController : MonoBehaviour
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
             gameOver = true;
             gameWon = true;
-            // DeleteEnemies();
+            GainMoney();
          }
     }
+
+    private void GainMoney()
+    {
+        string difficulty = FindObjectOfType<MapController>().difficulty;
+        int money = 0;
+
+        if (difficulty == "easy")
+        {
+            money = 80 + (health * 10);
+        }
+        else if (difficulty == "medium")
+        {
+            money = 180 + (health * 10);
+        }
+        else if (difficulty == "hard")
+        {
+            money = 280 + (health * 10);
+        }
+
+        // int enemyMoney = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Inventory.ChangeMoney(money);
+        Debug.Log("Money gained: " + money);
+    }
+
 
     public void DeleteEnemies()
     {
