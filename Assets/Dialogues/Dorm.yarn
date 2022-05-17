@@ -2,6 +2,7 @@
 tags:
 ---
 <<SetBackground Backgrounds/Dorm>>
+<<Fade true>>
 Player: What should I do?
     -> Take a nap (Pass Time)
         <<UpdateTimeOfDay>>
@@ -9,5 +10,5 @@ Player: What should I do?
         <<Fade true>>
         Player: Wow... that was a good nap!
     -> Leave
-        <<LoadScene MapScene>>
+<<LoadScene MapScene>>
 ===
