@@ -443,7 +443,7 @@ Player: What should I do?
                 -> Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Ellie: Oh cool! Well... kind of...
-                    Ellie: I'm a course reader fr that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returnign as a course reader for it.
+                    Ellie: I'm a course reader for that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returnign as a course reader for it.
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: I am a psychology major though... so I may be a little biased!
                     <<SetSprite Middle Ellie/lb>>
@@ -457,11 +457,10 @@ Player: What should I do?
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: You should take the class if you have the chance! It's a really fun class.
                     Ellie: Professor BruinBot is a little tough, but you learn a lot from him and he's really adorable to watch.
-                    <<SetSprite Middle Ellie/Angry>>
                     Ellie: Don't let him hear you say that though, or he'll run over your toes!
                     <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 3>>
-            Ellie: Have you joined any of the clubs on campus yet? There's a ton of extracurricals here at UCL!
+            Ellie: Have you joined any of the clubs on campus yet? There's a ton of extracurriculars here at UCL!
             <<SetSprite Middle Ellie/Angry>>
             Ellie: I would know... I'm in way too many of them!
             <<SetSprite Middle Ellie/Idle>>
@@ -544,7 +543,16 @@ Player: What should I do?
                             <<AddRelationshipScore Ellie -10>>
                             Player: I think that you should join the board!
                                 -> You can defintely make room in your schedule.
+                                    <<AddRelationshipScore Ellie -10>>
+                                    Player: You can defintely make room in your schedule.
+                                    <<SetSprite Middle Ellie/Angry>>
+                                    Ellie: I don't think you've really been listening to me...
+                                    <<SetSprite Middle Ellie/Idle>>
                                 -> Your friend needs you!
+                                    Player: Your friend needs you! 
+                                    <<SetSprite Ellie/cmo>>
+                                    Ellie: I know... I feel like I'm letting them down if I don't accept, but I have no time for another extracurricular...
+                                    Ellie: It's going to be really hard to tell them...
                         -> Turn her down...
                             Player: I think that you should turn her down...
                                 -> I don't think that you can handle it.
@@ -555,9 +563,9 @@ Player: What should I do?
                                     <<SetSprite Middle Ellie/cmo>>
                                     Ellie: Thanks for the advice I guess...
                                     <<SetSprite Middle Ellie/Idle>>
-                                -> You already have a lot on your plate...
+                                -> You already have a lot on your plate... You need to set a boundary for yourself!
                                     <<AddRelationshipScore Ellie 10>>
-                                    Player: You already have a lot on your plate...
+                                    Player: You already have a lot on your plate... You need to set a boundary for yourself!
                                     <<SetSprite Middle Ellie/cmc>>
                                     Ellie: Sigh... you're right. I'm already in so many clubs...
                                     Ellie: I feel like I'm biting off more than I can chew... I feel like I have to help my friends and support all these causes...
@@ -645,7 +653,49 @@ Player: What should I do?
                             <<SetSprite Middle Ellie/cmc>>
                             Ellie: Yeah! 
                                 -> How are you really doing?
+                                    <<set $UCLA_Quit to false>>
+                                    Player: How are you really doing?
+                                    <<SetSprite Middle Ellie/cmo>>
+                                    Ellie: To be honest... I'm not doing too well...
+                                    Ellie: I'm in a lot of clubs and I'm starting to feel really overwhelmed.
+                                    Ellie: I feel like I can't quit or turn down a request... I have so many people relying on me...
+                                    Ellie: I can't let my friends and clubmates down, but I'm realizing that I have too much on my plate and that I've been signing myself up for things that I'm not very passionate about.
+                                    Ellie: I want to be able to make everyone happy and I want to help out all my friends but I can only do so much...
+                                        -> I think that you're struggling with burnout... 
+                                            Ellie: I know... but so many people rely on me to keep their clubs running.
+                                            Ellie: I can't just back out all of a sudden. 
+                                                -> Just drop some clubs! No one is stopping you!
+                                                    Player: Just drop some clubs! No one is stopping you!
+                                                    <<SetSprite Middle Ellie/Angry>>
+                                                    Ellie: These are people that I care about! I can't just leave them hanging like that...
+                                                    Ellie: You wouldn't do that to someone you cared about would you?
+                                                -> Why don't you try phasing out your involvement?
+                                                    Player: Why don't you try phasing out your involvement?
+                                                    Player: You could let your club members know that you're feeling overwhelmed and need to take a step back.
+                                                        -> They might be a little mad but you need to prioritize yourself!
+                                                        <<SetSprite Middle Ellie/cmc>>
+                                                            Ellie: Sigh... you're right... I really don't want to let them down but I can't take this workload anymore.
+                                                            Ellie: Thank you for your advice!
+                                                        -> If they're good friends, they will understand!
+                                                            Player: If they're good friends, they will understand!
+                                                            Ellie: Sigh... you're right...
+                                                            <<SetSprite Middle Ellie/smc>>
+                                                            Ellie: I didn't really think about it from that perspective. They're my friends and I think they'd want the best for me too.
+                                                            Ellie: Thank you for your advice... I really appreciate it.
+                                                            <<SetSprite Middle Ellie/lb>>
+                                                            Ellie: Let me treat you out for food sometime alright?
+                                                            <<set $UCLA_Quit to true>>
+                                                            <<SetSprite Middle Ellie/Idle>>
+                                        -> I think that you're struggling with time management...
+                                            <<set $UCLA_Quit to false>>
+                                            Player: I think that you're struggling with time management...
+                                            Player: I'm sure that you could fit everything into your schedule if you tried hard enough.
+                                            <<SetSprite Middle Ellie/Angry>>
+                                            Ellie: Yeah, sure. I guess if I stop eating or showering I guess I might have enough time. 
+                                            Ellie: I need a more practical solution...
+                                            <<SetSprite Middle Ellie/Idle>>
                                 -> Alright....
+                                    <<set $UCLA_Quit to false>>
                                     Player: Alright...
                                     <<SetSprite Middle Ellie/smc>>
                                     Ellie: I have to get going but take care of yourself, kay? 
@@ -667,9 +717,27 @@ Player: What should I do?
             Ellie: I'd really love to have you as my partner if you join! 
             <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
-            Ellie: 
+            Ellie: Would you want to go to the gym together sometime?
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I could spot you if you wanted me to.
+            <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 3>>
-            Ellie:
+            <<if $UCLA_Quit == true>>
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I took your advice and cut down on a couple of clubs I'm involved in.
+                Ellie: Everyone was really understanding and wanted me to prioritize my own wellbeing.
+                Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
+                Ellie: Thank you again for your advice.
+            <<else>>
+                <<SetSprite Middle Ellie/cmo>>
+                Ellie: I ended up leaving a couple of clubs that I'm involved in. 
+                Ellie: The workload just got too overwhelming at a certain point and I just had to suddenly drop out.
+                <<SetSprite Middle Ellie/Angry>>
+                Ellie: I wish I was able to recognize my limit a little earlier to give my friends and clubmates some notice, but better late than never!
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
+                <<SetSprite Middle Ellie/Idle>>
+            <<endif>>
         <<elseif $UCLA_Dialogue == 4>> 
             Ellie: 
         <<else>> 
@@ -699,7 +767,7 @@ Player: What should I do?
     <<AddRelationshipScore Ellie {$GiftScoreE}>>
     <<if $GiftScoreE == 20>> //Loved Gift
         <<SetSprite Middle Ellie/lb>>
-        Ellie: Oh my God! I absolutely love this!
+        Ellie: Oh my God! I absolutely love this! Thank you!
         <<SetSprite Middle Ellie/Idle>>
     <<elseif $GiftScoreE == 10>> //Liked Gift
         <<SetSprite Middle Ellie/smc>>

@@ -376,6 +376,31 @@ position: 207,66
 <<set $AskRiviera to false>>
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
+->
+Ask <<if $AskRiviera == false>>
+    -> Ask on a date
+        <<set $AskRiviera = true>>
+        <<if GetRelationshipScore("Riviera") >= 300>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: 
+            <<jump RivieraDate>>
+        <<else>>
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: I admire your guts for asking, but no thanks. 
+            <<SetSprite Middle Riviera/Idle>>
+            <<jump UCRCafe>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskRiviera = true>>
+        <<if GetRelationshipScore("Riviera") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Riviera: Y-yes! I'd love to!
+        <<else>>
+            Riviera: I have a project I have to work on...
+            <<AddRelationshipScore Riviera -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCBCafe>>
 -> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
