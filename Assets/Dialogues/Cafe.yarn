@@ -364,7 +364,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCBCafe>>
 -> Leave
-    <<UpdateTimeofDay>>
+    <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
 title: UCRCafe
@@ -376,8 +376,8 @@ position: 207,66
 <<set $AskRiviera to false>>
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
-->
-Ask <<if $AskRiviera == false>>
+-> Talk to Riviera
+-> Ask <<if $AskRiviera == false>>
     -> Ask on a date
         <<set $AskRiviera = true>>
         <<if GetRelationshipScore("Riviera") >= 300>>
