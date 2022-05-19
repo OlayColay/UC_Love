@@ -28,7 +28,7 @@ tags:
 <<endif>>
 <<Fade true>>
 -> Meet someone
--> Deliver food
+-> Work as a BruinBox Driver
     -> Easy
         <<PlazaMinigame "easy">>
     -> Medium

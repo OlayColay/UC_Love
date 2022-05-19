@@ -51,7 +51,7 @@ Player: What should I do?
         <<elseif $UCBDialogueCafe == 2>>
             Kelly: Don't you have some studying to do?
         <<elseif $UCBDialogueCafe == 3>>
-            Kelly: Are you looking for Ellie?
+            Kelly: Are you looking for Riviera?
                 -> Yeah! Have you seen her around?
                     Player: Yeah! Have you seen her around?
                     <<SetSprite Middle Kelly/Angry>>
@@ -63,7 +63,7 @@ Player: What should I do?
                     <<SetSprite Middle Kelly/Idle>>
                 -> No, I was just heading to the library to study!
                     Player: No, I was just heading to the library to study!
-                    Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
+                    Kelly: Ah! Sorry... people usually ask me where my sister Riviera is and it gets... really annoying.
                     Kelly: I've been a little on edge... sorry. 
                     Kelly: What subject are you studying for today?
                     -> Computer Science!
@@ -100,7 +100,7 @@ Player: What should I do?
                     <<SetSprite Middle Kelly/lbom>>
                     <<Shake Middle>>
                     Kelly: Oh!
-                    Kelly: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
+                    Kelly: Ah... sorry... people usually ask me where my sister Riviera is and it gets... really annoying. 
                     <<SetSprite Middle Kelly/Idle>>
                     Kelly: ...I have to get back to studying though, sorry.
         <<elseif $UCBDialogueCafe == 4>> 
@@ -215,7 +215,7 @@ Player: What should I do?
             Kelly: I wish I had a little more time to spend on my hobbies.
             <<SetSprite Kelly/sad>>
             Kelly: I really enjoy playing chess, but I've been so swamped with schoolwork that I barely have time to take care of myself.
-            Kelly: Lately, my little sister Ellie started doing better academically than I did... and my parents have been pushing me to catch up...
+            Kelly: Lately, my little sister Riviera started doing better academically than I did... and my parents have been pushing me to catch up...
             Kelly: I'm putting so much pressure on myself, and I feel like I'm going to break...
             Kelly: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
                 -> School is tough, but you can hang in there! 
@@ -377,16 +377,46 @@ position: 207,66
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
 -> Talk to Riviera
+    <<if GetRelationshipScore("Riviera") < 100>> //Strangers
+        <<if $UCR_Dialogue == 1>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 2>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 3>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 4>> 
+            Riviera: 
+            <<SetSprite Riviera/smc>>
+            Riviera: 
+            <<SetSprite Riviera/Idle>>
+        <<else>> 
+            <<SetSprite Middle Riviera/Messy>>
+            Riviera: Hey, does my hair look alright? I have an important pitch meeting in a bit and I don't have a mirror on hand.
+                -> You're good to go!
+                -> Well actually... you have a little something in your hair.
+                    Player: Well actually... you have a little something in your hair.
+                    Riviera: Oh! Where?
+                        -> Over here!
+                            Player: Over here!
+                            <<SetSprite Middle Riviera/Idle>>
+                            Riviera:
+                -> You look unprofessional.
+                    Player: You look unprofessional.
+                    <<AddRelationshipScore Riviera -10>>
+                    Riviera: 
+            Riviera: Thanks! I really appreciate it.
+        <<endif>>
+    <<endif>>
 -> Ask <<if $AskRiviera == false>>
     -> Ask on a date
         <<set $AskRiviera = true>>
         <<if GetRelationshipScore("Riviera") >= 300>>
             <<SetSprite Middle Riviera/lb>>
-            Riviera: 
+            Riviera: Sure! I think it'd be fun!
             <<jump RivieraDate>>
         <<else>>
             <<SetSprite Middle Riviera/Angry>>
-            Riviera: I admire your guts for asking, but no thanks. 
+            Riviera: I admire your guts for asking, but no thanks.
             <<SetSprite Middle Riviera/Idle>>
             <<jump UCRCafe>>
         <<endif>>
