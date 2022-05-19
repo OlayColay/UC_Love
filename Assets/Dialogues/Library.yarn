@@ -231,7 +231,7 @@ Player: What should I do?
                     Player: School is tough, but you can hang in there! 
                     Kelly: ... I guess so... I'm really not feeling well though...
                 -> I know that school is really important to you, but your mental and physical health matter too!
-                    Player: I know that school is really important to you, but your mental health matter too!
+                    Player: I know that school is really important to you, but your mental health matters too!
                     Kelly: I know... I should be taking better care of myself.
                 -> How can I support you?
                     Player: How can I support you?
@@ -399,6 +399,9 @@ Player: What should I do?
                 <<SetSprite Ellie/Angry>>
                 Ellie: Ah! Sorry, I'm in a lot of club activities and have trouble keeping track of everyone I meet!
                 Ellie: I think I remember you... your name is.... 
+                Player: ...
+                Ellie: ...
+                <<SetSprite Middle Ellie/lb>>
                 <<Shake Middle>>
                 <<SetSprite Ellie/Idle>>
                 Ellie: Ah! Sorry, I'm running late for a flyering event! I'll see you around!
@@ -685,6 +688,7 @@ Player: What should I do?
                                                             <<SetSprite Middle Ellie/lb>>
                                                             Ellie: Let me treat you out for food sometime alright?
                                                             <<set $UCLA_Quit to true>>
+                                                            //TD: Continuity
                                                             <<SetSprite Middle Ellie/Idle>>
                                         -> I think that you're struggling with time management...
                                             <<set $UCLA_Quit to false>>
@@ -722,6 +726,7 @@ Player: What should I do?
             Ellie: I could spot you if you wanted me to.
             <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 3>>
+            //TD: Continuity
             <<if $UCLA_Quit == true>>
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: I took your advice and cut down on a couple of clubs I'm involved in.
@@ -739,7 +744,14 @@ Player: What should I do?
                 <<SetSprite Middle Ellie/Idle>>
             <<endif>>
         <<elseif $UCLA_Dialogue == 4>> 
-            Ellie: 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: My relationship with my sister has been improving a bit!
+            Ellie: We've been hanging out a bit more together and I think we're both doing better.
+            Ellie: Last weekend we went for a girls' day brunch together and we're planning to go thrifting soon too. 
+            Ellie: I think your advice really helped me repair my relationship with my sister. 
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: Thank you!
+            <<SetSprite Middle Ellie/Idle>>
         <<else>> 
             Ellie:
         <<endif>>    

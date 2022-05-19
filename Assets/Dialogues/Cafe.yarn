@@ -379,6 +379,71 @@ position: 207,66
 -> Talk to Riviera
     <<if GetRelationshipScore("Riviera") < 100>> //Strangers
         <<if $UCR_Dialogue == 1>>
+            <<if $UCR_Intro == false>>
+            //TD: Continuity
+            Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
+            Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
+            Riviera: I'd really appreciate it if you checked it out!
+            <<Set $UCR_Intro == true>>
+            <<else>> 
+            Riviera: Hey! Have you had a chance to check out my startup?
+                -> Yeah!
+                    Player: Yeah!
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Oh! Thank you! That means so much to me.
+                    Riviera: This startup is really my pride and joy. 
+                -> No, I haven't.
+                    Player: No, I haven't.
+                    <<SetSprite Middle Riviera/sad>>
+                    Riviera: Oh... that's alright.
+                    <<SetSprite Middle Riviera/Idle>>
+            <<endif>>
+        <<elseif $UCR_Dialogue == 2>>
+            Riviera: Oh hey! I'd love to chat but I have a meeting I need to prepare for in a bit.
+        <<elseif $UCR_Dialogue == 3>>
+            Riviera: Hey! Have you seen an outlet somewhere around here? My laptop is running out of battery but I need to finish a slide deck for a pitch meeting soon.
+                -> I haven't seen one, sorry.
+                    Player: I haven't seen one, sorry.
+                    <<SetSprite Middle Riviera/sad>>
+                    Riviera: Oh... that's alright...
+                    <<SetSprite Middle Riviera/Idle>>
+                -> I think I saw one over there!
+                    <<AddRelationshipScore Riviera 10>>
+                    Player: I think I saw one over there!
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Oh! Thank you. I really appreciate it!
+                    <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCR_Dialogue == 4>> 
+            Riviera: Sorry, I'm in a bit of a rush right now.
+            <<SetSprite Riviera/Idle>>
+        <<else>> 
+            <<SetSprite Middle Riviera/Messy>>
+            Riviera: Hey, does my hair look alright? I have an important pitch meeting in a bit and I don't have a mirror on hand.
+                -> You're good to go!
+                    Riviera: Oh! Are you sure? I feel like something is in my hair...
+                    Riviera: I guess that I can always check in in a window or something later. 
+                    <<SetSprite Middle Riviera/Idle>>
+                -> Well actually... you have a little something in your hair.
+                    <<AddRelationshipScore Riviera 10>>
+                    Player: Well actually... you have a little something in your hair.
+                    Riviera: Oh! Where?
+                        -> Over here!
+                            Player: Over here!
+                            Riviera: Oh! Thank you!
+                            <<SetSprite Middle Riviera/Idle>>
+                            Riviera: That should be better! Thanks for letting me know!
+                            Riviera: I really appreciate it. 
+                -> You look unprofessional.
+                    Player: You look unprofessional.
+                    <<AddRelationshipScore Riviera -10>>
+                    <<SetSprite Middle Riviera/Angry>>
+                    Riviera: ... alright.
+                    <<SetSprite Middle Riviera/sad>>
+                    Riviera: sigh...
+                    <<SetSprite Middle Riviera/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 100 && GetRelationshipScore("Riviera") < 200>> //Acquaintances
+        <<if $UCR_Dialogue == 1>>
             Riviera: 
         <<elseif $UCR_Dialogue == 2>>
             Riviera: 
@@ -386,25 +451,105 @@ position: 207,66
             Riviera: 
         <<elseif $UCR_Dialogue == 4>> 
             Riviera: 
-            <<SetSprite Riviera/smc>>
-            Riviera: 
-            <<SetSprite Riviera/Idle>>
-        <<else>> 
-            <<SetSprite Middle Riviera/Messy>>
-            Riviera: Hey, does my hair look alright? I have an important pitch meeting in a bit and I don't have a mirror on hand.
-                -> You're good to go!
-                -> Well actually... you have a little something in your hair.
-                    Player: Well actually... you have a little something in your hair.
-                    Riviera: Oh! Where?
-                        -> Over here!
-                            Player: Over here!
+        <<else>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
+        <<if $UCR_Dialogue == 1>>
+            Riviera: Hey, could I ask you for a favor?
+            Riviera: I have an important pitch competition coming up with a startup club on campus and I was wondering if I could practice my pitch with you.
+                -> Of course!
+                    Player: Of course! 
+                    Riviera: Alright... here goes...
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Hello everyone, my name is Riviera.
+                    Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
+                    Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
+                    <<SetSprite Middle Riviera/sad>>
+                    Riviera: We are.... ummm...  uhh..
+                    Riviera: Ugh... I'm never going to be able to do this... who am I kidding...
+                        -> Don't give up!
+                            Player: Don't give up!
+                            Riviera: It's so hard to nail the script down to a tee.
+                            Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
+                                -> Practice makes perfect!
+                                    <<AddRelationshipScore Riviera 10>>
+                                    <<Set $RivieraHelp to  $RivieraHelp + 1>>
+                                    Player: Practice makes perfect!
+                                    Riviera: You're right... Rome wasn't built in a day I suppose.
+                                    <<SetSprite Middle Riviera/happy>>
+                                    Riviera: Alright, let me try it again from the top!
+                                    <<SetSprite Middle Riviera/Idle>>
+                                    Riviera: Hello everyone, my name is Riviera.
+                                    Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
+                                    Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
+                                    Riviera: We are... similar to Boogle Analytics, but specialize primarily in analyzing customer-generated sentiments across a business's customer communication channels and social media platforms. 
+                                    <<SetSprite Middle Riviera/happy>>
+                                    Riviera: Currently, we have a prototype software ready to use, but are looking for investors to help us expand our product into the B2B market and further improve our software.
+                                    Riviera: Thank you!
+                                    Riviera: How was that?
+                                        -> A lot better! 
+                                            Player: A lot better!
+                                            Riviera: Thanks for the feedback... I really appreciate it!
+                                        -> You could still use a bit of work! A bit more practice should do the trick!
+                                            Player: You could still use a bit of work! A bit more practice should do the trick!
+                                            Riviera: Thanks for the feedback... I really appreciate it!
+                                -> Maybe you can ask a friend to do the pitch for you instead...
+                                    Player: Maybe you can ask a friend to do the pitch for you instead...
+                                    <<SetSprite Middle Riviera/sad>>
+                                    Riviera: That's against the competition rules...
+                                    Riviera: Either way though, I feel like I should do it myself.
+                                    <<SetSprite Middle Riviera/Idle>>
+                        -> Maybe business isn't your calling...
+                            Player: Maybe business isn't your calling...
+                            <<SetSprite Middle Riviera/Angry>>
+                            <<Shake Middle>>
+                            <<AddRelationshipScore Riviera -10>>
+                            Riviera: Hey! I pour my heart and soul into this startup.
+                            Riviera: I might not be the best businesswoman but damn it, I'm going to keep trying.
+                            Riviera: I don't need the likes of you dragging me down. 
                             <<SetSprite Middle Riviera/Idle>>
-                            Riviera:
-                -> You look unprofessional.
-                    Player: You look unprofessional.
-                    <<AddRelationshipScore Riviera -10>>
-                    Riviera: 
-            Riviera: Thanks! I really appreciate it.
+                -> No, sorry.
+                    Player: No, sorry. 
+                    Riviera: That's alright. Thanks anyway. 
+        <<elseif $UCR_Dialogue == 2>>
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: Sigh... I had a networking night a while ago that didn't go too well.
+            Riviera: I
+        <<elseif $UCR_Dialogue == 3>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 4>> 
+            Riviera: 
+        <<else>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 300 && GetRelationshipScore("Riviera") < 400>> //Crushing
+        <<if $UCR_Dialogue == 1>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 2>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 3>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 4>> 
+            Riviera: 
+        <<else>>
+        <<endif>>
+    <<else>> //Lovers
+        <<if $UCR_Dialogue == 1>>
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: I pitched my startup at a conference this weekend and it went really well!
+            Riviera: Everyone was really interested in my company and I even got an investor and a couple customers!
+            Riviera: I was really nervous, but I remembered the advice you gave me.
+            Riviera: Practicing my pitch with you really helped too. 
+            Riviera: Let me treat you out for coffee someday as a thanks alright?
+        <<elseif $UCR_Dialogue == 2>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: Thank you for helping me to believe in myself!
+            Riviera: My self-confidence is a lot higher after meeting you. 
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCR_Dialogue == 3>>
+            Riviera: 
+        <<elseif $UCR_Dialogue == 4>> 
+            Riviera: 
+        <<else>>
         <<endif>>
     <<endif>>
 -> Ask <<if $AskRiviera == false>>
