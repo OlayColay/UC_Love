@@ -59,7 +59,9 @@ Player: What should I do?
 title: UCRGym
 position: 241,-105
 ---
-
+Player: No one is here right now...
+-> Leave
+    <<LoadScene MapScene>>
 ===
 title: UCLAGym
 position: 242,-21
@@ -556,5 +558,7 @@ Player: What should I do?
 title: UCSBGym
 position: 242,62
 ---
-
+Player: No one is here right now...
+-> Leave
+    <<LoadScene MapScene>>
 ===

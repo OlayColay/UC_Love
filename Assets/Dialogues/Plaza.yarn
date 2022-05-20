@@ -57,12 +57,16 @@ tags:
 title: UCIPlaza
 position: 211,-126
 ---
-
+Player: No one is here right now...
+-> Leave
+    <<LoadScene MapScene>>
 ===
 title: UCRPlaza
 position: 212,-6
 ---
-
+Player: No one is here right now...
+-> Leave
+    <<LoadScene MapScene>>
 ===
 title: UCLAPlaza
 position: 219,98
