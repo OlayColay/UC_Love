@@ -18,6 +18,11 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
+        if (Inventory.GetDay() == 0 && Inventory.GetTimeOfDay() == 0)
+        {
+            return;
+        }
+
         Inventory.LoadGame();
         blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
     }
