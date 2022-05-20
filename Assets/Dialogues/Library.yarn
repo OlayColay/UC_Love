@@ -385,6 +385,7 @@ position: 194,65
 Player: What should I do?
 -> Talk to Ellie <<if $TalkEllie == false>>
     <<set $TalkEllie to true>>
+    <<set $UCLA_Dialogue = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
     <<if GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue == 1>>

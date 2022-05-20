@@ -354,13 +354,13 @@ position: 125,-26
     Player: That kind of fits with her gamer personality...
 <<elseif $Random_Event_Dialogue == 5>>
     Player: I just heard a voice telling me that Santana loves plushies...
-    Player: She's kind of a soft girl... I can see her loving plushies. 
+    Player: She seems to like nature a lot... so it makes sense. 
 <<elseif $Random_Event_Dialogue == 6>>
     Player: I just heard a voice telling me that Riviera loves stationery...
-    Player: She's really hardwording... I can see her running out of notepads easily.
+    Player: She's really hardworking... I can see her running out of notepads easily.
 <<elseif $Random_Event_Dialogue == 7>>
-    Player: I just heard a voice telling me that Ellie loves flowers...
-    Player: She seems to like nature a lot... so it makes sense. 
+    Player: I just heard a voice telling me that Ellie loves bear plushies...
+    Player: She's very gentle-natured... I can see her liking plushies!
 <<elseif $Random_Event_Dialogue == 8>>
     Player: I have a feeling that if I take a walk at night, I'll meet someone unexpected. 
 <<elseif $Random_Event_Dialogue == 9>>
