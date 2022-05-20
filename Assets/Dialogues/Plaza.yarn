@@ -76,10 +76,10 @@ position: 219,98
 Player: What should I do?
 -> Talk to Ellie <<if $TalkEllie == false>>
     <<set $TalkEllie to true>>
-    <<set $UCLA_Dialogue = Dice(5)>>
+    <<set $UCLA_Dialogue_Plaza = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
     <<if GetRelationshipScore("Ellie") < 100>> //Strangers
-        <<if $UCLA_Dialogue == 1>>
+        <<if $UCLA_Dialogue_Plaza == 1>>
             Ellie: Hey! Are you new on campus?
             -> Yes!
                 Player: Yes! I just started here. 
