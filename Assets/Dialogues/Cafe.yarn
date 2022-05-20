@@ -444,14 +444,43 @@ position: 207,66
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 100 && GetRelationshipScore("Riviera") < 200>> //Acquaintances
         <<if $UCR_Dialogue == 1>>
-            Riviera: 
+            Riviera: Oh hey! I'm designing business cards for my startup as part of my entrepreneurship class! 
+            Riviera: My startup is called Delphi Analytics and I'm wondering which business card design I should pick.
+            Riviera: Which one of these do you like more?
+                -> The first one!
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Thanks! I really appreciate it!
+                    <<SetSprite Middle Riviera/Idle>>
+                -> The second one!
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Thanks! I really appreciate it!
+                    <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCR_Dialogue == 2>>
-            Riviera: 
+            Riviera: Sometimes I go to the gym in the mornings.
+            Riviera: Punching the punching bags is a good stress reliever and a good workout.
         <<elseif $UCR_Dialogue == 3>>
-            Riviera: 
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: Ugh... my brother took my stationery pad again!
+            Riviera: My little brothers are always getting into my bag looking for things to play with.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: One of the cons of having a large family I guess... but I wouldn't trade them for the world.
+            <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCR_Dialogue == 4>> 
-            Riviera: 
+            Riviera: I really want to win the upcoming startup competition.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: My little brothers are cheering me on. They really look up to me and I don't want to let them down!
+            <<SetSprite Middle Riviera/Idle>>
         <<else>>
+        Riviera: My mom is a little old-fashioned... 
+        Riviera: She keeps telling me that I don't need to worry about all this business stuff and that I just need to look good and find a good husband.
+        Riviera: There's nothing wrong with that way of life... but I can't really see myself living off of someone else's dime for the rest of myself.
+        Riviera: I want to make something of myself!
+            -> I don't know... if I could be a sugar baby I would!
+            Riviera: ... to each their own I suppose...
+            -> I also want to make something of myself!
+            <<AddRelationshipScore Riviera 10>>
+            <<SetSprite Middle Riviera>>
+            Riviera: Birds of a feather flock together! 
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
         <<if $UCR_Dialogue == 1>>
@@ -513,19 +542,56 @@ position: 207,66
                     Riviera: That's alright. Thanks anyway. 
         <<elseif $UCR_Dialogue == 2>>
             <<SetSprite Middle Riviera/sad>>
-            Riviera: Sigh... I had a networking night a while ago that didn't go too well.
-            Riviera: I
+            Riviera: Sigh... I had a pitch competition a while ago that didn't go too well.
+            Riviera: The judge said that I was too "aggressive" and that I "need to be softer."
+            Riviera: I feel like he was pretty unfair though... the male competitors were like... actually aggressive but he said that they were "confident" and "inspiring."
+                -> It's probably just you.
+                    Riviera: I don't know... it feels like potential bias to me...
+                -> That judge sounds biased...
+                    <<AddRelationshipScore Riviera 10>>
+                    <<SetSprite Middle Riviera/Angry>>
+                    <<Shake Middle>>
+                    Riviera: I know right? It's so frustrating!
+                    <<SetSprite Middle Riviera/Idle>>
+                    Riviera: Oh well... there's always new competitions I suppose!
         <<elseif $UCR_Dialogue == 3>>
-            Riviera: 
+            Riviera: A while ago, my brothers made me a tote bag that they decorated as a good luck charm.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: It was a little tacky... but it meant so much to me.
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: A squirrel stole it off of me in the garden though... I really wish that I could find it.
+            <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCR_Dialogue == 4>> 
-            Riviera: 
+            Riviera: Usually, the general classes here don't actually teach you a lot of applicable skills. It counts towards my economics major too. 
+            Riviera: I'm in this accounting class right now with Professor BruinBox and it's actually really useful!
+            Riviera: I was able to use a lot of the course concepts to draft budgets and make balance sheets for my startup.
+            Riviera: You should take it if you have the chance! I think everyone can learn from it!
         <<else>>
+            Riviera: People don't usually guess that I'm an econ major. 
+            Riviera: I'm not sure what an econ major is supposed to "look" like exactly...
+            Riviera: Maybe it's a secret compliment? I just hope that people are taking me seriously...
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 300 && GetRelationshipScore("Riviera") < 400>> //Crushing
         <<if $UCR_Dialogue == 1>>
-            Riviera: 
+            Riviera: What kind of trait do you primarily look for in a partner?
+                -> A good work ethic!
+                    Player: A good work ethic!
+                    <<SetSprite Riviera/happy>>
+                    Riviera: Oh! Same here! I think there's little else more attractive than a person who's willing to work towards what they want!
+                -> A smoking hot body!
+                    Player: A smoking hot body!
+                    Riviera: Oh... to each their own I suppose.
+                     Riviera: Personally I value a good work ethic... maybe strong family values as well. 
+                -> A sense of humor!
+                    Player: A sense of humor!
+                    Riviera: Oh... to each their own I suppose.
+                    Riviera: Personally I value a good work ethic... maybe strong family values as well. 
+                -> Strong family values!
+                    Player: Strong family values!
+                    <<SetSprite Riviera/happy>>
+                    Riviera: Oh! Same here! My family is really important to me and I'd want a partner to value their family as well. 
         <<elseif $UCR_Dialogue == 2>>
-            Riviera: 
+            Riviera: We should go for a coffee chat sometime... just the two of us. 
         <<elseif $UCR_Dialogue == 3>>
             Riviera: 
         <<elseif $UCR_Dialogue == 4>> 
