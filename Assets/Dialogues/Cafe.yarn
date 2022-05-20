@@ -360,6 +360,7 @@ Player: What should I do?
         <<else>>
             Kelly: I have a project I have to work on...
             <<AddRelationshipScore Kelly -20>>
+            <<jump UCBCafe>>
         <<endif>>
     -> Cancel
         <<jump UCBCafe>>
@@ -606,7 +607,9 @@ position: 207,66
             Riviera: My self-confidence is a lot higher after meeting you. 
             <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialogueCafe == 3>>
-            Riviera: 
+            Riviera: I want to introduce you to my family some time. 
+            Riviera: I think my brothers would love you... They're a little rambunctious, but they're really sweet...
+            Riviera: My mom is a little old-fashioned, but she's good at heart. I'm sure that she'd love to have you over for dinner sometime. 
         <<elseif $UCRDialogueCafe == 4>> 
             Riviera: 
         <<else>>

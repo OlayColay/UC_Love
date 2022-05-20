@@ -369,6 +369,7 @@ Player: What should I do?
         <<else>>
             Kelly: I have a project I have to work on...
             <<AddRelationshipScore Kelly -20>>
+            <<jump UCBLibrary>>
         <<endif>>
     -> Cancel
         <<jump UCBLibrary>>
@@ -860,6 +861,7 @@ Player: What should I do?
             Ellie: I'd love to! We're going to have so much fun!
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
+            <<jump UCLALibrary>>
             <<AddRelationshipScore Ellie -20>>
         <<endif>>
     -> Cancel
