@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        if (Inventory.GetDay() == 0 && Inventory.GetTimeOfDay() == 0)
+        if (Inventory.GetDay() == 0 && Inventory.GetTimeOfDay() == 0 && Inventory.GetMoney() == 100)
         {
             return;
         }
