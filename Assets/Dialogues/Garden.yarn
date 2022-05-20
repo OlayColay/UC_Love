@@ -522,7 +522,7 @@ Player: What should I do?
             Santana: It's really quiet and romantic. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
-            Santana: a
+            Santana: Wouldn't it be nice to have a picnic out here someday?
         <<elseif $UCSB_Dialogue == 3>>
             Santana: 
         <<elseif $UCSB_Dialogue == 4>> 
@@ -532,7 +532,29 @@ Player: What should I do?
         <<endif>>
     <<else>> //Lovers
         <<if $UCSB_Dialogue == 1>>
-            Santana: a
+            Santana: Would you still like me if I was a worm?
+                -> Why are you asking that?
+                    Player: Why are you asking that?
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: It's just a silly little hypothetical! I'm not turning into a worm any time soon hopefully!
+                    <<SetSprite Middle Santana/Idle>>
+                -> Of course!
+                    Player: Of course!
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: Oh that's a relief! 
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Worms are really important for the health of an ecosystem.
+                    Santana: I guess if I were to turn into a worm, nothing would change much really.
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: I'd still be here tending to the garden. Hopefully, you'd still visit me though!
+                    <<SetSprite Middle Santana/Idle>>
+                -> I really hate worms...
+                    Player: I really hate worms...
+                    <<SetSprite Middle Santana/sad>>
+                    Santana: Why? Worms are really important to each ecosystem!
+                    Santana: They break down dead matter and air out the soil, which makes it possible for plants to take root. 
+                    Santana: Every plant, animal, and insect are important to their ecosystems! Even the squirrels that run around here are critical to the garden's health.
+                    <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
             Santana: a 
         <<elseif $UCSB_Dialogue == 3>>

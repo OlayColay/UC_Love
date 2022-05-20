@@ -395,7 +395,7 @@ Player: What should I do?
                 Ellie: Oh! Welcome to UC Love! You'll love it here I promise!
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
-                <<SetSprite Middle Ellie?Idle>>
+                <<SetSprite Middle Ellie/Idle>>
             -> Actually, I've been here for a while!
                 Player: Actually, I've been here for a while!
                 <<SetSprite Middle Ellie/Angry>>
