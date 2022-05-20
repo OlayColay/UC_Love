@@ -762,15 +762,54 @@ Player: What should I do?
         <<endif>>    
     <<else>> //Lovers
         <<if $UCLA_Dialogue == 1>>
-            Ellie: 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Oh hey! Did you eat yet?
+            Ellie: I made an extra sandwich in case I'd see you today! Here you go!
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I hope you like it! It's made with love!
+            <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
-            Ellie: 
+            Ellie: Do you know how to cook?
+                -> Yes, I do!
+                    Player: Yes, I do!
+                    Ellie: Oh cool! We should cook together someday!
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: Come over to my apartment sometime and we can cook lunch or dinner together!
+                -> Not really...
+                    Player: Not really...
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: I'd love to teach you someday if you want to come over to my apartment!
         <<elseif $UCLA_Dialogue == 3>>
-            Ellie:
+            Ellie: I think that I'm getting better at setting boundaries! Try asking me to do something as a joke!
+                -> Hey Ellie, can you do my homework for me?
+                    Player: Hey Ellie, can you do my homework for me?
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: ...
+                    Player: ...
+                    <<SetSprite Middle Ellie/lb>>
+                    Ellie: ...mmm...
+                    Player: ...
+                    <<SetSprite Middle Ellie/hb>>
+                    <<Shake Middle>>
+                    Ellie: ... no sorry...
+                    Ellie: Ok, it's still a bit of a challenge, but I'm getting better! I can feel it!
         <<elseif $UCLA_Dialogue == 4>> 
-            Ellie: 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Did you know that your pupils dilate when you look at someone you like?
+            Ellie: ...
+            <<SetSprite Middle Ellie/lb>>
+            Player: ...
+            <<SetSprite Middle Ellie/hb>>
+            Ellie:...
+            <<Shake Middle>>
+            Ellie: Your eyes are really pretty...
+            <<SetSprite Middle Ellie>>
         <<else>> 
-            Ellie:
+            Ellie: I heard that the school dance is coming up soon. 
+            Ellie: I'd really love to go... but I don't have a partner...
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: ...
+            <<SetSprite Middle Ellie/Idle>>
         <<endif>>
     <<endif>>
     <<jump UCLALibrary>>
