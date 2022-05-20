@@ -47,7 +47,7 @@ BruinBox: Sure thing! Here you go! Have a great first day and stay out of troubl
 <<ClearSprite Middle>>
 Player: Speaking of trouble...
 <<SetSprite Middle Stanford/Idle>>
-<<SetSprite Right USC/Idle>>
+<<SetSprite Middle Right USC/Idle>>
 <<SetActiveChar Middle>>
 Stanford: Hey! I didn't know that they made a university for LOSERS!
 <<SetActiveChar Right>>
