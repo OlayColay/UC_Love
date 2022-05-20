@@ -504,13 +504,13 @@ Player: What should I do?
         <<jump UCLAGym>>
     <<endif>> 
     <<set $GiftEllie = true>>
-    <<set $GiftScoreE = GetItemScore("Ellie")>>
-    <<AddRelationshipScore Ellie {$GiftScoreE}>>
-    <<if $GiftScoreE == 20>> //Loved Gift
+    <<set $GiftScoreEGym = GetItemScore("Ellie")>>
+    <<AddRelationshipScore Ellie {$GiftScoreEGym}>>
+    <<if $GiftScoreEGym == 20>> //Loved Gift
         <<SetSprite Middle Ellie/lb>>
         Ellie: Oh my God! I absolutely love this! Thank you!
         <<SetSprite Middle Ellie/Idle>>
-    <<elseif $GiftScoreE == 10>> //Liked Gift
+    <<elseif $GiftScoreEGym == 10>> //Liked Gift
         <<SetSprite Middle Ellie/smc>>
         Ellie: That's so sweet of you!
         <<SetSprite Middle Ellie/Idle>>

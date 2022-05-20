@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         // Inventory.ClearSave();
-        blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
+        blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(Click.LoadYarnScene("Intro")));
     }
 
     public void LoadGame()

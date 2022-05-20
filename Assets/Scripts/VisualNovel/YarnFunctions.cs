@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 using Yarn.Unity;
 
 /// <summary> Static Yarn Spinner functions. Functions return variables (int, string, etc.) </summary>
@@ -9,7 +10,7 @@ public static class YarnFunctions
     [YarnFunction("RandomRange")]
     public static int RandomRange(int a, int b)
     {
-        Random rng = new Random();
+        System.Random rng = new System.Random();
         return rng.Next(a, b + 1);
     }
 
@@ -35,5 +36,22 @@ public static class YarnFunctions
     public static bool PlazaMinigameWon()
     {
         return PlayerController.gameWon;
+    }
+
+    [YarnFunction("LoadVariable")]
+    public static dynamic LoadVariable(string name)
+    {
+        if (PlayerPrefs.GetInt(name, int.MinValue) > int.MinValue)
+        {
+            return PlayerPrefs.GetInt(name, int.MinValue);
+        }
+        else if (PlayerPrefs.GetFloat(name, float.MinValue) > int.MinValue)
+        {
+            return PlayerPrefs.GetFloat(name, float.MinValue);
+        }
+        else
+        {
+            return PlayerPrefs.GetString(name, "");
+        }
     }
 }

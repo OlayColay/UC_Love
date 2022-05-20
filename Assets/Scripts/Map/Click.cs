@@ -97,7 +97,7 @@ public class Click : MonoBehaviour
         return null;
     }
 
-    IEnumerator LoadYarnScene(string sceneName)
+    public static IEnumerator LoadYarnScene(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync("VisualNovel", LoadSceneMode.Additive);
 

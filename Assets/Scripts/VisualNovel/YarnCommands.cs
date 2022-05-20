@@ -122,8 +122,31 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("LoadScene")]
     public static void LoadScene(string scene)
     {
-        // GameObject.FindObjectOfType<DialogueRunner>().Stop();
-        // DOTween.Clear();
         BlackScreen.Instance.blackScreen.DOFade(1f, 0.5f).OnComplete(() => SceneManager.LoadScene(scene));
+        PlayerPrefs.Save();
+    }
+
+    [YarnCommand("SaveVariable")]
+    public static void SaveVariable(string name, dynamic variable)
+    {
+        if (variable is int)
+        {
+            PlayerPrefs.SetInt(name, variable);
+            Debug.Log("Saved int " + variable + " to " + name);
+        }
+        else if (variable is float)
+        {
+            PlayerPrefs.SetFloat(name, variable);
+            Debug.Log("Saved float " + variable + " to " + name);
+        }
+        else if (variable is string)
+        {
+            PlayerPrefs.SetString(name, variable);
+            Debug.Log("Saved string " + variable + " to " + name);
+        }
+        else
+        {
+            Debug.LogError("Cannot save an invalid type of variable!");
+        }
     }
 }

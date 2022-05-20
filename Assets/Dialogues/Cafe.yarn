@@ -371,21 +371,19 @@ title: UCRCafe
 position: 207,66
 ---
 //WRITE UCR CODE HERE
-<<set $TalkRiviera to false>>
-<<set $GiftRiviera to false>>
-<<set $AskRiviera to false>>
-<<SetSprite Middle Irene/Idle>>
+<<set $UCR_Intro to LoadVariable("UCR_Intro")>>
+<<set $UCRDialogueCafe to Dice(4)>>
+<<SetSprite Middle Riviera/Idle>>
 <<SetActiveChar Middle>>
--> Talk to Riviera
-    <<if GetRelationshipScore("Riviera") < 100>> //Strangers
-        <<if $UCR_Dialogue == 1>>
-            <<if $UCR_Intro == false>>
-            //TD: Continuity
-            Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
-            Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
-            Riviera: I'd really appreciate it if you checked it out!
-            <<Set $UCR_Intro == true>>
-            <<else>> 
+-> Talk to Riviera <<if $TalkRiviera == false>>
+    <<if $UCR_Intro == false>>
+        //TD: Continuity
+        Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
+        Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
+        Riviera: I'd really appreciate it if you checked it out!
+        <<SaveVariable "UCR_Intro" true>>
+    <<elseif GetRelationshipScore("Riviera") < 100>> //Strangers
+        <<if $UCRDialogueCafe == 1>>
             Riviera: Hey! Have you had a chance to check out my startup?
                 -> Yeah!
                     Player: Yeah!
@@ -397,10 +395,9 @@ position: 207,66
                     <<SetSprite Middle Riviera/sad>>
                     Riviera: Oh... that's alright.
                     <<SetSprite Middle Riviera/Idle>>
-            <<endif>>
-        <<elseif $UCR_Dialogue == 2>>
+        <<elseif $UCRDialogueCafe == 2>>
             Riviera: Oh hey! I'd love to chat but I have a meeting I need to prepare for in a bit.
-        <<elseif $UCR_Dialogue == 3>>
+        <<elseif $UCRDialogueCafe == 3>>
             Riviera: Hey! Have you seen an outlet somewhere around here? My laptop is running out of battery but I need to finish a slide deck for a pitch meeting soon.
                 -> I haven't seen one, sorry.
                     Player: I haven't seen one, sorry.
@@ -413,9 +410,9 @@ position: 207,66
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Oh! Thank you. I really appreciate it!
                     <<SetSprite Middle Riviera/Idle>>
-        <<elseif $UCR_Dialogue == 4>> 
+        <<elseif $UCRDialogueCafe == 4>> 
             Riviera: Sorry, I'm in a bit of a rush right now.
-            <<SetSprite Riviera/Idle>>
+            <<SetSprite Middle Riviera/Idle>>
         <<else>> 
             <<SetSprite Middle Riviera/Messy>>
             Riviera: Hey, does my hair look alright? I have an important pitch meeting in a bit and I don't have a mirror on hand.
@@ -443,7 +440,7 @@ position: 207,66
                     <<SetSprite Middle Riviera/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 100 && GetRelationshipScore("Riviera") < 200>> //Acquaintances
-        <<if $UCR_Dialogue == 1>>
+        <<if $UCRDialogueCafe == 1>>
             Riviera: Oh hey! I'm designing business cards for my startup as part of my entrepreneurship class! 
             Riviera: My startup is called Delphi Analytics and I'm wondering which business card design I should pick.
             Riviera: Which one of these do you like more?
@@ -455,26 +452,26 @@ position: 207,66
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Thanks! I really appreciate it!
                     <<SetSprite Middle Riviera/Idle>>
-        <<elseif $UCR_Dialogue == 2>>
+        <<elseif $UCRDialogueCafe == 2>>
             Riviera: Sometimes I go to the gym in the mornings.
             Riviera: Punching the punching bags is a good stress reliever and a good workout.
-        <<elseif $UCR_Dialogue == 3>>
+        <<elseif $UCRDialogueCafe == 3>>
             <<SetSprite Middle Riviera/Angry>>
             Riviera: Ugh... my brother took my stationery pad again!
             Riviera: My little brothers are always getting into my bag looking for things to play with.
             <<SetSprite Middle Riviera/happy>>
             Riviera: One of the cons of having a large family I guess... but I wouldn't trade them for the world.
             <<SetSprite Middle Riviera/Idle>>
-        <<elseif $UCR_Dialogue == 4>> 
+        <<elseif $UCRDialogueCafe == 4>> 
             Riviera: I really want to win the upcoming startup competition.
             <<SetSprite Middle Riviera/happy>>
             Riviera: My little brothers are cheering me on. They really look up to me and I don't want to let them down!
             <<SetSprite Middle Riviera/Idle>>
         <<else>>
-        Riviera: My mom is a little old-fashioned... 
-        Riviera: She keeps telling me that I don't need to worry about all this business stuff and that I just need to look good and find a good husband.
-        Riviera: There's nothing wrong with that way of life... but I can't really see myself living off of someone else's dime for the rest of myself.
-        Riviera: I want to make something of myself!
+            Riviera: My mom is a little old-fashioned... 
+            Riviera: She keeps telling me that I don't need to worry about all this business stuff and that I just need to look good and find a good husband.
+            Riviera: There's nothing wrong with that way of life... but I can't really see myself living off of someone else's dime for the rest of myself.
+            Riviera: I want to make something of myself!
             -> I don't know... if I could be a sugar baby I would!
             Riviera: ... to each their own I suppose...
             -> I also want to make something of myself!
@@ -483,7 +480,7 @@ position: 207,66
             Riviera: Birds of a feather flock together! 
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
-        <<if $UCR_Dialogue == 1>>
+        <<if $UCRDialogueCafe == 1>>
             Riviera: Hey, could I ask you for a favor?
             Riviera: I have an important pitch competition coming up with a startup club on campus and I was wondering if I could practice my pitch with you.
                 -> Of course!
@@ -496,72 +493,72 @@ position: 207,66
                     <<SetSprite Middle Riviera/sad>>
                     Riviera: We are.... ummm...  uhh..
                     Riviera: Ugh... I'm never going to be able to do this... who am I kidding...
-                        -> Don't give up!
-                            Player: Don't give up!
-                            Riviera: It's so hard to nail the script down to a tee.
-                            Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
-                                -> Practice makes perfect!
-                                    <<AddRelationshipScore Riviera 10>>
-                                    <<Set $RivieraHelp to  $RivieraHelp + 1>>
-                                    Player: Practice makes perfect!
-                                    Riviera: You're right... Rome wasn't built in a day I suppose.
-                                    <<SetSprite Middle Riviera/happy>>
-                                    Riviera: Alright, let me try it again from the top!
-                                    <<SetSprite Middle Riviera/Idle>>
-                                    Riviera: Hello everyone, my name is Riviera.
-                                    Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
-                                    Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
-                                    Riviera: We are... similar to Boogle Analytics, but specialize primarily in analyzing customer-generated sentiments across a business's customer communication channels and social media platforms. 
-                                    <<SetSprite Middle Riviera/happy>>
-                                    Riviera: Currently, we have a prototype software ready to use, but are looking for investors to help us expand our product into the B2B market and further improve our software.
-                                    Riviera: Thank you!
-                                    Riviera: How was that?
-                                        -> A lot better! 
-                                            Player: A lot better!
-                                            Riviera: Thanks for the feedback... I really appreciate it!
-                                        -> You could still use a bit of work! A bit more practice should do the trick!
-                                            Player: You could still use a bit of work! A bit more practice should do the trick!
-                                            Riviera: Thanks for the feedback... I really appreciate it!
-                                -> Maybe you can ask a friend to do the pitch for you instead...
-                                    Player: Maybe you can ask a friend to do the pitch for you instead...
-                                    <<SetSprite Middle Riviera/sad>>
-                                    Riviera: That's against the competition rules...
-                                    Riviera: Either way though, I feel like I should do it myself.
-                                    <<SetSprite Middle Riviera/Idle>>
-                        -> Maybe business isn't your calling...
-                            Player: Maybe business isn't your calling...
-                            <<SetSprite Middle Riviera/Angry>>
-                            <<Shake Middle>>
-                            <<AddRelationshipScore Riviera -10>>
-                            Riviera: Hey! I pour my heart and soul into this startup.
-                            Riviera: I might not be the best businesswoman but damn it, I'm going to keep trying.
-                            Riviera: I don't need the likes of you dragging me down. 
+                    -> Don't give up!
+                        Player: Don't give up!
+                        Riviera: It's so hard to nail the script down to a tee.
+                        Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
+                        -> Practice makes perfect!
+                            <<AddRelationshipScore Riviera 10>>
+                            <<set $RivieraHelp to $RivieraHelp + 1>>
+                            Player: Practice makes perfect!
+                            Riviera: You're right... Rome wasn't built in a day I suppose.
+                            <<SetSprite Middle Riviera/happy>>
+                            Riviera: Alright, let me try it again from the top!
                             <<SetSprite Middle Riviera/Idle>>
+                            Riviera: Hello everyone, my name is Riviera.
+                            Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
+                            Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
+                            Riviera: We are... similar to Boogle Analytics, but specialize primarily in analyzing customer-generated sentiments across a business's customer communication channels and social media platforms. 
+                            <<SetSprite Middle Riviera/happy>>
+                            Riviera: Currently, we have a prototype software ready to use, but are looking for investors to help us expand our product into the B2B market and further improve our software.
+                            Riviera: Thank you!
+                            Riviera: How was that?
+                            -> A lot better! 
+                                Player: A lot better!
+                                Riviera: Thanks for the feedback... I really appreciate it!
+                            -> You could still use a bit of work! A bit more practice should do the trick!
+                                Player: You could still use a bit of work! A bit more practice should do the trick!
+                                Riviera: Thanks for the feedback... I really appreciate it!
+                        -> Maybe you can ask a friend to do the pitch for you instead...
+                            Player: Maybe you can ask a friend to do the pitch for you instead...
+                            <<SetSprite Middle Riviera/sad>>
+                            Riviera: That's against the competition rules...
+                            Riviera: Either way though, I feel like I should do it myself.
+                            <<SetSprite Middle Riviera/Idle>>
+                    -> Maybe business isn't your calling...
+                        Player: Maybe business isn't your calling...
+                        <<SetSprite Middle Riviera/Angry>>
+                        <<Shake Middle>>
+                        <<AddRelationshipScore Riviera -10>>
+                        Riviera: Hey! I pour my heart and soul into this startup.
+                        Riviera: I might not be the best businesswoman but damn it, I'm going to keep trying.
+                        Riviera: I don't need the likes of you dragging me down. 
+                        <<SetSprite Middle Riviera/Idle>>
                 -> No, sorry.
                     Player: No, sorry. 
                     Riviera: That's alright. Thanks anyway. 
-        <<elseif $UCR_Dialogue == 2>>
+        <<elseif $UCRDialogueCafe == 2>>
             <<SetSprite Middle Riviera/sad>>
             Riviera: Sigh... I had a pitch competition a while ago that didn't go too well.
             Riviera: The judge said that I was too "aggressive" and that I "need to be softer."
             Riviera: I feel like he was pretty unfair though... the male competitors were like... actually aggressive but he said that they were "confident" and "inspiring."
-                -> It's probably just you.
-                    Riviera: I don't know... it feels like potential bias to me...
-                -> That judge sounds biased...
-                    <<AddRelationshipScore Riviera 10>>
-                    <<SetSprite Middle Riviera/Angry>>
-                    <<Shake Middle>>
-                    Riviera: I know right? It's so frustrating!
-                    <<SetSprite Middle Riviera/Idle>>
-                    Riviera: Oh well... there's always new competitions I suppose!
-        <<elseif $UCR_Dialogue == 3>>
+            -> It's probably just you.
+                Riviera: I don't know... it feels like potential bias to me...
+            -> That judge sounds biased...
+                <<AddRelationshipScore Riviera 10>>
+                <<SetSprite Middle Riviera/Angry>>
+                <<Shake Middle>>
+                Riviera: I know right? It's so frustrating!
+                <<SetSprite Middle Riviera/Idle>>
+                Riviera: Oh well... there's always new competitions I suppose!
+        <<elseif $UCRDialogueCafe == 3>>
             Riviera: A while ago, my brothers made me a tote bag that they decorated as a good luck charm.
             <<SetSprite Middle Riviera/happy>>
             Riviera: It was a little tacky... but it meant so much to me.
             <<SetSprite Middle Riviera/sad>>
             Riviera: A squirrel stole it off of me in the garden though... I really wish that I could find it.
             <<SetSprite Middle Riviera/Idle>>
-        <<elseif $UCR_Dialogue == 4>> 
+        <<elseif $UCRDialogueCafe == 4>> 
             Riviera: Usually, the general classes here don't actually teach you a lot of applicable skills. It counts towards my economics major too. 
             Riviera: I'm in this accounting class right now with Professor BruinBox and it's actually really useful!
             Riviera: I was able to use a lot of the course concepts to draft budgets and make balance sheets for my startup.
@@ -572,52 +569,54 @@ position: 207,66
             Riviera: Maybe it's a secret compliment? I just hope that people are taking me seriously...
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 300 && GetRelationshipScore("Riviera") < 400>> //Crushing
-        <<if $UCR_Dialogue == 1>>
+        <<if $UCRDialogueCafe == 1>>
             Riviera: What kind of trait do you primarily look for in a partner?
-                -> A good work ethic!
-                    Player: A good work ethic!
-                    <<SetSprite Riviera/happy>>
-                    Riviera: Oh! Same here! I think there's little else more attractive than a person who's willing to work towards what they want!
-                -> A smoking hot body!
-                    Player: A smoking hot body!
-                    Riviera: Oh... to each their own I suppose.
-                     Riviera: Personally I value a good work ethic... maybe strong family values as well. 
-                -> A sense of humor!
-                    Player: A sense of humor!
-                    Riviera: Oh... to each their own I suppose.
+            -> A good work ethic!
+                Player: A good work ethic!
+                <<SetSprite Riviera/happy>>
+                Riviera: Oh! Same here! I think there's little else more attractive than a person who's willing to work towards what they want!
+            -> A smoking hot body!
+                Player: A smoking hot body!
+                Riviera: Oh... to each their own I suppose.
                     Riviera: Personally I value a good work ethic... maybe strong family values as well. 
-                -> Strong family values!
-                    Player: Strong family values!
-                    <<SetSprite Riviera/happy>>
-                    Riviera: Oh! Same here! My family is really important to me and I'd want a partner to value their family as well. 
-        <<elseif $UCR_Dialogue == 2>>
+            -> A sense of humor!
+                Player: A sense of humor!
+                Riviera: Oh... to each their own I suppose.
+                Riviera: Personally I value a good work ethic... maybe strong family values as well. 
+            -> Strong family values!
+                Player: Strong family values!
+                <<SetSprite Riviera/happy>>
+                Riviera: Oh! Same here! My family is really important to me and I'd want a partner to value their family as well. 
+        <<elseif $UCRDialogueCafe == 2>>
             Riviera: We should go for a coffee chat sometime... just the two of us. 
-        <<elseif $UCR_Dialogue == 3>>
+        <<elseif $UCRDialogueCafe == 3>>
             Riviera: 
-        <<elseif $UCR_Dialogue == 4>> 
+        <<elseif $UCRDialogueCafe == 4>> 
             Riviera: 
         <<else>>
         <<endif>>
     <<else>> //Lovers
-        <<if $UCR_Dialogue == 1>>
+        <<if $UCRDialogueCafe == 1>>
             <<SetSprite Middle Riviera/happy>>
             Riviera: I pitched my startup at a conference this weekend and it went really well!
             Riviera: Everyone was really interested in my company and I even got an investor and a couple customers!
             Riviera: I was really nervous, but I remembered the advice you gave me.
             Riviera: Practicing my pitch with you really helped too. 
             Riviera: Let me treat you out for coffee someday as a thanks alright?
-        <<elseif $UCR_Dialogue == 2>>
+        <<elseif $UCRDialogueCafe == 2>>
             <<SetSprite Middle Riviera/lb>>
             Riviera: Thank you for helping me to believe in myself!
             Riviera: My self-confidence is a lot higher after meeting you. 
             <<SetSprite Middle Riviera/Idle>>
-        <<elseif $UCR_Dialogue == 3>>
+        <<elseif $UCRDialogueCafe == 3>>
             Riviera: 
-        <<elseif $UCR_Dialogue == 4>> 
+        <<elseif $UCRDialogueCafe == 4>> 
             Riviera: 
         <<else>>
         <<endif>>
     <<endif>>
+    <<set $TalkRiviera to true>>
+    <<jump UCRCafe>>
 -> Ask <<if $AskRiviera == false>>
     -> Ask on a date
         <<set $AskRiviera = true>>
@@ -639,9 +638,10 @@ position: 207,66
         <<else>>
             Riviera: I have a project I have to work on...
             <<AddRelationshipScore Riviera -20>>
+            <<jump UCRCafe>>
         <<endif>>
     -> Cancel
-        <<jump UCBCafe>>
+        <<jump UCRCafe>>
 -> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
     <<OpenInventory>>
     <<if GetInventoryCanceled() == true>>
