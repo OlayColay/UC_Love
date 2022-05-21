@@ -11,4 +11,28 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages: []
+  parseErrorMessages:
+  - '375:0: Error: $UCR_Intro (Bool) cannot be assigned a undefined
+
+    <<set $UCR_Intro
+    to LoadVariable("UCR_Intro")>>
+
+'
+  - '376:0: Error: $UCRDialogueCafe (Number) cannot be assigned a undefined
+
+    <<set
+    $UCRDialogueCafe to Dice(4)>>
+
+'
+  - '736:4: Error: $GiftScoreRCafe (Number) cannot be assigned a undefined
+
+    <<set
+    $GiftScoreRCafe = GetItemScore("Riviera")>>
+
+'
+  - '375:0: Error: $UCR_Intro (Bool) cannot be assigned a undefined
+
+    <<set $UCR_Intro
+    to LoadVariable("UCR_Intro")>>
+
+'
