@@ -267,7 +267,7 @@ position: 207,66
             <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialogueGym == 4>> 
             Riviera: Usually, the general classes here don't actually teach you a lot of applicable skills. It counts towards my economics major too. 
-            Riviera: I'm in this accounting class right now with Professor BruinBox and it's actually really useful!
+            Riviera: I'm in this accounting class right now with Professor BearBox and it's actually really useful!
             Riviera: I was able to use a lot of the course concepts to draft budgets and make balance sheets for my startup.
             Riviera: You should take it if you have the chance! I think everyone can learn from it!
         <<else>>
@@ -508,7 +508,7 @@ Player: What should I do?
                     Ellie: Hopefully tomorrow is a little better for the both of us! Keep your head up, kay? 
                     <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
-            Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BruinBox?
+            Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
                 -> Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Ellie: Oh cool! Well... kind of...

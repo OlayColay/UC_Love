@@ -266,7 +266,7 @@ Player: What should I do?
             Kelly: ... which is weird because I think that violates the Law of Conservation!
             <<SetSprite Middle Kelly/Idle>>
         <<else>> 
-            Kelly: Are you taking the class with Professor BruinBox next quarter?
+            Kelly: Are you taking the class with Professor BearBox next quarter?
             <<SetSprite Middle Kelly/Angry>>
             Kelly: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
             <<SetSprite Middle Kelly/lbom>>
@@ -444,7 +444,7 @@ Player: What should I do?
                 Ellie: Hopefully tomorrow is a little better for the both of us! Keep your head up, kay? 
                 <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
-            Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BruinBox?
+            Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
             -> Yeah! I'm taking it for a general requirement. Are you in that class too?
                 Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
                 Ellie: Oh cool! Well... kind of...

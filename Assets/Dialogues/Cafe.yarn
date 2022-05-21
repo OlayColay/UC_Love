@@ -262,7 +262,7 @@ Player: What should I do?
             Kelly: ... which is weird because I think that violates the Law of Conservation!
             <<SetSprite Middle Kelly/Idle>>
         <<else>> 
-            Kelly: Are you taking the class with Professor BruinBox next quarter?
+            Kelly: Are you taking the class with Professor BearBox next quarter?
             <<SetSprite Middle Kelly/Angry>>
             Kelly: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
             <<SetSprite Middle Kelly/lbom>>
@@ -581,7 +581,7 @@ position: 207,66
             <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialogueCafe == 4>> 
             Riviera: Usually, the general classes here don't actually teach you a lot of applicable skills. It counts towards my economics major too. 
-            Riviera: I'm in this accounting class right now with Professor BruinBox and it's actually really useful!
+            Riviera: I'm in this accounting class right now with Professor BearBox and it's actually really useful!
             Riviera: I was able to use a lot of the course concepts to draft budgets and make balance sheets for my startup.
             Riviera: You should take it if you have the chance! I think everyone can learn from it!
         <<else>>
