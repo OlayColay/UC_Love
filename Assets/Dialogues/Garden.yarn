@@ -631,9 +631,10 @@ Player: What should I do?
     <<set $UCI_Dialogue = Dice(5)>>
     <<if GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCI_Dialogue == 1>>
-            Irene: 
+            Irene: Ah sorry, I'm running late for raid hour.
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: Sorry, could you move out of the way?
+            Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
         <<elseif $UCI_Dialogue == 3>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 
@@ -643,7 +644,20 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
         <<if $UCI_Dialogue == 1>>
-            Irene: 
+            Irene: Hey! I see you around a lot here. Do you play Bobamon Go?
+            -> Yes!
+                Player: Yes!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Really? That's so cool! I play BoGo too! It's one of my favorite games!
+                Irene: 
+            -> I don't.
+                Player: I don't. 
+                Irene: Aww. really? You should play! Bobamon Go is really fun and cute!
+                Irene: It's a good game to play when you're walking from class to class. 
+                -> I'll try it out!
+                    Player:
+                -> It's not my cup of tea.
+                    Player:
         <<elseif $UCI_Dialogue == 2>>
             Irene: 
         <<elseif $UCI_Dialogue == 3>>
