@@ -42,12 +42,31 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Debug.Log("Loading menu...");
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("UiScene");
     }
 
-    public void SaveAndQuit()
+    public void Save()
     {
-        Debug.Log("Saving and quitting...");
+        Debug.Log("Saving...");
+        Inventory.SaveGame();
+        Notification.Notify("Game saved!", "SFX/Buy");
+    }
+
+    public void OpenInventory()
+    {
+        Debug.Log("Opening inventory...");
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+        MapEvents.current.GamePaused(true);
+        Inventory.OpenInventoryFromMap();
+    }
+
+    public void CloseInventory()
+    {
+        Inventory.inventoryScreen.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        MapEvents.current.GamePaused(false);
     }
 }

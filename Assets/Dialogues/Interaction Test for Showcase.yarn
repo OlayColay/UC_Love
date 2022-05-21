@@ -1,7 +1,7 @@
 ﻿title: Interaction_Test_for_Showcase
 tags:
 ---
-<<PlayMusic Music/ApotosDay>>
+<<PlayMusic Music/ApotosDay "">>
 <<FadeBackground Backgrounds/LibraryNoon>>
 Day 1
 <<SetSprite Middle Berkeley/Idle>>
@@ -27,17 +27,17 @@ position: 185,-96
     Kelly: Are you looking for Ellie? 
     -> Yeah! Have you seen her around?
         Kelly: Ugh... bug off and look for her yourself. 
-        <<AddRelationshipScore Kelly -2>>
+        <<AddRelationshipScore Kelly -20>>
     -> No, I was looking for you!
+        <<AddRelationshipScore Kelly 10>>
         <<SetSprite Middle Berkeley/LightBlush>>
         <<Shake Middle>>
         Kelly: Oh... um I'm a little busy studying right now, sorry.
         <<SetSprite Middle Berkeley/Idle>>
-        <<AddRelationshipScore Kelly 2>>
 <<endif>>
 Player: Oh look at the time, I gotta go do homework!
 <<ClearSprite Middle>>
-<<PlayMusic Music/ApotosNight>>
+<<PlayMusic Music/ApotosNight "">>
 <<FadeBackground Backgrounds/Dorm>>
 Player: Wow! I actually talked to a girl today! I will remember this moment forever.
 Player: Maybe I can talk to her again tomorrow...
@@ -52,7 +52,7 @@ title: LeaveWithoutTalking
 position: 152,100
 ---
 <<ClearSprite Middle>>
-<<PlayMusic Music/ApotosNight>>
+<<PlayMusic Music/ApotosNight "">>
 <<FadeBackground Backgrounds/Dorm>>
 Player: Wow I can't talk to girls I guess. I should probably change my major to engineering or computer science.
 Player: Time to cry myself to sleep.

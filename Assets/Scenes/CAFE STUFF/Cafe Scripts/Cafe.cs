@@ -127,15 +127,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Whipped Cream"",
-                    ""type"": ""Button"",
-                    ""id"": ""df65222e-6f92-4b4e-b54c-f2778aff9fec"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Creme Base"",
                     ""type"": ""Button"",
                     ""id"": ""438e4c0c-26bf-4989-99f2-019c11646855"",
@@ -188,67 +179,13 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Java Chips"",
-                    ""type"": ""Button"",
-                    ""id"": ""49c9c3a2-6e7b-408e-8489-e7ba34e6194c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Sprinkles"",
-                    ""type"": ""Button"",
-                    ""id"": ""0054b7f6-ad9c-4b9d-8b8d-949e463730da"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Cinnamon"",
-                    ""type"": ""Button"",
-                    ""id"": ""5bac66eb-6778-4be3-870b-2a7a040aefef"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Caramel Drizzle"",
-                    ""type"": ""Button"",
-                    ""id"": ""d65f1a2f-d7a9-4123-a2f9-18ab77ec5629"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Cherry"",
-                    ""type"": ""Button"",
-                    ""id"": ""a069113a-07cf-4c6c-8547-fde458b6c979"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Frappucino"",
-                    ""type"": ""Button"",
-                    ""id"": ""62537e89-7a91-43cc-90d8-e3d9dc4f56fd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""946a4ce3-0a9e-4a7d-a776-df4c91cc77b1"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -259,7 +196,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8312fa5f-a9ec-4fae-af9e-c2794fe0cda9"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -270,7 +207,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""12604d43-6bf2-49d5-bccb-59df383150a0"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -281,7 +218,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""90d75569-55e7-422b-9991-d2d86ea0a04c"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -292,7 +229,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c95d7eea-1960-49af-b891-177ccd722a6c"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -303,7 +240,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""73458179-b697-4162-ba50-4fff1138680a"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -314,7 +251,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7f4453fe-1cfc-46b6-b13e-d57ba7b9deb6"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -325,7 +262,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b6763e27-1b9c-4dee-bfc0-2a2ce41dea32"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -336,7 +273,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fcb6184d-aa77-4ef7-b76f-50ffac42dea1"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -347,7 +284,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""db90c3cb-642e-4772-b0a7-53348ddd008b"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -357,19 +294,8 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9b6e6938-96cd-4f84-955b-15c09beddcb4"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Whipped Cream"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""a519e507-b741-4ed8-9654-0cd11bdd9ee0"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -380,7 +306,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""50dc7cd4-7e51-4358-a9de-dd22192b7650"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -434,72 +360,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6a6bd25f-3e3a-494f-a365-01bb18c6bafd"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Java Chips"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e9567bc2-db60-4a6d-bd87-d8740e939ddc"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Sprinkles"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3bca289b-3f49-443f-b78d-8227a4fac371"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Cinnamon"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9ff273ca-d267-4f77-9120-074421c01c35"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Caramel Drizzle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3f9f6c54-206f-4230-a5cf-07a91573f87d"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Cherry"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5d06184f-a8bc-4360-bc05-ec8810617be5"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard and mouse"",
-                    ""action"": ""Frappucino"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""545912fc-fa53-4513-a122-9b2d941f48a4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -544,19 +404,12 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         m_player_Mocha = m_player.FindAction("Mocha", throwIfNotFound: true);
         m_player_Strawberry = m_player.FindAction("Strawberry", throwIfNotFound: true);
         m_player_Matcha = m_player.FindAction("Matcha", throwIfNotFound: true);
-        m_player_WhippedCream = m_player.FindAction("Whipped Cream", throwIfNotFound: true);
         m_player_CremeBase = m_player.FindAction("Creme Base", throwIfNotFound: true);
         m_player_CoffeeBase = m_player.FindAction("Coffee Base", throwIfNotFound: true);
         m_player_WholeMilk = m_player.FindAction("Whole Milk", throwIfNotFound: true);
         m_player_SkimMilk = m_player.FindAction("Skim Milk", throwIfNotFound: true);
         m_player_OatMilk = m_player.FindAction("Oat Milk", throwIfNotFound: true);
         m_player_AlmondMilk = m_player.FindAction("Almond Milk", throwIfNotFound: true);
-        m_player_JavaChips = m_player.FindAction("Java Chips", throwIfNotFound: true);
-        m_player_Sprinkles = m_player.FindAction("Sprinkles", throwIfNotFound: true);
-        m_player_Cinnamon = m_player.FindAction("Cinnamon", throwIfNotFound: true);
-        m_player_CaramelDrizzle = m_player.FindAction("Caramel Drizzle", throwIfNotFound: true);
-        m_player_Cherry = m_player.FindAction("Cherry", throwIfNotFound: true);
-        m_player_Frappucino = m_player.FindAction("Frappucino", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -627,19 +480,12 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
     private readonly InputAction m_player_Mocha;
     private readonly InputAction m_player_Strawberry;
     private readonly InputAction m_player_Matcha;
-    private readonly InputAction m_player_WhippedCream;
     private readonly InputAction m_player_CremeBase;
     private readonly InputAction m_player_CoffeeBase;
     private readonly InputAction m_player_WholeMilk;
     private readonly InputAction m_player_SkimMilk;
     private readonly InputAction m_player_OatMilk;
     private readonly InputAction m_player_AlmondMilk;
-    private readonly InputAction m_player_JavaChips;
-    private readonly InputAction m_player_Sprinkles;
-    private readonly InputAction m_player_Cinnamon;
-    private readonly InputAction m_player_CaramelDrizzle;
-    private readonly InputAction m_player_Cherry;
-    private readonly InputAction m_player_Frappucino;
     public struct PlayerActions
     {
         private @Cafe m_Wrapper;
@@ -655,19 +501,12 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         public InputAction @Mocha => m_Wrapper.m_player_Mocha;
         public InputAction @Strawberry => m_Wrapper.m_player_Strawberry;
         public InputAction @Matcha => m_Wrapper.m_player_Matcha;
-        public InputAction @WhippedCream => m_Wrapper.m_player_WhippedCream;
         public InputAction @CremeBase => m_Wrapper.m_player_CremeBase;
         public InputAction @CoffeeBase => m_Wrapper.m_player_CoffeeBase;
         public InputAction @WholeMilk => m_Wrapper.m_player_WholeMilk;
         public InputAction @SkimMilk => m_Wrapper.m_player_SkimMilk;
         public InputAction @OatMilk => m_Wrapper.m_player_OatMilk;
         public InputAction @AlmondMilk => m_Wrapper.m_player_AlmondMilk;
-        public InputAction @JavaChips => m_Wrapper.m_player_JavaChips;
-        public InputAction @Sprinkles => m_Wrapper.m_player_Sprinkles;
-        public InputAction @Cinnamon => m_Wrapper.m_player_Cinnamon;
-        public InputAction @CaramelDrizzle => m_Wrapper.m_player_CaramelDrizzle;
-        public InputAction @Cherry => m_Wrapper.m_player_Cherry;
-        public InputAction @Frappucino => m_Wrapper.m_player_Frappucino;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -710,9 +549,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Matcha.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
                 @Matcha.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
                 @Matcha.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMatcha;
-                @WhippedCream.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWhippedCream;
-                @WhippedCream.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWhippedCream;
-                @WhippedCream.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWhippedCream;
                 @CremeBase.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCremeBase;
                 @CremeBase.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCremeBase;
                 @CremeBase.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCremeBase;
@@ -731,24 +567,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @AlmondMilk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlmondMilk;
                 @AlmondMilk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlmondMilk;
                 @AlmondMilk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAlmondMilk;
-                @JavaChips.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJavaChips;
-                @JavaChips.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJavaChips;
-                @JavaChips.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJavaChips;
-                @Sprinkles.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprinkles;
-                @Sprinkles.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprinkles;
-                @Sprinkles.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprinkles;
-                @Cinnamon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCinnamon;
-                @Cinnamon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCinnamon;
-                @Cinnamon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCinnamon;
-                @CaramelDrizzle.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaramelDrizzle;
-                @CaramelDrizzle.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaramelDrizzle;
-                @CaramelDrizzle.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCaramelDrizzle;
-                @Cherry.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCherry;
-                @Cherry.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCherry;
-                @Cherry.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCherry;
-                @Frappucino.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
-                @Frappucino.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
-                @Frappucino.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFrappucino;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -786,9 +604,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @Matcha.started += instance.OnMatcha;
                 @Matcha.performed += instance.OnMatcha;
                 @Matcha.canceled += instance.OnMatcha;
-                @WhippedCream.started += instance.OnWhippedCream;
-                @WhippedCream.performed += instance.OnWhippedCream;
-                @WhippedCream.canceled += instance.OnWhippedCream;
                 @CremeBase.started += instance.OnCremeBase;
                 @CremeBase.performed += instance.OnCremeBase;
                 @CremeBase.canceled += instance.OnCremeBase;
@@ -807,24 +622,6 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 @AlmondMilk.started += instance.OnAlmondMilk;
                 @AlmondMilk.performed += instance.OnAlmondMilk;
                 @AlmondMilk.canceled += instance.OnAlmondMilk;
-                @JavaChips.started += instance.OnJavaChips;
-                @JavaChips.performed += instance.OnJavaChips;
-                @JavaChips.canceled += instance.OnJavaChips;
-                @Sprinkles.started += instance.OnSprinkles;
-                @Sprinkles.performed += instance.OnSprinkles;
-                @Sprinkles.canceled += instance.OnSprinkles;
-                @Cinnamon.started += instance.OnCinnamon;
-                @Cinnamon.performed += instance.OnCinnamon;
-                @Cinnamon.canceled += instance.OnCinnamon;
-                @CaramelDrizzle.started += instance.OnCaramelDrizzle;
-                @CaramelDrizzle.performed += instance.OnCaramelDrizzle;
-                @CaramelDrizzle.canceled += instance.OnCaramelDrizzle;
-                @Cherry.started += instance.OnCherry;
-                @Cherry.performed += instance.OnCherry;
-                @Cherry.canceled += instance.OnCherry;
-                @Frappucino.started += instance.OnFrappucino;
-                @Frappucino.performed += instance.OnFrappucino;
-                @Frappucino.canceled += instance.OnFrappucino;
             }
         }
     }
@@ -851,18 +648,11 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
         void OnMocha(InputAction.CallbackContext context);
         void OnStrawberry(InputAction.CallbackContext context);
         void OnMatcha(InputAction.CallbackContext context);
-        void OnWhippedCream(InputAction.CallbackContext context);
         void OnCremeBase(InputAction.CallbackContext context);
         void OnCoffeeBase(InputAction.CallbackContext context);
         void OnWholeMilk(InputAction.CallbackContext context);
         void OnSkimMilk(InputAction.CallbackContext context);
         void OnOatMilk(InputAction.CallbackContext context);
         void OnAlmondMilk(InputAction.CallbackContext context);
-        void OnJavaChips(InputAction.CallbackContext context);
-        void OnSprinkles(InputAction.CallbackContext context);
-        void OnCinnamon(InputAction.CallbackContext context);
-        void OnCaramelDrizzle(InputAction.CallbackContext context);
-        void OnCherry(InputAction.CallbackContext context);
-        void OnFrappucino(InputAction.CallbackContext context);
     }
 }

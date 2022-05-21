@@ -1,0 +1,761 @@
+﻿title: Garden
+tags:
+position: -107,2
+---
+//Interaction Settings
+//Tommy 
+<<set $TalkTommy to false>>
+<<set $GiftTommy to false>>
+<<set $AskTommy to false>>
+//Santana
+<<set $TalkSantana to false>>
+<<set $GiftSantana to false>>
+<<set $AskSantana to false>>
+//Irene
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
+
+<<set $TimeOfDayGarden to GetTimeOfDay()>>
+<<if $TimeOfDayGarden == 0>>
+    <<SetBackground Backgrounds/Garden/Morning>>
+    //Sets background as Garden Morning if it is Daytime
+<<elseif $TimeOfDayGarden == 1>>
+    <<SetBackground Backgrounds/Garden/Noon>>
+    //Sets background as Garden Afternoon if it is Afternoon
+<<else>>
+    <<SetBackground Backgrounds/Garden/NightWarm>>
+    //Sets background as Garden Night if it Evening
+<<endif>>
+<<Fade true>>
+-> Meet someone
+    <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
+        <<jump UCSBGarden>>
+    <<else>>
+        <<jump UCIGarden>>
+    <<endif>>
+-> Take a Walk
+    <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
+        <<jump RandomEvent>>
+    <<else>>
+        <<jump USCGarden>>
+    <<endif>>  
+-> Leave
+    <<LoadScene MapScene>>
+===
+title: USCGarden
+position: 139,58
+---
+<<SetSprite Middle Tommy/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Tommy <<if $TalkTommy == false>>
+    <<set $TalkTommy to true>>
+    <<AddRelationshipScore Tommy 10>>
+    <<set $USC_Dialogue = Dice(5)>>
+    //10 points will be added to the relationship score for just talking to USC. 
+    //Different lines from different dialogue "pools" will be pulled depending on the player's 
+    //relationship with the character. There are 5 levels of relationships: Strangers, Acquaintances,
+    //Friends, Crushing, and Lovers. Normally, these are in increments of 100 (ie Strangers = 0-99)
+    //but since USC is "rare" and shows up at night, I decided to lower his standards. 
+    <<if GetRelationshipScore("Tommy") < 80>>
+        // Strangers
+        <<if $USC_Dialogue == 1>>
+            Tommy: Be careful not to get your... dirt... on my Bucci shoes. 
+        <<elseif $USC_Dialogue == 2>>
+            Tommy: Oh sorry, I don't have cash on me.
+        <<elseif $USC_Dialogue == 3>>
+            Tommy: Can I get some security backup here?
+        <<elseif $USC_Dialogue == 4>> 
+            Tommy: What an... interesting... choice of an outfit...
+        <<else>> 
+            Tommy: Looking for a fight or something?
+            Tommy: I'd totally take you on but uh... I don't want to scuff my Bucci watch. 
+        <<endif>>
+    <<elseif GetRelationshipScore("Tommy") >= 80 && GetRelationshipScore("Tommy") < 160>>
+        //Acquaintances
+        <<if $USC_Dialogue == 1>>
+            Tommy: Oh it's you again. You seem to come here often. 
+        <<elseif $USC_Dialogue == 2>>
+            Tommy: Y'know? You're not so bad for a public school kid.
+                -> Thanks?
+                    Player: Thanks?
+                    Tommy: You're welcome!
+                    Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card, so your tuition is free! 
+                    Player: ...
+        <<elseif $USC_Dialogue == 3>>
+            Tommy: Do you like taking night time walks too?
+                -> Yeah!
+                    Tommy: Me too. It's nice to take a break from the city life once in a while. 
+                -> I just come here to see you. 
+                    Player: To be honest, I just come here to see you.
+                    Tommy: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
+                    Tommy: Creep. 
+                -> No, I just came here to fight you!
+                    <<AddRelationshipScore Tommy -20>>
+                    Player: No, I just came here to fight you!
+                    Tommy: I'd totally take you on but uh... 
+                    Tommy: I'm carrying... eggs... in my....pocket... 
+                    Tommy: ...AND I DON'T WANT THEM TO BREAK!!
+                    Tommy: ...so maybe another day...
+        <<elseif $USC_Dialogue == 4>> 
+            Tommy: Sometimes you can see the squirrels do funny things at night.
+            Tommy: One time I was eating and a squirrel started yelling at me to give it food. You have to resist feeding them though. 
+            Tommy: The writer of this dialogue sequence got a nasty squirrel bite trying to feed one of those bastards. 
+            Tommy: It made her bleed a ton and she still has the scar.
+            Tommy: But I digress.
+        <<else>> 
+            Tommy: To be honest, I don't really know why we still have national debt.
+            Tommy: Can't the government just print more money or something? That's what I would do if I was president.
+            Tommy: Maybe I should run for president after college! I'll make my own party! I'll call it the "Deez Nuts" party!
+        <<endif>>
+    <<elseif GetRelationshipScore("Tommy") >= 160 && GetRelationshipScore("Tommy") < 240>>
+        // Friends
+        <<if $USC_Dialogue == 1>>
+            Tommy: Living a fast-paced life is nice and all, but sometimes things feel kind of overwhelming or complicated.
+            Tommy: Majoring in business can get pretty tiring at times. 
+            Tommy: It's kind of nice to come out here and clear my head, y'know?
+        <<elseif $USC_Dialogue == 2>>
+            Tommy: My family and friends always told me to stay away from the common folk.
+            -> Why's that?
+                Player: Why's that?
+                Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
+                Tommy: I'm starting to think that they're wrong though. 
+                Tommy: I really like the conversations that I have with you.
+            -> Your social circle sucks!
+                <<AddRelationshipScore Tommy -20>>
+                Player: Your social circle sucks!
+                Tommy: Hey, I don't agree with all their ideas but I have a lot of respect for them...
+                Tommy: Maybe they were right about some things. Geez. 
+            -> What do you think? 
+                Player: What do you think?
+                Tommy: I don't know, I feel like they could be wrong. 
+                Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
+                Tommy: I'm starting to think that they're wrong though. 
+                Tommy: I really like the conversations that I have with you.
+        <<elseif $USC_Dialogue == 3>>
+            Tommy: What if we were all just living in a simulation or something?
+            Tommy: Like just think about all of the philosophical implications of that!
+            Tommy: None of the designer stuff I collect would really matter since nothing would be real.
+            Tommy: All the business stuff I learned wouldn't really matter since I'm just a ton of code. 
+            Tommy: What if my whole personality is just code made by some weird UCLA kid based off of school stereotypes?
+            Tommy: Wouldn't that be weird?
+        <<elseif $USC_Dialogue == 4>> 
+            Tommy: Your outfit's not bad today. I think your sense of style is improving!
+        <<else>> 
+            Tommy: Even though I'm a business major, I think that I'm pretty nice!
+            Tommy: I saw a tortoise walking around away from water so I picked him up and put him back in the water.
+                -> Wait... tortoises can't swim!
+                    Player: Wait... tortoises can't swim!
+                    Tommy: ...
+                    <<Shake Middle>>
+                    Tommy: They what?!
+                    Tommy: Wait right here! I gotta go fish him out!
+                    <<ClearSprite Middle>>
+                    <<SetSprite Middle USC/Idle>>
+                    Tommy: I got him! Here he is safe and sound!
+                        -> Oh! That's a turtle...
+                            Player: Oh! That's a turtle...
+                            Tommy: OH! I guess I did do the right thing then. That's a relief. 
+                            Tommy: I'm going to go put him back!
+                            <<ClearSprite Middle>>
+                            <<SetSprite Middle USC/Idle>>
+                            Tommy: Alright! He's back home sweet home. What a relief!
+                -> That's nice of you!
+                    Player: That's nice of you!
+                    Tommy: I know right?
+        <<endif>>
+    <<elseif GetRelationshipScore("Tommy") >= 240 && GetRelationshipScore("Tommy") < 320>>
+        // Crushing
+        <<if $USC_Dialogue == 1>>
+            Tommy: It's kind of chilly tonight.
+            Tommy: Are you cold?
+                -> Yeah...
+                    <<AddRelationshipScore Tommy 10>>
+                    Player: Yeah... 
+                    Tommy: Oh! Do you want to borrow my jacket?  
+                        -> Take the jacket.
+                            Player: Thanks! 
+                            Tommy: Don't mention it. Don't worry about washing it or returning it! I have plenty.
+                            Tommy: ...Besides you look really good with it on. 
+                        -> Turn him down. 
+                            Player: Oh no, I'm good!
+                            Tommy: Oh ok. But if you catch a cold don't spread it to me!
+                -> Not really. 
+                    Player: Not really.
+                    Tommy: Oh ok. But if you catch a cold don't spread it to me!
+        <<elseif $USC_Dialogue == 2>>
+            Tommy: I made a lot of random businesses when I was growing up.
+            Tommy: I remember for one of them I would charge people $5 to generate a password for them.
+            Tommy: My parents' friends would all support my business too, which is kind of weird because now I know the password of the governor's email.
+            Tommy: I wonder if he still uses that same password... that'd be a state security crisis wouldn't it?
+            Tommy: What if we tried logging into his email? We could reverse the whole merging thing of the UC schools... if you want...
+            Tommy: I'd really miss seeing you around at night though, but I want you to be happy.
+                -> Let's do it!
+                    Tommy: Just give me a minute to punch in his login information... done!
+                    Tommy: Hey...Are you sure you want to do this?
+                        -> Yes! I can't wait to get back to how things were before all of this mess!
+                            Tommy: Alright... I logged in! I'm sending out an executive order to reverse the UC consolidation. 
+                            Tommy: Ok... it's done! I guess starting tomorrow, you can start going to class normally.
+                            Tommy: I'm not sure why, but I'll really miss seeing you around!
+                            Tommy: I can't seem to shake the feeling that we were supposed be something more though...
+                            Tommy: Take care alright? Goodbye...
+                            <<FadeBackground BadEndClassroom 5>>
+                            Player: I can't believe that Tommy was actually able to deconsolidate the UCs! 
+                            Player: It feels great to go back to school normally again... but I can't help but feel incomplete for some reason...
+                            <<Fade false>>
+                            <<LoadScene UiScene>>
+                        -> Actually, this might not be a good idea...
+                            Player: Actually, this might not be a good idea...
+                            Tommy: Yeah... we could get in major trouble for this... the kind my family probably can't bail me out of...
+                -> We probably shouldn't hack into the governor's email...
+                    Player: We probably shouldn't hack into the governor's email...
+                    Tommy: Yeah...you're right. We could get in major trouble for this... the kind my family probably can't bail me out of...
+                    Tommy: More days to spend with you I suppose!
+        <<elseif $USC_Dialogue == 3>>
+            Tommy: Sorry I was kind of an ass to you when we first met.
+            Tommy: I guess I grew up pretty sheltered...but still, that doesn't excuse my behavior. 
+            Tommy: I'm sorry... I hope that I can make it up to you. 
+                -> It's alright! Just treat me out for food some time alright?
+                    <<AddRelationshipScore Tommy 10>>
+                    Player: It's alright! Just treat me out for food some time alright?
+                    Tommy: Yeah! Of course!
+                -> Yeah that was pretty awful of you...
+                    Player: Yeah... that was pretty awful of you...
+                    Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
+        <<elseif $USC_Dialogue == 4>> 
+            Tommy: Y'know, I wouldn't mind going out sometime with you... maybe to some place nice. 
+        <<else>> 
+            Tommy: I saw this sweater at the Bucci store the other day.
+            Tommy: It had a bear on it and it reminded me of you. 
+            Tommy: Anyways, I bought it for you. 
+            Tommy: Oh it's not that expensive or anything. It was on sale for like $2000.
+            Tommy: Nothing major. I hope you like it though...
+        <<endif>>
+    <<else>>
+        //Lovers
+        <<if $USC_Dialogue == 1>>
+            Tommy: I was going through my closet this weekend and I was thinking that I have a ton of clothes.
+            Tommy: I used to be really obsessed with collecting designer fashion.
+            Tommy: But lately I find more happiness volunteering or spending quality time with my friends or family...
+            Tommy: and with you...
+            Tommy: What do you think that I should do with all the clothes I don't wear?
+                -> Keep them! You spent a lot of money on them!
+                    Tommy: Ah, yeah... I did spend a lot of money on them...
+                    Tommy: The piles kind of stress me out though...
+                -> Donate them!
+                    <<AddRelationshipScore Tommy 10>>
+                    Tommy: That sounds like a good idea!
+                    Tommy: There's this refugee shelter that I've been looking into.
+                    Tommy: They could really use some clothes donations...
+                    Tommy: Yeah! I think I'll donate the clothes to them!
+                -> Sell them and donate the money to charity!
+                    <<AddRelationshipScore Tommy 10>>
+                    Tommy: That sounds like a good idea!
+                    Tommy: There's this non-profit summer school for underprivileged kids that I've been looking into.
+                    Tommy: They could really use some new books and school supplies...
+                    Tommy: Yeah! I think I'll sell the clothes and donate the money to them!
+                -> Give them to me!
+                    <<AddRelationshipScore Tommy -20>>
+                    Tommy: I guess I could...
+                    Tommy: ... but there's this charity I was looking at that I think could better use them.
+        <<elseif $USC_Dialogue == 2>>
+            Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
+                -> I hope you aren't tutoring in economics Mr. Money Grows on Trees!
+                    <<AddRelationshipScore Tommy -10>>
+                    Player: I hope you aren't tutoring him in economics Mr. Money Grows on Trees!
+                    Tommy: Hey! I know money doesn't grow on trees! 
+                    Tommy: Supply and demand confuses me... and I'm still not sure how a credit card works, but that was kind of mean!
+                    Tommy: I'm tutoring him in English and public speaking, for your information...
+                -> What's that like?
+                    Tommy: Oh! It's pretty cool! I tutor kids in English and in public speaking. 
+                    Tommy: There's this one kid that comes from a more disadvantaged family, but he works really hard and he's really smart.
+                    Tommy: It made me think about how lucky I am to be born off in a well-off family...
+                    Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
+                    Tommy: I'm a lot more grateful for what I have. I think I still want to do something more for people like my tutee though.
+        <<elseif $USC_Dialogue == 3>>
+            Tommy: I think that the most lovely part about you is your personality.
+            Tommy: I feel like I can talk to you for hours and never get bored.
+            Tommy: You make my days a lot better.
+        <<elseif $USC_Dialogue == 4>> 
+            Tommy: Do you ever get scared walking around at night?
+            Tommy: The squirrels around here can be really dangerous if you aren't careful.
+            Tommy: That's why I carry around squirrel repellant when walking around here. 
+            Tommy: I'm not the best fighter, but I would fight off a squirrel to save you, even if it tore my shirt.
+            Tommy: You mean a lot to me.
+        <<else>> 
+            Tommy: I used to be really materialistic, but I think that meeting you changed a lot of my perspective. 
+            Tommy: Money really isn't everything, and while having money can alleviate a lot of sources of stress, I think that the best happiness comes from spending time with people you care about.
+            Tommy: There's this show that came out recently that I think you'd like...
+            Tommy: Maybe you can come over to my place and we can watch it together sometime...
+        <<endif>>
+    <<endif>>
+    <<jump USCGarden>>
+-> Give Gift <<if $GiftTommy == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump USCGarden>>
+    <<endif>> 
+    <<set $GiftTommy = true>>
+    <<set $GiftScore = GetItemScore("Tommy")>>
+    <<AddRelationshipScore Tommy {$GiftScore}>>
+    <<if $GiftScore == 20>>
+        //Loved Gift
+        Tommy: Why thank you! I love these!
+    <<elseif $GiftScore == 10>>
+        //Liked Gift
+        Tommy: Not bad. You've got good taste.
+    <<else>>
+        //Hated Gift
+        Tommy: Ick… did you pick these off the clearance rack?
+    <<endif>>
+    <<jump USCGarden>>
+-> Ask <<if $AskTommy == false>>
+    -> Ask on a date
+        <<set $AskTommy = true>>
+        <<if GetRelationshipScore("Tommy") >= 240>>
+            <<jump TommyDate>>
+        <<else>>
+            Tommy: Uhhh... ew...
+            <<jump USCGarden>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskTommy = true>>
+        <<if GetRelationshipScore("Tommy") >= 400>>
+            Player: Would you like to go to the dance with me?
+            Tommy: I would love to!
+        <<else>>
+            Tommy: Uhhhh... no thanks.
+            <<AddRelationshipScore Tommy -20>>
+        <<endif>>
+    -> Cancel
+        <<jump USCGarden>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: RandomEvent
+position: 125,-26
+---
+<<set $Random_Event_Dialogue to RandomRange (1,20)>>
+    <<set $TimeOfDayGarden to $TimeOfDayGarden + 1>>
+<<if $Random_Event_Dialogue == 1>>
+    <<AddMoney 200>>
+    Player: Woah! I found $200 on the ground! Sweet!
+<<elseif $Random_Event_Dialogue == 2>>
+    Player: Woah! I found $50 on the ground! Sweet!
+    <<AddMoney 50>>
+<<elseif $Random_Event_Dialogue == 3>>
+    Player: I just heard a voice telling me that Irene loves sheet masks...
+    Player: Makes sense since she's stressed all the time...
+    Player: She's in the Garden late at night. 
+<<elseif $Random_Event_Dialogue == 4>>
+    Player: I just heard a voice telling me that Irene loves B-Fuel...
+    Player: That kind of fits with her gamer personality...
+<<elseif $Random_Event_Dialogue == 5>>
+    Player: I just heard a voice telling me that Santana loves plushies...
+    Player: She seems to like nature a lot... so it makes sense. 
+<<elseif $Random_Event_Dialogue == 6>>
+    Player: I just heard a voice telling me that Riviera loves stationery...
+    Player: She's really hardworking... I can see her running out of notepads easily.
+<<elseif $Random_Event_Dialogue == 7>>
+    Player: I just heard a voice telling me that Ellie loves bear plushies...
+    Player: She's very gentle-natured... I can see her liking plushies!
+<<elseif $Random_Event_Dialogue == 8>>
+    Player: I have a feeling that if I take a walk at night, I'll meet someone unexpected. 
+<<elseif $Random_Event_Dialogue == 9>>
+    Player: Dang it! The squirrel took $50 from me when I wasn't looking. 
+    Player: Literally what does he even need it for?!
+    <<AddMoney -50>>
+<<elseif $Random_Event_Dialogue == 10>>
+    <<SetSprite Middle Squirrel/Idle>>
+    Player: Huh... a squirrel...
+    Player: Oh?! He's giving me $100.
+    Player: Thanks buddy! I'll give you some GFuel sometime. 
+    <<ClearSprite Middle>>
+    <<AddMoney 100>>
+<<elseif $Random_Event_Dialogue == 11>>
+    Player: I just heard a voice telling me something about a person wearing red and liking Bucci wallets.
+    Player: I must be sleep deprived or something.
+<<elseif $Random_Event_Dialogue == 12>>
+    //UCI special item
+    //NOTE: Finalize special items then add AddItem commands after "Oh!"
+    Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 13>>
+    //UCLA special item
+    Player: Oh! I found a recipe book! It looks special... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 14>>
+    //UCR special item
+    Player: Oh! I found a... tote bag? It looks like something a couple of kids made... 
+    Player: It looks special... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 15>>
+    //UCI special item
+    Player: Oh! I found a key chain! It looks special... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 16>>
+    //UCSB special item
+    Player: Oh! I found a handwritten poem book! It looks special... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 17>>
+    //USC special item
+    Player: Oh! I found a watch! It looks expensive... I wonder who it belongs to...
+<<elseif $Random_Event_Dialogue == 18>>
+    <<SetSprite Middle Squirrel/Idle>>
+    Player: Oh! A squirrel! Hey there buddy!
+    <<Shake Middle>>
+    Player: Oh? You're approaching me? 
+    <<SetSprite Middle Squirrel/Menacing>>
+    <<Shake Middle>>
+    Player: Instead of running away, you're coming right to me...
+    Squirrel: ...
+    Player: ...?
+    <<SetSprite Middle Squirrel/Idle>>
+    <<Shake Middle 999 60>>
+    Squirrel: !!!
+    Player: OH MY GOD! HELP ME!!! HOLY SHIT!!! I'M BEING ATTACKED BY A SQUIRREL!!!!
+    <<ClearSprite Middle>>
+    Player: .... owww... that hurt a lot more than I anticipated...
+    Player: AND HE TOOK $50??? WHY!!!
+    <<AddMoney -50>>
+<<elseif $Random_Event_Dialogue == 19>>
+    <<SetSprite Middle Squirrel/Idle>>
+    Player: Oh! A squirrel! 
+    Player: Hey there buddy!
+    Squirrel: Hey.
+    Player: Wait did that squirrel just TALK??
+    <<ClearSprite Middle>>
+    Player: Wait where'd it go? Wait, why do I have $300 more dollars in my pocket?
+    Player: I swear there was a squirrel here just now...
+    Player: I need to get more sleep...
+    <<AddMoney 300>>
+<<else>>
+    Player: DAMMIT! I sprained my ankle walking near Paines Hall. 
+    Player: Better book a urgent care appointment...
+    Player: Looks like my pockets are going to be $100 lighter.
+    PLayer: I wish I went to a private school. 
+    <<AddMoney -100>>
+<<endif>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: UCSBGarden
+position: 126,-113
+---
+//ADD IN TALK, GIFT, ASK
+<<SetSprite Middle Santana/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Santana <<if $TalkSantana == false>>
+    <<set $TalkSantana to true>>
+    <<AddRelationshipScore Santana 10>>
+    <<SetSprite Middle Santana/Idle>>
+    <<SetActiveChar Middle>>
+    <<set $UCSB_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Santana") < 100>> //Strangers
+        <<if $UCSB_Dialogue == 1>>
+            Santana: Hello there! Are you here for the garden?
+            <<SetSprite Middle Santana/bliss>>
+            Santana: We just opened for the season! Be sure to check out the Ancient Forests section! 
+            Santana: There are some really nifty trees in there. 
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: If you want to feed the koi in the koi pond, there's a koi feed machine by the gate entrance!
+            Santana: Watch out for the squirrels though! They will attack you for food.
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: If you have any questions about the plants or animals here, don't hesitate to ask me!
+            Santana: I'm interning here for one of my biology major requirements!
+            Santana: Some people think that it's cumbersome, but I think that it's a great way to learn about nature in some place other than a classroom.
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: I heard that if you take a walk around the West end here, weird things can happen to you.
+            Santana: I've heard of people hearing voices or finding money on the ground!
+        <<else>> 
+            Santana: This is one of the more quiet places on campus. It's kind of nice to go out here and do yoga or paint.
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 100 && GetRelationshipScore("Santana") < 200>> //Acquaintances
+        <<if $UCSB_Dialogue == 1>>
+            Santana: If you get the chance, you should check out the Eschscholzia californica's! 
+            Santana: They're only in bloom for a short while each year.
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: Be careful of the squirrels if you take a walk. They're a bit weird!
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: Working at the garden is a pretty great job overall!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I get to spend a lot of my time with the plants and animals. The natural environment is really soothing for the soul.
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sometimes visitors make the job kind of stressful though... especially when they're rude.
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSB_Dialogue == 4>> 
+            <<SetSprite Middle Santana/sad>>
+            Santana: Sometimes the visitors here can get realy rude...
+            Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
+            Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
+            Santana: It really upset me... I wish that I could stand up to them more but I get really nervous.
+            <<SetSprite Middle Santana/Idle>> 
+        <<else>> 
+            Santana: Some garden guests are really nice but others are really mean.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: One of our regulars brought me a bouquet of fresh flowers as a thank you for taking such good care of the garden.
+            <<SetSprite Middle Santana/sad>>
+            Santana: On the other hand, someone once chucked a fist-full of koi feed at me after I warned him about feeding the squirrels.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: His hand got bit immediately after though.
+            Santana: I feel bad for chuckling... but that was swift karma if I ever saw it!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: Visitors are kind of like the squirrels here I guess! Some of them are really nice and some of them are really nasty.
+            Santana: If you were a squirrel, you'd be one of the nice ones though...
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 200 && GetRelationshipScore("Santana") < 300>> //Friends
+        <<if $UCSB_Dialogue == 1>>
+            Santana: a
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: a
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: a
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: a
+        <<else>> 
+            Santana: a
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 300 && GetRelationshipScore("Santana") < 400>> //Crushing
+        <<if $UCSB_Dialogue == 1>>
+            Santana: The garden is a really nice place to meet someone for a date don't you think?
+            <<SetSprite Middle Santana/LB>>
+            Santana: It's really quiet and romantic. 
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: Wouldn't it be nice to have a picnic out here someday?
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: a
+        <<else>> 
+            Santana: a
+        <<endif>>
+    <<else>> //Lovers
+        <<if $UCSB_Dialogue == 1>>
+            Santana: Would you still like me if I was a worm?
+                -> Why are you asking that?
+                    Player: Why are you asking that?
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: It's just a silly little hypothetical! I'm not turning into a worm any time soon hopefully!
+                    <<SetSprite Middle Santana/Idle>>
+                -> Of course!
+                    Player: Of course!
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: Oh that's a relief! 
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Worms are really important for the health of an ecosystem.
+                    Santana: I guess if I were to turn into a worm, nothing would change much really.
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: I'd still be here tending to the garden. Hopefully, you'd still visit me though!
+                    <<SetSprite Middle Santana/Idle>>
+                -> I really hate worms...
+                    Player: I really hate worms...
+                    <<SetSprite Middle Santana/sad>>
+                    Santana: Why? Worms are really important to each ecosystem!
+                    Santana: They break down dead matter and air out the soil, which makes it possible for plants to take root. 
+                    Santana: Every plant, animal, and insect are important to their ecosystems! Even the squirrels that run around here are critical to the garden's health.
+                    <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSB_Dialogue == 2>>
+            Santana: a 
+        <<elseif $UCSB_Dialogue == 3>>
+            Santana: a 
+        <<elseif $UCSB_Dialogue == 4>> 
+            Santana: a
+        <<else>> 
+            Santana: a
+        <<endif>>
+    <<endif>>
+    <<jump UCSBGarden>>
+-> Give Gift <<if $GiftSantana == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCSBGarden>>
+    <<endif>> 
+    <<set $GiftSantana = true>>
+    <<set $GiftScoreS = GetItemScore("Santana")>>
+    <<AddRelationshipScore Santana {$GiftScoreS}>>
+    <<if $GiftScoreS == 20>> //Loved Gift
+        <<SetSprite Middle Santana/hbom>>
+        Santana: Oh! These are lovely! I love these... thank you so much!
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreS == 10>> //Liked Gift
+        <<SetSprite Middle Santana/lbcm>>
+        Santana: Thank you!
+        <<SetSprite Middle Santana/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Santana/Angry>>
+        Santana: Erm… I'm not sure what to do with these… but thank you...
+        <<SetSprite Middle Santana/Idle>>
+    <<endif>>
+    <<jump UCSBGarden>>
+-> Ask <<if $AskSantana == false>>
+    -> Ask on a date
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 300>>
+            <<SetSprite Middle Santana/LB>>
+            Santana: That would be lovely!
+            <<jump SantanaDate>>
+        <<else>>
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Ummm... sorry... I don't feel that way about you.
+            Santana: We can still be friends though! I enjoy your company. 
+            <<SetSprite Middle Santana/Idle>>
+            <<jump UCSBGarden>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Santana: I would love to!
+        <<else>>
+            <<SetSprite Middle/Santana/Angry>>
+            Santana: Oh... I'm flattered but I don't know if I'm going to go...
+            <<AddRelationshipScore Santana -20>>
+            <<jump UCSBGarden>>
+        <<endif>>
+    -> Cancel
+        <<jump UCSBGarden>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: UCIGarden
+position: 128,-182
+---
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
+    <<set $TalkIrene to true>>
+    <<AddRelationshipScore Irene 10>>
+    <<set $UCI_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+        <<if $UCI_Dialogue == 1>>
+            Irene: Ah sorry, I'm running late for raid hour.
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: Sorry, could you move out of the way?
+            Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: 
+        <<else>> 
+            Irene: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
+        <<if $UCI_Dialogue == 1>>
+            Irene: Hey! I see you around a lot here. Do you play Bobamon Go?
+            -> Yes!
+                Player: Yes!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Really? That's so cool! I play BoGo too! It's one of my favorite games!
+                Irene: 
+            -> I don't.
+                Player: I don't. 
+                Irene: Aww. really? You should play! Bobamon Go is really fun and cute!
+                Irene: It's a good game to play when you're walking from class to class. 
+                -> I'll try it out!
+                    Player:
+                -> It's not my cup of tea.
+                    Player:
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 3>>
+            <<SetSprite Middle Irene/Angry>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: 
+        <<else>> 
+            Irene: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
+        <<if $UCI_Dialogue == 1>>
+            Irene: Sometimes, I forget whether or not I've told you something, and I say it again.
+            Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: 
+        <<else>> 
+            Irene: 
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
+        <<if $UCI_Dialogue == 1>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: 
+        <<else>> 
+            Irene: 
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCI_Dialogue == 1>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 2>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 3>>
+            Irene: 
+        <<elseif $UCI_Dialogue == 4>> 
+            Irene: 
+        <<else>> 
+            Irene: 
+        <<endif>>   
+    <<endif>>
+    <<jump UCIGarden>>
+-> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>//Lines in but sprite names need to be swapped out
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCIGarden>>
+    <<endif>> 
+    <<set $GiftIrene = true>>
+    <<set $GiftScoreI = GetItemScore("Irene")>>
+    <<AddRelationshipScore Irene {$GiftScoreI}>>
+    <<if $GiftScoreI == 20>> //Loved Gift
+        <<SetSprite Middle Irene/hbom>>
+        Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
+        <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreI == 10>> //Liked Gift
+        <<SetSprite Middle Irene/lbcm>>
+        Irene: Oh pog! Thanks!
+        <<SetSprite Middle Irene/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Irene/Angry>>
+        Irene: These are kinda cringe...
+        <<SetSprite Middle Irene/Idle>>
+    <<endif>>
+    <<jump UCIGarden>>
+-> Ask <<if $AskIrene == false>> //Lines and Sprite Names need to be swapped out
+    -> Ask on a date
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 300>>
+            <<SetSprite Middle Irene/lbom>>
+            Irene: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Irene/lbcm>>
+            Irene: I can make time for a date!
+            <<jump IreneDate>>
+        <<else>>
+            <<SetSprite Middle Irene/Angry>>
+            Irene: Uhhhh... sorry bro... raid hour is usually around that time...
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIGarden>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Irene: Y-yes! I'd love to!
+        <<else>>
+            Irene: I have a project I have to work on...
+            <<AddRelationshipScore Irene -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCIGarden>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===

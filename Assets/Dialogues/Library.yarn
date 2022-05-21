@@ -1,0 +1,873 @@
+﻿title: Library
+tags:
+---
+//Interaction Settings
+//Kelly 
+<<set $TalkKelly to false>>
+<<set $GiftKelly to false>>
+<<set $AskKelly to false>>
+//Ellie
+<<set $TalkEllie to false>>
+<<set $GiftEllie to false>>
+<<set $AskEllie to false>>
+
+<<set $TimeofDayLibrary to GetTimeOfDay()>>
+<<set $OptionalPowellCat = Dice(10)>>
+<<if $OptionalPowellCat == 9>>
+    <<if $TimeofDayLibrary == 0>>
+        <<SetBackground Backgrounds/Library/MorningCat>>
+    <<elseif $TimeofDayLibrary == 1>>
+        <<SetBackground Backgrounds/Library/NoonCat>>
+    <<else>>
+        <<SetBackground Backgrounds/Library/NightCat>>
+    <<endif>>
+<<else>>
+    <<if $TimeofDayLibrary == 0>>
+        <<SetBackground Backgrounds/Library/Morning>>
+    <<elseif $TimeofDayLibrary == 1>>
+        <<SetBackground Backgrounds/Library/Noon>>
+    <<else>>
+        <<SetBackground Backgrounds/Library/Night>>
+    <<endif>>
+<<endif>>
+<<Fade true>>
+-> Meet someone
+    <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
+        <<jump UCBLibrary>>
+    <<else>>
+        <<jump UCLALibrary>>
+    <<endif>>
+-> Work
+    Player: Oops! There's no job to do here currently.
+    <<jump Library>>
+    //After Working works, update time
+-> Leave  
+    <<LoadScene MapScene>>
+===
+title: UCBLibrary
+position: 194,-58
+---
+<<SetSprite Middle Kelly/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Kelly <<if $TalkKelly == false>>
+    <<set $TalkKelly to true>>
+    <<AddRelationshipScore Kelly 10>>
+    <<set $UCB_Dialogue = Dice(5)>>
+    <<if GetRelationshipScore("Kelly") < 100>> //Strangers
+        <<if $UCB_Dialogue == 1>>
+            Kelly: I'm busy.
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Don't you have some studying to do?
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: Are you looking for Ellie?
+            -> Yeah! Have you seen her around?
+                Player: Yeah! Have you seen her around?
+                <<SetSprite Middle Kelly/Angry>>
+                <<Shake Middle>>
+                <<AddRelationshipScore Kelly -20>>
+                Kelly: Ugh... BUG OFF and look for her yourself!
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: sigh...
+                <<SetSprite Middle Kelly/Idle>>
+            -> No, I was just heading to the library to study!
+                Player: No, I was just heading to the library to study!
+                Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
+                Kelly: I've been a little on edge... sorry. 
+                Kelly: What subject are you studying for today?
+                -> Computer Science!
+                    <<AddRelationshipScore Kelly 10>>
+                    Player: Computer science! 
+                    <<SetSprite Middle Kelly/lbcm>>
+                    Kelly: Oh! I'm a computer science major!
+                    Kelly: Well... a computer science and political science double major actually...science squared?
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: Sorry... that was kind of a lame joke. 
+                    <<SetSprite Middle Kelly/lbom>>
+                    Kelly: Um... 
+                    Kelly: Ah... nevermind... sorry...
+                -> Chemical Engineering!
+                    Player: Chemical engineering! 
+                    Kelly: Oh! Cool. Um... good luck studying.
+                -> Psychology!
+                    Player: Psychology!
+                    Kelly: Oh! Cool. Um... good luck studying.
+                -> Political Science!
+                    <<AddRelationshipScore Kelly 10>>
+                    <<SetSprite Middle Kelly/lbcm>>
+                    Kelly: Oh! I'm a political science major!
+                    Kelly: Well... a computer science and political science major actually...science squared?
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: Sorry... that was kind of a lame joke. 
+                    <<SetSprite Middle Kelly/lbom>>
+                    Kelly: Um... if you ever need help...
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: ... ah nevermind...sorry...
+                    <<SetSprite Middle Kelly/Idle>>
+            -> No, I was looking for you!
+                Player: No, I was just looking for you!
+                <<SetSprite Middle Kelly/lbom>>
+                <<Shake Middle>>
+                Kelly: Oh!
+                Kelly: Ah... sorry... people usually ask me where my sister Ellie is and it gets... really annoying. 
+                <<SetSprite Middle Kelly/Idle>>
+                Kelly: ...I have to get back to studying though, sorry.
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: Ah sorry, I have an assignment due in bit...
+        <<else>> 
+            Kelly: Sorry, I have a test I have to study for today.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>> //Acquaintances
+        <<if $UCB_Dialogue == 1>>
+            Kelly: You seem to come here often.
+            -> Yeah, it's one of my favorite study spots!
+                <<AddRelationshipScore Kelly 10>>
+                Player: Yeah, it's one of my favorite study spots!
+                <<SetSprite Middle Kelly/lbcm>>
+                Kelly: Oh! It's my favorite study spot too.
+            -> Yeah, it's a nice place to talk to friends in!
+                <<AddRelationshipScore Kelly -20>>
+                Player: Yeah, it's a nice place to talk to friends in! Especially in the reading section.
+                <<SetSprite Middle Kelly/Angry>>
+                Kelly: Sigh... You do realize that people need to work here, right?
+                Kelly: Ugh...
+                <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Ugh... my skin has been so dry lately...
+            Kelly: Staying up late studying and drinking all this coffee is really messing with my skin.
+        <<elseif $UCB_Dialogue == 3>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: Whatever you do, don't take Political Science 124. It's one of the worst classes I've taken here.
+            <<Shake Middle>>
+            Kelly: International political economy. Never again. 
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: I have three ten-page papers and a giant coding assignment due this week.
+            Kelly: sigh... 
+        <<else>> 
+            Kelly: I think I got two hours of sleep last night.
+            Kelly: Have you tried the campus cafe yet?
+            Kelly: The black coffee there is pretty strong and the lines are never too bad.
+            Kelly: I usually like to stop by in the mornings before spending the rest of my day at the library.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>> //Friends
+        <<if $UCB_Dialogue == 1>>
+            Kelly: Sometimes when I'm working late at night, my sister will go into my room and nag at me to go to sleep.
+            Kelly: It's really annoying... can't she see that I have work to do? Not all of us can spend our days lolligagging...
+            -> Yeah, that is really annoying of her...
+                Player: Yeah, that is really annoying of her...
+                Kelly: Yeah...
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: I know she probably does it because she worries about my health though...
+                Kelly: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
+                <<SetSprite Middle Kelly/Idle>>
+            -> Maybe she's worried about you...
+                Player: Maybe she's worried about you...
+                <<SetSprite Middle Kelly/lbom>>
+                <<AddRelationshipScore Kelly 10>>
+                Kelly: ...oh... I never thought about it that way....
+                Kelly: I think that she does care a lot about me... I feel guilty because I've been pushing her away...
+                Kelly: I've really been taking her for granted... I definitely should appreciate her more.
+                Kelly: I think I'll buy her one of the new bear plushies she loves so much as an apology...
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: Could I get your opinion on something? Be honest, do I look intimidating?
+            -> Yeah, a little!
+            <<AddRelationshipScore Kelly 10>>
+                <<AddRelationshipScore Kelly 10>>
+                Kelly: Yeah... I think so too. I do kind of have a grumpy face... my parents say this a lot too...
+                Kelly: To be honest, it was kind of rough growing up with my sister. 
+                Kelly: I love my sister, but everyone would always compare me to her and it really cuts deep after a while.
+                Kelly: I started comparing myself a lot to her too and it has caused a rift between us. 
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: It's something that I still struggle with a lot.
+                Kelly: ... She's a lot more cheery and sociable than I am... Our aunties would call me "raincloud" and call her "sunshine."
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Ah! Sorry... I'm rambling again. 
+                Kelly: Thank you for being honest with me though. It makes me feel like I can trust you a lot more.
+                <<SetSprite Middle Kelly/lbcm>>
+                    -> Of course!
+                        Player: Of course!
+            -> No, not at all!
+                Kelly: I find that hard to believe. 
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: I've been getting a lot of ads for cute "ClickClock" outfits... but they're pretty different from what I usually wear.
+            Kelly: I want to try changing up what I wear... but I get really self-conscious about how I'll look...
+            Kelly: I feel like other styles will look weird on me... I'd probably look like a fool.
+            -> You should try something new! I'm sure that you'll look great!
+                <<AddRelationshipScore Kelly 10>>
+                Player: You should try something new! I'm sure that you'll look great!
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Thank you for the encouragement... it means a lot...
+                Kelly: I think it will be a while before I'm ready to wear anything new outside though.
+                <<SetSprite Middle Kelly/Idle>>
+            -> I don't think that the "ClickClock" style would suit you...
+                Player: I don't think that the "ClickClock" style would suit you...
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: Yeah... who am I kidding... I don't think I could ever be anything other than what I am right now.
+                Kelly: Thanks for the reality check.
+                <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: If you have room in your schedule, you should take the Game Theory course here.
+            Kelly: I found it really interesting and it's pretty easy if you do the problem sets and pay attention to lecture.
+            Kelly: If you take it, let me know and I'll send my notes over to you!
+        <<else>> 
+            Kelly: I'd really like to see the sunset in Los Angeles one day... I don't really go outside that often. 
+            Kelly: I wish I had more time to do things that I care about or more time to take care of myself.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>> //Crushing
+        <<if $UCB_Dialogue == 1>>
+            Kelly: I can't believe that midterm season is almost here. 
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 2>>
+            Kelly: I wish I had a little more time to spend on my hobbies.
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: I really enjoy playing chess, but I've been so swamped with schoolwork that I barely have time to take care of myself.
+            Kelly: Lately, my little sister Ellie started doing better academically than I did... and my parents have been pushing me to catch up...
+            Kelly: I'm putting so much pressure on myself, and I feel like I'm going to break...
+            Kelly: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
+            -> School is tough, but you can hang in there! 
+                Player: School is tough, but you can hang in there! 
+                Kelly: ... I guess so... I'm really not feeling well though...
+            -> I know that school is really important to you, but your mental and physical health matter too!
+                Player: I know that school is really important to you, but your mental health matters too!
+                Kelly: I know... I should be taking better care of myself.
+            -> How can I support you?
+                Player: How can I support you?
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Hmm? ...Support? Ah you don't have to do anything! I don't want to trouble you!
+                -> Insist on helping Kelly
+                    <<AddRelationshipScore Kelly 10>>
+                    Player: No, no! I insist. You mean a lot to me. I want you to take care of your health, but I know that your goals mean a lot to you.
+                    Player: So I want to do what I can to help you reach your goals!
+                    <<SetSprite Middle Kelly/hbom>>
+                    Kelly: I...
+                    <<SetSprite Middle Kelly/lbom>>
+                    Player: What if I brought you a sandwich from the dining hall while you're studying?
+                    Player: That can save you some time and make sure that you still get a healthy meal.
+                    <<SetSprite Middle Kelly/hbcm>>
+                    Kelly: I'd... I'd really appreciate that. Thank you. 
+                -> Drop the subject
+                    Player: Oh... ok!
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: I'm fine on my own... I promise...
+        <<elseif $UCB_Dialogue == 3>>
+            Kelly: I was analyzing some love stories for one of my classes... and I don't know why but I thought this one line was really pretty.
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: It was "Love is just a word until someone comes along and gives it meaning."
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: Ah! Sorry! For a moment it sounded like I was saying that sappy of a line to you...
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 4>> 
+            Kelly: Sometimes I forget to drink my coffee and I get really tired.
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: ...I feel a lot less tired when I'm around you though...
+            Kelly: ... which is weird because I think that violates the Law of Conservation!
+            <<SetSprite Middle Kelly/Idle>>
+        <<else>> 
+            Kelly: Are you taking the class with Professor BearBox next quarter?
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: If you take the class, we could work on the projects together... if you want...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I think that you'd make a good partner...
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCB_Dialogue == 1>>
+            Kelly: I dropped this one computer science class that was really stressing me out.
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: The workload was excruciatingly heavy and the professor wasn't very understanding.
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: I had a lot on my plate... and I've decided that I want to start prioritizing my health a little more!
+            Kelly: I still struggle with feeling a little guilty about taking it easier on myself, but I try to remind myself to be patient with myself.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I have a bit more time to spend on things I actually care about like the chess club now that I'm not wasting it on obsolete assignments.
+            Kelly: I'm really thankful for my loved ones... my sister has been really supportive of me even though we've been a bit distant these past few years.
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: You've been really supportive of me too...
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: Thank you.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 2>>
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I've been experimenting a bit more with fashion lately.
+            Kelly: I found some vintage outfits at a thrift store and sometimes I put it on to wear around the house.
+            Kelly: I still feel a little shy about wearing something deviating from my usual style around on campus... but it feels really fun to not limit my wardrobe to pratical academic-wear.
+            Kelly: I feel a lot more free.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCB_Dialogue == 3>>
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: My sister and I have been getting a little closer lately. 
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: We were best friends as kids and used to do everything together... but we drifted apart as we grew older.
+            Kelly: I think that growing up in such a competitive environment pit us against each other and wedged us apart.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: This weekend we went out for a girls' day brunch together. Next weekend, we're going to go thrifting together too!
+            Kelly: All the advice you gave me really helped me patch my relationship with my sister.
+        <<elseif $UCB_Dialogue == 4>> 
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: I heard that there's a rooftop nearby that we can climb. I heard that the sunset there is really pretty and romantic.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I'd really love to go with you sometime... I can make some time!
+            <<SetSprite Middle Kelly/Idle>>
+        <<else>> 
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I've been feeling a lot better overall lately... I think that self-care has really improved my mental and physical health.
+            Kelly: After a long day, I try to make time to do some yoga with my sister, cook a healthy meal, and do a bit of skincare. 
+            Kelly: I have this really great soondubu recipe that you should try sometime. 
+            <<SetSprite Middle Kelly/Idle>>
+        <<endif>>   
+    <<endif>>
+    <<jump UCBLibrary>>
+-> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCBLibrary>>
+    <<endif>> 
+    <<set $GiftKelly = true>>
+    <<set $GiftScoreK = GetItemScore("Kelly")>>
+    <<AddRelationshipScore Kelly {$GiftScoreK}>>
+    <<if $GiftScoreK == 20>>
+        //Loved Gift
+        <<SetSprite Middle Kelly/hbom>>
+        Kelly: H-huh? T-thank you! How'd you know that I really love these...
+        <<SetSprite Middle Kelly/Idle>>
+    <<elseif $GiftScoreK == 10>>
+        //Liked Gift
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: Oh! Uh… thanks!
+        <<SetSprite Middle Kelly/Idle>>
+    <<else>>
+        //Hated Gift
+        <<SetSprite Middle Kelly/Angry>>
+        Kelly: Is this a joke?
+        <<SetSprite Middle Kelly/Idle>>
+    <<endif>>
+    <<jump UCBLibrary>>
+-> Ask <<if $AskKelly == false>>
+    -> Ask on a date
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 300>>
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I can make time for a date!
+            <<jump KellyDate>>
+        <<else>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: No, I have a test to study for.
+            <<SetSprite Middle Kelly/Idle>>
+            <<jump UCBLibrary>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Kelly: Y-yes! I'd love to!
+        <<else>>
+            Kelly: I have a project I have to work on...
+            <<AddRelationshipScore Kelly -20>>
+            <<jump UCBLibrary>>
+        <<endif>>
+    -> Cancel
+        <<jump UCBLibrary>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: UCLALibrary
+position: 194,65
+---
+<<SetSprite Middle Ellie/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Ellie <<if $TalkEllie == false>>
+    <<set $TalkEllie to true>>
+    <<set $UCLA_Dialogue_Library = Dice(5)>>
+    <<AddRelationshipScore Ellie 10>>
+    <<if GetRelationshipScore("Ellie") < 100>> //Strangers
+        <<if $UCLA_Dialogue_Library == 1>>
+            Ellie: Hey! Are you new on campus?
+            -> Yes!
+                Player: Yes! I just started here. 
+                Ellie: Oh! Welcome to UC Love! You'll love it here I promise!
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
+                <<SetSprite Middle Ellie/Idle>>
+            -> Actually, I've been here for a while!
+                Player: Actually, I've been here for a while!
+                <<SetSprite Middle Ellie/Angry>>
+                Ellie: Ah! Sorry, I'm in a lot of club activities and have trouble keeping track of everyone I meet!
+                Ellie: I think I remember you... your name is.... 
+                Player: ...
+                Ellie: ...
+                <<SetSprite Middle Ellie/lb>>
+                <<Shake Middle>>
+                <<SetSprite Middle Ellie/Idle>>
+                Ellie: Ah! Sorry, I'm running late for a flyering event! I'll see you around!
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: Ah! Sorry I'm in a bit of a rush! I'm running a little late for my student government meeting!
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie: Hey! Sorry, I'm running late for the cooking club meeting!
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: Oh hey! You're new around here right?
+            Ellie: Are you pre-med or pre-health? You should join the Fitness Club here!
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: We usually meet in the gym during the afternoon if you're interested! 
+            <<SetSprite Middle Ellie/Idle>>
+        <<else>> 
+            Ellie: The weather is nice today, isn't it? 
+            Ellie: Nice weather always puts me in a better mood. 
+        <<endif>>
+    <<elseif GetRelationshipScore("Ellie") >= 100 && GetRelationshipScore("Ellie") < 200>> //Acquaintances
+        <<if $UCLA_Dialogue == 1>>
+            Ellie: Oh hey! It's you again. How's your day so far?
+            -> It's going good! How about yours?
+                Player: It's going good! How about yours?
+                Ellie: Oh that's good to hear! My day's been really good, just a little hectic.
+                Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today. 
+                <<SetSprite Middle Ellie/cmo>>
+                Ellie: I feel a little burnt out... but I don't want to let my friends down...
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Hopefully tomorrow is a little better!
+                <<SetSprite Middle Ellie/Idle>>
+            -> It's a bit rough... How's your day so far?
+                Player: It's a bit rough... How's your day so far?
+                <<SetSprite Middle Ellie/sad>>
+                Ellie: Oh, I'm sorry to hear that. Some days are kind of cruddy. 
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Tomorrow is a new day though! 
+                Ellie: My day's going alright... it's just been a little hectic...
+                Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today.
+                Ellie: Hopefully tomorrow is a little better for the both of us! Keep your head up, kay? 
+                <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
+            -> Yeah! I'm taking it for a general requirement. Are you in that class too?
+                Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
+                Ellie: Oh cool! Well... kind of...
+                Ellie: I'm a course reader for that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returnign as a course reader for it.
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I am a psychology major though... so I may be a little biased!
+                <<SetSprite Middle Ellie/lb>>
+                Ellie: Let me know if you have any questions or need any help, kay? I'd be happy to help!
+                Ellie: I'll see you around!
+                <<SetSprite Middle Ellie/Idle>>
+            -> I think you're mistaken!
+                Player: I think you're mistaken!
+                <<SetSprite Middle Ellie/Angry>>
+                Ellie: Oh... my bad! Sorry, you looked a lot like one of the students in that class.
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: You should take the class if you have the chance! It's a really fun class.
+                Ellie: Professor BruinBot is a little tough, but you learn a lot from him and he's really adorable to watch.
+                Ellie: Don't let him hear you say that though, or he'll run over your toes!
+                <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie: Have you joined any of the clubs on campus yet? There's a ton of extracurriculars here at UCL!
+            <<SetSprite Middle Ellie/Angry>>
+            Ellie: I would know... I'm in way too many of them!
+            <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: We should hang out together sometime! I feel like we'd be really good friends, but I only ever get to see you while running in between activities.
+            <<SetSprite Middle Ellie/cmc>>
+            Ellie: I wish that I had more time in my schedule... sigh...
+            Ellie: I feel really burnt out...
+            <<SetSprite Middle Ellie/Idle>>
+        <<else>> 
+            Ellie: If you have time, you should check out the cafe on campus! 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Their drinks are really good! I really like the caramel frappuccino!
+            Ellie: I don't really have time to go through, so I usually ask my sister to grab me one when she stops by in the mornings. 
+            Ellie: Have you met my sister Kelly yet? She's a little cold and independent but deep down she cares a lot about people in her life.
+            <<SetSprite Middle Ellie/cmc>>
+            Ellie: Sometimes I can't help but worry about her though... 
+            <<SetSprite Middle Ellie/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Ellie") < 300>> // Friends
+        <<if $UCLA_Dialogue == 1>>
+            <<SetSprite Middle Ellie/cmo>>
+            Ellie: I'm a little worried about my sister Kelly... 
+            Ellie: She's always working really hard and kind of shuts herself off. 
+            Ellie: We used to be really close but we've been kind of distant these past few years.
+            Ellie: I really admire how hardworking she is, but her workload takes a toll on her. I'm really worried for her mental health.
+            <<SetSprite Middle Ellie/smc>> 
+            Ellie: If you see her around campus, could you check in on her? I'd really appreciate it!
+            -> Of course!
+                Player: Of course! 
+                <<AddRelationshipScore Ellie 10>>
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Thank you; it really means a lot to me!
+                <<SetSprite Middle Ellie/Idle>>
+            -> Do it yourself!
+                <<AddRelationshipScore Ellie -10>>
+                Player: Do it yourself!
+                <<SetSprite Middle Ellie/cmo>>
+                Ellie: Oh, sorry to bother you... I'll try to reach out to her but she tends to wall herself off from me...
+                <<SetSprite Middle Ellie/Idle>>
+            -> I think that it might be more meaningful if you reached out to her yourself!
+            <<AddRelationshipScore Ellie 10>>
+                Player: I think that it might be more meaningful if you reached out to her yourself!
+                Player: I think that it would mean a lot to your sister to know that you care for her. 
+                <<SetSprite Middle Ellie/cmc>>
+                Ellie: She tends to wall herself off from me though... every time that I try to talk to her she just brushes me off and says that I wouldn't understand.
+                Ellie: I try to get her to take breaks from her work and whatnot but she just keeps working herself to the bone.
+                Ellie: I don't know what to do...
+                -> Try to talk to her again! Persistence is key and words are powerful!
+                    Player: Try to talk to her again! Persistence is key and words are powerful!
+                    <<SetSprite Middle Ellie/Angry>>
+                    Ellie: I told you that I tried that already, but I'll try it again I suppose...
+                    <<SetSprite Middle Ellie/Idle>>
+                -> Give her a hug! Maybe physical affection is what she needs!
+                    Player: Give her a hug! Maybe physical affection is what she needs!
+                    <<SetSprite Middle Ellie/Angry>>
+                    Ellie: Uhhh... I don't think you know my sister that well... She hates hugs...
+                    <<SetSprite Middle Ellie/Idle>>
+                -> Do small tasks for her to let her know you care!
+                    <<AddRelationshipScore Ellie 10>>
+                    Player: Maybe you can do small tasks for her to let you know you care!
+                    Player: Like helping her organize her stuff or cutting some fruit for her when she's studying late!
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: Oh! I haven't thought about that!
+                    <<SetSprite Middle Ellie/Angry>>
+                    Ellie: My sister does tend to eat a lot of instant meals... I think I could try cooking for her or bringing her some fruit to save some time for her to study.
+                    <<SetSprite Middle Ellie/smc>>
+                    Ellie: Thank you for the advice! I really appreciate it!
+                    <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 2>>
+            <<SetSprite Middle Ellie/cmc>>
+            Ellie: Can I ask you for some advice?
+            -> Yes, of course! What's on your mind?
+                Player: Yes, of course! What's on your mind?
+                Ellie: A friend of mine is starting a new art club and asked me to join the board for it...
+                Ellie: My friend means a lot to me and I want to support them, but I'm already in so many clubs.
+                Ellie: I can't even draw a circle, and I have a lot on my plate... but at the same time I want to support my friend...
+                Ellie: What should I do?
+                -> Join the board!
+                    <<AddRelationshipScore Ellie -10>>
+                    Player: I think that you should join the board!
+                    -> You can defintely make room in your schedule.
+                        <<AddRelationshipScore Ellie -10>>
+                        Player: You can defintely make room in your schedule.
+                        <<SetSprite Middle Ellie/Angry>>
+                        Ellie: I don't think you've really been listening to me...
+                        <<SetSprite Middle Ellie/Idle>>
+                    -> Your friend needs you!
+                        Player: Your friend needs you! 
+                        <<SetSprite Middle Ellie/cmo>>
+                        Ellie: I know... I feel like I'm letting them down if I don't accept, but I have no time for another extracurricular...
+                        Ellie: It's going to be really hard to tell them...
+                -> Turn her down...
+                    Player: I think that you should turn her down...
+                    -> I don't think that you can handle it.
+                        <<AddRelationshipScore Ellie -10>>
+                        Player: I don't think that you can handle it.
+                        <<SetSprite Middle Ellie/Angry>>
+                        Ellie: Jeez... I do have a lot on my plate but that's... kind of harsh. 
+                        <<SetSprite Middle Ellie/cmo>>
+                        Ellie: Thanks for the advice I guess...
+                        <<SetSprite Middle Ellie/Idle>>
+                    -> You already have a lot on your plate... You need to set a boundary for yourself!
+                        <<AddRelationshipScore Ellie 10>>
+                        Player: You already have a lot on your plate... You need to set a boundary for yourself!
+                        <<SetSprite Middle Ellie/cmc>>
+                        Ellie: Sigh... you're right. I'm already in so many clubs...
+                        Ellie: I feel like I'm biting off more than I can chew... I feel like I have to help my friends and support all these causes...
+                        Ellie: But I've been spreading myself thin lately... I think I need to start setting boundaries and cutting back on extracurriculars. 
+                        <<SetSprite Middle /smc>>
+                        Ellie: I feel a lot better now. Thank you for listening to me.
+                        Ellie: I'm always here if you need to vent, kay?
+                        Ellie: Friends should look out for each other!
+                        <<SetSprite Middle Ellie/Idle>>
+                    -> You can support your friend in other ways!
+                        Player: You can support your friend in other ways!
+                        -> You can help your friend advertise for the club!
+                            <<AddRelationshipScore Ellie 10>>
+                            Player: You don't have to join the club's board to support your friend!
+                            Player: You can help your friend advertise for the club!
+                            <<SetSprite Middle /smc>>
+                            Ellie: Oh! I didn't think about that! 
+                            Ellie: Yeah! I think that I could offer to help her spread the word instead. I have a lot of connections that I can ask to help her out!
+                            Ellie: I think that that would be a good way to support my friend without overcommitting to another role on top of what I'm already doing. 
+                            Ellie: Thanks for the advice. I really appreciate it.
+                            Ellie: I'm always here if you need to vent, kay?
+                            <<SetSprite Middle Ellie/Idle>>
+                            Ellie: Friends should look out for each other!
+                        -> You can recommend someone you know to the position instead!
+                            <<AddRelationshipScore Ellie 10>>
+                            Player: You don't have to join the club's board to support your friend!
+                            Player: You can recommend someone you know to the position instead!
+                            <<SetSprite Middle Ellie/Idle>>
+                            Ellie: Oh! I didn't think about that! 
+                            Ellie: Yeah! I have a friend named Irene who's really great at art stuff and was looking to get more leadership experience! 
+                            Ellie: I'll ask Irene if she's interested and recommend Irene to my friend!
+                            <<SetSprite Middle /smc>>
+                            Ellie: Thanks for the advice. I really appreciate it.
+                            Ellie: I'm always here if you need to vent, kay?
+                            <<SetSprite Middle Ellie/Idle>>
+                        -> You can join the club as a general member!
+                            Player: You don't have to join the club's board to support your friend!
+                            Player: You can join the club as a general member!
+                            Ellie: That's true... I do already have a lot on my plate though...
+                            Ellie: I wouldn't want to come off as disingenuous...
+                            Ellie: Thank you for the advice though!
+                            <<SetSprite Middle Ellie/Idle>> 
+                        -> You can go to their events!
+                            <<AddRelationshipScore Ellie 10>>
+                            Player: You don't have to join the club's board to support your friend!
+                            Player: You can go to their events!
+                            <<SetSprite Middle Ellie/Idle>>
+                            Ellie: Oh! I didn't think about that! 
+                            Ellie: I didn't think that I could still cheer them on without joining the board. 
+                            <<SetSprite Middle /smc>>
+                            Ellie: Thanks for the advice. I really appreciate it.
+                            Ellie: I'm always here if you need to vent, kay?
+            -> Sorry, I'm kind of busy...
+                <<AddRelationshipScore Ellie -10>>
+                Player: Sorry, I'm kind of busy...
+                <<SetSprite Middle Ellie/Angry>>
+                Ellie: No worries! I completeley understand!
+                <<SetSprite Middle Ellie/>>
+                Ellie: Sorry to bother you...
+                <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie: I don't know if you've noticed, but I'm kind of a pushover!
+            <<SetSprite Middle Ellie/Angry>>
+            Ellie: When I was a kid, there was this girl in my class who would ask to borrow my toys but would never give them back!
+            Ellie: She even took my teddy bear, which was my favorite toy.
+            Ellie: I didn't want to confront her or say no because I felt bad!
+            Ellie: Kelly had to step in to get my toys back from her. All she had to do was glare at the girl and tell her to give me my toys back!
+            Ellie: Kelly keeps telling me that if a stranger asked for my kidney, I'd give them two.
+            Ellie: She's kind of right though... I have a hard time telling people a direct no. 
+        <<elseif $UCLA_Dialogue == 4>> 
+            Ellie: It's kind of silly but I really like collecting Rikakume plushies!
+            Ellie: They're the really chubby bear ones. Sometimes the student stores have them in stock, but they're kind of expensive. 
+            Ellie: They make really good pillows. 
+        <<else>> 
+            <<SetSprite Middle Ellie/cmo>>
+            Ellie: Sigh...
+            -> What's wrong?
+                Player: What's wrong?
+                <<Shake Middle>>
+                Ellie: Oh!
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Sorry! I didn't see you there... my... allergies... usually make me tear up this time of year.
+                -> Are you doing ok?
+                    Player: Are you doing ok? 
+                    <<SetSprite Middle Ellie/cmc>>
+                    Ellie: Yeah! 
+                    -> How are you really doing?
+                        <<set $UCLA_Quit to false>>
+                        Player: How are you really doing?
+                        <<SetSprite Middle Ellie/cmo>>
+                        Ellie: To be honest... I'm not doing too well...
+                        Ellie: I'm in a lot of clubs and I'm starting to feel really overwhelmed.
+                        Ellie: I feel like I can't quit or turn down a request... I have so many people relying on me...
+                        Ellie: I can't let my friends and clubmates down, but I'm realizing that I have too much on my plate and that I've been signing myself up for things that I'm not very passionate about.
+                        Ellie: I want to be able to make everyone happy and I want to help out all my friends but I can only do so much...
+                        -> I think that you're struggling with burnout... 
+                            Ellie: I know... but so many people rely on me to keep their clubs running.
+                            Ellie: I can't just back out all of a sudden. 
+                            -> Just drop some clubs! No one is stopping you!
+                                Player: Just drop some clubs! No one is stopping you!
+                                <<SetSprite Middle Ellie/Angry>>
+                                Ellie: These are people that I care about! I can't just leave them hanging like that...
+                                Ellie: You wouldn't do that to someone you cared about would you?
+                            -> Why don't you try phasing out your involvement?
+                                Player: Why don't you try phasing out your involvement?
+                                Player: You could let your club members know that you're feeling overwhelmed and need to take a step back.
+                                -> They might be a little mad but you need to prioritize yourself!
+                                    <<SetSprite Middle Ellie/cmc>>
+                                    Ellie: Sigh... you're right... I really don't want to let them down but I can't take this workload anymore.
+                                    Ellie: Thank you for your advice!
+                                -> If they're good friends, they will understand!
+                                    Player: If they're good friends, they will understand!
+                                    Ellie: Sigh... you're right...
+                                    <<SetSprite Middle Ellie/smc>>
+                                    Ellie: I didn't really think about it from that perspective. They're my friends and I think they'd want the best for me too.
+                                    Ellie: Thank you for your advice... I really appreciate it.
+                                    <<SetSprite Middle Ellie/lb>>
+                                    Ellie: Let me treat you out for food sometime alright?
+                                    <<set $UCLA_Quit to true>>
+                                    //TD: Continuity
+                                    <<SetSprite Middle Ellie/Idle>>
+                        -> I think that you're struggling with time management...
+                            <<set $UCLA_Quit to false>>
+                            Player: I think that you're struggling with time management...
+                            Player: I'm sure that you could fit everything into your schedule if you tried hard enough.
+                            <<SetSprite Middle Ellie/Angry>>
+                            Ellie: Yeah, sure. I guess if I stop eating or showering I guess I might have enough time. 
+                            Ellie: I need a more practical solution...
+                            <<SetSprite Middle Ellie/Idle>>
+                    -> Alright....
+                        <<set $UCLA_Quit to false>>
+                        Player: Alright...
+                        <<SetSprite Middle Ellie/smc>>
+                        Ellie: I have to get going but take care of yourself, kay? 
+                        <<SetSprite Middle Ellie/Idle>>
+                -> Oh I see!
+                    Player: Oh I see!
+                    Ellie: Yeah... the... pollen in the area really irritates my eyes.
+                    <<SetSprite Middle Ellie/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Ellie") >= 300 && GetRelationshipScore("Ellie") < 400>> // Crushing
+        <<if $UCLA_Dialogue == 1>>
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: The fitness club I'm in is hosting a field day soon and I was wondering if you'd be interested in joining!
+            Ellie: There will be a couple of relay games, some group competitions, and a water balloon fight.
+            <<SetSprite Middle Ellie/Idle>>
+            Ellie: I might not look like it, but I'm actually really good at tug-of-war. 
+            Ellie: The trick is to lean back right at the start until your opponent tires out, then start pulling!
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I'd really love to have you as my partner if you join! 
+            <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: Would you want to go to the gym together sometime?
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I could spot you if you wanted me to.
+            <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 3>>
+            //TD: Continuity
+            <<if $UCLA_Quit == true>>
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I took your advice and cut down on a couple of clubs I'm involved in.
+                Ellie: Everyone was really understanding and wanted me to prioritize my own wellbeing.
+                Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
+                Ellie: Thank you again for your advice.
+            <<else>>
+                <<SetSprite Middle Ellie/cmo>>
+                Ellie: I ended up leaving a couple of clubs that I'm involved in. 
+                Ellie: The workload just got too overwhelming at a certain point and I just had to suddenly drop out.
+                <<SetSprite Middle Ellie/Angry>>
+                Ellie: I wish I was able to recognize my limit a little earlier to give my friends and clubmates some notice, but better late than never!
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
+                <<SetSprite Middle Ellie/Idle>>
+            <<endif>>
+        <<elseif $UCLA_Dialogue == 4>> 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: My relationship with my sister has been improving a bit!
+            Ellie: We've been hanging out a bit more together and I think we're both doing better.
+            Ellie: Last weekend we went for a girls' day brunch together and we're planning to go thrifting soon too. 
+            Ellie: I think your advice really helped me repair my relationship with my sister. 
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: Thank you!
+            <<SetSprite Middle Ellie/Idle>>
+        <<else>> 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Now that I have more time on my hands, I've been testing recipes a lot more.
+            Ellie: My favorite recipe to make is this salmon and veggie bowl. It's really healthy but flavorful too!
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: Next time I cook some, I'll be sure to bring some to you!
+            <<SetSprite Middle Ellie/Idle>>
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCLA_Dialogue == 1>>
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Oh hey! Did you eat yet?
+            Ellie: I made an extra sandwich in case I'd see you today! Here you go!
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I hope you like it! It's made with love!
+            <<SetSprite Middle Ellie/Idle>>
+        <<elseif $UCLA_Dialogue == 2>>
+            Ellie: Do you know how to cook?
+            -> Yes, I do!
+                Player: Yes, I do!
+                Ellie: Oh cool! We should cook together someday!
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: Come over to my apartment sometime and we can cook lunch or dinner together!
+            -> Not really...
+                Player: Not really...
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: I'd love to teach you someday if you want to come over to my apartment!
+        <<elseif $UCLA_Dialogue == 3>>
+            Ellie: I think that I'm getting better at setting boundaries! Try asking me to do something as a joke!
+            -> Hey Ellie, can you do my homework for me?
+                Player: Hey Ellie, can you do my homework for me?
+                <<SetSprite Middle Ellie/smc>>
+                Ellie: ...
+                Player: ...
+                <<SetSprite Middle Ellie/lb>>
+                Ellie: ...mmm...
+                Player: ...
+                <<SetSprite Middle Ellie/hb>>
+                <<Shake Middle>>
+                Ellie: ... no sorry...
+                Ellie: Ok, it's still a bit of a challenge, but I'm getting better! I can feel it!
+        <<elseif $UCLA_Dialogue == 4>> 
+            <<SetSprite Middle Ellie/smc>>
+            Ellie: Did you know that your pupils dilate when you look at someone you like?
+            Ellie: ...
+            <<SetSprite Middle Ellie/lb>>
+            Player: ...
+            <<SetSprite Middle Ellie/hb>>
+            Ellie:...
+            <<Shake Middle>>
+            Ellie: Your eyes are really pretty...
+            <<SetSprite Middle Ellie>>
+        <<else>> 
+            Ellie: I heard that the school dance is coming up soon. 
+            Ellie: I'd really love to go... but I don't have a partner...
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: ...
+            <<SetSprite Middle Ellie/Idle>>
+        <<endif>>
+    <<endif>>
+    <<jump UCLALibrary>>
+-> Give Gift <<if $GiftEllie == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCLALibrary>>
+    <<endif>> 
+    <<set $GiftEllie = true>>
+    <<set $GiftScoreELibrary = GetItemScore("Ellie")>>
+    <<AddRelationshipScore Ellie {$GiftScoreELibrary}>>
+    <<if $GiftScoreELibrary == 20>> //Loved Gift
+        <<SetSprite Middle Ellie/lb>>
+        Ellie: Oh my God! I absolutely love this! Thank you!
+        <<SetSprite Middle Ellie/Idle>>
+    <<elseif $GiftScoreELibrary == 10>> //Liked Gift
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: That's so sweet of you!
+        <<SetSprite Middle Ellie/Idle>>
+    <<else>> //Hated Gift
+        <<SetSprite Middle Ellie/Angry>>
+        Ellie: Ehhhm….. thanks?
+        <<SetSprite Middle Ellie/Idle>>
+    <<endif>>
+    <<jump UCLALibrary>>
+-> Ask <<if $AskEllie == false>>
+    -> Ask on a date
+        <<set $AskEllie = true>>
+        <<if GetRelationshipScore("Ellie") >= 300>>
+            <<SetSprite Middle Ellie/lb>>
+            Ellie: I'd love to go! 
+            Ellie: But let me treat you to boba afterwards, kay? 
+            <<jump EllieDate>>
+        <<else>>
+            <<SetSprite Middle Ellie/Angry>>
+            Ellie: Umm.. sorry... I have... ummm... back-to-back club meetings that day...
+            Player: Oh ok! What about tomorrow?
+            <<SetSprite Middle Ellie/cmc>>
+            Ellie: Oh... I have back-to-back meetings then too...
+            Ellie: I have back-to-back club meetings for the foreseeable future actually... sorry...
+            <<SetSprite Middle Ellie/Idle>>
+            <<jump UCLALibrary>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskEllie = true>>
+        <<if GetRelationshipScore("Ellie") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Ellie: I'd love to! We're going to have so much fun!
+        <<else>>
+            Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
+            <<jump UCLALibrary>>
+            <<AddRelationshipScore Ellie -20>>
+        <<endif>>
+    -> Cancel
+        <<jump UCLALibrary>>
+->Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===

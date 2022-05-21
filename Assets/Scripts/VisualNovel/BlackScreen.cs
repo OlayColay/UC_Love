@@ -11,7 +11,7 @@ public class BlackScreen : MonoBehaviour
     private static BlackScreen _instance;
     public static BlackScreen Instance { get { return _instance; } }
 
-    private Image blackScreen;
+    public Image blackScreen;
 
     private void Awake()
     {

@@ -19,8 +19,8 @@ public class SerializableItem
 
     public Item asItem()
     {
-        return new Item((int)scores["Ellie"], (int)scores["Kelly"], (int)scores["UCSB"],
-            (int)scores["UCR"], (int)scores["UCI"], spritePath, name);
+        return new Item((int)scores["Ellie"], (int)scores["Kelly"], (int)scores["Santana"],
+            (int)scores["Riviera"], (int)scores["Irene"], (int)scores["Tommy"], spritePath, name);
     }
 
 }

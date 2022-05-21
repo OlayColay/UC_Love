@@ -6,12 +6,14 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
-
+using DG.Tweening;
 
 public class Click : MonoBehaviour
 {
     [SerializeField]
     private LayerMask selectableLayer; // The layer that can be selected
+    [SerializeField]
+    private Image blackScreen;
 
     private GameObject selectedLocation; // The currently selected location
 
@@ -51,8 +53,12 @@ public class Click : MonoBehaviour
                 
                 // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
                 // instead of as a Coroutine?
-                
-                StartCoroutine(LoadYarnScene(newLocation.name));
+                // The reason that I use a Coroutine is so that we can wait for the scene to load with a
+                // while loop without freezing the game :)
+                        
+                FindObjectOfType<AudioListener>().enabled = false;
+                FindObjectOfType<EventSystem>().enabled = false;
+                blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(LoadYarnScene(newLocation.name)));
             }
 
             selectedLocation = newLocation;
@@ -91,7 +97,7 @@ public class Click : MonoBehaviour
         return null;
     }
 
-    IEnumerator LoadYarnScene(string sceneName)
+    public static IEnumerator LoadYarnScene(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync("VisualNovel", LoadSceneMode.Additive);
 

@@ -4,34 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInput playerInput;
-    private Rigidbody2D rb;
-    
-    [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float smoothTime = 0.25f;
-    private Vector2 moveInput;
-    private Vector3 currentVelocityPlayer = Vector3.zero;
-    public int health;
+    public static bool gameOver = false;
+    public static bool gameWon = false;
 
+    //player stats
+    public int health = 3;
+    public float maxSpeed = 7f; //player's max speed
+    public float smoothTime = 0.2f; //time to reach min/max speed
+   
+    private PlayerInput playerInput;
+    private Vector2 moveInput;
+    private Rigidbody2D rb;
+    private Vector3 currentVelocityPlayer = Vector3.zero;
+    private Animator animator;
+
+  
+    //flyers (screen cover)
     public GameObject flyer1;
     public GameObject flyer2;
     public GameObject flyer3;
-
     private Vector3 currentVelocityFlyer1 = Vector3.zero;
     private Vector3 currentVelocityFlyer2 = Vector3.zero;
     private Vector3 currentVelocityFlyer3 = Vector3.zero;
-
     private Vector3 flyer1offset;
     private Vector3 flyer2offset;
     private Vector3 flyer3offset;
 
-    // Start is called before the first frame update
     void Awake()
     {
+        gameOver = false;
+        gameWon = false;
+        
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
-
-        health = 3;
+        animator = GetComponent<Animator>();
 
         flyer1offset = (flyer1.transform.position - Camera.main.transform.position);
         flyer2offset = (flyer2.transform.position - Camera.main.transform.position);
@@ -55,6 +61,9 @@ public class PlayerController : MonoBehaviour
     void Update(){
         moveInput = playerInput.Player.Move.ReadValue<Vector2>();
 
+        animator.SetFloat("horizontal", moveInput[0]);
+        animator.SetFloat("vertical", moveInput[1]);
+
         if (health <= 2)
         {
             flyer1.GetComponent<SpriteRenderer>().enabled = true;
@@ -73,9 +82,12 @@ public class PlayerController : MonoBehaviour
             flyer3.transform.position = Vector3.SmoothDamp(flyer3.transform.position, Camera.main.transform.position + flyer3offset, ref currentVelocityFlyer3, smoothTime);
             Debug.Log("you lose!!!!!!!!!!!!!!!!!!!");
 
-            //game over stuff
+            gameOver = true;
+            gameWon = false;
         }
 
+        // Debug.Log(moveInput[0]);
+        // Debug.Log(moveInput[1]);
     }
 
     // Update is called once per frame
@@ -96,12 +108,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.gameObject.tag == "Goal") && (health > 0))
          {
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
-            ///do whatever else
+            gameOver = true;
+            gameWon = true;
+            GainMoney();
          }
     }
+
+    private void GainMoney()
+    {
+        string difficulty = FindObjectOfType<MapController>().difficulty;
+        int money = 0;
+
+        if (difficulty == "easy")
+        {
+            money = 80 + (health * 10);
+        }
+        else if (difficulty == "medium")
+        {
+            money = 180 + (health * 10);
+        }
+        else if (difficulty == "hard")
+        {
+            money = 280 + (health * 10);
+        }
+
+        // int enemyMoney = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Inventory.ChangeMoney(money);
+        Debug.Log("Money gained: " + money);
+    }
+
+
+    public void DeleteEnemies()
+    {
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        GameObject.Destroy(enemy);
+    }
+
 }

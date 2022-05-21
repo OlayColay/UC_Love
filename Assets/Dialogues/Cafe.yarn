@@ -1,0 +1,761 @@
+﻿title: Cafe
+tags:
+---
+//Interaction Settings
+//Kelly
+<<set $TalkKelly to false>>
+<<set $GiftKelly to false>>
+<<set $AskKelly to false>>
+//Irene
+<<set $TalkIrene to false>>
+<<set $GiftIrene to false>>
+<<set $AskIrene to false>>
+//Riviera
+<<set $TalkRiviera to false>>
+<<set $GiftRiviera to false>>
+<<set $AskRiviera to false>>
+
+<<SetBackground Backgrounds/Cafe/Cafe>>
+<<Fade true>>
+<<set $TimeOfDayCafe to GetTimeOfDay()>>
+Player: What should I do?
+-> Meet someone
+    <<if $TimeOfDayCafe == 0>>
+        <<jump UCBCafe>>
+    <<elseif $TimeOfDayCafe == 1>>
+        <<jump UCICafe>>
+    <<else>>
+        <<jump UCRCafe>>
+    <<endif>>
+-> Work
+    <<CafeMinigame>>
+    <<if CafeMinigameWon()>>
+        Player: I think that I did a good job!
+    <<else>>
+        Player: That was embarassing... I hope that no one saw that...
+    <<endif>>
+    -> Leave
+        <<UpdateTimeOfDay>>
+        <<LoadScene MapScene>>
+-> Leave
+    <<LoadScene MapScene>>
+===
+title: UCBCafe
+position: 216,-14
+---
+<<SetSprite Middle Kelly/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Kelly <<if $TalkKelly == false>>
+    <<set $TalkKelly to true>>
+    <<AddRelationshipScore Kelly 10>>
+    <<set $UCBDialogueCafe = Dice(5)>>
+    <<if GetRelationshipScore("Kelly") < 100>> //Strangers
+        <<if $UCBDialogueCafe == 1>>
+            Kelly: I'm busy.
+        <<elseif $UCBDialogueCafe == 2>>
+            Kelly: Don't you have some studying to do?
+        <<elseif $UCBDialogueCafe == 3>>
+            Kelly: Are you looking for Riviera?
+            -> Yeah! Have you seen her around?
+                Player: Yeah! Have you seen her around?
+                <<SetSprite Middle Kelly/Angry>>
+                <<Shake Middle>>
+                <<AddRelationshipScore Kelly -20>>
+                Kelly: Ugh... BUG OFF and look for her yourself!
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: sigh...
+                <<SetSprite Middle Kelly/Idle>>
+            -> No, I was just heading to the library to study!
+                Player: No, I was just heading to the library to study!
+                Kelly: Ah! Sorry... people usually ask me where my sister Riviera is and it gets... really annoying.
+                Kelly: I've been a little on edge... sorry. 
+                Kelly: What subject are you studying for today?
+                -> Computer Science!
+                    <<AddRelationshipScore Kelly 10>>
+                    Player: Computer science! 
+                    <<SetSprite Middle Kelly/lbcm>>
+                    Kelly: Oh! I'm a computer science major!
+                    Kelly: Well... a computer science and political science double major actually...science squared?
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: Sorry... that was kind of a lame joke. 
+                    <<SetSprite Middle Kelly/lbom>>
+                    Kelly: Um... 
+                    Kelly: Ah... nevermind... sorry...
+                -> Chemical Engineering!
+                    Player: Chemical engineering! 
+                    Kelly: Oh! Cool. Um... good luck studying.
+                -> Psychology!
+                    Player: Psychology!
+                    Kelly: Oh! Cool. Um... good luck studying.
+                -> Political Science!
+                    <<AddRelationshipScore Kelly 10>>
+                    <<SetSprite Middle Kelly/lbcm>>
+                    Kelly: Oh! I'm a political science major!
+                    Kelly: Well... a computer science and political science major actually...science squared?
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: Sorry... that was kind of a lame joke. 
+                    <<SetSprite Middle Kelly/lbom>>
+                    Kelly: Um... if you ever need help...
+                    <<SetSprite Middle Kelly/sad>>
+                    Kelly: ... ah nevermind...sorry...
+                    <<SetSprite Middle Kelly/Idle>>
+            -> No, I was looking for you!
+                Player: No, I was just looking for you!
+                <<SetSprite Middle Kelly/lbom>>
+                <<Shake Middle>>
+                Kelly: Oh!
+                Kelly: Ah... sorry... people usually ask me where my sister Riviera is and it gets... really annoying. 
+                <<SetSprite Middle Kelly/Idle>>
+                Kelly: ...I have to get back to studying though, sorry.
+        <<elseif $UCBDialogueCafe == 4>> 
+            Kelly: Ah sorry, I have an assignment due in bit...
+        <<else>> 
+            Kelly: Sorry, I have a test I have to study for today.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 100 && GetRelationshipScore("Kelly") < 200>> //Acquaintances
+        <<if $UCBDialogueCafe == 1>>
+            Kelly: You seem to come here often.
+            -> Yeah, it's one of my favorite study spots!
+                <<AddRelationshipScore Kelly 10>>
+                Player: Yeah, it's one of my favorite study spots!
+                <<SetSprite Middle Kelly/lbcm>>
+                Kelly: Oh! It's my favorite study spot too.
+            -> Yeah, it's a nice place to talk to friends in!
+                <<AddRelationshipScore Kelly -20>>
+                Player: Yeah, it's a nice place to talk to friends in! Especially in the reading section.
+                <<SetSprite Middle Kelly/Angry>>
+                Kelly: Sigh... You do realize that people need to work here, right?
+                Kelly: Ugh...
+                <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 2>>
+            Kelly: Ugh... my skin has been so dry lately...
+            Kelly: Staying up late studying and drinking all this coffee is really messing with my skin.
+        <<elseif $UCBDialogueCafe == 3>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: Whatever you do, don't take Political Science 124. It's one of the worst classes I've taken here.
+            <<Shake Middle>>
+            Kelly: International political economy. Never again. 
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 4>> 
+            Kelly: I have three ten-page papers and a giant coding assignment due this week.
+            Kelly: sigh... 
+        <<else>> 
+            Kelly: I think I got two hours of sleep last night.
+            Kelly: Have you tried the campus cafe yet?
+            Kelly: The black coffee there is pretty strong and the lines are never too bad.
+            Kelly: I usually like to stop by in the mornings before spending the rest of my day at the library.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 200 && GetRelationshipScore("Kelly") < 300>> //Friends
+        <<if $UCBDialogueCafe == 1>>
+            Kelly: Sometimes when I'm working late at night, my sister will go into my room and nag at me to go to sleep.
+            Kelly: It's really annoying... can't she see that I have work to do? Not all of us can spend our days lolligagging...
+            -> Yeah, that is really annoying of her...
+                Player: Yeah, that is really annoying of her...
+                Kelly: Yeah...
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: I know she probably does it because she worries about my health though...
+                Kelly: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
+                <<SetSprite Middle Kelly/Idle>>
+            -> Maybe she's worried about you...
+                Player: Maybe she's worried about you...
+                <<SetSprite Middle Kelly/lbom>>
+                <<AddRelationshipScore Kelly 10>>
+                Kelly: ...oh... I never thought about it that way....
+                Kelly: I think that she does care a lot about me... I feel guilty because I've been pushing her away...
+                Kelly: I've really been taking her for granted... I definitely should appreciate her more.
+                Kelly: I think I'll buy her one of the new bear plushies she loves so much as an apology...
+        <<elseif $UCBDialogueCafe == 2>>
+            Kelly: Could I get your opinion on something? Be honest, do I look intimidating?
+            -> Yeah, a little!
+            <<AddRelationshipScore Kelly 10>>
+                <<AddRelationshipScore Kelly 10>>
+                Kelly: Yeah... I think so too. I do kind of have a grumpy face... my parents say this a lot too...
+                Kelly: To be honest, it was kind of rough growing up with my sister. 
+                Kelly: I love my sister, but everyone would always compare me to her and it really cuts deep after a while.
+                Kelly: I started comparing myself a lot to her too and it has caused a rift between us. 
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: It's something that I still struggle with a lot.
+                Kelly: ... She's a lot more cheery and sociable than I am... Our aunties would call me "raincloud" and call her "sunshine."
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Ah! Sorry... I'm rambling again. 
+                Kelly: Thank you for being honest with me though. It makes me feel like I can trust you a lot more.
+                <<SetSprite Middle Kelly/lbcm>>
+                    -> Of course!
+                        Player: Of course!
+            -> No, not at all!
+                Kelly: I find that hard to believe. 
+        <<elseif $UCBDialogueCafe == 3>>
+            Kelly: I've been getting a lot of ads for cute "ClickClock" outfits... but they're pretty different from what I usually wear.
+            Kelly: I want to try changing up what I wear... but I get really self-conscious about how I'll look...
+            Kelly: I feel like other styles will look weird on me... I'd probably look like a fool.
+            -> You should try something new! I'm sure that you'll look great!
+                <<AddRelationshipScore Kelly 10>>
+                Player: You should try something new! I'm sure that you'll look great!
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Thank you for the encouragement... it means a lot...
+                Kelly: I think it will be a while before I'm ready to wear anything new outside though.
+                <<SetSprite Middle Kelly/Idle>>
+            -> I don't think that the "ClickClock" style would suit you...
+                Player: I don't think that the "ClickClock" style would suit you...
+                <<SetSprite Middle Kelly/sad>>
+                Kelly: Yeah... who am I kidding... I don't think I could ever be anything other than what I am right now.
+                Kelly: Thanks for the reality check.
+                <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 4>> 
+            Kelly: If you have room in your schedule, you should take the Game Theory course here.
+            Kelly: I found it really interesting and it's pretty easy if you do the problem sets and pay attention to lecture.
+            Kelly: If you take it, let me know and I'll send my notes over to you!
+        <<else>> 
+            Kelly: I'd really like to see the sunset in Los Angeles one day... I don't really go outside that often. 
+            Kelly: I wish I had more time to do things that I care about or more time to take care of myself.
+        <<endif>>
+    <<elseif GetRelationshipScore("Kelly") >= 300 && GetRelationshipScore("Kelly") < 400>> //Crushing
+        <<if $UCBDialogueCafe == 1>>
+            Kelly: I can't believe that midterm season is almost here. 
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Do you need a place to study? I have an extra seat at my table... if you want.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 2>>
+            Kelly: I wish I had a little more time to spend on my hobbies.
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: I really enjoy playing chess, but I've been so swamped with schoolwork that I barely have time to take care of myself.
+            Kelly: Lately, my little sister Riviera started doing better academically than I did... and my parents have been pushing me to catch up...
+            Kelly: I'm putting so much pressure on myself, and I feel like I'm going to break...
+            Kelly: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
+            -> School is tough, but you can hang in there! 
+                Player: School is tough, but you can hang in there! 
+                Kelly: ... I guess so... I'm really not feeling well though...
+            -> I know that school is really important to you, but your mental and physical health matter too!
+                Player: I know that school is really important to you, but your mental health matter too!
+                Kelly: I know... I should be taking better care of myself.
+            -> How can I support you?
+                Player: How can I support you?
+                <<SetSprite Middle Kelly/lbom>>
+                Kelly: Hmm? ...Support? Ah you don't have to do anything! I don't want to trouble you!
+                    -> Insist on helping Kelly
+                        <<AddRelationshipScore Kelly 10>>
+                        Player: No, no! I insist. You mean a lot to me. I want you to take care of your health, but I know that your goals mean a lot to you.
+                        Player: So I want to do what I can to help you reach your goals!
+                        <<SetSprite Middle Kelly/hbom>>
+                        Kelly: I...
+                        <<SetSprite Middle Kelly/lbom>>
+                        Player: What if I brought you a sandwich from the dining hall while you're studying?
+                        Player: That can save you some time and make sure that you still get a healthy meal.
+                        <<SetSprite Middle Kelly/hbcm>>
+                        Kelly: I'd... I'd really appreciate that. Thank you. 
+                    -> Drop the subject
+                        Player: Oh... ok!
+                        <<SetSprite Middle Kelly/sad>>
+                        Kelly: I'm fine on my own... I promise...
+        <<elseif $UCBDialogueCafe == 3>>
+            Kelly: I was analyzing some love stories for one of my classes... and I don't know why but I thought this one line was really pretty.
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: It was "Love is just a word until someone comes along and gives it meaning."
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: Ah! Sorry! For a moment it sounded like I was saying that sappy of a line to you...
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 4>> 
+            Kelly: Sometimes I forget to drink my coffee and I get really tired.
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: ...I feel a lot less tired when I'm around you though...
+            Kelly: ... which is weird because I think that violates the Law of Conservation!
+            <<SetSprite Middle Kelly/Idle>>
+        <<else>> 
+            Kelly: Are you taking the class with Professor BearBox next quarter?
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: I heard that he assigns a lot of group projects and that he's a pretty harsh grader. I really hate group projects...
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: If you take the class, we could work on the projects together... if you want...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I think that you'd make a good partner...
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCBDialogueCafe == 1>>
+            Kelly: I dropped this one computer science class that was really stressing me out.
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: The workload was excruciatingly heavy and the professor wasn't very understanding.
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: I had a lot on my plate... and I've decided that I want to start prioritizing my health a little more!
+            Kelly: I still struggle with feeling a little guilty about taking it easier on myself, but I try to remind myself to be patient with myself.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I have a bit more time to spend on things I actually care about like the chess club now that I'm not wasting it on obsolete assignments.
+            Kelly: I'm really thankful for my loved ones... my sister has been really supportive of me even though we've been a bit distant these past few years.
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: You've been really supportive of me too...
+            <<SetSprite Middle Kelly/hbom>>
+            Kelly: Thank you.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 2>>
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I've been experimenting a bit more with fashion lately.
+            Kelly: I found some vintage outfits at a thrift store and sometimes I put it on to wear around the house.
+            Kelly: I still feel a little shy about wearing something deviating from my usual style around on campus... but it feels really fun to not limit my wardrobe to pratical academic-wear.
+            Kelly: I feel a lot more free.
+            <<SetSprite Middle Kelly/Idle>>
+        <<elseif $UCBDialogueCafe == 3>>
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: My sister and I have been getting a little closer lately. 
+            <<SetSprite Middle Kelly/sad>>
+            Kelly: We were best friends as kids and used to do everything together... but we drifted apart as we grew older.
+            Kelly: I think that growing up in such a competitive environment pit us against each other and wedged us apart.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: This weekend we went out for a girls' day brunch together. Next weekend, we're going to go thrifting together too!
+            Kelly: All the advice you gave me really helped me patch my relationship with my sister.
+        <<elseif $UCBDialogueCafe == 4>> 
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: I heard that there's a rooftop nearby that we can climb. I heard that the sunset there is really pretty and romantic.
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I'd really love to go with you sometime... I can make some time!
+            <<SetSprite Middle Kelly/Idle>>
+        <<else>> 
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I've been feeling a lot better overall lately... I think that self-care has really improved my mental and physical health.
+            Kelly: After a long day, I try to make time to do some yoga with my sister, cook a healthy meal, and do a bit of skincare. 
+            Kelly: I have this really great soondubu recipe that you should try sometime. 
+            <<SetSprite Middle Kelly/Idle>>
+        <<endif>>   
+    <<endif>>
+    <<jump UCBCafe>>
+-> Give Gift <<if $GiftKelly == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCBCafe>>
+    <<endif>> 
+    <<set $GiftKelly = true>>
+    <<set $GiftScoreKCafe = GetItemScore("Kelly")>>
+    <<AddRelationshipScore Kelly {$GiftScoreKCafe}>>
+    <<if $GiftScoreKCafe == 20>>
+        //Loved Gift
+        <<SetSprite Middle Kelly/hbom>>
+        Kelly: H-huh? T-thank you! How'd you know that I really love these...
+        <<SetSprite Middle Kelly/Idle>>
+    <<elseif $GiftScoreKCafe == 10>>
+        //Liked Gift
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: Oh! Uh… thanks!
+        <<SetSprite Middle Kelly/Idle>>
+    <<else>>
+        //Hated Gift
+        <<SetSprite Middle Kelly/Angry>>
+        Kelly: Is this a joke?
+        <<SetSprite Middle Kelly/Idle>>
+    <<endif>>
+    <<jump UCBCafe>>
+-> Ask <<if $AskKelly == false>>
+    -> Ask on a date
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 300>>
+            <<SetSprite Middle Kelly/lbom>>
+            Kelly: Oh! Um...let me check my schedule...
+            <<SetSprite Middle Kelly/lbcm>>
+            Kelly: I can make time for a date!
+            <<jump KellyDate>>
+        <<else>>
+            <<SetSprite Middle Kelly/Angry>>
+            Kelly: No, I have a test to study for.
+            <<SetSprite Middle Kelly/Idle>>
+            <<jump UCBCafe>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskKelly = true>>
+        <<if GetRelationshipScore("Kelly") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Kelly: Y-yes! I'd love to!
+        <<else>>
+            Kelly: I have a project I have to work on...
+            <<AddRelationshipScore Kelly -20>>
+            <<jump UCBCafe>>
+        <<endif>>
+    -> Cancel
+        <<jump UCBCafe>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: UCRCafe
+position: 207,66
+---
+//WRITE UCR CODE HERE
+<<set $UCRIntroCafe to LoadVariable("UCR_Intro")>>
+<<set $UCRDialogueCafe to Dice(4)>>
+<<SetSprite Middle Riviera/Idle>>
+<<SetActiveChar Middle>>
+-> Talk to Riviera <<if $TalkRiviera == false>>
+    <<if $UCRIntroCafe == false>>
+        //TD: Continuity
+        Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
+        Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
+        Riviera: I'd really appreciate it if you checked it out!
+        <<SaveVariable "UCR_Intro" true>>
+    <<elseif GetRelationshipScore("Riviera") < 100>> //Strangers
+        <<if $UCRDialogueCafe == 1>>
+            Riviera: Hey! Have you had a chance to check out my startup?
+            -> Yeah!
+                Player: Yeah!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Oh! Thank you! That means so much to me.
+                Riviera: This startup is really my pride and joy. 
+            -> No, I haven't.
+                Player: No, I haven't.
+                <<SetSprite Middle Riviera/sad>>
+                Riviera: Oh... that's alright.
+                <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 2>>
+            Riviera: Oh hey! I'd love to chat but I have a meeting I need to prepare for in a bit.
+        <<elseif $UCRDialogueCafe == 3>>
+            Riviera: Hey! Have you seen an outlet somewhere around here? My laptop is running out of battery but I need to finish a slide deck for a pitch meeting soon.
+            -> I haven't seen one, sorry.
+                Player: I haven't seen one, sorry.
+                <<SetSprite Middle Riviera/sad>>
+                Riviera: Oh... that's alright...
+                <<SetSprite Middle Riviera/Idle>>
+            -> I think I saw one over there!
+                <<AddRelationshipScore Riviera 10>>
+                Player: I think I saw one over there!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Oh! Thank you. I really appreciate it!
+                <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 4>> 
+            Riviera: Sorry, I'm in a bit of a rush right now.
+            <<SetSprite Middle Riviera/Idle>>
+        <<else>> 
+            <<SetSprite Middle Riviera/Messy>>
+            Riviera: Hey, does my hair look alright? I have an important pitch meeting in a bit and I don't have a mirror on hand.
+            -> You're good to go!
+                Riviera: Oh! Are you sure? I feel like something is in my hair...
+                Riviera: I guess that I can always check in in a window or something later. 
+                <<SetSprite Middle Riviera/Idle>>
+            -> Well actually... you have a little something in your hair.
+                <<AddRelationshipScore Riviera 10>>
+                Player: Well actually... you have a little something in your hair.
+                Riviera: Oh! Where?
+                    -> Over here!
+                        Player: Over here!
+                        Riviera: Oh! Thank you!
+                        <<SetSprite Middle Riviera/Idle>>
+                        Riviera: That should be better! Thanks for letting me know!
+                        Riviera: I really appreciate it. 
+            -> You look unprofessional.
+                Player: You look unprofessional.
+                <<AddRelationshipScore Riviera -10>>
+                <<SetSprite Middle Riviera/Angry>>
+                Riviera: ... alright.
+                <<SetSprite Middle Riviera/sad>>
+                Riviera: sigh...
+                <<SetSprite Middle Riviera/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 100 && GetRelationshipScore("Riviera") < 200>> //Acquaintances
+        <<if $UCRDialogueCafe == 1>>
+            Riviera: Oh hey! I'm designing business cards for my startup as part of my entrepreneurship class! 
+            Riviera: My startup is called Delphi Analytics and I'm wondering which business card design I should pick.
+            Riviera: Which one of these do you like more?
+            -> The first one!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Thanks! I really appreciate it!
+                <<SetSprite Middle Riviera/Idle>>
+                <<Set $RivieraHelp to $RivieraHelp + 1>>
+            -> The second one!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Thanks! I really appreciate it!
+                <<SetSprite Middle Riviera/Idle>>
+                <<Set $RivieraHelp to $RivieraHelp + 1>>
+            -> Neither of them!
+                Player: Neither of them!
+                <<SetSprite Middle Riviera/sad>>
+                Riviera: Oh... back to the drawing board I suppose...
+                <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 2>>
+            Riviera: Sometimes I go to the gym in the mornings.
+            Riviera: Punching the punching bags is a good stress reliever and a good workout.
+        <<elseif $UCRDialogueCafe == 3>>
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: Ugh... my brother took my stationery pad again!
+            Riviera: My little brothers are always getting into my bag looking for things to play with.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: One of the cons of having a large family I guess... but I wouldn't trade them for the world.
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 4>> 
+            Riviera: I really want to win the upcoming startup competition.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: My little brothers are cheering me on. They really look up to me and I don't want to let them down!
+            <<SetSprite Middle Riviera/Idle>>
+        <<else>>
+            Riviera: My mom is a little old-fashioned... 
+            Riviera: She keeps telling me that I don't need to worry about all this business stuff and that I just need to look good and find a good husband.
+            Riviera: There's nothing wrong with that way of life... but I can't really see myself living off of someone else's dime for the rest of myself.
+            Riviera: I want to make something of myself!
+            -> I don't know... if I could be a sugar baby I would!
+                Riviera: ... to each their own I suppose...
+            -> I also want to make something of myself!
+                <<AddRelationshipScore Riviera 10>>
+                <<SetSprite Middle Riviera>>
+                Riviera: Birds of a feather flock together! 
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
+        <<if $UCRDialogueCafe == 1>>
+            Riviera: Hey, could I ask you for a favor?
+            Riviera: I have an important pitch competition coming up with a startup club on campus and I was wondering if I could practice my pitch with you.
+                -> Of course!
+                    Player: Of course! 
+                    Riviera: Alright... here goes...
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Hello everyone, my name is Riviera.
+                    Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
+                    Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
+                    <<SetSprite Middle Riviera/sad>>
+                    Riviera: We are.... ummm...  uhh..
+                    Riviera: Ugh... I'm never going to be able to do this... who am I kidding...
+                    -> Don't give up!
+                        Player: Don't give up!
+                        Riviera: It's so hard to nail the script down to a tee.
+                        Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
+                        -> Practice makes perfect!
+                            <<AddRelationshipScore Riviera 10>>
+                            <<set $RivieraHelp to $RivieraHelp + 2>>
+                            Player: Practice makes perfect!
+                            Riviera: You're right... Rome wasn't built in a day I suppose.
+                            <<SetSprite Middle Riviera/happy>>
+                            Riviera: Alright, let me try it again from the top!
+                            <<SetSprite Middle Riviera/Idle>>
+                            Riviera: Hello everyone, my name is Riviera.
+                            Riviera: My company Delphi Analytics, is developing a software to help business owners make informed company decisions by providing them a tool to analyze public sentiment across social media platforms.
+                            Riviera: We compete in the growing marketing analytics market, which last year was a 10 billion dollar market.
+                            Riviera: We are... similar to Boogle Analytics, but specialize primarily in analyzing customer-generated sentiments across a business's customer communication channels and social media platforms. 
+                            <<SetSprite Middle Riviera/happy>>
+                            Riviera: Currently, we have a prototype software ready to use, but are looking for investors to help us expand our product into the B2B market and further improve our software.
+                            Riviera: Thank you!
+                            Riviera: How was that?
+                            -> A lot better! 
+                                Player: A lot better!
+                                Riviera: Thanks for the feedback... I really appreciate it!
+                            -> You could still use a bit of work! A bit more practice should do the trick!
+                                Player: You could still use a bit of work! A bit more practice should do the trick!
+                                Riviera: Thanks for the feedback... I really appreciate it!
+                        -> Maybe you can ask a friend to do the pitch for you instead...
+                            Player: Maybe you can ask a friend to do the pitch for you instead...
+                            <<SetSprite Middle Riviera/sad>>
+                            Riviera: That's against the competition rules...
+                            Riviera: Either way though, I feel like I should do it myself.
+                            <<SetSprite Middle Riviera/Idle>>
+                    -> Maybe business isn't your calling...
+                        Player: Maybe business isn't your calling...
+                        <<SetSprite Middle Riviera/Angry>>
+                        <<Shake Middle>>
+                        <<AddRelationshipScore Riviera -10>>
+                        Riviera: Hey! I pour my heart and soul into this startup.
+                        Riviera: I might not be the best businesswoman but damn it, I'm going to keep trying.
+                        Riviera: I don't need the likes of you dragging me down. 
+                        <<SetSprite Middle Riviera/Idle>>
+                -> No, sorry.
+                    Player: No, sorry. 
+                    Riviera: That's alright. Thanks anyway. 
+        <<elseif $UCRDialogueCafe == 2>>
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: Hey... do you have any tips for public speaking?
+            Riviera: I had a pitch competition a few days ago that didn't go too well... 
+            Riviera: Usually I'm really confident, but once I get on stage I get nervous really easily...
+            -> Take deep breaths...
+                <<set $RivieraHelp to $RivieraHelp + 1>>
+                Player: Take deep breaths...
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: You're right! Sometimes I get so nervous that it gets hard to breathe and then I start sounding like I'm trying to rap Super Bass.
+                Riviera: I'll definitely be sure to be more mindful of my breathing! Thanks!
+                <<SetSprite Middle Riviera/Idle>>
+            -> Be aware of your hand gestures! 
+                Player:Be aware of your hand gestures! 
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Oh! Now that you mention it... I do tend to overly gesticulate when I'm nervous!
+                Riviera: I'll definitely be sure to be more mindful of my hand gestures! Thanks!
+                <<set $RivieraHelp to $RivieraHelp + 1>>
+                <<SetSprite Middle Riviera/Idle>>
+            -> Cheat with flashcards!
+                Player: Cheat with flashcards!
+                <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 3>>
+            Riviera: A while ago, my brothers made me a tote bag that they decorated as a good luck charm.
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: It was a little tacky... but it meant so much to me.
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: A squirrel stole it off of me in the garden though... I really wish that I could find it.
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 4>> 
+            Riviera: Usually, the general classes here don't actually teach you a lot of applicable skills. It counts towards my economics major too. 
+            Riviera: I'm in this accounting class right now with Professor BearBox and it's actually really useful!
+            Riviera: I was able to use a lot of the course concepts to draft budgets and make balance sheets for my startup.
+            Riviera: You should take it if you have the chance! I think everyone can learn from it!
+        <<else>>
+            Riviera: People don't usually guess that I'm an econ major. 
+            Riviera: I'm not sure what an econ major is supposed to "look" like exactly...
+            Riviera: Maybe it's a secret compliment? I just hope that people are taking me seriously...
+        <<endif>>
+    <<elseif GetRelationshipScore("Riviera") >= 300 && GetRelationshipScore("Riviera") < 400>> //Crushing
+        <<if $UCRDialogueCafe == 1>>
+            Riviera: What kind of trait do you primarily look for in a partner?
+            -> A good work ethic!
+                Player: A good work ethic!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Oh! Same here! I think there's little else more attractive than a person who's willing to work towards what they want!
+            -> A smoking hot body!
+                Player: A smoking hot body!
+                Riviera: Oh... to each their own I suppose.
+                Riviera: Personally I value a good work ethic... maybe strong family values as well. 
+            -> A sense of humor!
+                Player: A sense of humor!
+                Riviera: Oh... to each their own I suppose.
+                Riviera: Personally I value a good work ethic... maybe strong family values as well. 
+            -> Strong family values!
+                Player: Strong family values!
+                <<SetSprite Middle Riviera/happy>>
+                Riviera: Oh! Same here! My family is really important to me and I'd want a partner to value their family as well. 
+                <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 2>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: We should go for a coffee chat sometime... just the two of us. 
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 3>>
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: Sometimes I can't help but doubt myself...
+            Riviera: I know that I'm hardworking and dedicated, but a lot of the business world runs on privilege and connections...
+            Riviera: Sometimes I can't help but feel like I'm out of place or like an imposter. 
+            Riviera: I feel like I'm just playing make-believe sometimes and some day I'm going to get a harsh awakening that I don't belong here.
+            Riviera: Hey... be honest... do you think that I can actually make it big?
+            -> Of course you can! I believe in you!
+                Player: Of course you can! I believe in you!
+                <<SetSprite Middle Riviera/lb>>
+                Riviera: Really? That means a lot to me...
+                <<SetSprite Middle Riviera/happy>>
+                -> I'll always be here to cheer you on!
+                    Player: I'll always be here to cheer you on!
+                    Riviera: Thank you...
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: When I make it big, I'll be sure to treat you out for a nice dinner!
+                    <<SetSprite Middle Riviera/Idle>>
+                    <<set $RivieraHelp to $RivieraHelp + 1>>
+                -> When you make it big, be sure to treat me out for dinner!
+                    Player: When you make it big, be sure to treat me out for dinner!
+                    <<SetSprite Middle Riviera/happy>>
+                    Riviera: Deal!
+                    <<SetSprite Middle Riviera/Idle>>
+                    <<set $RivieraHelp to $RivieraHelp + 1>>
+            -> Realistically speaking, it's a tough field... 90% of startups fail. 
+                Player: Realistically speaking, it's a tough field... 90% of startups fail.
+                Riviera: Sigh... I know...
+                <<SetSprite Middle Riviera/Idle>>
+                Riviera: I'm going to keep trying though. Even if I'm the only one who believes in myself, I know that I can be successful if I put my mind to it.
+        <<elseif $UCRDialogueCafe == 4>> 
+            Riviera: I have another pitch competition coming up soon.
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: My family will be coming out to support me... but it'd mean a lot to me if you came out too...
+            <<SetSprite Middle Riviera/Idle>>
+        <<else>>
+            Riviera: I was going through my emails yesterday when I realized that I've always been a really independent person.
+            Riviera: My mom told that when I was a kid, whenever I fell or got hurt I never cried. Apparently, I would just get up and get a bandaid all by myself. 
+            Riviera: I think that going into business really made me realize how independent I was. 
+            Riviera: I used to think that getting help from other people meant that you were weak, but now I think that it takes courage to ask for help when you need it.
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: I feel like I can be vulnerable around you. I trust you a lot. 
+            <<SetSprite Middle Riviera/Idle>>
+        <<endif>>
+    <<else>> //Lovers
+        <<if $UCRDialogueCafe == 1>>
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: I pitched my startup at a conference this weekend and it went really well!
+            Riviera: Everyone was really interested in my company and I even got an investor and a couple customers!
+            <<if $RivieraHelp == 2 || $RivieraHelp < 2>>
+                Riviera: I'm really grateful to have my brothers to cheer me on!
+                Riviera: You helped a bit too I guess!
+            <<else>>
+                Riviera: I was really nervous, but I remembered the advice you gave me.
+                Riviera: Practicing my pitch really helped too. 
+                Riviera: Let me treat you out for coffee someday as a thanks alright?
+            <<endif>>
+        <<elseif $UCRDialogueCafe == 2>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: Thank you for helping me to believe in myself!
+            Riviera: My self-confidence is a lot higher after meeting you. 
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 3>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: I want to introduce you to my family sometime. 
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: I think my brothers would love you... They're a little rambunctious, but they're really sweet...
+            Riviera: My dad seems a little tough at first, but he's actually a big softie. 
+            Riviera: My mom is a little old-fashioned, but she's good at heart. I'm sure that she'd love to have you over for dinner sometime. 
+            <<SetSprite Middle Riviera/Idle>>
+        <<elseif $UCRDialogueCafe == 4>> 
+            Riviera: Have you thought about what you want to do after graduation?
+            <<SetSprite Middle Riviera/sad>>
+            Riviera: I'm sure you have plans since you're so successful and all...
+            <<SetSprite Middle Riviera/happy>>
+            Riviera: But if you want you can always come and work for my startup too!
+            Riviera: I'm sure we'd make a great team!
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: I respect you a lot... and I want to grow alongside you.
+            <<SetSprite Middle Riviera/Idle>>
+        <<else>>
+            Riviera: Did you hear about the dance coming up?
+            Riviera: A couple of startups I know are helping out with the decoration and catering!
+            Riviera: Delphi Analytics is more focused on marketing analytics and business-to-business sales, so we aren't a part of the event.
+            Riviera: It's still a fun event though and I'd like to check out my friends' booths!
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: I think I'd like to go... but I don't have a partner right now...
+            Player: ...
+            Riviera:...
+            <<SetSprite Middle Riviera/Idle>>
+        <<endif>>
+    <<endif>>
+    <<set $TalkRiviera to true>>
+    <<jump UCRCafe>>
+-> Ask <<if $AskRiviera == false>>
+    -> Ask on a date
+        <<set $AskRiviera = true>>
+        <<if GetRelationshipScore("Riviera") >= 300>>
+            <<SetSprite Middle Riviera/lb>>
+            Riviera: Sure! I think it'd be fun!
+            <<jump RivieraDate>>
+        <<else>>
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: I admire your guts for asking, but no thanks.
+            <<SetSprite Middle Riviera/Idle>>
+            <<jump UCRCafe>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskRiviera = true>>
+        <<if GetRelationshipScore("Riviera") >= 500>>
+            Player: Would you like to go to the dance with me?
+            Riviera: Y-yes! I'd love to!
+        <<else>>
+            Riviera: I have a project I have to work on...
+            <<AddRelationshipScore Riviera -20>>
+            <<jump UCRCafe>>
+        <<endif>>
+    -> Cancel
+        <<jump UCRCafe>>
+-> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCRCafe>>
+    <<endif>> 
+    <<set $GiftRiviera = true>>
+    <<set $GiftScoreRCafe = GetItemScore("Riviera")>>
+    <<AddRelationshipScore Riviera {$GiftScore}>>
+    <<if $GiftScoreRCafe == 20>>
+        //Loved Gift
+        Riviera: Oh thanks! I'm always running out of these! I really love these!
+    <<elseif $GiftScoreRCafe == 10>>
+        //Liked Gift
+        Riviera: This is pretty nice! Thanks.
+    <<else>>
+        //Hated Gift
+        Riviera: Err… I'm not sure what I'm supposed to do with these…
+    <<endif>>
+    <<jump UCRCafe>>
+-> Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: UCICafe
+position: 203,-155
+---
+===

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Yarn.Unity;
 
 public class ShopScreen : MonoBehaviour
@@ -10,6 +11,7 @@ public class ShopScreen : MonoBehaviour
     [SerializeField] GameObject[] itemButtons = new GameObject[6];
     [SerializeField] Image background;
     [SerializeField] Sprite shopBackground;
+    [SerializeField] TextMeshProUGUI cash;
     public GameObject cancelButton;
 
     [HideInInspector] public static Item selectedItem = null;
@@ -25,6 +27,7 @@ public class ShopScreen : MonoBehaviour
     void OnEnable()
     {
         background.sprite = shopBackground;
+        cash.text = '$' + Inventory.GetMoney().ToString();
         for (int i = 0; i < shopItems.Length; i++)
         {
             if (shopItems[i] == null)
@@ -67,24 +70,26 @@ public class ShopScreen : MonoBehaviour
 
         if (keyItems[index] && Inventory.keyItemList.Count == 6)
         {
-            Debug.Log("Key Item inventory is full!");
+            Notification.Notify("Special Item inventory is full!", "SFX/Error");
             return;
         }
         else if (!keyItems[index] && Inventory.list.Count == 6)
         {
-            Debug.Log("Item inventory is full!");
+            Notification.Notify("Item inventory is full!", "SFX/Error");
             return;
         }
 
         // If not enough currency, can't buy the item
-        if (false /*< costs[index]*/)
+        if (Inventory.GetMoney() < costs[index])
         {
-            Debug.Log("Not enough cash for item!");
+            Notification.Notify("Not enough cash for " + shopItems[index].name + '!', "SFX/Error");
             return;
         }
 
         selectedItem = shopItems[index];
-        // Reduce player currency here
+        Inventory.ChangeMoney(-costs[index]);
+        Notification.Notify(selectedItem.name + " purchased!", "SFX/Buy");
+        cash.text = '$' + Inventory.GetMoney().ToString();
 
         if (keyItems[index])
         {
@@ -99,7 +104,7 @@ public class ShopScreen : MonoBehaviour
     }
 
     [YarnCommand("AddToShop")]
-    public static void AddToShop(int index, int LAScore, int BScore, int SBScore, int RScore, int IScore,
+    public static void AddToShop(int index, int LAScore, int BScore, int SBScore, int RScore, int IScore, int USCScore,
                                  string spritePath, string name, int cost, bool isKeyItem = false)
     {
         if (index < 0 || index >= 6)
@@ -114,7 +119,7 @@ public class ShopScreen : MonoBehaviour
             return;
         }
 
-        shopItems[index] = new Item(LAScore, BScore, SBScore, RScore, IScore, spritePath, name);
+        shopItems[index] = new Item(LAScore, BScore, SBScore, RScore, IScore, USCScore, spritePath, name);
         keyItems[index] = isKeyItem;
         costs[index] = cost;
     }

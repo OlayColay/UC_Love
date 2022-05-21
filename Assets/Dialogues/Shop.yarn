@@ -1,0 +1,26 @@
+﻿title: Store
+tags:
+---
+<<SetBackground Backgrounds/Store/store>>
+<<Fade true>>
+
+// Adding Items to Shop
+// <<AddToShop index LAScore BScore SBScore RScore IScore USCScore spritePath name cost isKeyItem?>>
+<<AddToShop 0 20 -10 10 -10 10 -10 Gifts/Bear "Bear Plush" 100>>
+<<AddToShop 1 10 -10 -10 -10 20 -10 "Gifts/B-Fuel" "B-Fuel" 100>>
+<<AddToShop 2 10 -10 20 -10 10 10 Gifts/Flowers Flowers 100>>
+<<AddToShop 3 10 20 10 10 -10 10 Gifts/FaceMask "Sheet Masks" 100>>
+<<AddToShop 4 -10 10 -10 20 10 -10 Gifts/Stationery Stationery 100>>
+<<AddToShop 5 10 10 10 10 10 20 Gifts/BucciWallet "Bucci Wallet" 500>>
+
+<<jump ActualStore>>
+===
+title: ActualStore
+tags:
+---
+-> Shop
+    <<OpenShop>>
+    <<jump ActualStore>>
+-> Leave
+    <<LoadScene MapScene>>
+===

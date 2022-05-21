@@ -1,0 +1,7 @@
+﻿title: Intro
+tags:
+---
+<<SaveVariable "UCR_Intro" false>>
+Creating new save file...
+<<LoadScene MapScene>>
+===
