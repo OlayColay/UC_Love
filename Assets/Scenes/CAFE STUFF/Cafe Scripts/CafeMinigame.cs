@@ -10,14 +10,14 @@ public class CafeMinigame : MonoBehaviour
 {
     public Cafe controls;
 
+    public int numOrders = 1;
+    public float time = 10f;
+    public bool showControls = true;
+
     public string[] currentOrder;       // An order is made up of several ingredient strings
     public string nextIngredient;       // The ingredient string that is expected next from the player
     private int i;                      // Iterates over the order
     private bool orderStarted = false;  // Ingredient inputs won't be recognized until order started (feel free to change this, just my interpretation)
-
-    // Make orders a global 
-    //public array of sprites called "images" - go back into unity and assign
-    //CO-routine for blend - inside coroutine wait 1 second then do fade
 
     public Sprite[] Sprites;
     public Sprite[] FinishedDrinks;
@@ -67,15 +67,18 @@ public class CafeMinigame : MonoBehaviour
                 Blender.GetChild(6).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Blend":
+                DOTween.Clear();
                 Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = result;
                 Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
-                Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
+                Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,1f).SetDelay(1f);
             break;
         }
     }
 
     void FinishOrder()
     {
+        orderStarted = false;
+
         //clear sprites from blender child...
         for(int i = 1; i < 7; i++)
         {
@@ -84,7 +87,6 @@ public class CafeMinigame : MonoBehaviour
 
         // add cup and children
         Blender.GetChild(8).GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log(currentOrder);
         var res = Array.Find<Sprite>(FinishedDrinks, element => element.name == currentOrder[currentOrder.Length-2]);
         Blender.GetChild(8).GetChild(0).GetComponent<SpriteRenderer>().sprite = res;
     }
@@ -108,23 +110,13 @@ public class CafeMinigame : MonoBehaviour
             controls.player.Mocha.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Strawberry.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Matcha.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.WhippedCream.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.CremeBase.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.CoffeeBase.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.WholeMilk.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.SkimMilk.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.OatMilk.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.AlmondMilk.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.JavaChips.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Sprinkles.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Cinnamon.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.CaramelDrizzle.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Cherry.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Frappucino.performed += ctx => AddIngredient(ctx.action.name);
         }
-
-        // Create random order and pass it to NewOrder()
-        NewOrder(CreateOrder());
     }
 
     public void NewOrder(string[] newOrder)
@@ -170,21 +162,31 @@ public class CafeMinigame : MonoBehaviour
 
     void StartOrder()
     {
-        Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = Sprites[16];
-        Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
-        Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
         // Make sure there's an order to start
-        if (currentOrder == null || currentOrder.Length == 0)
-        {
-            return; 
+        if (orderStarted) 
+        { 
+            return;
         }
-
-        Debug.Log("Starting order!");
         orderStarted = true;
 
-        Words.text = "Add " + currentOrder[0];
+        // Create random order and pass it to NewOrder()
+        NewOrder(CreateOrder());
 
-        // Add other stuff that happens when you start an order here
+        // Show START art
+        DOTween.Clear();
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = Sprites[16];
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,1f).SetDelay(1f);
+
+        // Remove cup and children
+        Blender.GetChild(8).GetComponent<SpriteRenderer>().color = Color.clear;
+        Blender.GetChild(8).GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
+
+        Words.text = "Add " + currentOrder[0];
+        if (showControls)
+        {
+            Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
+        }
     }
 
     void AddIngredient(string attemptedIngredient)
@@ -192,7 +194,7 @@ public class CafeMinigame : MonoBehaviour
         // If the order isn't started, nothing should happen when we try to add an ingredient
         if (!orderStarted)
         {
-            Debug.Log("Order not started! Press SPACE");
+            // Debug.Log("Order not started! Press SPACE");
             return;
         }
 
@@ -200,7 +202,7 @@ public class CafeMinigame : MonoBehaviour
 
         if (attemptedIngredient == nextIngredient)
         {
-            Debug.Log("Successfully added " + attemptedIngredient + " to the order!");
+            // Debug.Log("Successfully added " + attemptedIngredient + " to the order!");
 
             // Add stuff that happens when an ingredient is correct here
             AddToBlender(attemptedIngredient);
@@ -210,13 +212,18 @@ public class CafeMinigame : MonoBehaviour
             {
                 nextIngredient = currentOrder[i];
                 Words.text = "Add " + currentOrder[i];
+                if (showControls)
+                {
+                    Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
+                }
             }
             else
             {
                 // Add stuff that happens when you successfully finish an order here
                 FinishOrder();
+                Words.text = "START (Press space)";
 
-                Debug.Log("Order finished!");
+                // Debug.Log("Order finished!");
                 orderStarted = false;
                 currentOrder = null;
             }
@@ -226,6 +233,18 @@ public class CafeMinigame : MonoBehaviour
             Debug.Log("Wrong ingredient!\tYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
 
             // Add stuff that happens if you get an ingredient wrong here
+            //clear sprites from blender child...
+            for(int i = 1; i < 7; i++)
+            {
+                Blender.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
+            }
+            
+            i = 0;
+            if (i < currentOrder.Length)
+            {
+                nextIngredient = currentOrder[i];
+                Words.text = "Add " + currentOrder[i];
+            }
         }
     }
 }
