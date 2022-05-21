@@ -372,12 +372,12 @@ title: UCRCafe
 position: 207,66
 ---
 //WRITE UCR CODE HERE
-<<set $UCR_Intro to LoadVariable("UCR_Intro")>>
+<<set $UCRIntroCafe to LoadVariable("UCR_Intro")>>
 <<set $UCRDialogueCafe to Dice(4)>>
 <<SetSprite Middle Riviera/Idle>>
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
-    <<if $UCR_Intro == false>>
+    <<if $UCRIntroCafe == false>>
         //TD: Continuity
         Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
