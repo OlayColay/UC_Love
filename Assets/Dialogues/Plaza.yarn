@@ -27,6 +27,7 @@ tags:
     //Sets background as Plaza Night if it Evening
 <<endif>>
 <<Fade true>>
+Player: What should I do? 
 -> Meet someone
     <<if $TimeOfDayPlaza == 0>>
         <<jump UCIPlaza>>
@@ -465,7 +466,7 @@ Player: What should I do?
                 Ellie: Oh! Welcome to UC Love! You'll love it here I promise!
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
-                <<SetSprite Middle Ellie?Idle>>
+                <<SetSprite Middle Ellie/Idle>>
             -> Actually, I've been here for a while!
                 Player: Actually, I've been here for a while!
                 <<SetSprite Middle Ellie/Angry>>

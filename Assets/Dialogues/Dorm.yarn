@@ -9,6 +9,20 @@ Player: What should I do?
         <<Fade false>>
         <<Fade true>>
         Player: Wow... that was a good nap!
+        -> Leave
+            <<LoadScene MapScene>>
+        -> Hit snooze (Pass More Time)
+            <<jump AdditionalNap>>
     -> Leave
 <<LoadScene MapScene>>
+===
+title: AdditionalNap
+position: 189,-70
+---
+<<UpdateTimeOfDay>>
+Player: Wow... that was a good nap!
+-> Leave
+    <<LoadScene MapScene>>
+-> Hit snooze (Pass More Time)
+    <<jump AdditionalNap>>
 ===
