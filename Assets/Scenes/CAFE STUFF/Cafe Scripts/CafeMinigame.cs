@@ -11,19 +11,21 @@ public class CafeMinigame : MonoBehaviour
     public Cafe controls;
 
     public int numOrders = 1;
-    public float time = 10f;
+    public float time = 15f;
     public bool showControls = true;
 
     public string[] currentOrder;       // An order is made up of several ingredient strings
     public string nextIngredient;       // The ingredient string that is expected next from the player
     private int i;                      // Iterates over the order
     private bool orderStarted = false;  // Ingredient inputs won't be recognized until order started (feel free to change this, just my interpretation)
+    private int drinksFinished = 0;
 
     public Sprite[] Sprites;
     public Sprite[] FinishedDrinks;
     
     public Transform Blender;
     public TextMeshProUGUI Words;
+    public TextMeshProUGUI Timer;
     
     // 2D array that is used for the order randomizer in CreateOrder()
     private string[][] layers = new string[][] {
@@ -93,30 +95,34 @@ public class CafeMinigame : MonoBehaviour
 
     void Start()
     {
-        if (controls == null)
+        Timer.text = time.ToString("0.00");
+
+        if (controls != null)
         {
-            controls = new Cafe();
-            controls.Enable();
-
-            controls.player.Start.performed += ctx => StartOrder();
-
-            controls.player.Blend.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Ice.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Espresso.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Caramel.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Vanilla.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Peppermint.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Hazelnut.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Mocha.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Strawberry.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.Matcha.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.CremeBase.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.CoffeeBase.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.WholeMilk.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.SkimMilk.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.OatMilk.performed += ctx => AddIngredient(ctx.action.name);
-            controls.player.AlmondMilk.performed += ctx => AddIngredient(ctx.action.name);
+            return;
         }
+
+        controls = new Cafe();
+        controls.Enable();
+
+        controls.player.Start.performed += ctx => StartOrder();
+
+        controls.player.Blend.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Ice.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Espresso.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Caramel.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Vanilla.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Peppermint.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Hazelnut.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Mocha.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Strawberry.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.Matcha.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.CremeBase.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.CoffeeBase.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.WholeMilk.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.SkimMilk.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.OatMilk.performed += ctx => AddIngredient(ctx.action.name);
+        controls.player.AlmondMilk.performed += ctx => AddIngredient(ctx.action.name);
     }
 
     public void NewOrder(string[] newOrder)
@@ -245,6 +251,36 @@ public class CafeMinigame : MonoBehaviour
                 nextIngredient = currentOrder[i];
                 Words.text = "Add " + currentOrder[i];
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (!orderStarted)
+        {
+            return;
+        }
+
+        time -= Time.deltaTime;
+        Timer.text = time.ToString("0.00");
+
+        if (time <= 0f)
+        {
+            Timer.text = "0.00";
+            controls.player.Disable();
+            orderStarted = false;
+        }
+        else if (time < 5f)
+        {
+            Timer.color = Color.red;
+        }
+    }
+
+    private void CalculateMoney()
+    {
+        if (drinksFinished >= 2)
+        {
+            Inventory.ChangeMoney(100 + (drinksFinished-2)*100);
         }
     }
 }

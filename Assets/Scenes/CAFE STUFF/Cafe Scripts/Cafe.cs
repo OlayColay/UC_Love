@@ -185,7 +185,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""946a4ce3-0a9e-4a7d-a776-df4c91cc77b1"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -196,7 +196,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8312fa5f-a9ec-4fae-af9e-c2794fe0cda9"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -207,7 +207,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""12604d43-6bf2-49d5-bccb-59df383150a0"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -218,7 +218,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""90d75569-55e7-422b-9991-d2d86ea0a04c"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -229,7 +229,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c95d7eea-1960-49af-b891-177ccd722a6c"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -240,7 +240,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""73458179-b697-4162-ba50-4fff1138680a"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -251,7 +251,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7f4453fe-1cfc-46b6-b13e-d57ba7b9deb6"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -262,7 +262,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b6763e27-1b9c-4dee-bfc0-2a2ce41dea32"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -273,7 +273,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fcb6184d-aa77-4ef7-b76f-50ffac42dea1"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -284,7 +284,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""db90c3cb-642e-4772-b0a7-53348ddd008b"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -295,7 +295,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a519e507-b741-4ed8-9654-0cd11bdd9ee0"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
@@ -306,7 +306,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""50dc7cd4-7e51-4358-a9de-dd22192b7650"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",
