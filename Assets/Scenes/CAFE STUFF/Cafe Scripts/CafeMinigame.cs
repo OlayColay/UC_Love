@@ -25,6 +25,14 @@ public class CafeMinigame : MonoBehaviour
     public Transform Blender;
     public TextMeshProUGUI Words;
     
+    // 2D array that is used for the order randomizer in CreateOrder()
+    private string[][] layers = new string[][] {
+        new string[] {"Almond Milk", "Whole Milk", "Oat Milk", "Skim Milk"},
+        new string[] {"Espresso"},
+        new string[] {"Creme Base", "Coffee Base"},
+        new string[] {"Matcha"},
+        new string[] {"Caramel", "Strawberry", "Hazelnut", "Mocha", "Peppermint", "Vanilla"}
+    };
 
     void AddToBlender(string ingredient)
     {
@@ -35,20 +43,20 @@ public class CafeMinigame : MonoBehaviour
             case "Whole Milk":
             case "Oat Milk":
             case "Skim Milk":
-            Blender.GetChild(1).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(1).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Espresso":
-            Blender.GetChild(2).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(2).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Creme Base":
             case "Coffee Base":
-            Blender.GetChild(3).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(3).GetComponent<SpriteRenderer>().sprite = result;
             break;
-            case "Matcha Powder":
-            Blender.GetChild(4).GetComponent<SpriteRenderer>().sprite = result;
+            case "Matcha":
+                Blender.GetChild(4).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Ice":
-            Blender.GetChild(5).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(5).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Caramel":
             case "Strawberry":
@@ -56,34 +64,31 @@ public class CafeMinigame : MonoBehaviour
             case "Mocha":
             case "Peppermint":
             case "Vanilla": 
-            Blender.GetChild(6).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(6).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Blend":
-            Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = result;
-            Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
-            Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
-            Debug.Log("remove blend");
-            finishOrder();
+                Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = result;
+                Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
+                Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
             break;
-            
         }
     }
 
-    void finishOrder()
+    void FinishOrder()
     {
         //clear sprites from blender child...
-        for(int i = 1; i < 7; i++){
+        for(int i = 1; i < 7; i++)
+        {
             Blender.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
-            Debug.Log("deleting sprites");
         }
+
+        // add cup and children
         Blender.GetChild(8).GetComponent<SpriteRenderer>().color = Color.white;
-        var res = Array.Find<Sprite>(FinishedDrinks, element => element.name == "Caramel");
-        Debug.Log(FinishedDrinks);
+        Debug.Log(currentOrder);
+        var res = Array.Find<Sprite>(FinishedDrinks, element => element.name == currentOrder[currentOrder.Length-2]);
         Blender.GetChild(8).GetChild(0).GetComponent<SpriteRenderer>().sprite = res;
-        // add cup and children?
-
-
     }
+
     void Start()
     {
         if (controls == null)
@@ -94,8 +99,6 @@ public class CafeMinigame : MonoBehaviour
             controls.player.Start.performed += ctx => StartOrder();
 
             controls.player.Blend.performed += ctx => AddIngredient(ctx.action.name);
-//            controls.player.Shake.performed += ctx => AddIngredient(ctx.action.name);
-//            controls.player.Stir.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Ice.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Espresso.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Caramel.performed += ctx => AddIngredient(ctx.action.name);
@@ -103,9 +106,6 @@ public class CafeMinigame : MonoBehaviour
             controls.player.Peppermint.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Hazelnut.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Mocha.performed += ctx => AddIngredient(ctx.action.name);
-//            controls.player.BlackTea.performed += ctx => AddIngredient(ctx.action.name);
-//            controls.player.GreenTea.performed += ctx => AddIngredient(ctx.action.name);
-//            controls.player.ChaiTea.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Strawberry.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Matcha.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.WhippedCream.performed += ctx => AddIngredient(ctx.action.name);
@@ -121,12 +121,10 @@ public class CafeMinigame : MonoBehaviour
             controls.player.CaramelDrizzle.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Cherry.performed += ctx => AddIngredient(ctx.action.name);
             controls.player.Frappucino.performed += ctx => AddIngredient(ctx.action.name);
-     //       controls.player.Hot.performed += ctx => AddIngredient(ctx.action.name);
-    //        controls.player.Iced.performed += ctx => AddIngredient(ctx.action.name);
         }
 
-        // Test code:
-        NewOrder(new string[]{"Espresso", "Skim Milk", "Caramel", "Blend"});
+        // Create random order and pass it to NewOrder()
+        NewOrder(CreateOrder());
     }
 
     public void NewOrder(string[] newOrder)
@@ -140,9 +138,32 @@ public class CafeMinigame : MonoBehaviour
     {
         // Dynamic array
         List<string> order = new List<string>();
-        int rnd = YarnFunctions.Dice(4);
 
+        // Milk
+        int rnd = YarnFunctions.RandomRange(0,layers[0].Length-1);
+        order.Add(layers[0][rnd]);
 
+        // Espresso (Optional)
+        rnd = YarnFunctions.RandomRange(0,layers[1].Length);
+        if (rnd < layers[1].Length) order.Add(layers[1][rnd]);
+
+        // Base
+        rnd = YarnFunctions.RandomRange(0,layers[2].Length-1);
+        order.Add(layers[2][rnd]);
+
+        // Matcha Powder (Optional)
+        rnd = YarnFunctions.RandomRange(0,layers[3].Length);
+        if (rnd < layers[3].Length) order.Add(layers[3][rnd]);
+
+        // Ice
+        order.Add("Ice");
+
+        // Topping
+        rnd = YarnFunctions.RandomRange(0,layers[4].Length-1);
+        order.Add(layers[4][rnd]);
+
+        // Blend
+        order.Add("Blend");
 
         return order.ToArray();
     }    
@@ -161,7 +182,7 @@ public class CafeMinigame : MonoBehaviour
         Debug.Log("Starting order!");
         orderStarted = true;
 
-        Words.text = "add " + currentOrder[0];
+        Words.text = "Add " + currentOrder[0];
 
         // Add other stuff that happens when you start an order here
     }
@@ -180,23 +201,24 @@ public class CafeMinigame : MonoBehaviour
         if (attemptedIngredient == nextIngredient)
         {
             Debug.Log("Successfully added " + attemptedIngredient + " to the order!");
-            AddToBlender(attemptedIngredient);
-            // Add stuff that happens when an ingredient is correct here
-  
 
+            // Add stuff that happens when an ingredient is correct here
+            AddToBlender(attemptedIngredient);
+  
             i++;
             if (i < currentOrder.Length)
             {
                 nextIngredient = currentOrder[i];
-                Words.text = "add " + currentOrder[i];
+                Words.text = "Add " + currentOrder[i];
             }
             else
             {
+                // Add stuff that happens when you successfully finish an order here
+                FinishOrder();
+
                 Debug.Log("Order finished!");
                 orderStarted = false;
                 currentOrder = null;
-
-                // Add stuff that happens when you successfully finish an order here
             }
         }
         else

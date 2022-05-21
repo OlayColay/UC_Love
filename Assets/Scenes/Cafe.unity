@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14255510}
+  - component: {fileID: 14255511}
   - component: {fileID: 14255509}
   m_Layer: 0
   m_Name: Cafe Minigame
@@ -205,8 +206,49 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14255511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14255508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c8915ac3d42344591aee0f106147a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentOrder: []
+  nextIngredient: 
+  Sprites:
+  - {fileID: 21300000, guid: 671293d9cf757264398214bb8e561933, type: 3}
+  - {fileID: 21300000, guid: b58ceb946f8ec0346be1c1046a93781e, type: 3}
+  - {fileID: 21300000, guid: 5e0a10fd4972a0d45b1d34e913be4a2a, type: 3}
+  - {fileID: 21300000, guid: 9a3990a34ef06194c9ff0012a147e058, type: 3}
+  - {fileID: 21300000, guid: 8ef836e089a88524c8c713e4d71d1012, type: 3}
+  - {fileID: 21300000, guid: 7649855c1e2816040b6808d7a3f663d6, type: 3}
+  - {fileID: 21300000, guid: 939a1d7329941c74abb2cf9c487e992b, type: 3}
+  - {fileID: 21300000, guid: 7d376c0f89446724e81c58df7d6e6475, type: 3}
+  - {fileID: 21300000, guid: 4ede8cf0c46f25e468232c7a2ad30db3, type: 3}
+  - {fileID: 21300000, guid: 369a8e712d154004db461d1b238b6acb, type: 3}
+  - {fileID: 21300000, guid: 640dff748901e6b48a43e5966e9685ac, type: 3}
+  - {fileID: 21300000, guid: 66c4d78cecf336a41af8a4b2f81f6ab9, type: 3}
+  - {fileID: 21300000, guid: c9a178dc82efa0240a49de8cf847495b, type: 3}
+  - {fileID: 21300000, guid: 2bd56d95be48f094ab027060dd97753f, type: 3}
+  - {fileID: 21300000, guid: b1ce44e0630f8c84684b23c44748562c, type: 3}
+  - {fileID: 21300000, guid: 2c513392befee4a47bec774021291999, type: 3}
+  - {fileID: 21300000, guid: 9fb9d6aafc886c04289e56d0c3c67d4b, type: 3}
+  FinishedDrinks:
+  - {fileID: 21300000, guid: a9df13cc5d56894409e81a8c515098f5, type: 3}
+  - {fileID: 21300000, guid: 5682754e9b1a8354ea512d870417aa9d, type: 3}
+  - {fileID: 21300000, guid: 13c978544f6d4554385ecc3ac1275c52, type: 3}
+  - {fileID: 21300000, guid: 65567fdf202a2d945aca4b43c56fecad, type: 3}
+  - {fileID: 21300000, guid: 586d6190bb7471c40a9a61d84d1eb726, type: 3}
+  - {fileID: 21300000, guid: 27f411efe594c3641b49859a6a2d6b29, type: 3}
+  Blender: {fileID: 1105255242}
+  Words: {fileID: 736430867}
 --- !u!1 &62458105
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +405,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 10
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1023,75 +1065,8 @@ Transform:
   - {fileID: 1564595541}
   - {fileID: 1972820264}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1154780091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1154780092}
-  - component: {fileID: 1154780093}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1154780092
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154780091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1636301, y: 0.759984, z: -0.29519472}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1154780093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154780091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03c8915ac3d42344591aee0f106147a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentOrder: []
-  nextIngredient: 
-  Sprites:
-  - {fileID: 21300000, guid: 671293d9cf757264398214bb8e561933, type: 3}
-  - {fileID: 21300000, guid: b58ceb946f8ec0346be1c1046a93781e, type: 3}
-  - {fileID: 21300000, guid: 5e0a10fd4972a0d45b1d34e913be4a2a, type: 3}
-  - {fileID: 21300000, guid: 9a3990a34ef06194c9ff0012a147e058, type: 3}
-  - {fileID: 21300000, guid: 8ef836e089a88524c8c713e4d71d1012, type: 3}
-  - {fileID: 21300000, guid: 7649855c1e2816040b6808d7a3f663d6, type: 3}
-  - {fileID: 21300000, guid: 939a1d7329941c74abb2cf9c487e992b, type: 3}
-  - {fileID: 21300000, guid: 7d376c0f89446724e81c58df7d6e6475, type: 3}
-  - {fileID: 21300000, guid: 4ede8cf0c46f25e468232c7a2ad30db3, type: 3}
-  - {fileID: 21300000, guid: 369a8e712d154004db461d1b238b6acb, type: 3}
-  - {fileID: 21300000, guid: 640dff748901e6b48a43e5966e9685ac, type: 3}
-  - {fileID: 21300000, guid: 66c4d78cecf336a41af8a4b2f81f6ab9, type: 3}
-  - {fileID: 21300000, guid: c9a178dc82efa0240a49de8cf847495b, type: 3}
-  - {fileID: 21300000, guid: 2bd56d95be48f094ab027060dd97753f, type: 3}
-  - {fileID: 21300000, guid: b1ce44e0630f8c84684b23c44748562c, type: 3}
-  - {fileID: 21300000, guid: 2c513392befee4a47bec774021291999, type: 3}
-  - {fileID: 21300000, guid: 9fb9d6aafc886c04289e56d0c3c67d4b, type: 3}
-  FinishedDrinks: []
-  Blender: {fileID: 1105255242}
-  Words: {fileID: 736430867}
 --- !u!1 &1315761399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1315761403
 MonoBehaviour:
@@ -1514,7 +1489,7 @@ RectTransform:
   m_Children:
   - {fileID: 736430866}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
