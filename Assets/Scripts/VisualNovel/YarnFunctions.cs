@@ -38,6 +38,12 @@ public static class YarnFunctions
         return PlayerController.gameWon;
     }
 
+    [YarnFunction("CafeMinigameWon")]
+    public static bool CafeMinigameWon()
+    {
+        return CafeMinigameController.gameWon;
+    }
+
     [YarnFunction("LoadVariable")]
     public static dynamic LoadVariable(string name)
     {

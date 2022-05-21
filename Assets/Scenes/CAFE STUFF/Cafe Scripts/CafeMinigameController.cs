@@ -6,13 +6,15 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 
-public class CafeMinigame : MonoBehaviour
+public class CafeMinigameController : MonoBehaviour
 {
     public Cafe controls;
 
-    public int numOrders = 1;
     public float time = 15f;
     public bool showControls = true;
+
+    public static bool gameFinished = false;
+    public static bool gameWon = false;
 
     public string[] currentOrder;       // An order is made up of several ingredient strings
     public string nextIngredient;       // The ingredient string that is expected next from the player
@@ -91,6 +93,8 @@ public class CafeMinigame : MonoBehaviour
         Blender.GetChild(8).GetComponent<SpriteRenderer>().color = Color.white;
         var res = Array.Find<Sprite>(FinishedDrinks, element => element.name == currentOrder[currentOrder.Length-2]);
         Blender.GetChild(8).GetChild(0).GetComponent<SpriteRenderer>().sprite = res;
+
+        drinksFinished++;
     }
 
     void Start()
@@ -250,6 +254,10 @@ public class CafeMinigame : MonoBehaviour
             {
                 nextIngredient = currentOrder[i];
                 Words.text = "Add " + currentOrder[i];
+                if (showControls)
+                {
+                    Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
+                }
             }
         }
     }
@@ -269,6 +277,7 @@ public class CafeMinigame : MonoBehaviour
             Timer.text = "0.00";
             controls.player.Disable();
             orderStarted = false;
+            CalculateMoney();
         }
         else if (time < 5f)
         {
@@ -281,6 +290,10 @@ public class CafeMinigame : MonoBehaviour
         if (drinksFinished >= 2)
         {
             Inventory.ChangeMoney(100 + (drinksFinished-2)*100);
+            gameWon = true;
         }
+
+        DOTween.Clear();
+        gameFinished = true;
     }
 }

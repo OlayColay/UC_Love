@@ -229,7 +229,7 @@ public partial class @Cafe : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c95d7eea-1960-49af-b891-177ccd722a6c"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard and mouse"",

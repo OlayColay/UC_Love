@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
@@ -114,6 +115,48 @@ public class YarnCommands : MonoBehaviour
 
         vnCamera.gameObject.SetActive(true);
         vnCamera.GetComponent<AudioListener>().enabled = true;
+        Background.Instance.gameObject.SetActive(true);
+        BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
+    }
+
+    [YarnCommand("CafeMinigame")]
+    public static IEnumerator CafeMinigame()
+    {
+        BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
+        Camera vnCamera = Camera.main;
+        EventSystem es = EventSystem.current;
+        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
+        es.enabled = false;
+        
+        var sceneLoad = SceneManager.LoadSceneAsync("CafeMinigame", LoadSceneMode.Additive);
+        while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
+        {
+            yield return null;
+        }
+
+        vnCamera.gameObject.SetActive(false);
+        Background.Instance.gameObject.SetActive(false);
+        BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
+
+        while (!CafeMinigameController.gameFinished)
+        {
+            yield return null;
+        }
+
+        BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
+
+        var unload = SceneManager.UnloadSceneAsync("CafeMinigame");
+        while (!unload.isDone) // We have to wait for the scene to finish unloading
+        {
+            yield return null;
+        }
+
+        vnCamera.gameObject.SetActive(true);
+        vnCamera.GetComponent<AudioListener>().enabled = true;
+        es.enabled = true;
         Background.Instance.gameObject.SetActive(true);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
         yield return new WaitForSecondsRealtime(1f);
