@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private Vector3 currentVelocityPlayer = Vector3.zero;
+    private Animator animator;
+
   
     //flyers (screen cover)
     public GameObject flyer1;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         flyer1offset = (flyer1.transform.position - Camera.main.transform.position);
         flyer2offset = (flyer2.transform.position - Camera.main.transform.position);
@@ -58,6 +61,9 @@ public class PlayerController : MonoBehaviour
     void Update(){
         moveInput = playerInput.Player.Move.ReadValue<Vector2>();
 
+        animator.SetFloat("horizontal", moveInput[0]);
+        animator.SetFloat("vertical", moveInput[1]);
+
         if (health <= 2)
         {
             flyer1.GetComponent<SpriteRenderer>().enabled = true;
@@ -80,6 +86,8 @@ public class PlayerController : MonoBehaviour
             gameWon = false;
         }
 
+        // Debug.Log(moveInput[0]);
+        // Debug.Log(moveInput[1]);
     }
 
     // Update is called once per frame
