@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI; // for array of sprites
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 
@@ -54,7 +55,7 @@ public class CafeMinigame : MonoBehaviour
             case "Hazelnut":
             case "Mocha":
             case "Peppermint":
-            case "Vanilla":
+            case "Vanilla": 
             Blender.GetChild(6).GetComponent<SpriteRenderer>().sprite = result;
             break;
             case "Blend":
@@ -135,7 +136,16 @@ public class CafeMinigame : MonoBehaviour
         nextIngredient = currentOrder[i];
     }
 
-    
+    private string[] CreateOrder()
+    {
+        // Dynamic array
+        List<string> order = new List<string>();
+        int rnd = YarnFunctions.Dice(4);
+
+
+
+        return order.ToArray();
+    }    
 
     void StartOrder()
     {
