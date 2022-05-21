@@ -19,6 +19,8 @@ public class CafeMinigame : MonoBehaviour
     //CO-routine for blend - inside coroutine wait 1 second then do fade
 
     public Sprite[] Sprites;
+    public Sprite[] FinishedDrinks;
+    
     public Transform Blender;
     public TextMeshProUGUI Words;
     
@@ -59,9 +61,27 @@ public class CafeMinigame : MonoBehaviour
             Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = result;
             Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
             Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
+            Debug.Log("remove blend");
+            finishOrder();
             break;
             
         }
+    }
+
+    void finishOrder()
+    {
+        //clear sprites from blender child...
+        for(int i = 1; i < 7; i++){
+            Blender.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
+            Debug.Log("deleting sprites");
+        }
+        Blender.GetChild(8).GetComponent<SpriteRenderer>().color = Color.white;
+        var res = Array.Find<Sprite>(FinishedDrinks, element => element.name == "Caramel");
+        Debug.Log(FinishedDrinks);
+        Blender.GetChild(8).GetChild(0).GetComponent<SpriteRenderer>().sprite = res;
+        // add cup and children?
+
+
     }
     void Start()
     {
@@ -105,7 +125,7 @@ public class CafeMinigame : MonoBehaviour
         }
 
         // Test code:
-        NewOrder(new string[]{"Espresso", "Caramel", "Skim Milk", "Blend"});
+        NewOrder(new string[]{"Espresso", "Skim Milk", "Caramel", "Blend"});
     }
 
     public void NewOrder(string[] newOrder)
@@ -131,7 +151,7 @@ public class CafeMinigame : MonoBehaviour
         Debug.Log("Starting order!");
         orderStarted = true;
 
-        
+        Words.text = "add " + currentOrder[0];
 
         // Add other stuff that happens when you start an order here
     }
@@ -152,11 +172,13 @@ public class CafeMinigame : MonoBehaviour
             Debug.Log("Successfully added " + attemptedIngredient + " to the order!");
             AddToBlender(attemptedIngredient);
             // Add stuff that happens when an ingredient is correct here
+  
 
             i++;
             if (i < currentOrder.Length)
             {
                 nextIngredient = currentOrder[i];
+                Words.text = "add " + currentOrder[i];
             }
             else
             {
