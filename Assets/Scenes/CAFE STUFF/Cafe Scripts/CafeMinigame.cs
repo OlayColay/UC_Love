@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI; // for array of sprites
 using System;
 using DG.Tweening;
+using TMPro;
 
 public class CafeMinigame : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CafeMinigame : MonoBehaviour
 
     public Sprite[] Sprites;
     public Transform Blender;
+    public TextMeshProUGUI Words;
+    
 
     void AddToBlender(string ingredient)
     {
@@ -116,7 +119,9 @@ public class CafeMinigame : MonoBehaviour
 
     void StartOrder()
     {
-        
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().sprite = Sprites[16];
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().color = Color.white;
+        Blender.GetChild(7).GetComponent<SpriteRenderer>().DOColor(Color.clear,2.5f);
         // Make sure there's an order to start
         if (currentOrder == null || currentOrder.Length == 0)
         {
@@ -126,7 +131,7 @@ public class CafeMinigame : MonoBehaviour
         Debug.Log("Starting order!");
         orderStarted = true;
 
-
+        
 
         // Add other stuff that happens when you start an order here
     }
