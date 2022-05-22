@@ -168,7 +168,7 @@ BearBox: Are you alright?
     BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
 -> Not really...
     Player: Not really...
-BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
+    BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
 BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
 BearBox: But even though the situation we're in may suck, we can still make the best of it!
 <<SetSprite Middle BearBox/Blush>>
@@ -182,6 +182,11 @@ BearBox: UCL is hosting a fundraiser dance later this year to raise money to spl
 BearBox: If you go and bring a date with you, we might have a good shot at raising enough money to return the UCs to their former glory!
 <<SetSprite Middle BearBox/Blush>>
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
+BearBox: Before you go, administration told me to pass on this message for new students!
+<<SetSprite Middle BearBox/Idle>>
+BearBox: "You can save your game by hitting the top floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
+BearBox: I'm not sure what that means... but have a good first day alright?
 BearBox: Stay out of trouble!
 <<Fade false>>
 <<LoadScene MapScene>>
