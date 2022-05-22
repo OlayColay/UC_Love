@@ -3,16 +3,65 @@ tags:
 ---
 <<SetBackground Backgrounds/Dorm>>
 <<Fade true>>
+<<Set $TimeOfDayDorm to GetTimeOfDay()>>
 Player: What should I do?
     -> Take a nap (Pass Time)
         <<UpdateTimeOfDay>>
         <<Fade false>>
         <<Fade true>>
-        Player: Wow... that was a good nap!
+        Player: Wow... that was a good nap! Oh! Would you look at the time!
+            <<if $TimeOfDayDorm == 0>>
+                Player: It's already morning!
+            <<elseif $TimeOfDayDorm == 1>>
+                Player: It's already noon!
+            <<else>>
+                Player: It's already evening!
+            <<endif>>
         -> Leave
             <<LoadScene MapScene>>
         -> Hit snooze (Pass More Time)
             <<jump AdditionalNap>>
+    -> Scroll on Social Media
+        <<Set $Computer_Info to RandomRange (1,6)>>
+        You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
+            <<if $Computer_Info == 1>>
+                Player: Kelly is following BolyMoly, the skincare company.
+                Player: They make really nice sheet masks! I can see why she likes them.
+                Player: Makes sense since she's stressed all the time... 
+            <<elseif $Computer_Info == 2>>
+                Player: Oh! Irene has a sponsored post with B-Fuel.
+                Player: Judging from the giant fridge of B-Fuel in the background of the photo, I think that she actually likes B-Fuel.
+                Player: It's great that she got a sponsorship for a product she loves.
+                Player: That kind of fits with her gamer personality...
+            <<elseif $Computer_Info == 3>>
+                Player: Oh! Santana visited the Pick-Your-Own Flower Field!
+                Player: She seems to really love flowers.
+                Player: She seems to like nature a lot... so it makes sense. 
+            <<elseif $Computer_Info == 4>>
+                Player: I hear some voices in the distance...
+                Player: I just heard a voice telling me that Riviera loves stationery...
+                Player: She's really hardworking... I can see her running out of notepads easily.
+            <<elseif $Computer_Info == 5>>
+                Player: It's a photo of Ellie! Seems like she just redecorated her room!
+                Player: Woah! She has so many Rikakume Bear plushies!
+                Player: She must really love them to collect that many!
+                Player: IThey are really soft though... I kind of want one too!
+            <<else>>
+                Player: I don't know if this person goes here but he looks a little familiar...
+                Player: I feel like I've seen that red hair somewhere... but I can't remember where.
+                Player: Damn! He's dressed head to toe in Bucci! 
+                Player: Some people have cash to burn I suppose.
+            <<endif>>
+            <<UpdateTimeOfDay>>
+            Player: Oh! Would you look at the time!
+            <<if $TimeOfDayDorm == 0>>
+                Player: It's already morning!
+            <<elseif $TimeOfDayDorm == 1>>
+                Player: It's already noon!
+            <<else>>
+                Player: It's already evening!
+            <<endif>>
+            <<jump Dorm>>
     -> Leave
 <<LoadScene MapScene>>
 ===
@@ -20,7 +69,14 @@ title: AdditionalNap
 position: 189,-70
 ---
 <<UpdateTimeOfDay>>
-Player: Wow... that was a good nap!
+Player: Wow... that was a good nap! Oh! Would you look at the time!
+            <<if $TimeOfDayDorm == 0>>
+                Player: It's already morning!
+            <<elseif $TimeOfDayDorm == 1>>
+                Player: It's already noon!
+            <<else>>
+                Player: It's already evening!
+            <<endif>>
 -> Leave
     <<LoadScene MapScene>>
 -> Hit snooze (Pass More Time)

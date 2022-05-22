@@ -11,4 +11,16 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages: []
+  parseErrorMessages:
+  - '70:0: Error: $UCR_Intro (Bool) cannot be assigned a undefined
+
+    <<set $UCR_Intro
+    to LoadVariable("UCR_Intro")>>
+
+'
+  - '74:4: Error: $UCRDialoguePlaza (Number) cannot be assigned a undefined
+
+    <<set
+    $UCRDialoguePlaza to Dice(5)>>
+
+'

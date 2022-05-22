@@ -68,29 +68,33 @@ position: 212,-6
 ---
 //WRITE UCR CODE HERE
 <<set $UCR_Intro to LoadVariable("UCR_Intro")>>
-<<set $UCRDialoguePlaza to Dice(4)>>
 <<SetSprite Middle Riviera/Idle>>
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
-    <<if $UCR_Intro == false>>
-        //TD: Continuity
-        Riviera: Oh hey! My name is Riviera. I'm starting a marketing technology startup.
-        Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
-        Riviera: I'd really appreciate it if you checked it out!
-        <<SaveVariable "UCR_Intro" true>>
-    <<elseif GetRelationshipScore("Riviera") < 100>> //Strangers
+    <<set $UCRDialoguePlaza to RandomRange (1,5)>>
+    <<set $TalkRiviera to true>>
+    <<AddRelationshipScore Riviera 10>>
+    <<if GetRelationshipScore("Riviera") < 100>> //Strangers
         <<if $UCRDialoguePlaza == 1>>
-            Riviera: Hey! Have you had a chance to check out my startup?
-            -> Yeah!
-                Player: Yeah!
-                <<SetSprite Middle Riviera/happy>>
-                Riviera: Oh! Thank you! That means so much to me.
-                Riviera: This startup is really my pride and joy. 
-            -> No, I haven't.
-                Player: No, I haven't.
-                <<SetSprite Middle Riviera/sad>>
-                Riviera: Oh... that's alright.
-                <<SetSprite Middle Riviera/Idle>>
+               <<if $UCR_Intro == false>>
+                    Riviera: Oh hey! I'm starting a marketing technology startup.
+                    Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
+                    Riviera: I'd really appreciate it if you checked it out!
+                    <<SaveVariable "UCR_Intro" true>>
+                <<elseif $UCR_Intro == true>>
+                    Riviera: Hey! Have you had a chance to check out my startup?
+                    -> Yeah!
+                        Player: Yeah!
+                        <<SetSprite Middle Riviera/happy>>
+                        <<AddRelationshipScore Riviera 10>>
+                        Riviera: Oh! Thank you! That means so much to me.
+                        Riviera: This startup is really my pride and joy. 
+                    -> No, I haven't.
+                        Player: No, I haven't.
+                        <<SetSprite Middle Riviera/sad>>
+                        Riviera: Oh... that's alright.
+                        <<SetSprite Middle Riviera/Idle>>
+                <<endif>>
         <<elseif $UCRDialoguePlaza == 2>>
             Riviera: Oh hey! I'd love to chat but I have a meeting I need to prepare for in a bit.
         <<elseif $UCRDialoguePlaza == 3>>
@@ -395,7 +399,6 @@ position: 212,-6
             <<SetSprite Middle Riviera/Idle>>
         <<endif>>
     <<endif>>
-    <<set $TalkRiviera to true>>
     <<jump UCRPlaza>>
 -> Ask <<if $AskRiviera == false>>
     -> Ask on a date

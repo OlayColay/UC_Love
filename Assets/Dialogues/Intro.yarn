@@ -4,7 +4,10 @@ tags:
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>
 Creating new save file...
-<<jump Orientation>>
+-> Skip Intro
+    <<LoadScene MapScene>>
+-> Play through Intro
+    <<jump Orientation>>
 ===
 title: Orientation
 position: 192,-57
