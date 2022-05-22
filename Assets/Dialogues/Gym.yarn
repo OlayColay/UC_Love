@@ -447,6 +447,7 @@ position: 242,-21
 <<SetSprite Middle Ellie/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
+
 -> Talk to Ellie <<if $TalkEllie == false>>
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Gym = Dice(5)>>
@@ -454,14 +455,12 @@ Player: What should I do?
     <<if GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue_Gym == 1>>
             Ellie: Hey! Are you new on campus?
-            -> Yes!
-                Player: Yes! I just started here. 
+            -> Yes! I just started here.
                 Ellie: Oh! Welcome to UC Love! You'll love it here I promise!
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
                 <<SetSprite Middle Ellie/Idle>>
             -> Actually, I've been here for a while!
-                Player: Actually, I've been here for a while!
                 <<SetSprite Middle Ellie/Angry>>
                 Ellie: Ah! Sorry, I'm in a lot of club activities and have trouble keeping track of everyone I meet!
                 Ellie: I think I remember you... your name is.... 
@@ -498,7 +497,6 @@ Player: What should I do?
                     Ellie: Hopefully tomorrow is a little better!
                     <<SetSprite Middle Ellie/Idle>>
                 -> It's a bit rough... How's your day so far?
-                    Player: It's a bit rough... How's your day so far?
                     <<SetSprite Middle Ellie/sad>>
                     Ellie: Oh, I'm sorry to hear that. Some days are kind of cruddy. 
                     <<SetSprite Middle Ellie/smc>>
@@ -510,7 +508,6 @@ Player: What should I do?
         <<elseif $UCLA_Dialogue == 2>>
             Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
                 -> Yeah! I'm taking it for a general requirement. Are you in that class too?
-                    Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Ellie: Oh cool! Well... kind of...
                     Ellie: I'm a course reader for that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returnign as a course reader for it.
                     <<SetSprite Middle Ellie/smc>>
@@ -520,7 +517,6 @@ Player: What should I do?
                     Ellie: I'll see you around!
                     <<SetSprite Middle Ellie/Idle>>
                 -> I think you're mistaken!
-                    Player: I think you're mistaken!
                     <<SetSprite Middle Ellie/Angry>>
                     Ellie: Oh... my bad! Sorry, you looked a lot like one of the students in that class.
                     <<SetSprite Middle Ellie/smc>>
@@ -559,14 +555,12 @@ Player: What should I do?
             <<SetSprite Middle Ellie/smc>> 
             Ellie: If you see her around campus, could you check in on her? I'd really appreciate it!
                 -> Of course!
-                    Player: Of course! 
                     <<AddRelationshipScore Ellie 10>>
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Thank you; it really means a lot to me!
                     <<SetSprite Middle Ellie/Idle>>
                 -> Do it yourself!
                     <<AddRelationshipScore Ellie -10>>
-                    Player: Do it yourself!
                     <<SetSprite Middle Ellie/cmo>>
                     Ellie: Oh, sorry to bother you... I'll try to reach out to her but she tends to wall herself off from me...
                     <<SetSprite Middle Ellie/Idle>>
@@ -578,32 +572,29 @@ Player: What should I do?
                     Ellie: She tends to wall herself off from me though... every time that I try to talk to her she just brushes me off and says that I wouldn't understand.
                     Ellie: I try to get her to take breaks from her work and whatnot but she just keeps working herself to the bone.
                     Ellie: I don't know what to do...
-                        -> Try to talk to her again! Persistence is key and words are powerful!
-                            Player: Try to talk to her again! Persistence is key and words are powerful!
-                            <<SetSprite Middle Ellie/Angry>>
-                            Ellie: I told you that I tried that already, but I'll try it again I suppose...
-                            <<SetSprite Middle Ellie/Idle>>
-                        -> Give her a hug! Maybe physical affection is what she needs!
-                            Player: Give her a hug! Maybe physical affection is what she needs!
-                            <<SetSprite Middle Ellie/Angry>>
-                            Ellie: Uhhh... I don't think you know my sister that well... She hates hugs...
-                            <<SetSprite Middle Ellie/Idle>>
-                        -> Do small tasks for her to let her know you care!
-                            <<AddRelationshipScore Ellie 10>>
-                            Player: Maybe you can do small tasks for her to let you know you care!
-                            Player: Like helping her organize her stuff or cutting some fruit for her when she's studying late!
-                            <<SetSprite Middle Ellie/smc>>
-                            Ellie: Oh! I haven't thought about that!
-                            <<SetSprite Middle Ellie/Angry>>
-                            Ellie: My sister does tend to eat a lot of instant meals... I think I could try cooking for her or bringing her some fruit to save some time for her to study.
-                            <<SetSprite Middle Ellie/smc>>
-                            Ellie: Thank you for the advice! I really appreciate it!
-                            <<SetSprite Middle Ellie/Idle>>
+                    -> Try to talk to her again! Persistence is key and words are powerful!
+                        <<SetSprite Middle Ellie/Angry>>
+                        Ellie: I told you that I tried that already, but I'll try it again I suppose...
+                        <<SetSprite Middle Ellie/Idle>>
+                    -> Give her a hug! Maybe physical affection is what she needs!
+                        <<SetSprite Middle Ellie/Angry>>
+                        Ellie: Uhhh... I don't think you know my sister that well... She hates hugs...
+                        <<SetSprite Middle Ellie/Idle>>
+                    -> Do small tasks for her to let her know you care!
+                        <<AddRelationshipScore Ellie 10>>
+                        Player: Maybe you can do small tasks for her to let you know you care!
+                        Player: Like helping her organize her stuff or cutting some fruit for her when she's studying late!
+                        <<SetSprite Middle Ellie/smc>>
+                        Ellie: Oh! I haven't thought about that!
+                        <<SetSprite Middle Ellie/Angry>>
+                        Ellie: My sister does tend to eat a lot of instant meals... I think I could try cooking for her or bringing her some fruit to save some time for her to study.
+                        <<SetSprite Middle Ellie/smc>>
+                        Ellie: Thank you for the advice! I really appreciate it!
+                        <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 2>>
             <<SetSprite Middle Ellie/cmc>>
             Ellie: Can I ask you for some advice?
                 -> Yes, of course! What's on your mind?
-                    Player: Yes, of course! What's on your mind?
                     Ellie: A friend of mine is starting a new art club and asked me to join the board for it...
                     Ellie: My friend means a lot to me and I want to support them, but I'm already in so many clubs.
                     Ellie: I can't even draw a circle, and I have a lot on my plate... but at the same time I want to support my friend...
@@ -613,12 +604,10 @@ Player: What should I do?
                             Player: I think that you should join the board!
                                 -> You can defintely make room in your schedule.
                                     <<AddRelationshipScore Ellie -10>>
-                                    Player: You can defintely make room in your schedule.
                                     <<SetSprite Middle Ellie/Angry>>
                                     Ellie: I don't think you've really been listening to me...
                                     <<SetSprite Middle Ellie/Idle>>
                                 -> Your friend needs you!
-                                    Player: Your friend needs you! 
                                     <<SetSprite Middle Ellie/cmo>>
                                     Ellie: I know... I feel like I'm letting them down if I don't accept, but I have no time for another extracurricular...
                                     Ellie: It's going to be really hard to tell them...
@@ -626,7 +615,6 @@ Player: What should I do?
                             Player: I think that you should turn her down...
                                 -> I don't think that you can handle it.
                                     <<AddRelationshipScore Ellie -10>>
-                                    Player: I don't think that you can handle it.
                                     <<SetSprite Middle Ellie/Angry>>
                                     Ellie: Jeez... I do have a lot on my plate but that's... kind of harsh. 
                                     <<SetSprite Middle Ellie/cmo>>
@@ -634,7 +622,6 @@ Player: What should I do?
                                     <<SetSprite Middle Ellie/Idle>>
                                 -> You already have a lot on your plate... You need to set a boundary for yourself!
                                     <<AddRelationshipScore Ellie 10>>
-                                    Player: You already have a lot on your plate... You need to set a boundary for yourself!
                                     <<SetSprite Middle Ellie/cmc>>
                                     Ellie: Sigh... you're right. I'm already in so many clubs...
                                     Ellie: I feel like I'm biting off more than I can chew... I feel like I have to help my friends and support all these causes...
@@ -645,7 +632,6 @@ Player: What should I do?
                                     Ellie: Friends should look out for each other!
                                     <<SetSprite Middle Ellie/Idle>>
                                 -> You can support your friend in other ways!
-                                    Player: You can support your friend in other ways!
                                         -> You can help your friend advertise for the club!
                                             <<AddRelationshipScore Ellie 10>>
                                             Player: You don't have to join the club's board to support your friend!
@@ -689,7 +675,6 @@ Player: What should I do?
                                             Ellie: I'm always here if you need to vent, kay?
                 -> Sorry, I'm kind of busy...
                     <<AddRelationshipScore Ellie -10>>
-                    Player: Sorry, I'm kind of busy...
                     <<SetSprite Middle Ellie/Angry>>
                     Ellie: No worries! I completeley understand!
                     <<SetSprite Middle Ellie/>>
@@ -734,7 +719,6 @@ Player: What should I do?
                                             Ellie: I know... but so many people rely on me to keep their clubs running.
                                             Ellie: I can't just back out all of a sudden. 
                                                 -> Just drop some clubs! No one is stopping you!
-                                                    Player: Just drop some clubs! No one is stopping you!
                                                     <<SetSprite Middle Ellie/Angry>>
                                                     Ellie: These are people that I care about! I can't just leave them hanging like that...
                                                     Ellie: You wouldn't do that to someone you cared about would you?
@@ -766,12 +750,10 @@ Player: What should I do?
                                             <<SetSprite Middle Ellie/Idle>>
                                 -> Alright....
                                     <<set $UCLA_Quit to false>>
-                                    Player: Alright...
                                     <<SetSprite Middle Ellie/smc>>
                                     Ellie: I have to get going but take care of yourself, kay? 
                                     <<SetSprite Middle Ellie/Idle>>
                         -> Oh I see!
-                            Player: Oh I see!
                             Ellie: Yeah... the... pollen in the area really irritates my eyes.
                             <<SetSprite Middle Ellie/Idle>>
         <<endif>>
@@ -837,18 +819,15 @@ Player: What should I do?
         <<elseif $UCLA_Dialogue == 2>>
             Ellie: Do you know how to cook?
                 -> Yes, I do!
-                    Player: Yes, I do!
                     Ellie: Oh cool! We should cook together someday!
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Come over to my apartment sometime and we can cook lunch or dinner together!
                 -> Not really...
-                    Player: Not really...
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: I'd love to teach you someday if you want to come over to my apartment!
         <<elseif $UCLA_Dialogue == 3>>
             Ellie: I think that I'm getting better at setting boundaries! Try asking me to do something as a joke!
                 -> Hey Ellie, can you do my homework for me?
-                    Player: Hey Ellie, can you do my homework for me?
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: ...
                     Player: ...
@@ -924,6 +903,8 @@ Player: What should I do?
         <<if GetRelationshipScore("Ellie") >= 500>>
             Player: Would you like to go to the dance with me?
             Ellie: I'd love to! We're going to have so much fun!
+            <<set $DancePartner = "UCLA">>
+            <<jump Dance>>
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
             <<AddRelationshipScore Ellie -20>>

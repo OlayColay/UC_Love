@@ -3,12 +3,13 @@ tags:
 ---
 <<SetBackground Backgrounds/Dorm>>
 <<Fade true>>
-<<Set $TimeOfDayDorm to GetTimeOfDay()>>
+<<set $TimeOfDayDorm to GetTimeOfDay()>>
 Player: What should I do?
     -> Take a nap (Pass Time)
-        <<UpdateTimeOfDay>>
         <<Fade false>>
         <<Fade true>>
+        <<UpdateTimeOfDay>>
+        <<set $TimeOfDayDorm to GetTimeOfDay()>>
         Player: Wow... that was a good nap! Oh! Would you look at the time!
             <<if $TimeOfDayDorm == 0>>
                 Player: It's already morning!
@@ -69,10 +70,11 @@ title: AdditionalNap
 position: 189,-70
 ---
 <<UpdateTimeOfDay>>
+<<set $TimeOfDayDorm2 to GetTimeOfDay()>>
 Player: Wow... that was a good nap! Oh! Would you look at the time!
-            <<if $TimeOfDayDorm == 0>>
+            <<if $TimeOfDayDorm2 == 0>>
                 Player: It's already morning!
-            <<elseif $TimeOfDayDorm == 1>>
+            <<elseif $TimeOfDayDorm2 == 1>>
                 Player: It's already noon!
             <<else>>
                 Player: It's already evening!
