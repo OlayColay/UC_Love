@@ -66,9 +66,6 @@ Player: No one is here right now...
 title: UCRPlaza
 position: 212,-6
 ---
-title: UCRPlaza
-position: 207,66
----
 //WRITE UCR CODE HERE
 <<set $UCR_Intro to LoadVariable("UCR_Intro")>>
 <<set $UCRDialoguePlaza to Dice(4)>>

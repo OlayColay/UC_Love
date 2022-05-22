@@ -2,7 +2,173 @@
 tags:
 ---
 <<SaveVariable "UCR_Intro" false>>
-<<SaveVariable "BobamonGo" = 0>>
+<<SaveVariable "BobamonGo" 0>>
 Creating new save file...
+<<jump Orientation>>
+===
+title: Orientation
+position: 192,-57
+---
+<<FadeBackground Backgrounds/Dorm 2>>
+Player: Ugh… my head… I shouldn't have slept so late last night…
+Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
+Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
+Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
+Player: Oh shoot! I better get going if I want to make it up the stairs without wheezing my lungs out!
+<<FadeBackground Backgrounds/Plaza/plaza_noon 2>>
+Player: UCL... what a weird name for a campus.
+Player: I think that it used to be a campus that started with UCL, but the last letter fell off or something.
+Player: I guess they didn't have the budget to fix the sign, so they just renamed the new campus to UCL...
+Player: I'm not looking forward to this...
+<<SetSprite Middle BearBox/Idle>>
+BearBox: Hey welcome to campus!
+-> Whoa what the hell are you??!
+    <<SetSprite Middle BearBox/Angry>>
+    BearBox: Excuse you! I'm the PREMIER delivery service for college students!
+    BearBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BearBox/Idle>>
+-> OH MY GOD!! Can I pet you?
+    <<SetSprite Middle BearBox/Angry>>
+    BearBox: Absolutely not! Who do you think you are? Hmph!
+    BearBox: I'm the PREMIER delivery service for college students!
+    BearBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BearBox/Idle>>
+-> Thank you! Your hat is really cute!
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Oh! Thank you! I'm part of the premier delivery service for college students here on campus. 
+    BearBox: I love the job, but the hat is a cool bonus!
+    <<SetSprite Middle BearBox/Idle>>
+BearBox: We're giving away pronoun buttons to make introductions a little easier for everyone!
+BearBox: Would you like one? 
+-> Yes! I'll take the he/him button please!
+    <<set $PlayerPronouns = 0>>
+-> Yes! I'll take the she/her button please!
+    <<set $PlayerPronouns = 1>>
+-> Yes! I'll take the they/them button please!
+    <<set $PlayerPronouns = 2>>
+BearBox: Sure thing! Here you go! Have a great first day and stay out of trouble!
+<<ClearSprite Middle>>
+Player: Speaking of trouble...
+<<SetSprite Middle Stan/Pitiful>>
+<<SetSprite Right Tommy/Idle>>
+<<SetActiveChar Middle>>
+Stan: Hey Tommy! I didn't know that they made a university for LOSERS!
+<<SetActiveChar Right>>
+Tommy: Yeah Stan! It smells like poor people here!
+<<SetSprite Middle Stan/Irritated>>
+<<SetActiveChar Middle>>
+Stan: ... That's probably just that biological weapon of a cologne you wear Tommy...
+<<SetActiveChar Right>>
+<<SetSprite Right Tommy/Angry>>
+Tommy: OI! This right here is the new Bucci perfume!
+<<SetActiveChar Middle>>
+<<SetSprite Middle Stan/Question>>
+Stan: ... Perfume? 
+<<SetSprite Middle Stan/Laughing>>
+Stan: Tommy... you idiot... perfume is for women... cologne is for men. 
+<<SetActiveChar Right>>
+<<SetSprite Right Tommy/Awkward>>
+Tommy: This isn't perfume! I mispoke! It's cologne for sure! I have the bottle right here!
+Tommy: See?
+Tommy: It clearly says right here: Bucci Flora: Eau de...
+Tommy: ... Parfum...
+<<Shake Right>>
+<<SetSprite Right Tommy/Flustered>>
+<<Shake Right>>
+Tommy: !!!
+<<SetSprite Right Tommy/Flushed>>
+Tommy: Well that's beside the point! Aren't we supposed to be bullying this kid or something?
+<<SetSprite Middle Stan/Grin>>
+Stan: In due time, Tommy. I just wanted to mess with you for a bit.
+<<SetSprite Right Tommy/Flushed>>
+<<Shake Right>>
+Tommy: S-Stan...
+-> Sorry to interrupt your lovers' spat, but can you just finish up with bullying me? I'm running late to class.
+    <<SetSprite Middle Stan/Irritated>>
+    <<SetSprite Right Tommy/Angry>>
+    Tommy: The lower class doesn't even have the virtue of patience these days...
+    <<SetSprite Middle Stan/Sus>>
+    Stan: Are you trying to order us around punk? You think you're so tough, huh?
+    Stan: I'll show you who's boss!
+-> HAHA! Imagine accidentally buying women's perfume! What an idiot!
+    <<SetSprite Middle Stan/Furious>>
+    <<SetSprite Right Tommy/Angry>>
+    <<Shake Middle>>
+    Stan: ... It's one thing for me to make fun of Tommy.
+    Stan: But under no grounds are the likes of you allowed to!
+    Tommy: Yeah! Only Stan can call me an idiot!
+    <<Shake Middle>>
+    Stan: I'm going to make you PAY!
+<<SetSprite Middle Stan/Sus>>
+Stan: Alright loser, take your pick. Do you want to get a swirlie or get dumped into that trash can?
+<<Shake Right>>
+Tommy: Stan!
+<<SetSprite Middle Stan/Question>>
+Tommy: We're in a drought right now! We have to conserve water remember?
+<<SetSprite Middle Stan/Irritated>>
+Stan: Alright, alright. 
+<<Shake Middle>>
+<<SetSprite Middle Stan/Unhinged2>>
+<<if $PlayerPronouns == 0>>
+    Stan: Let's chuck him in the trash can then!
+    Tommy: Yeah! Let's chuck him in the trash can!
+<<elseif $PlayerPronouns == 1>>
+    Stan: Let's chuck her in the trash can then!
+    Tommy: Yeah! Let's chuck her in the trash can!
+<<else>>
+    Stan: Let's chuck them in the trash can then!
+    Tommy: Yeah! Let's chuck them in the trash can!
+<<endif>>
+Player: Hey! HEY! Put me down!
+<<Fade false>>
+<<ClearSprite Middle>>
+<<ClearSprite Right>>
+Player: Ow... Ick...
+Tommy: Nice throw Stan!
+<<if $PlayerPronouns == 0>>
+    Stan: Thanks Tommy. Good job on grabbing him.
+    Tommy: Even using Bucci Flora won't help him smell better!
+<<elseif $PlayerPronouns == 1>>
+    Stan: Thanks Tommy. Good job on grabbing her.
+    Tommy: Even using Bucci Flora won't help her smell better!
+<<else>>
+    Stan: Thanks Tommy. Good job on grabbing them.
+    Tommy: Even using Bucci Flora won't help them smell better!
+<<endif>>
+Tommy: Did you still want to grab lunch together?
+Stan: Yeah sure, but we should go to someplace nicer uptown. The food in this area hurts my stomach.
+BearBox: Hey! What do you two think you're doing?!
+Tommy: Uh oh...
+Stan: We better get going...
+BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
+<<SetSprite Middle BearBox/Idle>>
+<<SetActiveChar Middle>>
+<<Fade true>>
+<<SetSprite Middle BearBox/Angry>>
+<<Shake Middle>>
+BearBox: Hooligans! The lot of them!
+<<SetSprite Middle BearBox/Idle>>
+BearBox: Are you alright?
+-> Yeah!
+    Player: Yeah!
+    BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
+-> Not really...
+    Player: Not really...
+BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
+BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
+BearBox: But even though the situation we're in may suck, we can still make the best of it!
+<<SetSprite Middle BearBox/Blush>>
+BearBox: Though UCL may not be as shiny as a private school, there's still a ton you can do here!
+BearBox: We have a ton of campus job opportunities and areas to explore!
+BearBox: I hear the girls around here are really cute too! Everyone is very sweet when you get to know them.
+<<SetSprite Middle BearBox/Idle>>
+BearBox: Keep your chin up kiddo! 
+BearBox: If it makes you feel better, this campus combination thing might be temporary!
+BearBox: UCL is hosting a fundraiser dance later this year to raise money to split the UCs back up!
+BearBox: If you go and bring a date with you, we might have a good shot at raising enough money to return the UCs to their former glory!
+<<SetSprite Middle BearBox/Blush>>
+BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
+BearBox: Stay out of trouble!
+<<Fade false>>
 <<LoadScene MapScene>>
 ===

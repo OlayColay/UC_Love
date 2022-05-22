@@ -59,9 +59,6 @@ Player: What should I do?
 title: UCRGym
 position: 241,-105
 ---
-title: UCRGym
-position: 207,66
----
 //WRITE UCR CODE HERE
 <<set $UCRIntroGym to LoadVariable("UCR_Intro")>>
 <<set $UCRDialogueGym to Dice(4)>>
