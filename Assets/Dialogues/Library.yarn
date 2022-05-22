@@ -408,11 +408,11 @@ Player: What should I do?
                 <<Shake Middle>>
                 <<SetSprite Middle Ellie/Idle>>
                 Ellie: Ah! Sorry, I'm running late for a flyering event! I'll see you around!
-        <<elseif $UCLA_Dialogue == 2>>
+        <<elseif $UCLA_Dialogue_Library == 2>>
             Ellie: Ah! Sorry I'm in a bit of a rush! I'm running a little late for my student government meeting!
-        <<elseif $UCLA_Dialogue == 3>>
+        <<elseif $UCLA_Dialogue_Library == 3>>
             Ellie: Hey! Sorry, I'm running late for the cooking club meeting!
-        <<elseif $UCLA_Dialogue == 4>> 
+        <<elseif $UCLA_Dialogue_Library == 4>> 
             Ellie: Oh hey! You're new around here right?
             Ellie: Are you pre-med or pre-health? You should join the Fitness Club here!
             <<SetSprite Middle Ellie/smc>>
@@ -423,7 +423,7 @@ Player: What should I do?
             Ellie: Nice weather always puts me in a better mood. 
         <<endif>>
     <<elseif GetRelationshipScore("Ellie") >= 100 && GetRelationshipScore("Ellie") < 200>> //Acquaintances
-        <<if $UCLA_Dialogue == 1>>
+        <<if $UCLA_Dialogue_Library == 1>>
             Ellie: Oh hey! It's you again. How's your day so far?
             -> It's going good! How about yours?
                 Player: It's going good! How about yours?
@@ -444,7 +444,7 @@ Player: What should I do?
                 Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today.
                 Ellie: Hopefully tomorrow is a little better for the both of us! Keep your head up, kay? 
                 <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 2>>
+        <<elseif $UCLA_Dialogue_Library == 2>>
             Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
             -> Yeah! I'm taking it for a general requirement. Are you in that class too?
                 Player: Yeah! I'm taking it for a general requirement. Are you in that class too?
@@ -465,12 +465,12 @@ Player: What should I do?
                 Ellie: Professor BruinBot is a little tough, but you learn a lot from him and he's really adorable to watch.
                 Ellie: Don't let him hear you say that though, or he'll run over your toes!
                 <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 3>>
+        <<elseif $UCLA_Dialogue_Library == 3>>
             Ellie: Have you joined any of the clubs on campus yet? There's a ton of extracurriculars here at UCL!
             <<SetSprite Middle Ellie/Angry>>
             Ellie: I would know... I'm in way too many of them!
             <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 4>> 
+        <<elseif $UCLA_Dialogue_Library == 4>> 
             Ellie: We should hang out together sometime! I feel like we'd be really good friends, but I only ever get to see you while running in between activities.
             <<SetSprite Middle Ellie/cmc>>
             Ellie: I wish that I had more time in my schedule... sigh...
@@ -487,7 +487,7 @@ Player: What should I do?
             <<SetSprite Middle Ellie/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Ellie") >= 200 && GetRelationshipScore("Ellie") < 300>> // Friends
-        <<if $UCLA_Dialogue == 1>>
+        <<if $UCLA_Dialogue_Library == 1>>
             <<SetSprite Middle Ellie/cmo>>
             Ellie: I'm a little worried about my sister Kelly... 
             Ellie: She's always working really hard and kind of shuts herself off. 
@@ -536,7 +536,7 @@ Player: What should I do?
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Thank you for the advice! I really appreciate it!
                     <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 2>>
+        <<elseif $UCLA_Dialogue_Library == 2>>
             <<SetSprite Middle Ellie/cmc>>
             Ellie: Can I ask you for some advice?
             -> Yes, of course! What's on your mind?
@@ -632,7 +632,7 @@ Player: What should I do?
                 <<SetSprite Middle Ellie/>>
                 Ellie: Sorry to bother you...
                 <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 3>>
+        <<elseif $UCLA_Dialogue_Library == 3>>
             Ellie: I don't know if you've noticed, but I'm kind of a pushover!
             <<SetSprite Middle Ellie/Angry>>
             Ellie: When I was a kid, there was this girl in my class who would ask to borrow my toys but would never give them back!
@@ -641,7 +641,7 @@ Player: What should I do?
             Ellie: Kelly had to step in to get my toys back from her. All she had to do was glare at the girl and tell her to give me my toys back!
             Ellie: Kelly keeps telling me that if a stranger asked for my kidney, I'd give them two.
             Ellie: She's kind of right though... I have a hard time telling people a direct no. 
-        <<elseif $UCLA_Dialogue == 4>> 
+        <<elseif $UCLA_Dialogue_Library == 4>> 
             Ellie: It's kind of silly but I really like collecting Rikakume plushies!
             Ellie: They're the really chubby bear ones. Sometimes the student stores have them in stock, but they're kind of expensive. 
             Ellie: They make really good pillows. 
@@ -713,7 +713,7 @@ Player: What should I do?
                     <<SetSprite Middle Ellie/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Ellie") >= 300 && GetRelationshipScore("Ellie") < 400>> // Crushing
-        <<if $UCLA_Dialogue == 1>>
+        <<if $UCLA_Dialogue_Library == 1>>
             <<SetSprite Middle Ellie/smc>>
             Ellie: The fitness club I'm in is hosting a field day soon and I was wondering if you'd be interested in joining!
             Ellie: There will be a couple of relay games, some group competitions, and a water balloon fight.
@@ -723,12 +723,12 @@ Player: What should I do?
             <<SetSprite Middle Ellie/lb>>
             Ellie: I'd really love to have you as my partner if you join! 
             <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 2>>
+        <<elseif $UCLA_Dialogue_Library == 2>>
             Ellie: Would you want to go to the gym together sometime?
             <<SetSprite Middle Ellie/lb>>
             Ellie: I could spot you if you wanted me to.
             <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 3>>
+        <<elseif $UCLA_Dialogue_Library == 3>>
             //TD: Continuity
             <<if $UCLA_Quit == true>>
                 <<SetSprite Middle Ellie/smc>>
@@ -746,7 +746,7 @@ Player: What should I do?
                 Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
                 <<SetSprite Middle Ellie/Idle>>
             <<endif>>
-        <<elseif $UCLA_Dialogue == 4>> 
+        <<elseif $UCLA_Dialogue_Library == 4>> 
             <<SetSprite Middle Ellie/smc>>
             Ellie: My relationship with my sister has been improving a bit!
             Ellie: We've been hanging out a bit more together and I think we're both doing better.
@@ -764,14 +764,14 @@ Player: What should I do?
             <<SetSprite Middle Ellie/Idle>>
         <<endif>>    
     <<else>> //Lovers
-        <<if $UCLA_Dialogue == 1>>
+        <<if $UCLA_Dialogue_Library == 1>>
             <<SetSprite Middle Ellie/smc>>
             Ellie: Oh hey! Did you eat yet?
             Ellie: I made an extra sandwich in case I'd see you today! Here you go!
             <<SetSprite Middle Ellie/lb>>
             Ellie: I hope you like it! It's made with love!
             <<SetSprite Middle Ellie/Idle>>
-        <<elseif $UCLA_Dialogue == 2>>
+        <<elseif $UCLA_Dialogue_Library == 2>>
             Ellie: Do you know how to cook?
             -> Yes, I do!
                 Player: Yes, I do!
@@ -782,7 +782,7 @@ Player: What should I do?
                 Player: Not really...
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: I'd love to teach you someday if you want to come over to my apartment!
-        <<elseif $UCLA_Dialogue == 3>>
+        <<elseif $UCLA_Dialogue_Library == 3>>
             Ellie: I think that I'm getting better at setting boundaries! Try asking me to do something as a joke!
             -> Hey Ellie, can you do my homework for me?
                 Player: Hey Ellie, can you do my homework for me?
@@ -796,7 +796,7 @@ Player: What should I do?
                 <<Shake Middle>>
                 Ellie: ... no sorry...
                 Ellie: Ok, it's still a bit of a challenge, but I'm getting better! I can feel it!
-        <<elseif $UCLA_Dialogue == 4>> 
+        <<elseif $UCLA_Dialogue_Library == 4>> 
             <<SetSprite Middle Ellie/smc>>
             Ellie: Did you know that your pupils dilate when you look at someone you like?
             Ellie: ...
