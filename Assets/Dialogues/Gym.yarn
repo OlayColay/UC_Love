@@ -68,13 +68,13 @@ position: 241,-105
     <<set $TalkRiviera to true>>
     <<AddRelationshipScore Riviera 10>>
     <<if GetRelationshipScore("Riviera") < 100>> //Strangers
-        <<if $UCRDialoguePlaza == 1>>
-               <<if $UCR_Intro == false>>
+        <<if $UCRDialogueGym == 1>>
+               <<if $UCRIntroGym == false>>
                     Riviera: Oh hey! I'm starting a marketing technology startup.
                     Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
                     Riviera: I'd really appreciate it if you checked it out!
                     <<SaveVariable "UCR_Intro" true>>
-                <<elseif $UCR_Intro == true>>
+                <<elseif $UCRIntroGym == true>>
                     Riviera: Hey! Have you had a chance to check out my startup?
                     -> Yeah!
                         Player: Yeah!

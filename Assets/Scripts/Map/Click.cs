@@ -99,6 +99,9 @@ public class Click : MonoBehaviour
 
     public static IEnumerator LoadYarnScene(string sceneName)
     {
+        EventSystem.current.enabled = false;
+        FindObjectOfType<AudioListener>().enabled = false;
+
         AsyncOperation async = SceneManager.LoadSceneAsync("VisualNovel", LoadSceneMode.Additive);
 
         // Wait until scene finishes loading
@@ -108,6 +111,6 @@ public class Click : MonoBehaviour
         }
 
         FindObjectOfType<DialogueRunner>().StartDialogue(sceneName);
-        SceneManager.UnloadSceneAsync("MapScene");
+        SceneManager.UnloadSceneAsync(sceneName == "Intro" ? "UiScene" : "MapScene");
     }
 }
