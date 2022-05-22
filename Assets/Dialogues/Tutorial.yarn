@@ -41,7 +41,7 @@ BearBox: Would you like one?
 BearBox: Sure thing! Here you go! Have a great first day and stay out of trouble!
 <<ClearSprite Middle>>
 Player: Speaking of trouble...
-<<SetSprite Middle Stan/Idle>>
+<<SetSprite Middle Stan/Pitiful>>
 <<SetSprite Right Tommy/Idle>>
 <<SetActiveChar Middle>>
 Stan: Hey Tommy! I didn't know that they made a university for LOSERS!
@@ -65,7 +65,7 @@ Tommy: See?
 Tommy: It clearly says right here: Bucci Flora: Eau de...
 Tommy: ... Parfum...
 <<Shake Right>>
-<<SetSprite Right Tommy/Flabberghasted>>
+<<SetSprite Right Tommy/Flustered>>
 <<Shake Right>>
 Tommy: !!!
 <<SetSprite Right Tommy/Flushed>>
@@ -113,6 +113,8 @@ Tommy: S-Stan...
 <<endif>>
 Player: Hey! HEY! Put me down!
 <<FadeIn false>>
+<<ClearSprite Middle>>
+<<ClearSprite Right>>
 Player: Ow... Ick...
 Tommy: Nice throw Stan!
 <<if $PlayerPronouns == 0>>
@@ -131,8 +133,6 @@ BearBox: Hey! What do you two think you're doing?!
 Tommy: Uh oh...
 Stan: We better get going...
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
-<<ClearSprite Middle>>
-<<ClearSprite Right>>
 <<SetSprite Middle>>
 <<SetActiveChar BearBox>>
 <<FadeIn true>>
@@ -158,6 +158,7 @@ BearBox: Keep your chin up kiddo!
 BearBox: If it makes you feel better, this campus combination thing might be temporary!
 BearBox: UCL is hosting a fundraiser dance later this year to raise money to split the UCs back up!
 BearBox: If you go and bring a date with you, we might have a good shot at raising enough money to return the UCs to their former glory!
+<<SetSprite Middle BearBox/Blush>>
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
 BearBox: Stay out of trouble!
 <<FadeIn false>>
