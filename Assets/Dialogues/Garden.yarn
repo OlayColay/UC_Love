@@ -28,6 +28,7 @@ position: -107,2
     //Sets background as Garden Night if it Evening
 <<endif>>
 <<Fade true>>
+Player: What should I do?
 -> Meet someone
     <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump UCSBGarden>>
@@ -340,25 +341,30 @@ position: 125,-26
 <<set $Random_Event_Dialogue to RandomRange (1,20)>>
     <<set $TimeOfDayGarden to $TimeOfDayGarden + 1>>
 <<if $Random_Event_Dialogue == 1>>
-    <<AddMoney 200>>
-    Player: Woah! I found $200 on the ground! Sweet!
+    <<AddMoney 100>>
+    Player: Woah! I found $100 on the ground! Sweet!
 <<elseif $Random_Event_Dialogue == 2>>
     Player: Woah! I found $50 on the ground! Sweet!
     <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 3>>
+    Player: I hear some voices in the distance...
     Player: I just heard a voice telling me that Irene loves sheet masks...
     Player: Makes sense since she's stressed all the time...
     Player: She's in the Garden late at night. 
 <<elseif $Random_Event_Dialogue == 4>>
+    Player: I hear some voices in the distance...
     Player: I just heard a voice telling me that Irene loves B-Fuel...
     Player: That kind of fits with her gamer personality...
 <<elseif $Random_Event_Dialogue == 5>>
+    Player: I hear some voices in the distance...
     Player: I just heard a voice telling me that Santana loves plushies...
     Player: She seems to like nature a lot... so it makes sense. 
 <<elseif $Random_Event_Dialogue == 6>>
+    Player: I hear some voices in the distance...
     Player: I just heard a voice telling me that Riviera loves stationery...
     Player: She's really hardworking... I can see her running out of notepads easily.
 <<elseif $Random_Event_Dialogue == 7>>
+    Player: I hear some voices in the distance...
     Player: I just heard a voice telling me that Ellie loves bear plushies...
     Player: She's very gentle-natured... I can see her liking plushies!
 <<elseif $Random_Event_Dialogue == 8>>
@@ -522,7 +528,7 @@ Player: What should I do?
             Santana: It's really quiet and romantic. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
-            Santana: Wouldn't it be nice to have a picnic out here someday?
+            Santana: Wouldn't it be fun to have a picnic together someday?
         <<elseif $UCSB_Dialogue == 3>>
             Santana: 
         <<elseif $UCSB_Dialogue == 4>> 
@@ -644,24 +650,62 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
         <<if $UCI_Dialogue == 1>>
+            <<if $BobamonGo == 0>>
             Irene: Hey! I see you around a lot here. Do you play Bobamon Go?
             -> Yes!
                 Player: Yes!
+                <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Excited>>
                 Irene: Really? That's so cool! I play BoGo too! It's one of my favorite games!
-                Irene: 
+                Irene: I don't know many people that play it!
+                <<SetSprite Middle Irene/Sad>>
+                Irene: A lot of people think that it's a trash game or "cringey"...
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: So I'm really happy to find another player! Let's add each other!
+                <<Set $BobamonGo = 1>>
             -> I don't.
                 Player: I don't. 
                 Irene: Aww. really? You should play! Bobamon Go is really fun and cute!
+                <<SetSprite Middle Irene/Excited>>
                 Irene: It's a good game to play when you're walking from class to class. 
+                Irene: If you have friends, you can trade or battle with them too!
+                Irene: You should download it! It'd be fun to play together!
                 -> I'll try it out!
-                    Player:
+                    <<AddRelationshipScore Irene 10>>
+                    Player: Sounds cool! I'll try it out!
+                    <<SetSprite Middle Irene/Excited>>
+                    <<Shake Middle>>
+                    Irene: Really?! Poggers! 
+                    Irene: I don't have many friends that that play Bobamon!
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: A lot of people think that it's a trash game or "cringey"...
+                    <<SetSprite Middle Irene/Flirty>>
+                    Irene: I'm glad that you're willing to give it a shot though! It means a lot to me!
+                    <<Set $BobamonGo = 1>>
+                    <<SetSprite Middle Irene/Idle>>
                 -> It's not my cup of tea.
-                    Player:
+                    Player: It's not my cup of tea.
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: Oh... are you sure? Sorry to bother you... 
+                    Irene: It's stupid I guess, but I get really excited about this game. 
+                    <<Set $BobamonGo = 2>>
+                    <<SetSprite Middle Irene/Idle>>
+            <<elseif $BobamonGo == 1>>
+                Irene: Oh hey! Out Bobamon hunting?
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I just caught a Rikakume over there if you want to get it!
+                <<SetSprite Middle Irene/Idle>>
+            <<else>>
+                Irene: Hey, sorry, I'm in the middle of Bobamon hunting right now.
+                <<SetSprite Middle Irene/sad>>
+                Irene: I wish you played. It'd be fun to play with a friend. 
+                <<SetSprite Middle Irene/Idle>>
+            <<endif>>
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: When I have free time, I like to stream games on Witch!
+            Irene: I like a lot of niche games, so streaming on Witch is a nice way to interact with other people in the fandom!
+            Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
         <<elseif $UCI_Dialogue == 3>>
-            <<SetSprite Middle Irene/Angry>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 
             Irene: 
@@ -733,13 +777,11 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskIrene = true>>
         <<if GetRelationshipScore("Irene") >= 300>>
-            <<SetSprite Middle Irene/lbom>>
-            Irene: Oh! Um...let me check my schedule...
-            <<SetSprite Middle Irene/lbcm>>
-            Irene: I can make time for a date!
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: Sure bro!
             <<jump IreneDate>>
         <<else>>
-            <<SetSprite Middle Irene/Angry>>
+            <<SetSprite Middle Irene/sad>>
             Irene: Uhhhh... sorry bro... raid hour is usually around that time...
             <<SetSprite Middle Irene/Idle>>
             <<jump UCIGarden>>
@@ -748,9 +790,13 @@ Player: What should I do?
         <<set $AskIrene = true>>
         <<if GetRelationshipScore("Irene") >= 500>>
             Player: Would you like to go to the dance with me?
-            Irene: Y-yes! I'd love to!
+            Irene: To be honest...
+            Irene: I don't really know how to dance aside from default emote dances...
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: But as long as you're alright with that, I'd love to go with you!
         <<else>>
-            Irene: I have a project I have to work on...
+            Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
+            Irene: I don't think that I'm very comfortable going to the dance right now.
             <<AddRelationshipScore Irene -20>>
         <<endif>>
     -> Cancel

@@ -2,6 +2,7 @@
 tags:
 ---
 <<SaveVariable "UCR_Intro" false>>
+<<SaveVariable "BobamonGo" = 0>>
 Creating new save file...
 <<LoadScene MapScene>>
 ===
