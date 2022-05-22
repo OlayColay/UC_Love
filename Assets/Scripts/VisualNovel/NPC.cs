@@ -59,8 +59,9 @@ public class NPC : MonoBehaviour
     {
         transform.SetAsLastSibling();
         image.DOColor(Color.white, 0.5f);
-        parent.GetChild(0).GetComponent<Image>().DOColor(inactiveColor, 0.5f);
+        // First child is the bottom sprite, which will never be inactive
         parent.GetChild(1).GetComponent<Image>().DOColor(inactiveColor, 0.5f);
+        parent.GetChild(2).GetComponent<Image>().DOColor(inactiveColor, 0.5f);
     }
 
     [YarnCommand("PlaySound")]

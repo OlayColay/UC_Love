@@ -82,8 +82,10 @@ Tommy: !!!
 <<SetSprite Right Tommy/Flushed>>
 Tommy: Well that's beside the point! Aren't we supposed to be bullying this kid or something?
 <<SetSprite Middle Stan/Grin>>
+<<SetActiveChar Middle>>
 Stan: In due time, Tommy. I just wanted to mess with you for a bit.
 <<SetSprite Right Tommy/Flushed>>
+<<SetActiveChar Right>>
 <<Shake Right>>
 Tommy: S-Stan...
 -> Sorry to interrupt your lovers' spat, but can you just finish up with bullying me? I'm running late to class.
@@ -91,35 +93,44 @@ Tommy: S-Stan...
     <<SetSprite Right Tommy/Angry>>
     Tommy: The lower class doesn't even have the virtue of patience these days...
     <<SetSprite Middle Stan/Sus>>
+    <<SetActiveChar Middle>>
     Stan: Are you trying to order us around punk? You think you're so tough, huh?
     Stan: I'll show you who's boss!
 -> HAHA! Imagine accidentally buying women's perfume! What an idiot!
     <<SetSprite Middle Stan/Furious>>
     <<SetSprite Right Tommy/Angry>>
+    <<SetActiveChar Middle>>
     <<Shake Middle>>
     Stan: ... It's one thing for me to make fun of Tommy.
     Stan: But under no grounds are the likes of you allowed to!
+    <<SetActiveChar Right>>
     Tommy: Yeah! Only Stan can call me an idiot!
     <<Shake Middle>>
+    <<SetActiveChar Middle>>
     Stan: I'm going to make you PAY!
 <<SetSprite Middle Stan/Sus>>
 Stan: Alright loser, take your pick. Do you want to get a swirlie or get dumped into that trash can?
 <<Shake Right>>
+<<SetActiveChar Right>>
 Tommy: Stan!
 <<SetSprite Middle Stan/Question>>
 Tommy: We're in a drought right now! We have to conserve water remember?
 <<SetSprite Middle Stan/Irritated>>
+<<SetActiveChar Middle>>
 Stan: Alright, alright. 
 <<Shake Middle>>
 <<SetSprite Middle Stan/Unhinged2>>
 <<if $PlayerPronouns == 0>>
     Stan: Let's chuck him in the trash can then!
+    <<SetActiveChar Right>>
     Tommy: Yeah! Let's chuck him in the trash can!
 <<elseif $PlayerPronouns == 1>>
     Stan: Let's chuck her in the trash can then!
+    <<SetActiveChar Right>>
     Tommy: Yeah! Let's chuck her in the trash can!
 <<else>>
     Stan: Let's chuck them in the trash can then!
+    <<SetActiveChar Right>>
     Tommy: Yeah! Let's chuck them in the trash can!
 <<endif>>
 Player: Hey! HEY! Put me down!
