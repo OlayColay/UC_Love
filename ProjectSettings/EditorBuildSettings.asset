@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/UiScene.unity
+    guid: 3829042fc16d24649a6c3667decb6c76
+  - enabled: 1
     path: Assets/Scenes/GymMinigame.unity
     guid: 1ca738bd9b8c70a41b5d40690a0803db
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlazaMinigame.unity
     guid: dfbd86e66d4910f4391a44390d44c92e
-  - enabled: 1
-    path: Assets/Scenes/UiScene.unity
-    guid: 3829042fc16d24649a6c3667decb6c76
   - enabled: 1
     path: Assets/Scenes/VisualNovel.unity
     guid: 6e74cd58a22e5c1498f5bb71cb9f1c32
