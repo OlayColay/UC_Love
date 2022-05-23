@@ -1,0 +1,12 @@
+﻿title: NewYarnScript
+tags:
+---
+<<Fade false>>
+Player: Woah... the dance looks amazing!
+<<SetSprite Middle BearBox/Idle>>
+BearBox: Oh hey there! Thanks for coming to the fundraiser dance!
+BearBox: I hope that your year at UCL has been fun so far! 
+<<SetSprite Middle BearBox/Blush>>
+BearBox: The campus isn't too bad once you get used to it hmm? It has that tendency to grow on you!
+BearBox: 
+===

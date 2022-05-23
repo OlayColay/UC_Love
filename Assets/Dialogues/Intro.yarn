@@ -102,6 +102,7 @@ Tommy: S-Stan...
     <<SetActiveChar Middle>>
     <<Shake Middle>>
     Stan: ... It's one thing for me to make fun of Tommy.
+    <<SetSprite Middle Stan/Furious2>>
     Stan: But under no grounds are the likes of you allowed to!
     <<SetActiveChar Right>>
     Tommy: Yeah! Only Stan can call me an idiot!
