@@ -77,13 +77,11 @@ position: 241,-105
                 <<elseif $UCRIntroGym == true>>
                     Riviera: Hey! Have you had a chance to check out my startup?
                     -> Yeah!
-                        Player: Yeah!
                         <<SetSprite Middle Riviera/happy>>
                         <<AddRelationshipScore Riviera 10>>
                         Riviera: Oh! Thank you! That means so much to me.
                         Riviera: This startup is really my pride and joy. 
                     -> No, I haven't.
-                        Player: No, I haven't.
                         <<SetSprite Middle Riviera/sad>>
                         Riviera: Oh... that's alright.
                         <<SetSprite Middle Riviera/Idle>>
@@ -93,13 +91,11 @@ position: 241,-105
         <<elseif $UCRDialogueGym == 3>>
             Riviera: Hey! Have you seen an outlet somewhere around here? My laptop is running out of battery but I need to finish a slide deck for a pitch meeting soon.
             -> I haven't seen one, sorry.
-                Player: I haven't seen one, sorry.
                 <<SetSprite Middle Riviera/sad>>
                 Riviera: Oh... that's alright...
                 <<SetSprite Middle Riviera/Idle>>
             -> I think I saw one over there!
                 <<AddRelationshipScore Riviera 10>>
-                Player: I think I saw one over there!
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Oh! Thank you. I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
@@ -115,16 +111,13 @@ position: 241,-105
                 <<SetSprite Middle Riviera/Idle>>
             -> Well actually... you have a little something in your hair.
                 <<AddRelationshipScore Riviera 10>>
-                Player: Well actually... you have a little something in your hair.
                 Riviera: Oh! Where?
                     -> Over here!
-                        Player: Over here!
                         Riviera: Oh! Thank you!
                         <<SetSprite Middle Riviera/Idle>>
                         Riviera: That should be better! Thanks for letting me know!
                         Riviera: I really appreciate it. 
             -> You look unprofessional.
-                Player: You look unprofessional.
                 <<AddRelationshipScore Riviera -10>>
                 <<SetSprite Middle Riviera/Angry>>
                 Riviera: ... alright.
@@ -148,7 +141,6 @@ position: 241,-105
                 <<SetSprite Middle Riviera/Idle>>
                 <<Set $RivieraHelp to $RivieraHelp + 1>>
             -> Neither of them!
-                Player: Neither of them!
                 <<SetSprite Middle Riviera/sad>>
                 Riviera: Oh... back to the drawing board I suppose...
                 <<SetSprite Middle Riviera/Idle>>
@@ -184,7 +176,6 @@ position: 241,-105
             Riviera: Hey, could I ask you for a favor?
             Riviera: I have an important pitch competition coming up with a startup club on campus and I was wondering if I could practice my pitch with you.
                 -> Of course!
-                    Player: Of course! 
                     Riviera: Alright... here goes...
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Hello everyone, my name is Riviera.
@@ -194,13 +185,11 @@ position: 241,-105
                     Riviera: We are.... ummm...  uhh..
                     Riviera: Ugh... I'm never going to be able to do this... who am I kidding...
                     -> Don't give up!
-                        Player: Don't give up!
                         Riviera: It's so hard to nail the script down to a tee.
                         Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
                         -> Practice makes perfect!
                             <<AddRelationshipScore Riviera 10>>
                             <<set $RivieraHelp to $RivieraHelp + 2>>
-                            Player: Practice makes perfect!
                             Riviera: You're right... Rome wasn't built in a day I suppose.
                             <<SetSprite Middle Riviera/happy>>
                             Riviera: Alright, let me try it again from the top!
@@ -214,19 +203,15 @@ position: 241,-105
                             Riviera: Thank you!
                             Riviera: How was that?
                             -> A lot better! 
-                                Player: A lot better!
                                 Riviera: Thanks for the feedback... I really appreciate it!
                             -> You could still use a bit of work! A bit more practice should do the trick!
-                                Player: You could still use a bit of work! A bit more practice should do the trick!
                                 Riviera: Thanks for the feedback... I really appreciate it!
                         -> Maybe you can ask a friend to do the pitch for you instead...
-                            Player: Maybe you can ask a friend to do the pitch for you instead...
                             <<SetSprite Middle Riviera/sad>>
                             Riviera: That's against the competition rules...
                             Riviera: Either way though, I feel like I should do it myself.
                             <<SetSprite Middle Riviera/Idle>>
                     -> Maybe business isn't your calling...
-                        Player: Maybe business isn't your calling...
                         <<SetSprite Middle Riviera/Angry>>
                         <<Shake Middle>>
                         <<AddRelationshipScore Riviera -10>>
@@ -235,7 +220,6 @@ position: 241,-105
                         Riviera: I don't need the likes of you dragging me down. 
                         <<SetSprite Middle Riviera/Idle>>
                 -> No, sorry.
-                    Player: No, sorry. 
                     Riviera: That's alright. Thanks anyway. 
         <<elseif $UCRDialogueGym == 2>>
             <<SetSprite Middle Riviera/sad>>
@@ -244,7 +228,6 @@ position: 241,-105
             Riviera: Usually I'm really confident, but once I get on stage I get nervous really easily...
             -> Take deep breaths...
                 <<set $RivieraHelp to $RivieraHelp + 1>>
-                Player: Take deep breaths...
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: You're right! Sometimes I get so nervous that it gets hard to breathe and then I start sounding like I'm trying to rap Super Bass.
                 Riviera: I'll definitely be sure to be more mindful of my breathing! Thanks!
@@ -257,7 +240,6 @@ position: 241,-105
                 <<set $RivieraHelp to $RivieraHelp + 1>>
                 <<SetSprite Middle Riviera/Idle>>
             -> Cheat with flashcards!
-                Player: Cheat with flashcards!
                 <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialogueGym == 3>>
             Riviera: A while ago, my brothers made me a tote bag that they decorated as a good luck charm.
@@ -280,19 +262,15 @@ position: 241,-105
         <<if $UCRDialogueGym == 1>>
             Riviera: What kind of trait do you primarily look for in a partner?
             -> A good work ethic!
-                Player: A good work ethic!
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Oh! Same here! I think there's little else more attractive than a person who's willing to work towards what they want!
             -> A smoking hot body!
-                Player: A smoking hot body!
                 Riviera: Oh... to each their own I suppose.
                 Riviera: Personally I value a good work ethic... maybe strong family values as well. 
             -> A sense of humor!
-                Player: A sense of humor!
                 Riviera: Oh... to each their own I suppose.
                 Riviera: Personally I value a good work ethic... maybe strong family values as well. 
             -> Strong family values!
-                Player: Strong family values!
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Oh! Same here! My family is really important to me and I'd want a partner to value their family as well. 
                 <<SetSprite Middle Riviera/Idle>>
@@ -308,25 +286,21 @@ position: 241,-105
             Riviera: I feel like I'm just playing make-believe sometimes and some day I'm going to get a harsh awakening that I don't belong here.
             Riviera: Hey... be honest... do you think that I can actually make it big?
             -> Of course you can! I believe in you!
-                Player: Of course you can! I believe in you!
                 <<SetSprite Middle Riviera/lb>>
                 Riviera: Really? That means a lot to me...
                 <<SetSprite Middle Riviera/happy>>
                 -> I'll always be here to cheer you on!
-                    Player: I'll always be here to cheer you on!
                     Riviera: Thank you...
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: When I make it big, I'll be sure to treat you out for a nice dinner!
                     <<SetSprite Middle Riviera/Idle>>
                     <<set $RivieraHelp to $RivieraHelp + 1>>
                 -> When you make it big, be sure to treat me out for dinner!
-                    Player: When you make it big, be sure to treat me out for dinner!
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Deal!
                     <<SetSprite Middle Riviera/Idle>>
                     <<set $RivieraHelp to $RivieraHelp + 1>>
             -> Realistically speaking, it's a tough field... 90% of startups fail. 
-                Player: Realistically speaking, it's a tough field... 90% of startups fail.
                 Riviera: Sigh... I know...
                 <<SetSprite Middle Riviera/Idle>>
                 Riviera: I'm going to keep trying though. Even if I'm the only one who believes in myself, I know that I can be successful if I put my mind to it.
@@ -493,7 +467,6 @@ Player: What should I do?
         <<if $UCLA_Dialogue == 1>>
             Ellie: Oh hey! It's you again. How's your day so far?
                 -> It's going good! How about yours?
-                    Player: It's going good! How about yours?
                     Ellie: Oh that's good to hear! My day's been really good, just a little hectic.
                     Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today. 
                     <<SetSprite Middle Ellie/cmo>>
@@ -572,7 +545,7 @@ Player: What should I do?
                 -> I think that it might be more meaningful if you reached out to her yourself!
                 <<AddRelationshipScore Ellie 10>>
                     Player: I think that it might be more meaningful if you reached out to her yourself!
-                    Player: I think that it would mean a lot to your sister to know that you care for her. 
+                    Player: It would mean a lot to your sister to know that you care for her. 
                     <<SetSprite Middle Ellie/cmc>>
                     Ellie: She tends to wall herself off from me though... every time that I try to talk to her she just brushes me off and says that I wouldn't understand.
                     Ellie: I try to get her to take breaks from her work and whatnot but she just keeps working herself to the bone.
@@ -617,7 +590,6 @@ Player: What should I do?
                                     Ellie: I know... I feel like I'm letting them down if I don't accept, but I have no time for another extracurricular...
                                     Ellie: It's going to be really hard to tell them...
                         -> Turn her down...
-                            Player: I think that you should turn her down...
                                 -> I don't think that you can handle it.
                                     <<AddRelationshipScore Ellie -10>>
                                     <<SetSprite Middle Ellie/Angry>>
@@ -702,18 +674,15 @@ Player: What should I do?
             <<SetSprite Middle Ellie/cmo>>
             Ellie: Sigh...
                 -> What's wrong?
-                    Player: What's wrong?
                     <<Shake Middle>>
                     Ellie: Oh!
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Sorry! I didn't see you there... my... allergies... usually make me tear up this time of year.
                         -> Are you doing ok?
-                            Player: Are you doing ok? 
                             <<SetSprite Middle Ellie/cmc>>
                             Ellie: Yeah! 
                                 -> How are you really doing?
                                     <<set $UCLA_Quit to false>>
-                                    Player: How are you really doing?
                                     <<SetSprite Middle Ellie/cmo>>
                                     Ellie: To be honest... I'm not doing too well...
                                     Ellie: I'm in a lot of clubs and I'm starting to feel really overwhelmed.
@@ -735,7 +704,6 @@ Player: What should I do?
                                                             Ellie: Sigh... you're right... I really don't want to let them down but I can't take this workload anymore.
                                                             Ellie: Thank you for your advice!
                                                         -> If they're good friends, they will understand!
-                                                            Player: If they're good friends, they will understand!
                                                             Ellie: Sigh... you're right...
                                                             <<SetSprite Middle Ellie/smc>>
                                                             Ellie: I didn't really think about it from that perspective. They're my friends and I think they'd want the best for me too.

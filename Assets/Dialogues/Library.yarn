@@ -63,7 +63,6 @@ Player: What should I do?
         <<elseif $UCB_Dialogue == 3>>
             Kelly: Are you looking for Ellie?
             -> Yeah! Have you seen her around?
-                Player: Yeah! Have you seen her around?
                 <<SetSprite Middle Kelly/Angry>>
                 <<Shake Middle>>
                 <<AddRelationshipScore Kelly -20>>
@@ -72,13 +71,11 @@ Player: What should I do?
                 Kelly: sigh...
                 <<SetSprite Middle Kelly/Idle>>
             -> No, I was just heading to the library to study!
-                Player: No, I was just heading to the library to study!
                 Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
                 Kelly: I've been a little on edge... sorry. 
                 Kelly: What subject are you studying for today?
                 -> Computer Science!
                     <<AddRelationshipScore Kelly 10>>
-                    Player: Computer science! 
                     <<SetSprite Middle Kelly/lbcm>>
                     Kelly: Oh! I'm a computer science major!
                     Kelly: Well... a computer science and political science double major actually...science squared?
@@ -88,10 +85,8 @@ Player: What should I do?
                     Kelly: Um... 
                     Kelly: Ah... nevermind... sorry...
                 -> Chemical Engineering!
-                    Player: Chemical engineering! 
                     Kelly: Oh! Cool. Um... good luck studying.
                 -> Psychology!
-                    Player: Psychology!
                     Kelly: Oh! Cool. Um... good luck studying.
                 -> Political Science!
                     <<AddRelationshipScore Kelly 10>>
@@ -106,7 +101,6 @@ Player: What should I do?
                     Kelly: ... ah nevermind...sorry...
                     <<SetSprite Middle Kelly/Idle>>
             -> No, I was looking for you!
-                Player: No, I was just looking for you!
                 <<SetSprite Middle Kelly/lbom>>
                 <<Shake Middle>>
                 Kelly: Oh!
@@ -123,12 +117,10 @@ Player: What should I do?
             Kelly: You seem to come here often.
             -> Yeah, it's one of my favorite study spots!
                 <<AddRelationshipScore Kelly 10>>
-                Player: Yeah, it's one of my favorite study spots!
                 <<SetSprite Middle Kelly/lbcm>>
                 Kelly: Oh! It's my favorite study spot too.
             -> Yeah, it's a nice place to talk to friends in!
                 <<AddRelationshipScore Kelly -20>>
-                Player: Yeah, it's a nice place to talk to friends in! Especially in the reading section.
                 <<SetSprite Middle Kelly/Angry>>
                 Kelly: Sigh... You do realize that people need to work here, right?
                 Kelly: Ugh...
@@ -156,14 +148,12 @@ Player: What should I do?
             Kelly: Sometimes when I'm working late at night, my sister will go into my room and nag at me to go to sleep.
             Kelly: It's really annoying... can't she see that I have work to do? Not all of us can spend our days lolligagging...
             -> Yeah, that is really annoying of her...
-                Player: Yeah, that is really annoying of her...
                 Kelly: Yeah...
                 <<SetSprite Middle Kelly/sad>>
                 Kelly: I know she probably does it because she worries about my health though...
                 Kelly: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
                 <<SetSprite Middle Kelly/Idle>>
             -> Maybe she's worried about you...
-                Player: Maybe she's worried about you...
                 <<SetSprite Middle Kelly/lbom>>
                 <<AddRelationshipScore Kelly 10>>
                 Kelly: ...oh... I never thought about it that way....
@@ -187,7 +177,6 @@ Player: What should I do?
                 Kelly: Thank you for being honest with me though. It makes me feel like I can trust you a lot more.
                 <<SetSprite Middle Kelly/lbcm>>
                     -> Of course!
-                        Player: Of course!
             -> No, not at all!
                 Kelly: I find that hard to believe. 
         <<elseif $UCB_Dialogue == 3>>
@@ -196,13 +185,11 @@ Player: What should I do?
             Kelly: I feel like other styles will look weird on me... I'd probably look like a fool.
             -> You should try something new! I'm sure that you'll look great!
                 <<AddRelationshipScore Kelly 10>>
-                Player: You should try something new! I'm sure that you'll look great!
                 <<SetSprite Middle Kelly/lbom>>
                 Kelly: Thank you for the encouragement... it means a lot...
                 Kelly: I think it will be a while before I'm ready to wear anything new outside though.
                 <<SetSprite Middle Kelly/Idle>>
             -> I don't think that the "ClickClock" style would suit you...
-                Player: I don't think that the "ClickClock" style would suit you...
                 <<SetSprite Middle Kelly/sad>>
                 Kelly: Yeah... who am I kidding... I don't think I could ever be anything other than what I am right now.
                 Kelly: Thanks for the reality check.
@@ -229,13 +216,10 @@ Player: What should I do?
             Kelly: I'm putting so much pressure on myself, and I feel like I'm going to break...
             Kelly: I'm so burnt out, but I feel like I have to keep going... I barely even have time to eat these days...
             -> School is tough, but you can hang in there! 
-                Player: School is tough, but you can hang in there! 
                 Kelly: ... I guess so... I'm really not feeling well though...
             -> I know that school is really important to you, but your mental and physical health matter too!
-                Player: I know that school is really important to you, but your mental health matters too!
                 Kelly: I know... I should be taking better care of myself.
             -> How can I support you?
-                Player: How can I support you?
                 <<SetSprite Middle Kelly/lbom>>
                 Kelly: Hmm? ...Support? Ah you don't have to do anything! I don't want to trouble you!
                 -> Insist on helping Kelly
@@ -425,7 +409,6 @@ Player: What should I do?
         <<if $UCLA_Dialogue == 1>>
             Ellie: Oh hey! It's you again. How's your day so far?
                 -> It's going good! How about yours?
-                    Player: It's going good! How about yours?
                     Ellie: Oh that's good to hear! My day's been really good, just a little hectic.
                     Ellie: I have volleyball practice, like three club meetings, and a giant essay to do today. 
                     <<SetSprite Middle Ellie/cmo>>
@@ -504,7 +487,7 @@ Player: What should I do?
                 -> I think that it might be more meaningful if you reached out to her yourself!
                 <<AddRelationshipScore Ellie 10>>
                     Player: I think that it might be more meaningful if you reached out to her yourself!
-                    Player: I think that it would mean a lot to your sister to know that you care for her. 
+                    Player: It would mean a lot to your sister to know that you care for her. 
                     <<SetSprite Middle Ellie/cmc>>
                     Ellie: She tends to wall herself off from me though... every time that I try to talk to her she just brushes me off and says that I wouldn't understand.
                     Ellie: I try to get her to take breaks from her work and whatnot but she just keeps working herself to the bone.
@@ -538,7 +521,6 @@ Player: What should I do?
                     Ellie: What should I do?
                         -> Join the board!
                             <<AddRelationshipScore Ellie -10>>
-                            Player: I think that you should join the board!
                                 -> You can defintely make room in your schedule.
                                     <<AddRelationshipScore Ellie -10>>
                                     <<SetSprite Middle Ellie/Angry>>
@@ -549,7 +531,6 @@ Player: What should I do?
                                     Ellie: I know... I feel like I'm letting them down if I don't accept, but I have no time for another extracurricular...
                                     Ellie: It's going to be really hard to tell them...
                         -> Turn her down...
-                            Player: I think that you should turn her down...
                                 -> I don't think that you can handle it.
                                     <<AddRelationshipScore Ellie -10>>
                                     <<SetSprite Middle Ellie/Angry>>
@@ -634,18 +615,15 @@ Player: What should I do?
             <<SetSprite Middle Ellie/cmo>>
             Ellie: Sigh...
                 -> What's wrong?
-                    Player: What's wrong?
                     <<Shake Middle>>
                     Ellie: Oh!
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Sorry! I didn't see you there... my... allergies... usually make me tear up this time of year.
                         -> Are you doing ok?
-                            Player: Are you doing ok? 
                             <<SetSprite Middle Ellie/cmc>>
                             Ellie: Yeah! 
                                 -> How are you really doing?
                                     <<set $UCLA_Quit to false>>
-                                    Player: How are you really doing?
                                     <<SetSprite Middle Ellie/cmo>>
                                     Ellie: To be honest... I'm not doing too well...
                                     Ellie: I'm in a lot of clubs and I'm starting to feel really overwhelmed.
@@ -667,7 +645,6 @@ Player: What should I do?
                                                             Ellie: Sigh... you're right... I really don't want to let them down but I can't take this workload anymore.
                                                             Ellie: Thank you for your advice!
                                                         -> If they're good friends, they will understand!
-                                                            Player: If they're good friends, they will understand!
                                                             Ellie: Sigh... you're right...
                                                             <<SetSprite Middle Ellie/smc>>
                                                             Ellie: I didn't really think about it from that perspective. They're my friends and I think they'd want the best for me too.

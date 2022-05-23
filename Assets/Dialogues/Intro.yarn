@@ -161,7 +161,6 @@ BearBox: Hooligans! The lot of them!
 <<SetSprite Middle BearBox/Idle>>
 BearBox: Are you alright?
 -> Yeah!
-    Player: Yeah!
     BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
 -> Kinda...
     Player: Kinda...
