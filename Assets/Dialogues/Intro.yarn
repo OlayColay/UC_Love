@@ -1,14 +1,14 @@
 ﻿title: Intro
 tags:
 ---
-WARNING! If you create a new game, it will erase any saves you have! Continue?
+System: WARNING! If you create a new game, it will erase any saves you have! Continue?
 -> Yes!
 -> Nah
     <<LoadScene UiScene>>
 <<SaveVariable "MainSave" "">>
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>
-Created new save file! Do you want to play the intro? It is recommended for new players.
+System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
     <<jump Orientation>>
 -> Skip Intro

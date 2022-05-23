@@ -99,6 +99,8 @@ public class CafeMinigameController : MonoBehaviour
 
     void Start()
     {
+        time = 15f; // Hard-coding because I don't care
+        gameFinished = false;
         Timer.text = time.ToString("0.00");
 
         if (controls != null)
