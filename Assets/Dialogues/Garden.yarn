@@ -835,40 +835,17 @@ Player: What should I do?
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: I'll have to say, it's kinda sus to meet at night all the time.
-            -> W-what? What do you mean?
-                <<SetSprite Middle Irene/Awkward>>
-                Irene: U-um! I mean... Y'know...like as if these are secret meetings..
-                Irene: I don't mean it in any other way!!
-                -> Yeahhh sureee...
-                    Irene: Well...unless you wanna keep it just that.
-                    <<SetSprite Middle Irene/IdleLB>>
-                    Irene: Nothing more?
-                    -> Maybe?
-                        Irene: What's that supposed to mean?
-                -> Mhm, whatever you say.
-                    Irene: Okay, now you're making me feel embarassed.
-                    Irene: It's just...y'know, exciting.
-                    Irene: Like..!!
-                    <<Shake Middle>>
-                    Irene: Oh my God. Just let me perish in a hole!!!
-                    Player: Haha, not on my watch!
-                    Player: You're too cute to hide in a hole.
-                    <<AddRelationshipScore Irene 30>>
-                    <<SetSprite Middle Irene/ExcitedHB>>
-                    <<Shake Middle>>
-                    Irene: Stopppp!! You're making me blush too much!
-                -> Haha, of course. 
-                    Irene: Don't make fun of meee!!
+            Irene: Looks like I'm seeing you quite often these nights!
+            Irene: What for?
         <<elseif $UCI_Dialogue == 2>>
-            Irene: a
+            Irene: 
         <<elseif $UCI_Dialogue == 3>>
-            Irene: a
+            Irene: 
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: a
+            Irene: 
         <<else>> 
-            Irene: a
-        <<endif>>   
+            Irene: 
+        <<endif>>
     <<endif>>
     <<jump UCIGarden>>
 -> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>//Lines in but sprite names need to be swapped out
