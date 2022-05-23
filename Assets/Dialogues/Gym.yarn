@@ -521,7 +521,7 @@ Player: What should I do?
                     Ellie: Oh... my bad! Sorry, you looked a lot like one of the students in that class.
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: You should take the class if you have the chance! It's a really fun class.
-                    Ellie: Professor BruinBot is a little tough, but you learn a lot from him and he's really adorable to watch.
+                    Ellie: Professor BearBox is a little tough, but you learn a lot from him and he's really adorable to watch.
                     Ellie: Don't let him hear you say that though, or he'll run over your toes!
                     <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue == 3>>
@@ -903,7 +903,7 @@ Player: What should I do?
         <<if GetRelationshipScore("Ellie") >= 500>>
             Player: Would you like to go to the dance with me?
             Ellie: I'd love to! We're going to have so much fun!
-            <<set $DancePartner = "UCLA">>
+            <<set $DancePartner = 2>>
             <<jump Dance>>
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.

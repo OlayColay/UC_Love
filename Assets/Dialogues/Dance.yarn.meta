@@ -8,7 +8,73 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  LastImportHadImplicitStringIDs: 0
-  LastImportHadAnyStrings: 0
+  LastImportHadImplicitStringIDs: 1
+  LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages: []
+  parseErrorMessages:
+  - '6:5: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 0
+
+'
+  - '12:9: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 1
+
+'
+  - '19:9: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 2
+
+'
+  - '25:9: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 3
+
+'
+  - '30:9: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 4
+
+'
+  - '46:5: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 5
+
+'
+  - '74:9: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 0
+
+'
+  - '79:13: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 1
+
+'
+  - '84:13: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 2
+
+'
+  - '89:13: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 3
+
+'
+  - '94:13: Error: All terms of == must be the same, not String, Number
+
+    $DancePartner
+    == 4
+
+'

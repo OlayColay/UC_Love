@@ -909,7 +909,7 @@ Player: What should I do?
         <<if GetRelationshipScore("Ellie") >= 500>>
             Player: Would you like to go to the dance with me?
             Ellie: I'd love to! We're going to have so much fun!
-            <<set $DancePartner = "UCLA">>
+            <<set $DancePartner = 1>>
             <<jump Dance>>
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
