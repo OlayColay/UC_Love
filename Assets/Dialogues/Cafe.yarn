@@ -705,6 +705,7 @@ position: 207,66
         //Loved Gift
         <<SetSprite Middle Riviera/Happy>>
         Riviera: Oh thanks! I'm always running out of these! I really love these!
+        <<SetSprite Middle Riviera/Idle>>
     <<elseif $GiftScoreRCafe == 10>>
         //Liked Gift
         Riviera: This is pretty nice! Thanks.

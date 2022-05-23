@@ -1,5 +1,6 @@
 ﻿title: Dance
 tags:
+position: -99,4
 ---
 <<SetBackground Backgrounds/Dance>>
 <<Fade false>>
@@ -35,7 +36,12 @@ tags:
     <<SetSprite Middle Riviera/>>
     Riviera: Thank you for inviting me. It's really nice to be able to spend the evening with you like this!
 <<else>>
+    <<SetSprite Middle Tommy/Idle>>
     Player: Woah... the dance looks amazing!
+    Tommy: Definitely. 
+    Tommy: For the first time in my life, I kind of wish I went here. 
+    Tommy: The dance is definitely nice...
+    Tommy: But this campus has a surprising amount of charm to it.
 <<endif>>
 <<SetSprite Right BearBox/Idle>>
 BearBox: Oh hey there! Thanks for coming to the fundraiser dance!
@@ -60,6 +66,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
         <<SetSprite Middle Tommy/Flustered>>
         Tommy: Wait what? You invited me to the dance!
         -> I'm just kidding... He's with me BearBox!
+        <<SetSprite Middle Tommy/Idle>>
         BearBox: If you say so...
         BearBox: ... I'll keeping my eye on you mister...
         BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
@@ -166,19 +173,16 @@ BearBox: Woah! Congratulations!
     Santana: I'm so happy for you!
     <<SetSprite Middle Santana/Idle>>
 <<elseif $DancePartner == 3>>
-    Irene: Ayyy! 
+    <<SetSprite Middle Irene/Excited>>
+    Irene: Ayyy! Gottem!
+    <<SetSprite Middle Irene/Idle>>
 <<elseif $DancePartner == 4>>
+    <<SetSprite Middle Riviera/Happy>>
     Riviera: Nice job! You deserve it!
+    <<SetSprite Middle Riviera/Idle>>
 <<else>>
-
+    Tommy: Good for you!
 <<endif>>
-BearBox: Now the fate of UCL rests solely in your hands...
-<<SetSprite Right BearBox/Idle>>
-BearBox: This year has been an eventful one thus far... and I want you to think deeply about what has become important to you when you make this decision.
-BearBox: ... bouncy castle...
-Player: What?
-<<Shake Right>>
-BearBox: What?
 <<if $DancePartner == 5>>
     Squirrel: Can I please leave now? Something around here smells like a really bad women's perfume.
     <<SetSprite Middle Tommy/Flustered>>
@@ -190,4 +194,92 @@ BearBox: What?
     Squirrel: Y'know what? I'm out, they don't pay me enough for this. 
     <<ClearSprite Left>>
 <<endif>>
+BearBox: Now the fate of UCL rests solely in your hands...
+<<SetSprite Right BearBox/Idle>>
+BearBox: This year has been an eventful one thus far... and I want you to think deeply about what has become important to you when you make this decision.
+BearBox: ... bouncy castle...
+Player: What?
+<<Shake Right>>
+BearBox: What?
+BearBox: It's the moment we've all been waiting for...
+BearBox: What should we do with the budget?
+-> Keep UCL
+    BearBox: 
+-> Break apart UCL!
+    BearBox: Oh... Alright.
+    BearBox: I was hoping that the campus would grow on you a bit... but...
+    BearBox: I respect your decision.
+    BearBox: We'll put the budget towards splitting up the school.
+    BearBox: Thank you for coming everyone! It's been a great here at UCL, but all good things must come to an end.
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Though we may part, you all will be in my heart!
+    BearBox: I'll go make the preparations!
+    BearBox: Stay out of trouble ok?
+    <<ClearSprite Right>>
+    <<jump BreakUCL>>
+-> Buy a bouncy castle!
+    <<SetSprite Right BearBox/Blush>>
+    BearBox: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!
+    BearBox: Yeah baby!!! That's what I've been waiting for! That's what it's all about!
+    BearBox: WOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!
+    BearBox: Bouncy castle! Bouncy castle! Bouncy Castle!
+    <<jump BouncyCastle>>
+===
+title: KeepUCL
+position: 145,-124
+---
+
+===
+title: BreakUCL
+position: 138,2
+---
+<<SetBackground>>
+<<if $DancePartner == 0>>
+    Kelly: 
+<<elseif $DancePartner == 1>>
+    <<SetSprite Middle Ellie/Angry>>
+    Ellie: Well... I guess this is goodbye...
+    <<SetSprite Middle Ellie/cmo>>
+    Ellie: I'm really going to miss seing you around... but I wish you the best!
+    <<SetSprite Middle Ellie/lb>>
+    Ellie: Thank you for everything you've done for me...
+    Ellie: Be good to yourself ok?
+    <<SetSprite Middle Ellie/hb>>
+    Ellie: I love you!
+    <<SetSprite Middle Ellie/Idle>>
+<<elseif $DancePartner == 2>>
+    <<SetSprite Middle Santana/LB>>
+    Santana: Well... it's been really lovely spending time with you this year...
+    Santana: I'm really going to miss you when we go back to our original schools... but I want you to be happy!
+    <<SetSprite Middle Santana/bliss>>
+    Santana: Keep in touch, kay?
+    <<SetSprite Middle Santana/Idle>>
+<<elseif $DancePartner == 3>>
+    Irene: Well... hopefully this isn't goodbye, pogchamp!
+    Irene: We might be going back to different schools, but that doesn't mean that we can't keep in touch!
+    Irene: We can always play Boblox or BineCraft online together...
+    <<SetSprite Middle Irene/lb>>
+    Irene: I'll send you any cool Bobamons I catch back home alright?
+    <<SetSprite Middle Irene/Idle>>
+<<elseif $DancePartner == 4>>
+    Riviera:
+<<else>>
+    Tommy:
+<<endif>>
+<<ClearSprite Middle>>
+<<Fade false>>
+<<SetBackground Backgrounds/BadEndClassroomBadEndClassroom>>
+<<Fade true>>
+Player: It has been one year since UCL split apart...
+Player: It's nice to be back on my home campus, but I can't help but wonder about what could've been...
+Player: Though the consolidation wasn't ideal, I have a lot of fond memories of the campus...
+Player: I even miss the squirrels...
+Player: Sometimes, I wish I could redo everything and choose differently...
+<<Fade false>>
+<<LoadScene Credits>>
+===
+title: BouncyCastle
+position: 132,89
+---
+
 ===
