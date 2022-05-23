@@ -226,9 +226,18 @@ public static class Inventory
 
         // 1. Reconstruct relationship scores
         HashtableToDictionary(data.relationshipScores, relationshipScores);
+
         // 2. Reconstruct day
         day = data.day;
+        time = data.time;
         money = data.money;
+
+        // 3. Reconstruct inventory
+        Inventory.list.Clear();
+        foreach (SerializableItem item in data.inventory)
+        {
+            Inventory.list.Add(item.asItem());
+        }
     }
 
     // Utility function

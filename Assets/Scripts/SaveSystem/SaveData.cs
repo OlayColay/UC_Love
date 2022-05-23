@@ -8,8 +8,9 @@ public class SaveData
     // We're using Hashtables (not Dictionaries) because they're serializable
 
     public Hashtable relationshipScores;
-    //public SerializableItem[] inventory;
+    public SerializableItem[] inventory;
     public int day;
+    public int time;
     public int money;
 
     // Create a SaveData from the static PlayerData class
@@ -17,10 +18,18 @@ public class SaveData
     {
         // 1. Copy RelationshipScores
         relationshipScores = new Hashtable(Inventory.relationshipScores);
-        // 2. TODO: Inventory
+
+        // 2. Inventory
+        inventory = new SerializableItem[Inventory.list.Count];
+        for (int i = 0; i < Inventory.list.Count; i++)
+        {
+            Debug.Log(Inventory.list[i].serialForm.name);
+            inventory[i] = Inventory.list[i].serialForm;
+        }
         
         // 3. Copy the day number
         day = Inventory.GetDay();
+        time = Inventory.GetTimeOfDay();
         money = Inventory.GetMoney();
     }
 }

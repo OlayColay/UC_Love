@@ -9,6 +9,8 @@ public class Item
     public string name;
     public string spritePath;
 
+    [HideInInspector] public SerializableItem serialForm;
+
     public Item(int LAScore, int BScore, int SBScore, int RScore, int IScore, int USCScore, string spritePath, string name)
     {
         scores.Add("Ellie", LAScore);
@@ -27,5 +29,7 @@ public class Item
         }
 
         this.name = name;
+
+        serialForm = new SerializableItem(this);
     }
 }

@@ -5026,7 +5026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSprites:
-  - {fileID: 21300000, guid: 4af2c01db523945478d8cc1550aed6b3, type: 3}
+  - {fileID: 21300000, guid: a8f480694169f174f820a27191aa2a42, type: 3}
   - {fileID: 21300000, guid: 79b40fb68f0e60d4e96091d1f52f4319, type: 3}
   - {fileID: 21300000, guid: e929fe1378a768f4f975ed6c7e80e004, type: 3}
   locationsParent: {fileID: 382440867}
