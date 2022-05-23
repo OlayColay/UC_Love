@@ -29,7 +29,7 @@ Player: I think that it used to be a campus that started with UCL, but the last 
 Player: I guess they didn't have the budget to fix the sign, so they just renamed the new campus to UCL...
 Player: I'm not looking forward to this...
 <<SetSprite Middle BearBox/Idle>>
-BearBox: Hey welcome to campus!
+BearBox: Hey, welcome to campus!
 -> Whoa, what the hell are you??!
     <<SetSprite Middle BearBox/Angry>>
     BearBox: Excuse you! I'm the PREMIER delivery service for college students!
@@ -60,8 +60,9 @@ Player: Well, I hope so too. Let's take a look around.
 <<SetSprite Middle Stan/stansmiling>>
 <<SetActiveChar Middle>>
 Stan: Hey there! You seem to be a new student.
-<<ClearSprite Middle>>
 Player: Yeah! Today's my first day here, actually.
+<<SetSprite Middle Stan/stansmiling>>
+<<SetActiveChar Middle>>
 Stan: That's cool! We should hang out sometime.
 <<SetSprite Right Tommy/Snickering>>
 <<SetActiveChar Right>>
@@ -71,7 +72,6 @@ Stan: Oh hey, Tommy! Just a new student to this school!
 <<SetSprite Right Tommy/Flustered>>
 <<SetActiveChar Right>>
 Tommy: Really, dude? You shouldn't be talking to losers from this stupid university.
-<<ClearSprite Middle>>
 Player: Excuse me?
 <<SetSprite Middle Tommy/Idle>>
 <<SetSprite Right Stan/stanpassive>>
@@ -133,7 +133,6 @@ Tommy: S-Stan...
     <<Shake Middle>>
     <<SetActiveChar Middle>>
     Tommy: I won't forget this!
-    <<ClearSprite Middle>>
     Player: Okay, okay... I'm sorry.
     <<SetSprite Right Tommy/Frown>>
     <<SetSprite Middle Stan/stansmiling>>
@@ -151,6 +150,8 @@ Tommy: S-Stan...
 BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
 Tommy: Uh oh...
 Stan: We better get going...
+<<ClearSprite Middle>>
+<<ClearSprite Right>>
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
 <<SetSprite Middle BearBox/Idle>>
 <<SetActiveChar Middle>>
