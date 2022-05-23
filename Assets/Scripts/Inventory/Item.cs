@@ -7,6 +7,7 @@ public class Item
     public Dictionary<string,int> scores = new Dictionary<string, int>();
     public Sprite sprite;
     public string name;
+    public string spritePath;
 
     public Item(int LAScore, int BScore, int SBScore, int RScore, int IScore, int USCScore, string spritePath, string name)
     {
@@ -17,6 +18,7 @@ public class Item
         scores.Add("Irene", IScore);
         scores.Add("Tommy", USCScore);
 
+        this.spritePath = spritePath;
         sprite = Resources.Load<Sprite>(spritePath);
 
         if (!sprite)

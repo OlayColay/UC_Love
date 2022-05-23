@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
 
 [System.Serializable]
 public class SerializableItem
@@ -13,7 +10,7 @@ public class SerializableItem
     public SerializableItem(Item item)
     {
         scores = new Hashtable(item.scores);
-        spritePath = AssetDatabase.GetAssetPath(item.sprite);
+        spritePath = item.spritePath;
         name = item.name;
     }
 
