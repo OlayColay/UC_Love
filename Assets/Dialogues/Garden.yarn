@@ -80,7 +80,6 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 2>>
             Tommy: Y'know? You're not so bad for a public school kid.
                 -> Thanks?
-                    Player: Thanks?
                     Tommy: You're welcome!
                     Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card, so your tuition is free! 
                     Player: ...
@@ -89,12 +88,10 @@ Player: What should I do?
                 -> Yeah!
                     Tommy: Me too. It's nice to take a break from the city life once in a while. 
                 -> I just come here to see you. 
-                    Player: To be honest, I just come here to see you.
                     Tommy: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
                     Tommy: Creep. 
                 -> No, I just came here to fight you!
                     <<AddRelationshipScore Tommy -20>>
-                    Player: No, I just came here to fight you!
                     Tommy: I'd totally take you on but uh... 
                     Tommy: I'm carrying... eggs... in my....pocket... 
                     Tommy: ...AND I DON'T WANT THEM TO BREAK!!
@@ -119,17 +116,14 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 2>>
             Tommy: My family and friends always told me to stay away from the common folk.
             -> Why's that?
-                Player: Why's that?
                 Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
                 Tommy: I'm starting to think that they're wrong though. 
                 Tommy: I really like the conversations that I have with you.
             -> Your social circle sucks!
                 <<AddRelationshipScore Tommy -20>>
-                Player: Your social circle sucks!
                 Tommy: Hey, I don't agree with all their ideas but I have a lot of respect for them...
                 Tommy: Maybe they were right about some things. Geez. 
             -> What do you think? 
-                Player: What do you think?
                 Tommy: I don't know, I feel like they could be wrong. 
                 Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
                 Tommy: I'm starting to think that they're wrong though. 
@@ -147,7 +141,6 @@ Player: What should I do?
             Tommy: Even though I'm a business major, I think that I'm pretty nice!
             Tommy: I saw a tortoise walking around away from water so I picked him up and put him back in the water.
                 -> Wait... tortoises can't swim!
-                    Player: Wait... tortoises can't swim!
                     Tommy: ...
                     <<Shake Middle>>
                     Tommy: They what?!
@@ -156,14 +149,12 @@ Player: What should I do?
                     <<SetSprite Middle USC/Idle>>
                     Tommy: I got him! Here he is safe and sound!
                         -> Oh! That's a turtle...
-                            Player: Oh! That's a turtle...
                             Tommy: OH! I guess I did do the right thing then. That's a relief. 
                             Tommy: I'm going to go put him back!
                             <<ClearSprite Middle>>
                             <<SetSprite Middle USC/Idle>>
                             Tommy: Alright! He's back home sweet home. What a relief!
                 -> That's nice of you!
-                    Player: That's nice of you!
                     Tommy: I know right?
         <<endif>>
     <<elseif GetRelationshipScore("Tommy") >= 240 && GetRelationshipScore("Tommy") < 320>>
@@ -173,17 +164,15 @@ Player: What should I do?
             Tommy: Are you cold?
                 -> Yeah...
                     <<AddRelationshipScore Tommy 10>>
-                    Player: Yeah... 
                     Tommy: Oh! Do you want to borrow my jacket?  
                         -> Take the jacket.
                             Player: Thanks! 
                             Tommy: Don't mention it. Don't worry about washing it or returning it! I have plenty.
                             Tommy: ...Besides you look really good with it on. 
-                        -> Turn him down. 
+                        -> Turn him down.
                             Player: Oh no, I'm good!
                             Tommy: Oh ok. But if you catch a cold don't spread it to me!
-                -> Not really. 
-                    Player: Not really.
+                -> Not really.
                     Tommy: Oh ok. But if you catch a cold don't spread it to me!
         <<elseif $USC_Dialogue == 2>>
             Tommy: I made a lot of random businesses when I was growing up.
@@ -207,10 +196,8 @@ Player: What should I do?
                             <<Fade false>>
                             <<LoadScene UiScene>>
                         -> Actually, this might not be a good idea...
-                            Player: Actually, this might not be a good idea...
                             Tommy: Yeah... we could get in major trouble for this... the kind my family probably can't bail me out of...
                 -> We probably shouldn't hack into the governor's email...
-                    Player: We probably shouldn't hack into the governor's email...
                     Tommy: Yeah...you're right. We could get in major trouble for this... the kind my family probably can't bail me out of...
                     Tommy: More days to spend with you I suppose!
         <<elseif $USC_Dialogue == 3>>
@@ -219,10 +206,8 @@ Player: What should I do?
             Tommy: I'm sorry... I hope that I can make it up to you. 
                 -> It's alright! Just treat me out for food some time alright?
                     <<AddRelationshipScore Tommy 10>>
-                    Player: It's alright! Just treat me out for food some time alright?
                     Tommy: Yeah! Of course!
                 -> Yeah that was pretty awful of you...
-                    Player: Yeah... that was pretty awful of you...
                     Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
         <<elseif $USC_Dialogue == 4>> 
             Tommy: Y'know, I wouldn't mind going out sometime with you... maybe to some place nice. 
@@ -264,7 +249,6 @@ Player: What should I do?
             Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
                 -> I hope you aren't tutoring in economics Mr. Money Grows on Trees!
                     <<AddRelationshipScore Tommy -10>>
-                    Player: I hope you aren't tutoring him in economics Mr. Money Grows on Trees!
                     Tommy: Hey! I know money doesn't grow on trees! 
                     Tommy: Supply and demand confuses me... and I'm still not sure how a credit card works, but that was kind of mean!
                     Tommy: I'm tutoring him in English and public speaking, for your information...
@@ -566,12 +550,10 @@ Player: What should I do?
         <<if $UCSB_Dialogue == 1>>
             Santana: Would you still like me if I was a worm?
                 -> Why are you asking that?
-                    Player: Why are you asking that?
                     <<SetSprite Middle Santana/bliss>>
                     Santana: It's just a silly little hypothetical! I'm not turning into a worm any time soon hopefully!
                     <<SetSprite Middle Santana/Idle>>
                 -> Of course!
-                    Player: Of course!
                     <<SetSprite Middle Santana/lb>>
                     Santana: Oh that's a relief! 
                     <<SetSprite Middle Santana/bliss>>
@@ -581,7 +563,6 @@ Player: What should I do?
                     Santana: I'd still be here tending to the garden. Hopefully, you'd still visit me though!
                     <<SetSprite Middle Santana/Idle>>
                 -> I really hate worms...
-                    Player: I really hate worms...
                     <<SetSprite Middle Santana/sad>>
                     Santana: Why? Worms are really important to each ecosystem!
                     Santana: They break down dead matter and air out the soil, which makes it possible for plants to take root. 
@@ -679,7 +660,6 @@ Player: What should I do?
             <<if $BobamonGo == 0>>
             Irene: Hey! I see you around a lot here. Do you play Bobamon Go?
             -> Yes!
-                Player: Yes!
                 <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Excited>>
                 Irene: Really? That's so cool! I play BoGo too! It's one of my favorite games!
@@ -690,7 +670,6 @@ Player: What should I do?
                 Irene: So I'm really happy to find another player! Let's add each other!
                 <<Set $BobamonGo = 1>>
             -> I don't.
-                Player: I don't. 
                 Irene: Aww. really? You should play! Bobamon Go is really fun and cute!
                 <<SetSprite Middle Irene/Excited>>
                 Irene: It's a good game to play when you're walking from class to class. 
@@ -698,7 +677,6 @@ Player: What should I do?
                 Irene: You should download it! It'd be fun to play together!
                 -> I'll try it out!
                     <<AddRelationshipScore Irene 10>>
-                    Player: Sounds cool! I'll try it out!
                     <<SetSprite Middle Irene/Excited>>
                     <<Shake Middle>>
                     Irene: Really?! Poggers! 
@@ -710,7 +688,6 @@ Player: What should I do?
                     <<Set $BobamonGo = 1>>
                     <<SetSprite Middle Irene/Idle>>
                 -> It's not my cup of tea.
-                    Player: It's not my cup of tea.
                     <<SetSprite Middle Irene/Sad>>
                     Irene: Oh... are you sure? Sorry to bother you... 
                     Irene: It's stupid I guess, but I get really excited about this game. 

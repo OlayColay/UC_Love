@@ -170,10 +170,8 @@ BearBox: Hooligans! The lot of them!
 <<SetSprite Middle BearBox/Idle>>
 BearBox: Are you alright?
 -> Yeah!
-    Player: Yeah!
     BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
 -> Not really...
-    Player: Not really...
     BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
 BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
 BearBox: But even though the situation we're in may suck, we can still make the best of it!
