@@ -28,7 +28,45 @@ position: -107,2
     //Sets background as Garden Night if it Evening
 <<endif>>
 <<Fade true>>
-Player: What should I do?
+
+
+<<set $Flavor_Text = Dice(3)>>
+<<if $TimeOfDayGarden == 0>>
+    <<if $Flavor_Text == 1>>
+        Player: A morning stroll in the garden is great! 
+        Player: I should come here more often.
+    <<elseif $Flavor_Text == 2>>
+        Player: The fresh air at this time is always refreshing. 
+        Player: It's honestly a great way to wake up.
+    <<else>>
+        Player: Ah...just me and nature. 
+        Player: The birds are tweeting, the flowers are blooming.. 
+    <<endif>>
+<<elseif $TimeOfDayGarden == 1>>
+    <<if $Flavor_Text == 1>>
+        Player: It's always a treat to come here after a long lecture...
+        Player: I should come here more often.
+    <<elseif $Flavor_Text == 2>>
+        Player: It's always calming to be here... 
+        Player: ...Such great place to just relax from the long day.
+    <<else>>
+        Player: Wow...the flowers are blooming by the curb! 
+        Player: ...Am I getting too old? 
+    <<endif>>
+<<else>>
+    <<if $Flavor_Text == 1>>
+        Player: It's quite chilly tonight!
+        Player: Maybe I should have brought a jacket...
+    <<elseif $Flavor_Text == 2>>
+        Player: The silence at night may seem creepy to some, but it's not too bad.
+        Player: I wonder if I'm the only one who thinks this way, though.
+    <<else>>
+        Player: It almost seems magical to come here in the dark.
+        Player: No one's really comes out here at this time, after all.
+    <<endif>>
+<<endif>>
+
+Player: Hmm..what should I do?
 -> Meet someone
     <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump UCSBGarden>>
@@ -438,7 +476,7 @@ position: 125,-26
 <<elseif $Random_Event_Dialogue == 16>>
     <<SetSprite Middle Squirrel/Idle>>
     Player: Oh! A squirrel!
-    Squirrel: The anger in your heart warms you now but will leave you cold in your grave.
+    Squirrel: The anger in your heart warms you now...but will leave you cold in your grave.
     <<ClearSprite Middle>>
     Player: What just happened?
     Player: I think I need more sleep...
@@ -649,16 +687,17 @@ Player: What should I do?
             Irene: Sorry, could you move out of the way?
             Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: Woah woah! You kinda scared me!
+            Irene: Haha, it's my fault for not paying attention though!
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            Irene: Woahhh...there's another midnight owl just like me!
         <<else>> 
-            Irene: 
+            Irene: Oh hey. Kinda rare to see another person around this time.
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
         <<if $UCI_Dialogue == 1>>
             <<if $BobamonGo == 0>>
-            Irene: Hey! I see you around a lot here. Do you play Bobamon Go?
+            Irene: I see you around a lot here. Do you play Bobamon Go?
             -> Yes!
                 <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Excited>>
@@ -699,28 +738,81 @@ Player: What should I do?
                 Irene: I just caught a Rikakume over there if you want to get it!
                 <<SetSprite Middle Irene/Idle>>
             <<else>>
-                Irene: Hey, sorry, I'm in the middle of Bobamon hunting right now.
+                Irene: Um, sorry, I'm in the middle of Bobamon hunting right now.
                 <<SetSprite Middle Irene/sad>>
                 Irene: I wish you played. It'd be fun to play with a friend. 
                 <<SetSprite Middle Irene/Idle>>
             <<endif>>
         <<elseif $UCI_Dialogue == 2>>
-            Irene: When I have free time, I like to stream games on Witch!
+            Irene: Just gonna say, when I have free time, I like to stream games on Witch!
             Irene: I like a lot of niche games, so streaming on Witch is a nice way to interact with other people in the fandom!
             Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: What brings you here?
+            Irene: Did you come here to get out of your room too?
+            -> Yeah. I wanted to refreshen my head.
+                <<AddRelationshipScore Irene 10>>
+                <<SetSprite Middle Irene/Idle>>
+                Irene: Yeah, that's fair. I always like coming here too for that reason.
+                Irene: As much as I'm fine staying indoors, coming out every now and then is good too.
+            -> Sorta... Just here because I couldn't fall asleep.
+                <<AddRelationshipScore Irene 10>>
+                <<SetSprite Middle Irene/Sad>>
+                Irene: Oh dang... hopefully that doesn't happen too often.
+                Irene: I may be a midnight owl myself, but I still try to get my Z's in.
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            Irene: Y'know that feeling of being out late at night without anyone around except a few people?
+            -> Yeah, it's a creepy feeling... 
+                Player: Yeah, it's a creepy feeling. Being all alone, with little to no one around.
+                <<SetSprite Middle Irene/Angry>>
+                Irene: Ohh...You think so? I think that it's kinda nice..haha...
         <<else>> 
-            Irene: 
+            Irene: The night is always a great time to game! Helps me focus somehow.
+            -> Isn't it hard to stay focused when you're tired?
+                Player: Isn't it hard to stay focused when you're tired? 
+                Player: After all, you can only do so much when you're running low on energy.
+                Irene: LMAO!! That's where I have my boba to help me out with that!
+                -> Boba? At this time??
+                    <<SetSprite Middle Irene/Angry>>
+                    <<Shake Middle>>
+                    Irene: What?? Can't a gal like me get her calories?
+                    Player: N-no, sorry! I didn't mean like that.
+                    Irene: Sure...
+                -> Gotta get your sugar in the form of deliciousness.
+                    <<SetSprite Middle Irene/Excited>>
+                    Irene: Totally!! I love getting 100% sweetness, no ice, boba, pudding, and of course, salty cream on the top!!
+                    Irene: Total recommend. Ten out ten!!!
+                    Player: Haha! I'll have my next order like that next time, then.
+                    <<AddRelationshipScore Irene 10>>
+                    Irene: For sure!
+            -> Yeah, I get that.
+                Irene: Totally! I don't know why, though.
+                Player: Who knows...
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
         <<if $UCI_Dialogue == 1>>
             Irene: Sometimes, I forget whether or not I've told you something, and I say it again.
             Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: It's late, but I sure could go for some ramen right now.
+            -> That's a great idea. Can't be hungry when you have to focus on your games.
+                <<SetSprite Middle Irene/Excited>>>
+                Irene: You got that right! I always like switching savory to sweet, vice versa.
+                Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
+                -> Sounds good! I'd like to try that too.
+                    Irene: It's really good! Of course, I can't have it all the time, but when I do, it hits the spot!
+                    <<SetSprite Middle Irene/Idle>>
+                    Irene: By the way, do you wanna drop any socials if you got any?
+                    Irene: Like Discourse.
+                    -> Yeah sure! Here's mine...
+                        Irene: Awesome!! Nice to make another friend!
+                    -> Oh um... I don't.
+                        Irene: Oh that's a bummer.. Let me know if you ever get one!
+                -> That sounds unhealthy...
+                    <<SetSprite Middle Irene/Angry>>
+                    <<AddRelationshipScore Irene -10>>
+                    Irene: Oh... um..yeah. I don't have it all the time, but yeah.
+                    Irene: Imma go..okay?
         <<elseif $UCI_Dialogue == 3>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 
@@ -730,7 +822,8 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
         <<if $UCI_Dialogue == 1>>
-            Irene: 
+            Irene: Looks like I'm seeing you quite often these nights!
+            Irene: What for?
         <<elseif $UCI_Dialogue == 2>>
             Irene: 
         <<elseif $UCI_Dialogue == 3>>
@@ -742,7 +835,31 @@ Player: What should I do?
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: 
+            Irene: I'll have to say, it's kinda sus to meet at night all the time.
+            -> W-what? What do you mean?
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: U-um! I mean... Y'know...like as if these are secret meetings..
+                Irene: I don't mean it in any other way!!
+                -> Yeahhh sureee...
+                    Irene: Well...unless you wanna keep it just that.
+                    <<SetSprite Middle Irene/IdleLB>>
+                    Irene: Nothing more?
+                    -> Maybe?
+                    -> 
+                -> Mhm, whatever you say.
+                    Irene: Okay, now you're making me feel embarassed.
+                    Irene: It's just...y'know, exciting.
+                    Irene: Like..!!
+                    <<Shake Middle>>
+                    Irene: Oh my God. Just let me perish in a hole!!!
+                    Player: Haha, not on my watch!
+                    Player: You're too cute to hide in a hole.
+                    <<AddRelationshipScore Irene 30>>
+                    <<SetSprite Middle Irene/ExcitedHB>>
+                    <<Shake Middle>>
+                    Irene: Stopppp!! You're making me blush too much!
+                -> Haha, of course. 
+
         <<elseif $UCI_Dialogue == 2>>
             Irene: 
         <<elseif $UCI_Dialogue == 3>>
