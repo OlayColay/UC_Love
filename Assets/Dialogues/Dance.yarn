@@ -99,6 +99,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     <<else>>
         Player: Oops, this message is a bug! You're not supposed to ever see this one!
     <<endif>>
+<<endif>>
     BearBox: Great! Great! I'm very happy for the both of you!
 <<SetSprite Right BearBox/Idle>>
 BearBox: Oh! The ceremonial procedures are starting! You guys are going to love this!
