@@ -61,7 +61,7 @@ Player: Well, I hope so too. Let's take a look around.
 <<SetActiveChar Middle>>
 Stan: Hey there! You seem to be a new student.
 Player: Yeah! Today's my first day here, actually.
-<<SetSprite Middle Stan/stansmiling>>
+<<SetSprite Middle Stan/Smiling>>
 <<SetActiveChar Middle>>
 Stan: I see! Are you a transfer or...
 <<SetSprite Right Tommy/Snickering>>
@@ -74,7 +74,7 @@ Stan: Oh hey, Tommy! Just a new student to this school!
 Tommy: Really, dude? You shouldn't be talking to losers from this stupid university.
 Player: E-Excuse me?
 <<SetSprite Middle Tommy/Idle>>
-<<SetSprite Right Stan/stanpassive>>
+<<SetSprite Right Stan/Passive>>
 <<SetActiveChar Right>>
 Stan: Come on, Tommy.. You shouldn't say those kind of things.
 Stan: This place is for gifted students.
