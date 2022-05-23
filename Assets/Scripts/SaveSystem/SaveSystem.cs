@@ -10,6 +10,7 @@ public static class SaveSystem
     public static void SaveGame()
     {
         SaveData data = new SaveData();
+        data.CopyFromGame();
 
         string jsonData = JsonUtility.ToJson(data);
 
