@@ -63,7 +63,7 @@ Stan: Hey there! You seem to be a new student.
 Player: Yeah! Today's my first day here, actually.
 <<SetSprite Middle Stan/stansmiling>>
 <<SetActiveChar Middle>>
-Stan: That's cool! We should hang out sometime.
+Stan: I see! Are you a transfer or...
 <<SetSprite Right Tommy/Snickering>>
 <<SetActiveChar Right>>
 Tommy: Hey, Stan. Who are you talking to?
@@ -72,7 +72,7 @@ Stan: Oh hey, Tommy! Just a new student to this school!
 <<SetSprite Right Tommy/Flustered>>
 <<SetActiveChar Right>>
 Tommy: Really, dude? You shouldn't be talking to losers from this stupid university.
-Player: Excuse me?
+Player: E-Excuse me?
 <<SetSprite Middle Tommy/Idle>>
 <<SetSprite Right Stan/stanpassive>>
 <<SetActiveChar Right>>
@@ -82,12 +82,15 @@ Stan: This place is for gifted students.
 <<SetActiveChar Middle>>
 Tommy: Gifted? Sureee...
 Tommy: But it's still full of poor people.
+Tommy: Poor people, who can't afford top quality education like our schools!
+Player: Dude...
 <<SetActiveChar Right>>
-Stan: Whatever you say... 
-Stan: In fact, the only thing I smell is you.
-Stan: What are you wearing??
+Stan: It's still a university, though.
+Stan: And well...um. What are you wearing?
+Stan: You smell weird? 
 <<SetActiveChar Middle>>
 <<SetSprite Middle Tommy/Flustered>>
+Tommy: M-me? 
 Tommy: OI! This right here is the new Bucci perfume! Tommy Trojan only wears the best of the best!
 <<SetActiveChar Right>>
 <<SetSprite Right Stan/Question>>
@@ -113,13 +116,33 @@ Stan: For sure, for sure. You've got some cute moments like this, as always.
 <<Shake Middle>>
 Tommy: S-Stan...
 -> Sorry to interrupt your lovers' spat...
-    Player: Sorry to interrupt your lovers' spat, but I think I gotta go.. I'm running late to class.
+    Player: Sorry to interrupt your lovers' spat, but I think I'm gonna go.. I wouldn't want to be late to class.
     <<SetSprite Middle Stan/Question>>
     <<SetSprite Right Tommy/Frown>>
     <<SetActiveChar Middle>>
     Stan: Oh? Yeah, you should get going. Sorry to take up your time!
+    <<SetSprite Middle Stan/Grin>>
+    Stan: Let's talk again sometime!
     <<SetActiveChar Right>>
     Tommy: Tsk! Yeah, yeah. Get goin, peasant.
+    <<SetSprite Middle Stan/Passive>>
+    <<SetActiveChar Middle>>
+    Stan: Tommy...
+    <<SetSprite Right Tommy/Frown>>
+    <<SetActiveChar Right>>
+    Tommy: Okay, okay! Fine. But a peasant is still a peasant.
+    Tommy: A loser like you will always stay a loser.
+    Tommy: Great for you, since this is a school for losers.
+    <<SetSprite Middle Stan/Irritated>>
+    <<SetActiveChar Middle>>
+    Stan: Tommy........!
+    <<SetSprite Right Tommy/Flustered>>
+    <<SetActiveChar Right>>
+    Tommy: Fineee..! Just for Stan, I'll stop.
+    <<SetSprite Right Tommy/Angry>>
+    Tommy: But if I see you around, you better not come to me to beg like the loser you are.
+    Player: OH I'VE HAD IT-!!!
+
 -> HAHA! Imagine accidentally buying women's perfume! What an idiot!
     <<SetSprite Middle Tommy/Angry>>
     <<SetSprite Right Stan/stanpassive>>
@@ -142,15 +165,24 @@ Tommy: S-Stan...
     Stan: Come on, Tommy. You've got an apology.
     <<SetActiveChar Right>>
     Tommy: Hmph! Fine! Let's go, Stan.
-    <<SetSprite Middle Stan/Laughing>>
+    <<SetSprite Middle Stan/Grin>>
     <<SetSprite Right Tommy/Snickering>>
     <<SetActiveChar Middle>>
     Stan: Okay! Where to?
     <<SetActiveChar Right>>
     Tommy: We should go to someplace nicer uptown. The food in this area hurts my stomach.
-BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
-Tommy: Uh oh...
+BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doing here?
+<<SetSprite Right Tommy/Flustered>>
+<<SetSprite Middle Stan/Question>>
+<<SetActiveChar Right>>
+Tommy: Uh oh...it's that creepy box thing!
+<<SetActiveChar Middle>>
 Stan: We better get going...
+<<SetSprite Middle Stan/Giggle>>
+Stan: Hope you forgive his behavior. 
+Stan: He's just irritated today because he couldn't find his watch.
+Stan: Hope to see you around! 
+<<>>
 <<ClearSprite Middle>>
 <<ClearSprite Right>>
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
@@ -161,13 +193,15 @@ BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
 <<Shake Middle>>
 BearBox: Hooligans! The lot of them!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: Are you alright?
+BearBox: Did those two bother you?
 -> Yeah!
-    BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
+    BearBox: Oh darn! Stan's okay, but that Tommy Trojan...
+    BearBox: Besides him, I know that the transition to UCL has been a rough one for all of us.
 -> Kinda...
     Player: Kinda...
-    BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
-BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
+    BearBox: Sorry to hear. That Tommy Trojan sure is problematic.
+    Bearbox: Plus, I know that the transition to UCL has been a rough one for all of us.
+BearBox: And that, UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
 BearBox: But even though the situation we're in may suck, we can still make the best of it!
 <<SetSprite Middle BearBox/Blush>>
 BearBox: Though UCL may not be as shiny as a private school, there's still a ton you can do here!
@@ -184,7 +218,7 @@ BearBox: Before you go, administration told me to pass on this message for new s
 <<SetSprite Middle BearBox/Idle>>
 BearBox: "You can save your game by hitting the top floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
 BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
-BearBox: I'm not sure what that means... but have a good first day alright?
+BearBox: I'm not sure what that means... but hope that you first day stays good, alright?
 BearBox: Stay out of trouble!
 <<Fade false>>
 <<LoadScene MapScene>>

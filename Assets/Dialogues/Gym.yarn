@@ -46,6 +46,7 @@ Player: What should I do?
         <<GymMinigame 50 5 4 10 900>>
     <<if GymMinigameWon()>>
         Player: I think that I did a good job!
+        Player: Feels good to workout! I feel energized to do more, actually!
     <<else>>
         Player: That was embarassing... I guess I'm a little out of shape. 
     <<endif>>
