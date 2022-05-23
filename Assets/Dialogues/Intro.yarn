@@ -178,7 +178,7 @@ BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doin
 Tommy: Uh oh...it's that creepy box thing!
 <<SetActiveChar Middle>>
 Stan: We better get going...
-<<SetSprite Middle Stan/Giggle>>
+<<SetSprite Middle Stan/Smiling>>
 Stan: Hope you forgive his behavior. 
 Stan: He's just irritated today because he couldn't find his watch.
 Stan: Hope to see you around! 

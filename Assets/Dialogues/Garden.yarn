@@ -184,13 +184,13 @@ Player: What should I do?
                     Tommy: They what?!
                     Tommy: Wait right here! I gotta go fish him out!
                     <<ClearSprite Middle>>
-                    <<SetSprite Middle USC/Idle>>
+                    <<SetSprite Middle Tommy/Idle>>
                     Tommy: I got him! Here he is safe and sound!
                         -> Oh! That's a turtle...
                             Tommy: OH! I guess I did do the right thing then. That's a relief. 
                             Tommy: I'm going to go put him back!
                             <<ClearSprite Middle>>
-                            <<SetSprite Middle USC/Idle>>
+                            <<SetSprite Middle Tommy/Idle>>
                             Tommy: Alright! He's back home sweet home. What a relief!
                 -> That's nice of you!
                     Tommy: I know right?
@@ -390,14 +390,14 @@ position: 125,-26
         Player: Owww... 
         PLayer: WHAT THE HELL?! HE TOOK $100 TOO!
         <<AddMoney -100>>
-    -> Leave it along
+    -> Leave it alone
         Player: It's searching around my bag...
         Player: Hey! HEY! That's my money! Give it back!
         -> Fight the Squirrel
         Player: Listen up here partner! I'm already being bullied by personifications of private schools!
         Player: I'll be damned if I let a damn squirrel take my lunch money!
         Player: Get over here and fight me like a real man you son of a gun!
-        <<ClearSprite>>
+        <<ClearSprite Middle>>
         Player: Oh! He ran away! 
         Player: If you are what you eat, I suppose that squirrel was...
         Player: All bark and no bite! Badum Tss!!
@@ -880,11 +880,11 @@ Player: What should I do?
     <<set $GiftScoreI = GetItemScore("Irene")>>
     <<AddRelationshipScore Irene {$GiftScoreI}>>
     <<if $GiftScoreI == 20>> //Loved Gift
-        <<SetSprite Middle Irene/hbom>>
+        <<SetSprite Middle Irene/ExcitedHB>>
         Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
         <<SetSprite Middle Irene/Idle>>
     <<elseif $GiftScoreI == 10>> //Liked Gift
-        <<SetSprite Middle Irene/lbcm>>
+        <<SetSprite Middle Irene/IdleLB>>
         Irene: Oh pog! Thanks!
         <<SetSprite Middle Irene/Idle>>
     <<else>> //Hated Gift
