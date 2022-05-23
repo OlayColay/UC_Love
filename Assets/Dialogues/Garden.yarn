@@ -845,7 +845,6 @@ Player: What should I do?
                     <<SetSprite Middle Irene/IdleLB>>
                     Irene: Nothing more?
                     -> Maybe?
-                    -> 
                 -> Mhm, whatever you say.
                     Irene: Okay, now you're making me feel embarassed.
                     Irene: It's just...y'know, exciting.
