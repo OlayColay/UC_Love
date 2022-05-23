@@ -182,7 +182,6 @@ Stan: We better get going...
 Stan: Hope you forgive his behavior. 
 Stan: He's just irritated today because he couldn't find his watch.
 Stan: Hope to see you around! 
-<<>>
 <<ClearSprite Middle>>
 <<ClearSprite Right>>
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
