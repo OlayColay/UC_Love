@@ -845,6 +845,7 @@ Player: What should I do?
                     <<SetSprite Middle Irene/IdleLB>>
                     Irene: Nothing more?
                     -> Maybe?
+                        Irene: What's that supposed to mean?
                 -> Mhm, whatever you say.
                     Irene: Okay, now you're making me feel embarassed.
                     Irene: It's just...y'know, exciting.
@@ -858,15 +859,15 @@ Player: What should I do?
                     <<Shake Middle>>
                     Irene: Stopppp!! You're making me blush too much!
                 -> Haha, of course. 
-
+                    Irene: Don't make fun of meee!!
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: a
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: a
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            Irene: a
         <<else>> 
-            Irene: 
+            Irene: a
         <<endif>>   
     <<endif>>
     <<jump UCIGarden>>
