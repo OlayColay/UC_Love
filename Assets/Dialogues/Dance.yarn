@@ -1,12 +1,193 @@
-﻿title: NewYarnScript
+﻿title: Dance
 tags:
 ---
+<<SetBackground Backgrounds/Dance>>
 <<Fade false>>
-Player: Woah... the dance looks amazing!
-<<SetSprite Middle BearBox/Idle>>
+<<if $DancePartner == 0>>
+    <<SetSprite Middle Kelly/lbom>>
+    Player: Woah... the dance looks amazing!
+    Kelly: It's a bit crowded... but I'm really happy to be here with you.
+    <<SetSprite Middle Kelly/lbcm>>
+    Kelly: Thank you for inviting me. I don't think I would've went if you didn't ask me.
+<<elseif $DancePartner == 1>>
+    <<SetSprite Middle Ellie/lb>>
+    Player: Woah... the dance looks amazing!
+    Ellie: Yeah! The dance committee put a lot of work into planning it!
+    <<SetSprite Middle Ellie/hb>>
+    Ellie: I'm really glad to be able to go with you!
+    <<SetSprite Middle Ellie/Idle>>
+<<elseif $DancePartner == 2>>
+    <<SetSprite Middle Santana/Idle>>
+    Player: Woah... the dance looks amazing!
+    <<SetSprite Middle Santana/bliss>>
+    Santana: Yeah! The decorations are all so lovely! Thank you for inviting me!
+    <<SetSprite Middle Santana/Idle>>
+<<elseif $DancePartner == 3>>
+    <<SetSprite Middle Irene/Excited>>
+    Player: Woah... the dance looks amazing!
+    Irene: Yeah! This looks like something straight out of a video game!
+    <<SetSprite Middle Irene/Excited>>
+<<elseif $DancePartner == 4>>
+    <<SetSprite Middle Riviera/Happy>>
+    Player: Woah... the dance looks amazing!
+    Riviera: Yeah! The startups' contributions really tie the whole place together!
+    Riviera: I think I see my friend's catering booth over there!
+    <<SetSprite Middle Riviera/>>
+    Riviera: Thank you for inviting me. It's really nice to be able to spend the evening with you like this!
+<<else>>
+    Player: Woah... the dance looks amazing!
+<<endif>>
+<<SetSprite Right BearBox/Idle>>
 BearBox: Oh hey there! Thanks for coming to the fundraiser dance!
 BearBox: I hope that your year at UCL has been fun so far! 
-<<SetSprite Middle BearBox/Blush>>
+<<SetSprite Right BearBox/Blush>>
 BearBox: The campus isn't too bad once you get used to it hmm? It has that tendency to grow on you!
-BearBox: 
+BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundraising goals!
+<<if $DancePartner == 5>>
+    BearBox: Now who might this lovely gentleman be...
+    <<SetSprite Right BearBox/Angry>>
+    <<Shake Middle>>
+        <<if $PlayerPronouns == 0>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT DUMPED HIM INTO THE TRASH CAN!
+        <<elseif $PlayerPronouns == 1>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT DUMPED HER INTO THE TRASH CAN!
+        <<else>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT DUMPED THEM INTO THE TRASH CAN!
+        <<endif>>
+    BearBox: Grrrr....
+    BearBox: Is he bothering you? 
+    -> Yes! Can you get him away from me?
+        <<SetSprite Middle Tommy/Flustered>>
+        Tommy: Wait what? You invited me to the dance!
+        -> I'm just kidding... He's with me BearBox!
+        BearBox: If you say so...
+        BearBox: ... I'll keeping my eye on you mister...
+        BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
+    -> You've got it all wrong!
+        Player: I know Tommy was a bit of a bully, but he's had a change of heart!
+        BearBox: ... I'll keeping my eye on you mister...
+        BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
+    <<SetSprite Right BearBox/Idle>>
+    BearBox: Stay out of trouble you two!
+<<else>>
+    BearBox: Now who might this lovely lady be...
+    <<if $DancePartner == 0>>
+        Player: This is Kelly!
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: Good evening Professor BearBox!
+        <<SetSprite Middle Kelly/Idle>>
+    <<elseif $DancePartner == 1>>
+        Player: This is Ellie!
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: Good evening Professor BearBox!
+        <<SetSprite Middle Ellie/Idle>>
+    <<elseif $DancePartner == 2>>
+        Player: This is Santana!
+        <<SetSprite Middle Santana/bliss>>
+        Ellie: Good evening Professor BearBox!
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $DancePartner == 3>>
+        Player: This is Irene!
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: Good evening Professor BearBox!
+         <<SetSprite Middle Irene/Idle>>
+    <<elseif $DancePartner == 4>>
+        Player: This is Riviera!
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: Good evening Professor BearBox!
+        <<SetSprite Middle Riviera/Idle>>
+    <<else>>
+        Player: Oops, this message is a bug! You're not supposed to ever see this one!
+    <<endif>>
+<<endif>>
+    BearBox: Great! Great! I'm very happy for the both of you!
+<<SetSprite Right BearBox/Idle>>
+BearBox: Oh! The ceremonial procedures are starting! You guys are going to love this!
+<<SetSprite Left Squirrel/Mascot>>
+<<Shake Left>>
+-> WHAT THE HELL IS THAT?
+    <<SetSprite Right BearBox/Angry>>
+    BearBox: That's rude of you! Don't you know that this is UCL's mascot?
+    <<SetSprite Right BearBox/Idle>>
+    Squirrel: To be honest, we didn't really have it in the budget to get actual mascot costumes.
+    Squirrel: We just found this costume on the curb last-minute.
+    Player: ...
+-> RUN AWAY!
+    <<SetSprite Right BearBox/Angry>>
+    BearBox: That's rude of you! Don't you know that this is UCL's mascot?
+    <<SetSprite Right BearBox/Idle>>
+    Squirrel: To be honest, we didn't really have it in the budget to get actual mascot costumes.
+    Squirrel: We just found this costume on the curb last-minute.
+    Player: ...
+<<SetSprite Right BearBox/Blush>>
+BearBox: Anyways, guys, gals, and nonbinary pals, it is with great pleasure that I announce the success of our fundraising campaign!
+BearBox: Thanks to you all, we have raised an exorbitant amount of money!
+<<SetSprite Right BearBox/Idle>>
+BearBox: Unfortunately... we're not really sure what to do with it.
+-> What do you mean you don't know what to do with it?!
+BearBox: Well, some students want to use it to separate the UCs back into separate UCs.
+BearBox: Other students have grown attached to UCL and want to use the money to improve and maintain it instead!
+<<SetSprite Right BearBox/Blush>>
+BearBox: And a great number of totally real students want to use it to buy me a giant bouncy castle!
+<<SetSprite Right BearBox/Idle>>
+Squirrel: We only have enough money for one of these options...
+BearBox: Yeah... the bouncy castle costs a surprising amount of money.
+Squirrel: So we're going to hold a raffle to decide how to spend the money!
+Squirrel: If you all take a look at your dance tickets, you'll see a little number at the bottom!
+Squirrel: The student with the winning ticket number will decide if UCL will stay as a consolidation of the UCs...
+Squirrel: Or if UCL will be split back to its original colleges...
+<<SetSprite Right BearBox>>
+BearBox: Or if we can buy a bouncy castle!
+Squirrel: ... Or if we can buy a bouncy castle. 
+-> Hold up, shouldn't this decision be made by someone more qualified rather than a random student?
+    Squirrel: That's a good point.
+    Squirrel: But to be fair, poor financial administrative decisions got us into this mess in the first place. 
+    Squirrel: It's only poetic to end the story how it started!
+-> Why would we need a bouncy castle?
+    BearBox: For bouncing silly! There are fewer things in life more pleasurable than jumping in a bouncy house!
+    -> But shouldn't this decision be made by someone more qualified rather than a random student?
+    Squirrel: That's a good point.
+    Squirrel: But to be fair, poor financial administrative decisions got us into this mess in the first place. 
+    Squirrel: It's only poetic to end the story how it started!
+Squirrel: The winning student is...
+Squirrel: Student number 123!
+-> That's me!
+<<Shake Right>>
+<<SetSprite Right BearBox/Blush>>
+BearBox: Woah! Congratulations! 
+<<if $DancePartner == 0>>
+    <<SetSprite Middle Kelly/lbcm>>
+    Kelly: Congrats!
+<<elseif $DancePartner == 1>>
+    <<SetSprite Middle Ellie/smc>>
+    Ellie: Great job!
+<<elseif $DancePartner == 2>>
+    <<SetSprite Middle Santana/bliss>>
+    Santana: I'm so happy for you!
+    <<SetSprite Middle Santana/Idle>>
+<<elseif $DancePartner == 3>>
+    Irene: Ayyy! 
+<<elseif $DancePartner == 4>>
+    Riviera: Nice job! You deserve it!
+<<else>>
+
+<<endif>>
+BearBox: Now the fate of UCL rests solely in your hands...
+<<SetSprite Right BearBox/Idle>>
+BearBox: This year has been an eventful one thus far... and I want you to think deeply about what has become important to you when you make this decision.
+BearBox: ... bouncy castle...
+Player: What?
+<<Shake Right>>
+BearBox: What?
+<<if $DancePartner == 5>>
+    Squirrel: Can I please leave now? Something around here smells like a really bad women's perfume.
+    <<SetSprite Middle Tommy/Flustered>>
+    Tommy: H-hey!
+    Squirrel: I'm out, they don't pay me enough for this. 
+    <<ClearSprite Left>>
+<<else>>
+    Squirrel: Can I please leave now? This squirrel costume smells like unwashed college students. 
+    Squirrel: Y'know what? I'm out, they don't pay me enough for this. 
+    <<ClearSprite Left>>
+<<endif>>
 ===

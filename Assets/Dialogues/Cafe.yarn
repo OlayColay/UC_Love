@@ -745,13 +745,17 @@ position: 207,66
     <<AddRelationshipScore Riviera {$GiftScore}>>
     <<if $GiftScoreRCafe == 20>>
         //Loved Gift
+        <<SetSprite Middle Riviera/Happy>>
         Riviera: Oh thanks! I'm always running out of these! I really love these!
     <<elseif $GiftScoreRCafe == 10>>
         //Liked Gift
         Riviera: This is pretty nice! Thanks.
+        <<SetSprite Middle Riviera/Idle>>
     <<else>>
         //Hated Gift
+        <<SetSprite Middle Riviera/Sad>>
         Riviera: Err… I'm not sure what I'm supposed to do with these…
+        <<SetSprite Middle Riviera/Idle>>
     <<endif>>
     <<jump UCRCafe>>
 -> Leave

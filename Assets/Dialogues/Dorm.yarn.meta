@@ -11,10 +11,4 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages:
-  - '73:0: Error: $TimeOfDayDorm (Number) cannot be assigned a undefined
-
-    <<set
-    $TimeOfDayDorm to GetTimeOfDay()>>
-
-'
+  parseErrorMessages: []

@@ -435,13 +435,18 @@ position: 212,-6
     <<AddRelationshipScore Riviera {$GiftScore}>>
     <<if $GiftScoreRPlaza == 20>>
         //Loved Gift
+        <<SetSprite Middle Riviera/Happy>>
         Riviera: Oh thanks! I'm always running out of these! I really love these!
+        <<SetSprite Middle Riviera/Idle>>
     <<elseif $GiftScoreRPlaza == 10>>
         //Liked Gift
         Riviera: This is pretty nice! Thanks.
+        <<SetSprite Middle Riviera/Idle>>
     <<else>>
         //Hated Gift
+        <<SetSprite Middle Riviera/Sad>>
         Riviera: Err… I'm not sure what I'm supposed to do with these…
+        <<SetSprite Middle Riviera/Idle>>
     <<endif>>
     <<jump UCRPlaza>>
 -> Leave
@@ -909,7 +914,7 @@ Player: What should I do?
         <<if GetRelationshipScore("Ellie") >= 500>>
             Player: Would you like to go to the dance with me?
             Ellie: I'd love to! We're going to have so much fun!
-            <<set $DancePartner = "UCLA">>
+            <<set $DancePartner = 1>>
             <<jump Dance>>
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.

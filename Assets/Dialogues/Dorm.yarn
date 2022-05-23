@@ -64,7 +64,7 @@ Player: What should I do?
             <<endif>>
             <<jump Dorm>>
     -> Leave
-<<LoadScene MapScene>>
+        <<LoadScene MapScene>>
 ===
 title: AdditionalNap
 position: 189,-70
