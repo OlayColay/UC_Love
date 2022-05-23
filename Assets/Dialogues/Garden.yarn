@@ -848,6 +848,18 @@ Player: What should I do?
                         Irene: What's that supposed to mean?
                 -> Mhm, whatever you say.
                     Irene: Okay, now you're making me feel embarassed.
+                    Irene: It's just...y'know, exciting.
+                    Irene: Like..!!
+                    <<Shake Middle>>
+                    Irene: Oh my God. Just let me perish in a hole!!!
+                    Player: Haha, not on my watch!
+                    Player: You're too cute to hide in a hole.
+                    <<AddRelationshipScore Irene 30>>
+                    <<SetSprite Middle Irene/ExcitedHB>>
+                    <<Shake Middle>>
+                    Irene: Stopppp!! You're making me blush too much!
+                -> Haha, of course. 
+                    Irene: Don't make fun of meee!!
         <<elseif $UCI_Dialogue == 2>>
             Irene: 
         <<elseif $UCI_Dialogue == 3>>
