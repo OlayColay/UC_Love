@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             flyer2.transform.position = Vector3.SmoothDamp(flyer2.transform.position, Camera.main.transform.position + flyer2offset, ref currentVelocityFlyer2, smoothTime);
         }
 
-        if (health <= 0)
+        if ((health <= 0) && (!gameOver))
         {
             flyer3.GetComponent<SpriteRenderer>().enabled = true;
             flyer3.transform.position = Vector3.SmoothDamp(flyer3.transform.position, Camera.main.transform.position + flyer3offset, ref currentVelocityFlyer3, smoothTime);
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Goal") && (health > 0))
+        if ((collision.gameObject.tag == "Goal") && (health > 0) && (!gameOver))
          {
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
             gameOver = true;
