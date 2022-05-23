@@ -112,7 +112,8 @@ Stan: For sure, for sure. You've got some cute moments like this, as always.
 <<SetActiveChar Middle>>
 <<Shake Middle>>
 Tommy: S-Stan...
--> Sorry to interrupt your lovers' spat, but I think I gotta go.. I'm running late to class.
+-> Sorry to interrupt your lovers' spat...
+    Player: Sorry to interrupt your lovers' spat, but I think I gotta go.. I'm running late to class.
     <<SetSprite Middle Stan/Question>>
     <<SetSprite Right Tommy/Frown>>
     <<SetActiveChar Middle>>
