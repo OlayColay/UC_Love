@@ -835,8 +835,11 @@ Player: What should I do?
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: Looks like I'm seeing you quite often these nights!
-            Irene: What for?
+            Irene: I'll have to say, it's kinda sus to meet at night all the time.
+            -> W-what? What do you mean?
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: U-um! I mean... Y'know...like as if these are secret meetings..
+                Irene: I don't mean it in any other way!!
         <<elseif $UCI_Dialogue == 2>>
             Irene: 
         <<elseif $UCI_Dialogue == 3>>
