@@ -25,7 +25,7 @@ public class Item
 
         if (!sprite)
         {
-            Debug.LogError("Could not find sprite with path " + spritePath);
+            // Debug.LogError("Could not find sprite with path " + spritePath);
         }
 
         this.name = name;

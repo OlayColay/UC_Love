@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().health--;
-            Debug.Log("hit");
+            // Debug.Log("hit");
             Destroy(gameObject);
         }
 

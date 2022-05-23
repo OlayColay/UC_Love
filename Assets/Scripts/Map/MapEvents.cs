@@ -17,7 +17,7 @@ public class MapEvents : MonoBehaviour
         FindObjectOfType<Toggle>().SetIsOnWithoutNotify(autoSave);
         if (autoSave)
         {
-            Debug.Log("Autosaving...");
+            // Debug.Log("Autosaving...");
             Inventory.SaveGame();
         } 
     }
@@ -41,6 +41,6 @@ public class MapEvents : MonoBehaviour
     {
         autoSave = !autoSave;
         PlayerPrefs.SetInt("AutoSave", autoSave ? 1 : 0);
-        Debug.Log("Autosave is now " + autoSave + '\n' + StackTraceUtility.ExtractStackTrace());
+        // Debug.Log("Autosave is now " + autoSave + '\n' + StackTraceUtility.ExtractStackTrace());
     }
 }

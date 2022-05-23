@@ -109,7 +109,7 @@ public class ShopScreen : MonoBehaviour
     {
         if (index < 0 || index >= 6)
         {
-            Debug.LogError("Index of item must be between 0 and 5 inclusive!");
+            // Debug.LogError("Index of item must be between 0 and 5 inclusive!");
             return;
         }
 

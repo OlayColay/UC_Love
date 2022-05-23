@@ -34,7 +34,7 @@ public class YarnCommands : MonoBehaviour
         AudioClip introClip = Resources.Load<AudioClip>(introPath);
         if ((Background.Instance.audioSource.clip = introClip) == null)
         {
-            Debug.LogError("Couldn't find audio clip in " + introPath);
+            // Debug.LogError("Couldn't find audio clip in " + introPath);
             return;
         }
         Background.Instance.audioSource.loop = false;
@@ -177,17 +177,17 @@ public class YarnCommands : MonoBehaviour
         if (int.TryParse(variable, out n))
         {
             PlayerPrefs.SetInt(name, n);
-            Debug.Log("Saved int " + variable + " to " + name);
+            // Debug.Log("Saved int " + variable + " to " + name);
         }
         else if (float.TryParse(variable, out f))
         {
             PlayerPrefs.SetFloat(name, f);
-            Debug.Log("Saved float " + variable + " to " + name);
+            // Debug.Log("Saved float " + variable + " to " + name);
         }
         else
         {
             PlayerPrefs.SetString(name, variable);
-            Debug.Log("Saved string " + variable + " to " + name);
+            // Debug.Log("Saved string " + variable + " to " + name);
         }
     }
 }

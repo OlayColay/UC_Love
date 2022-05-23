@@ -71,6 +71,20 @@ public static class Inventory
     [YarnCommand("AddRelationshipScore")]
     public static void ChangeRelationshipScore(string name, int change) { relationshipScores[name] += change; }
 
+    [YarnCommand("CleanSave")]
+    public static void CleanSave()
+    {
+        relationshipScores.Clear();
+        foreach (string name in names)
+            relationshipScores.Add(name, 0);
+
+        money = 100;
+        day = 0;
+        time = 0;
+
+        list.Clear();
+    }
+
     // Inventory
 
     [YarnCommand("AddItem")]
@@ -109,7 +123,7 @@ public static class Inventory
 
         if (givenItem == null)
         {
-            Debug.LogError("Couldn't find item in list! Are you looking for a key item?");
+            // Debug.LogError("Couldn't find item in list! Are you looking for a key item?");
             return;
         }
         
@@ -172,13 +186,13 @@ public static class Inventory
             item = keyItemList.Find(i => i.name == itemName);
             if (item != null)
                 return "Gifts/" + item.sprite.name;
-            Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
+            // Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
             return "nothing";
         }
         item = list.Find(i => i.name == itemName);
         if (item != null)
             return "Gifts/" + item.sprite.name;
-        Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
+        // Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
         return "nothing";
     }
 

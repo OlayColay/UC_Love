@@ -28,7 +28,7 @@ public class SaveData
         inventory = new SerializableItem[Inventory.list.Count];
         for (int i = 0; i < Inventory.list.Count; i++)
         {
-            Debug.Log(Inventory.list[i].serialForm.name);
+            // Debug.Log(Inventory.list[i].serialForm.name);
             inventory[i] = Inventory.list[i].serialForm;
         }
         

@@ -34,7 +34,7 @@ public class Background : MonoBehaviour
     {
         if ((_instance.background.sprite = Resources.Load<Sprite>(bgPath)) == null)
         {
-            Debug.LogError("Couldn't find background in " + bgPath);
+            // Debug.LogError("Couldn't find background in " + bgPath);
         }
     }
 }

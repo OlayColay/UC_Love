@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             flyer3.GetComponent<SpriteRenderer>().enabled = true;
             flyer3.transform.position = Vector3.SmoothDamp(flyer3.transform.position, Camera.main.transform.position + flyer3offset, ref currentVelocityFlyer3, smoothTime);
-            Debug.Log("you lose!!!!!!!!!!!!!!!!!!!");
+            // Debug.Log("you lose!!!!!!!!!!!!!!!!!!!");
 
             gameOver = true;
             gameWon = false;
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("hit");
+            // Debug.Log("hit");
             health--;
             Destroy(collision.gameObject);
         }
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Goal") && (health > 0) && (!gameOver))
          {
-            Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
+            // Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
             gameOver = true;
             gameWon = true;
             GainMoney();
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
         // int enemyMoney = GameObject.FindGameObjectsWithTag("Enemy").Length;
         Inventory.ChangeMoney(money);
-        Debug.Log("Money gained: " + money);
+        // Debug.Log("Money gained: " + money);
     }
 
 

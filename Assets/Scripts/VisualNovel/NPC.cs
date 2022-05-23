@@ -33,7 +33,7 @@ public class NPC : MonoBehaviour
     {
         if ((image.sprite = Resources.Load<Sprite>(spritePath)) == null)
         {
-            Debug.LogError("Couldn't find character sprite in " + spritePath);
+            // Debug.LogError("Couldn't find character sprite in " + spritePath);
         }
 
         if (image.color.a <= float.Epsilon || !image.enabled)
@@ -69,7 +69,7 @@ public class NPC : MonoBehaviour
     {
         if ((audioSource.clip = Resources.Load<AudioClip>(soundPath)) == null)
         {
-            Debug.LogError("Couldn't find audio clip in " + soundPath);
+            // Debug.LogError("Couldn't find audio clip in " + soundPath);
             return;
         }
         audioSource.Play();

@@ -49,7 +49,7 @@ public class Click : MonoBehaviour
 
             if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
-                Debug.Log("Travel to " + newLocation.name);
+                // Debug.Log("Travel to " + newLocation.name);
                 
                 // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
                 // instead of as a Coroutine?
