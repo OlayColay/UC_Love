@@ -219,10 +219,11 @@ BearBox: What should we do with the budget?
     <<jump BreakUCL>>
 -> Buy a bouncy castle!
     <<SetSprite Right BearBox/Blush>>
+    <<Shake Right>>
     BearBox: WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!
     BearBox: Yeah baby!!! That's what I've been waiting for! That's what it's all about!
     BearBox: WOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!
-    BearBox: Bouncy castle! Bouncy castle! Bouncy Castle!
+    BearBox: Bouncy castle! Bouncy castle! Bouncy castle!
     <<jump BouncyCastle>>
 ===
 title: KeepUCL
@@ -235,7 +236,14 @@ position: 138,2
 ---
 <<SetBackground>>
 <<if $DancePartner == 0>>
-    Kelly: 
+    <<SetSprite Middle Kelly/sad>>
+    Kelly: Oh... you're leaving?
+    Kelly: I understand...
+    <<SetSprite Middle Kelly/lbom>>
+    Kelly: I'm not very good with words and that kind of stuff...
+    <<SetSprite Middle Kelly/hbom>>
+    Kelly: But I hope that you're alright... wherever you go.
+    Kelly: I hope that you are happy. 
 <<elseif $DancePartner == 1>>
     <<SetSprite Middle Ellie/Angry>>
     Ellie: Well... I guess this is goodbye...
@@ -262,12 +270,22 @@ position: 138,2
     Irene: I'll send you any cool Bobamons I catch back home alright?
     <<SetSprite Middle Irene/Idle>>
 <<elseif $DancePartner == 4>>
-    Riviera:
+    <<SetSprite Middle Riviera/Sad>>
+    Riviera: So I guess this is goodbye...
+    Riviera: Before you go... I wanted to let you know that...
+    <<SetSprite Middle Riviera/LB>>
+    Riviera: I don't think that I would be where I am without you...
+    Riviera: Thank you for all that you've done for me.
+    <<SetSprite Middle Riviera/HB>>
+    Riviera: Say, once I make it big, I'll buy a ticket to come and visit you wherever you are ok?
+    <<SetSprite Middle Right/Idle>>
 <<else>>
-    Tommy:
+    Tommy: I'm really going to miss seeing you around...
+    Tommy: I really liked walking around the garden with you at night. 
+    Tommy: Have a safe trip back home ok?
 <<endif>>
-<<ClearSprite Middle>>
 <<Fade false>>
+<<ClearSprite Middle>>
 <<SetBackground Backgrounds/BadEndClassroomBadEndClassroom>>
 <<Fade true>>
 Player: It has been one year since UCL split apart...
@@ -281,5 +299,38 @@ Player: Sometimes, I wish I could redo everything and choose differently...
 title: BouncyCastle
 position: 132,89
 ---
-
+<<if $DancePartner == 0>>
+    <<SetSprite Middle Kelly/Idle>>
+    Kelly: Well... that was... unexpected.
+<<elseif $DancePartner == 1>>
+    <<SetSprite Middle Ellie/Angry>>
+    Ellie: Well... that was... unexpected.
+<<elseif $DancePartner == 2>>
+    <<SetSprite Middle Santana/bliss>>
+    Santana: Well... that was... unexpected.
+<<elseif $DancePartner == 3>>
+    <<SetSprite Middle Irene/Awkward>>
+    Irene: Well... that was... unexpected.
+<<elseif $DancePartner == 4>>
+    <<SetSprite Middle Riviera/Sad>>
+    Riviera: Well... that was... unexpected.
+<<else>>
+    Tommy: Well... that was... unexpected.
+<<endif>>
+BearBox: I'll go and make the preparations!
+BearBox: Bouncy castle! Bouncy castle! Bouncy castle!
+<<Fade false>>
+<<ClearSprite Right>>
+<<SetSprite Middle BearBox/Blush>>
+<<SetBackground Backgrounds/BouncyCastle>>
+<<Fade true>>
+<<Shake Middle>>
+BearBox: Bouncy! Bouncy castle! Bounce! Bounce! Bounce!
+Player: Well... we might not have a nicer university...
+Player: Or have brought back our old campuses...
+Player: But at least... we have a bouncy castle??
+<<Shake Middle 999 60>>
+BearBox: Bounce! Bounce! Bounce!
+<<Fade false>>
+<<LoadScene Credits>>
 ===
