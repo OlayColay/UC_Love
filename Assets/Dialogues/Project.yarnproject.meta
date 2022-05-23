@@ -20,8 +20,489 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
   - {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
   - {fileID: 6391573757903218779, guid: a57c54f571a03e94cb9406355914bd21, type: 3}
+  - {fileID: 6391573757903218779, guid: a90823882bea7f54c9a97dcb457f2e6f, type: 3}
   compileErrors: []
-  serializedDeclarations: []
+  serializedDeclarations:
+  - name: $BerkeleyDialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dialogue Pools Test.yarn, node TalktoBerkeley, line 1
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: f37b49ebfe56ace4b978250d57be6aba, type: 3}
+  - name: $TalkTommy
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 2
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftTommy
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 3
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $AskTommy
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 4
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $TalkSantana
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 6
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftSantana
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 7
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $AskSantana
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $TalkIrene
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 10
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftIrene
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 11
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $AskIrene
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 12
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $TimeOfDayGarden
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 15
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $USC_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node USCGarden, line 14
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftScore
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node USCGarden, line 253
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $Random_Event_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node RandomEvent, line 2
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $UCSB_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node UCSBGarden, line 11
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftScoreS
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node UCSBGarden, line 134
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $UCI_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node UCIGarden, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $BobamonGo
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node UCIGarden, line 22
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $GiftScoreI
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node UCIGarden, line 131
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $TalkKelly
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 2
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $GiftKelly
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 3
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $AskKelly
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 4
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $TalkEllie
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 6
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $GiftEllie
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 7
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $AskEllie
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $OptionalPowellCat
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 12
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $TimeofDayLibrary
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node Library, line 13
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UCB_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCBLibrary, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $GiftScoreK
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCBLibrary, line 282
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UCLA_Dialogue_Library
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCLALibrary, line 9
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UCLA_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCLALibrary, line 26
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UCLA_Quit
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCLALibrary, line 263
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $GiftScoreELibrary
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCLALibrary, line 422
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $DancePartner
+    typeName: String
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Library.yarn, node UCLALibrary, line 459
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $TalkRiviera
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node Gym, line 2
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $GiftRiviera
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node Gym, line 3
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $AskRiviera
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node Gym, line 4
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $TimeOfDayGym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node Gym, line 15
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $UCRDialogueGym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCRGym, line 9
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $UCRIntroGym
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCRGym, line 10
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $RivieraHelp
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCRGym, line 140
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $GiftScoreRGym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCRGym, line 367
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $UCLA_Dialogue_Gym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCLAGym, line 9
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $GiftScoreEGym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Gym.yarn, node UCLAGym, line 422
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $TimeOfDayPlaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node Plaza, line 15
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $UCRDialoguePlaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node UCRPlaza, line 9
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $UCRIntroPlaza
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node UCRPlaza, line 10
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $GiftScoreRPlaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node UCRPlaza, line 367
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $UCLA_Dialogue_Plaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node UCLAPlaza, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $GiftScoreEPlaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Plaza.yarn, node UCLAPlaza, line 421
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $TimeOfDayDorm
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dorm.yarn, node Dorm, line 10
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
+  - name: $Computer_Info
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dorm.yarn, node Dorm, line 24
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
+  - name: $TimeOfDayDorm2
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dorm.yarn, node AdditionalNap, line 3
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
+  - name: $TimeOfDayCafe
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node Cafe, line 19
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $UCBDialogueCafe
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node UCBCafe, line 8
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $GiftScoreKCafe
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node UCBCafe, line 282
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $UCRDialogueCafe
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node UCRCafe, line 9
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $UCRIntroCafe
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node UCRCafe, line 10
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $GiftScoreRCafe
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Cafe.yarn, node UCRCafe, line 367
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $PlayerPronouns
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Intro.yarn, node Orientation, line 32
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: a57c54f571a03e94cb9406355914bd21, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0

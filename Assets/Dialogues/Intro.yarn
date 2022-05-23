@@ -68,7 +68,7 @@ Tommy: Yeah Stan! It smells like poor people here!
 Stan: ... That's probably just that biological weapon of a cologne you wear Tommy...
 <<SetActiveChar Right>>
 <<SetSprite Right Tommy/Angry>>
-Tommy: OI! This right here is the new Bucci perfume!
+Tommy: OI! This right here is the new Bucci perfume! Tommy Trojan only wears the best of the best!
 <<SetActiveChar Middle>>
 <<SetSprite Middle Stan/Question>>
 Stan: ... Perfume? 
@@ -157,7 +157,7 @@ Tommy: Nice throw Stan!
 <<endif>>
 Tommy: Did you still want to grab lunch together?
 Stan: Yeah sure, but we should go to someplace nicer uptown. The food in this area hurts my stomach.
-BearBox: Hey! What do you two think you're doing?!
+BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
 Tommy: Uh oh...
 Stan: We better get going...
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
