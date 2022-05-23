@@ -170,26 +170,24 @@ public class YarnCommands : MonoBehaviour
     }
 
     [YarnCommand("SaveVariable")]
-    public static void SaveVariable(string name, dynamic variable)
+    public static void SaveVariable(string name, string variable)
     {
-        if (variable is int)
+        int n;
+        float f;
+        if (int.TryParse(variable, out n))
         {
-            PlayerPrefs.SetInt(name, variable);
+            PlayerPrefs.SetInt(name, n);
             Debug.Log("Saved int " + variable + " to " + name);
         }
-        else if (variable is float)
+        else if (float.TryParse(variable, out f))
         {
-            PlayerPrefs.SetFloat(name, variable);
+            PlayerPrefs.SetFloat(name, f);
             Debug.Log("Saved float " + variable + " to " + name);
-        }
-        else if (variable is string)
-        {
-            PlayerPrefs.SetString(name, variable);
-            Debug.Log("Saved string " + variable + " to " + name);
         }
         else
         {
-            Debug.LogError("Cannot save an invalid type of variable!");
+            PlayerPrefs.SetString(name, variable);
+            Debug.Log("Saved string " + variable + " to " + name);
         }
     }
 }
