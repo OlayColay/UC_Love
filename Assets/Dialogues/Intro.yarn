@@ -145,7 +145,7 @@ Tommy: S-Stan...
 
 -> HAHA! Imagine accidentally buying women's perfume! What an idiot!
     <<SetSprite Middle Tommy/Angry>>
-    <<SetSprite Right Stan/stanpassive>>
+    <<SetSprite Right Stan/Passive>>
     <<SetActiveChar Middle>>
     <<Shake Middle>>
     Tommy: What'd you say?!
@@ -159,7 +159,7 @@ Tommy: S-Stan...
     Tommy: I won't forget this!
     Player: Okay, okay... I'm sorry.
     <<SetSprite Right Tommy/Frown>>
-    <<SetSprite Middle Stan/stansmiling>>
+    <<SetSprite Middle Stan/Smiling>>
     <<SetActiveChar Middle>>
     Stan: Thanks for apologizing. 
     Stan: Come on, Tommy. You've got an apology.
