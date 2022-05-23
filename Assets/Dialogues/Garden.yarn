@@ -30,7 +30,7 @@ position: -107,2
 <<Fade true>>
 
 
-<<set $Flavor_Text = Dice(3)>>
+<<set $Flavor_Text to Dice(3)>>
 <<if $TimeOfDayGarden == 0>>
     <<if $Flavor_Text == 1>>
         Player: A morning stroll in the garden is great! 
@@ -91,7 +91,7 @@ Player: What should I do?
 -> Talk to Tommy <<if $TalkTommy == false>>
     <<set $TalkTommy to true>>
     <<AddRelationshipScore Tommy 10>>
-    <<set $USC_Dialogue = Dice(5)>>
+    <<set $USC_Dialogue to Dice(5)>>
     //10 points will be added to the relationship score for just talking to USC. 
     //Different lines from different dialogue "pools" will be pulled depending on the player's 
     //relationship with the character. There are 5 levels of relationships: Strangers, Acquaintances,
