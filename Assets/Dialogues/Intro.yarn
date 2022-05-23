@@ -19,7 +19,7 @@ position: 192,-57
 ---
 <<FadeBackground Backgrounds/Dorm 2>>
 Player: Ugh… my head… I shouldn't have slept so late last night…
-Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
+Player: I can't really help it though. Ever since the University of California announced the merger, I've been stressed non-stop.
 Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
 Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
 Player: Oh shoot! I better get going if I want to make it up the stairs without wheezing my lungs out!
@@ -30,7 +30,7 @@ Player: I guess they didn't have the budget to fix the sign, so they just rename
 Player: I'm not looking forward to this...
 <<SetSprite Middle BearBox/Idle>>
 BearBox: Hey welcome to campus!
--> Whoa what the hell are you??!
+-> Whoa, what the hell are you??!
     <<SetSprite Middle BearBox/Angry>>
     BearBox: Excuse you! I'm the PREMIER delivery service for college students!
     BearBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
@@ -56,107 +56,98 @@ BearBox: Would you like one?
     <<set $PlayerPronouns = 2>>
 BearBox: Sure thing! Here you go! Have a great first day and stay out of trouble!
 <<ClearSprite Middle>>
-Player: Speaking of trouble...
-<<SetSprite Middle Stan/Pitiful>>
-<<SetSprite Right Tommy/Idle>>
+Player: Well, I hope so too. Let's take a look around. 
+<<SetSprite Middle Stan/stansmiling>>
 <<SetActiveChar Middle>>
-Stan: Hey Tommy! I didn't know that they made a university for LOSERS!
+Stan: Hey there! You seem to be a new student.
+<<ClearSprite Middle>>
+Player: Yeah! Today's my first day here, actually.
+Stan: That's cool! We should hang out sometime.
+<<SetSprite Right Tommy/Snickering>>
 <<SetActiveChar Right>>
-Tommy: Yeah Stan! It smells like poor people here!
-<<SetSprite Middle Stan/Irritated>>
+Tommy: Hey, Stan. Who are you talking to?
 <<SetActiveChar Middle>>
-Stan: ... That's probably just that biological weapon of a cologne you wear Tommy...
+Stan: Oh hey, Tommy! Just a new student to this school!
+<<SetSprite Right Tommy/Flustered>>
 <<SetActiveChar Right>>
-<<SetSprite Right Tommy/Angry>>
+Tommy: Really, dude? You shouldn't be talking to losers from this stupid university.
+<<ClearSprite Middle>>
+Player: Excuse me?
+<<SetSprite Middle Tommy/Idle>>
+<<SetSprite Right Stan/stanpassive>>
+<<SetActiveChar Right>>
+Stan: Come on, Tommy.. You shouldn't say those kind of things.
+Stan: This place is for gifted students.
+<<SetSprite Middle Tommy/Frown>>
+<<SetActiveChar Middle>>
+Tommy: Gifted? Sureee...
+Tommy: But it's still full of poor people.
+<<SetActiveChar Right>>
+Stan: Whatever you say... 
+Stan: In fact, the only thing I smell is you.
+Stan: What are you wearing??
+<<SetActiveChar Middle>>
+<<SetSprite Middle Tommy/Flustered>>
 Tommy: OI! This right here is the new Bucci perfume! Tommy Trojan only wears the best of the best!
-<<SetActiveChar Middle>>
-<<SetSprite Middle Stan/Question>>
-Stan: ... Perfume? 
-<<SetSprite Middle Stan/Laughing>>
-Stan: Tommy... you idiot... perfume is for women... cologne is for men. 
 <<SetActiveChar Right>>
-<<SetSprite Right Tommy/Awkward>>
-Tommy: This isn't perfume! I mispoke! It's cologne for sure! I have the bottle right here!
+<<SetSprite Right Stan/Question>>
+Stan: ... Perfume? 
+Stan: Tommy, did you check if it was perfume for women?
+<<SetActiveChar Middle>>
+<<SetSprite Middle Tommy/Awkward>>
+Tommy: No it's not! I-I think?? It's for sure for guys! I have the bottle right here!
 Tommy: See?
 Tommy: It clearly says right here: Bucci Flora: Eau de...
 Tommy: ... Parfum...
-<<Shake Right>>
-<<SetSprite Right Tommy/Flustered>>
-<<Shake Right>>
+<<Shake Middle>>
+<<SetSprite Middle Tommy/Flustered>>
+<<Shake Middle>>
 Tommy: !!!
-<<SetSprite Right Tommy/Flushed>>
-Tommy: Well that's beside the point! Aren't we supposed to be bullying this kid or something?
-<<SetSprite Middle Stan/Grin>>
-<<SetActiveChar Middle>>
-Stan: In due time, Tommy. I just wanted to mess with you for a bit.
-<<SetSprite Right Tommy/Flushed>>
+<<SetSprite Middle Tommy/Flushed>>
+Tommy: Well that's beside the point!
+<<SetSprite Right Stan/Giggle>>
 <<SetActiveChar Right>>
-<<Shake Right>>
+Stan: For sure, for sure. You've got some cute moments like this, as always.
+<<SetSprite Middle Tommy/Flushed>>
+<<SetActiveChar Middle>>
+<<Shake Middle>>
 Tommy: S-Stan...
--> Sorry to interrupt your lovers' spat, but can you just finish up with bullying me? I'm running late to class.
-    <<SetSprite Middle Stan/Irritated>>
-    <<SetSprite Right Tommy/Angry>>
-    Tommy: The lower class doesn't even have the virtue of patience these days...
-    <<SetSprite Middle Stan/Sus>>
+-> Sorry to interrupt your lovers' spat, but I think I gotta go.. I'm running late to class.
+    <<SetSprite Middle Stan/Question>>
+    <<SetSprite Right Tommy/Frown>>
     <<SetActiveChar Middle>>
-    Stan: Are you trying to order us around punk? You think you're so tough, huh?
-    Stan: I'll show you who's boss!
+    Stan: Oh? Yeah, you should get going. Sorry to take up your time!
+    <<SetActiveChar Right>>
+    Tommy: Tsk! Yeah, yeah. Get goin, peasant.
 -> HAHA! Imagine accidentally buying women's perfume! What an idiot!
-    <<SetSprite Middle Stan/Furious>>
-    <<SetSprite Right Tommy/Angry>>
+    <<SetSprite Middle Tommy/Angry>>
+    <<SetSprite Right Stan/stanpassive>>
     <<SetActiveChar Middle>>
     <<Shake Middle>>
-    Stan: ... It's one thing for me to make fun of Tommy.
-    <<SetSprite Middle Stan/Furious2>>
-    Stan: But under no grounds are the likes of you allowed to!
+    Tommy: What'd you say?!
     <<SetActiveChar Right>>
+    Stan: It's one thing for me to make fun of Tommy and calling him an idiot.
+    Stan: But don't you think that's a bit rude to say?
+    <<SetActiveChar Middle>>
     Tommy: Yeah! Only Stan can call me an idiot!
     <<Shake Middle>>
     <<SetActiveChar Middle>>
-    Stan: I'm going to make you PAY!
-<<SetSprite Middle Stan/Sus>>
-Stan: Alright loser, take your pick. Do you want to get a swirlie or get dumped into that trash can?
-<<Shake Right>>
-<<SetActiveChar Right>>
-Tommy: Stan!
-<<SetSprite Middle Stan/Question>>
-Tommy: We're in a drought right now! We have to conserve water remember?
-<<SetSprite Middle Stan/Irritated>>
-<<SetActiveChar Middle>>
-Stan: Alright, alright. 
-<<Shake Middle>>
-<<SetSprite Middle Stan/Unhinged2>>
-<<if $PlayerPronouns == 0>>
-    Stan: Let's chuck him in the trash can then!
+    Tommy: I won't forget this!
+    <<ClearSprite Middle>>
+    Player: Okay, okay... I'm sorry.
+    <<SetSprite Right Tommy/Frown>>
+    <<SetSprite Middle Stan/stansmiling>>
+    <<SetActiveChar Middle>>
+    Stan: Thanks for apologizing. 
+    Stan: Come on, Tommy. You've got an apology.
     <<SetActiveChar Right>>
-    Tommy: Yeah! Let's chuck him in the trash can!
-<<elseif $PlayerPronouns == 1>>
-    Stan: Let's chuck her in the trash can then!
+    Tommy: Hmph! Fine! Let's go, Stan.
+    <<SetSprite Middle Stan/Laughing>>
+    <<SetSprite Right Tommy/Snickering>>
+    <<SetActiveChar Middle>>
+    Stan: Okay! Where to?
     <<SetActiveChar Right>>
-    Tommy: Yeah! Let's chuck her in the trash can!
-<<else>>
-    Stan: Let's chuck them in the trash can then!
-    <<SetActiveChar Right>>
-    Tommy: Yeah! Let's chuck them in the trash can!
-<<endif>>
-Player: Hey! HEY! Put me down!
-<<Fade false>>
-<<ClearSprite Middle>>
-<<ClearSprite Right>>
-Player: Ow... Ick...
-Tommy: Nice throw Stan!
-<<if $PlayerPronouns == 0>>
-    Stan: Thanks Tommy. Good job on grabbing him.
-    Tommy: Even using Bucci Flora won't help him smell better!
-<<elseif $PlayerPronouns == 1>>
-    Stan: Thanks Tommy. Good job on grabbing her.
-    Tommy: Even using Bucci Flora won't help her smell better!
-<<else>>
-    Stan: Thanks Tommy. Good job on grabbing them.
-    Tommy: Even using Bucci Flora won't help them smell better!
-<<endif>>
-Tommy: Did you still want to grab lunch together?
-Stan: Yeah sure, but we should go to someplace nicer uptown. The food in this area hurts my stomach.
+    Tommy: We should go to someplace nicer uptown. The food in this area hurts my stomach.
 BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
 Tommy: Uh oh...
 Stan: We better get going...
@@ -172,8 +163,8 @@ BearBox: Are you alright?
 -> Yeah!
     Player: Yeah!
     BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
--> Not really...
-    Player: Not really...
+-> Kinda...
+    Player: Kinda...
     BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
 BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
 BearBox: But even though the situation we're in may suck, we can still make the best of it!
