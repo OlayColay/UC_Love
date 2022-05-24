@@ -751,7 +751,7 @@ position: -36,93
     BearBox: If you can't do that, then I honestly don't know how you got accepted into UCL...
     Player: ...
     <<SetSprite Middle BearBox/Blush>>
-    Bearbox: No pressure though! Good luck!
+    BearBox: No pressure though! Good luck!
     <<ClearSprite Middle>>
     <<jump CafeWork>>
 -> Cancel
