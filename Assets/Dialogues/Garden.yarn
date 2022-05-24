@@ -880,6 +880,10 @@ Player: What should I do?
         <<if $UCI_Dialogue == 1>>
             Irene: Looks like I'm seeing you quite often these nights!
             Irene: What for?
+            -> I came here just to see you.
+                Irene: O-oh! I-I see...
+            -> The same reason as you.
+                Irene: O-oh! R-really?
         <<elseif $UCI_Dialogue == 2>>
             <<SetSprite Middle Irene/Excited>>
             Irene: I think that you kind of look like a character from a dating simulator!
@@ -931,9 +935,42 @@ Player: What should I do?
                 -> Haha, of course. 
                     Irene: Don't make fun of meee!!
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: You know, I was thinking...
+            Irene: It's always nice to talk to you.
+            Irene: Like, if anything, as a live-streamer, sometimes it's honestly hard to interact with people.
+            Irene: Since I'm in the position to give content, while also responding accordingly to what people want from me.
+            -> You should cherish yourself more.
+                Irene: !!
+                Irene: ...Yeah..you're right. 
+            -> You're more than you think you are.
+                Irene: !!!
+                Irene: You think so..?
+            Irene: It's just hard...you know? When you have to act a certain way just to not get cancelled.
+            Irene: Already harder since I'm a gamer girl too.
+            Irene: ...
+            Irene: I've had my fair share of certain types of users who said some things that I can never unread anymore.
+            -> Do what you love to do...
+                Player: Do what you love to do, and I'm here for you to cheer you on!
+                <<Shake Middle>>
+                Irene: Thanks! I really mean it. 
+                Irene: I really do mean it. You're very caring and I love that about you.  
+            -> Take some breaks...
+                Player: Take some breaks when you need to. You're human too, after all.
+                Irene: But if I do...I..!
+                Irene: ...
+                Irene: What would I have left of me, if not this...?
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: So the other day, I was thinking about it.
+            -> About what?
+                Irene: About you, actually.
+                Irene: I'll just tell you upfront.
+                Irene: I...like you.
+                Irene: It's always fun to talk to you about games and play together.
+                Irene: Like, it's just you and me! 
+            -> About me??
+                Irene: W-what? NO!!
+                Irene: ...
+                Irene: ...Yes.  
         <<elseif $UCI_Dialogue == 4>> 
             Irene: 
         <<else>> 
