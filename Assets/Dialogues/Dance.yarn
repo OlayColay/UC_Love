@@ -235,7 +235,7 @@ position: 145,-124
 title: BreakUCL
 position: 138,2
 ---
-<<SetBackground>>
+<<SetBackground Backgrounds/BadEndClassroom>>
 <<if $DancePartner == 0>>
     <<SetSprite Middle Kelly/sad>>
     Kelly: Oh... you're leaving?
@@ -287,7 +287,7 @@ position: 138,2
 <<endif>>
 <<Fade false>>
 <<ClearSprite Middle>>
-<<SetBackground Backgrounds/BadEndClassroomBadEndClassroom>>
+<<SetBackground Backgrounds/BadEndClassroom>>
 <<Fade true>>
 Player: It has been one year since UCL split apart...
 Player: It's nice to be back on my home campus, but I can't help but wonder about what could've been...
