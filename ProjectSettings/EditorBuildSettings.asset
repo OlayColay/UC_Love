@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CafeMinigame.unity
     guid: 08f3b91479e52f048ade527b78241868
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: f1eb11fe6612aa240a9592761bdc9f6e
   m_configObjects: {}

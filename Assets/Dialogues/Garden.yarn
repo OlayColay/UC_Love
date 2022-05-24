@@ -768,7 +768,7 @@ Player: What should I do?
             Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
         <<elseif $UCI_Dialogue == 3>>
             Irene: What brings you here?
-            Irene: Did you came here to get out of your room too?
+            Irene: Did you come here to get out of your room too?
             -> Yeah. I wanted to refreshen my head.
                 <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Idle>>
