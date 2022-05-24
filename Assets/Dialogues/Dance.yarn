@@ -245,6 +245,7 @@ position: 138,2
     <<SetSprite Middle Kelly/hbom>>
     Kelly: But I hope that you're alright... wherever you go.
     Kelly: I hope that you are happy. 
+    <<SetSprite Middle Kelly/hbcm>>
 <<elseif $DancePartner == 1>>
     <<SetSprite Middle Ellie/Angry>>
     Ellie: Well... I guess this is goodbye...
