@@ -28,15 +28,7 @@ Player: What should I do?
         <<jump UCRCafe>>
     <<endif>>
 -> Work
-    <<CafeMinigame>>
-    <<if CafeMinigameWon()>>
-        Player: I think that I did a good job!
-    <<else>>
-        Player: That was embarassing... I hope that no one saw that...
-    <<endif>>
-    -> Leave
-        <<UpdateTimeOfDay>>
-        <<LoadScene MapScene>>
+    <<jump CafeWork>>
 -> Leave
     <<LoadScene MapScene>>
 ===
@@ -730,4 +722,38 @@ position: 207,66
 title: UCICafe
 position: 203,-155
 ---
+===
+title: CafeWork
+position: -36,93
+---
+-> Go!
+    <<CafeMinigame>>
+    <<if CafeMinigameWon()>>
+        Player: I think that I did a good job!
+    <<else>>
+        Player: That was embarassing... I hope that no one saw that...
+    <<endif>>
+    -> Leave
+        <<UpdateTimeOfDay>>
+        <<LoadScene MapScene>>
+-> Instructions
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Welcome to the Acorn Cafe! We let students work here as freelancers so that they can earn some spending money.
+    <<SetSprite Middle BearBox/Idle>>
+    BearBox: I don't want to imply that it's an easy job though! You humans drink things that I could never understand - I just order straight-up lithium-ion whenever I come here.
+    BearBox: Anyhoo, to start making a drink, you'll need to press the SPACE button. Make sure you're ready though becasue that will start the timer.
+    BearBox: Once a drink is started, you'll press the corresponding buttons for your ingredients.
+    BearBox: A good tip I've heard is that your hand will travel down the left side of your keyboard as you add ingredients.
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Once you add all the ingredients, the only thing left to do for the drink is blend it with LSHIFT! Then the drink will be finished and the timer will pause until you start the next drink.
+    BearBox: Rinse and repeat until you're out of time! Make sure you make at least 2 drinks if you want to be paid!
+    <<SetSprite Middle BearBox/Idle>>
+    BearBox: If you can't do that, then I honestly don't know how you got accepted into UCL...
+    Player: ...
+    <<SetSprite Middle BearBox/Blush>>
+    Bearbox: No pressure though! Good luck!
+    <<ClearSprite Middle>>
+    <<jump CafeWork>>
+-> Cancel
+    <<jump Cafe>>
 ===

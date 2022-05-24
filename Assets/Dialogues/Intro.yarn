@@ -1,6 +1,7 @@
 ﻿title: Intro
 tags:
 ---
+<<Fade true 0>>
 System: WARNING! If you create a new game, it will erase any saves you have! Continue?
 -> Yes!
 -> Nah
@@ -60,11 +61,9 @@ BearBox: Sure thing! Here you go! Have a great first day and stay out of trouble
 <<ClearSprite Middle>>
 Player: Well, I hope so too. Let's take a look around. 
 <<SetSprite Middle Stan/Smiling>>
-<<SetActiveChar Middle>>
 Stan: Hey there! You seem to be a new student.
 Player: Yeah! Today's my first day here, actually.
 <<SetSprite Middle Stan/Giggle>>
-<<SetActiveChar Middle>>
 Stan: I see! Are you a transfer or...
 <<SetSprite Right Tommy/Snickering>>
 <<SetActiveChar Right>>
