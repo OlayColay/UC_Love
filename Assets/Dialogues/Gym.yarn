@@ -907,11 +907,13 @@ position: -5,87
         <<LoadScene MapScene>>
 -> Instructions
     <<SetSprite Middle BearBox/Blush>>
-    BearBox: Welcome to the Gym! We let students work here as freelancer trainers so that they can earn some spending money.
+    BearBox: Welcome to the Gym! We let students work here as freelance trainers so that they can earn some extra money.
     <<SetSprite Middle BearBox/Idle>>
     BearBox: There's a bunch of engineering majors here that don't even know what machine weights are, so they could really use your help.
+    <<SetSprite Right Dwayne/Cole>>
     <<SetActiveChar Right>>
     Cole: Hello, I'm a Computer Science major, and I wrote this joke. It's just the truth, so please don't be mad at the writing team.
+    <<ClearSprite Right>>
     <<SetActiveChar Middle>>
     <<Wait 1>>
     BearBox: Uhhh...

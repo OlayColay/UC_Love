@@ -907,12 +907,13 @@ position: 1,103
     <<SetSprite Middle BearBox/Blush>>
     BearBox: Welcome to the Plaza! I deliver food to students here, and I need you to use this drone's camera to direct me where to go, if you don't mind!
     <<SetSprite Middle BearBox/Idle>>
-    BearBox: For some reason, people here will shove flyers to literally anything that has a face to shove them into. Just the other day, I saw a squirrel get pelted by a USAC voting form that was folded into a ninja-star.
+    BearBox: For some reason, people here will shove flyers to literally anything that has a face to shove them into, including me. 
+    BearBox: Just the other day, I saw a squirrel get pelted by a USAC voting form that was folded into a ninja-star.
     BearBox: So I could really use your help avoiding these hooligans! You can direct me with the WASD keys. My wheels will get stack if I get hit by 3 flyers.
     BearBox: Our client today will be at the North end of the plaza, so we have a sea of people to navigate through.
     BearBox: We could wait for it to die down a bit to make things Easy, or at least Medium, but that would pay less since it takes longer.
     <<SetSprite Middle BearBox/Blush>>
-    BearBox: It's up to you though! Money is meaningless to an ultimate lifeform like me!
+    BearBox: It's up to you though! To an ultimate lifeform like me, money is meaningless... except to perhaps buy a bouncy castle.
     <<Wait 1>>
     <<SetSprite Middle BearBox/Idle>>
     BearBox: Just please don't let me get trampled.
