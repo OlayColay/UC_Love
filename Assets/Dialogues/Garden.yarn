@@ -98,6 +98,7 @@ Player: What should I do?
     //Friends, Crushing, and Lovers. Normally, these are in increments of 100 (ie Strangers = 0-99)
     //but since USC is "rare" and shows up at night, I decided to lower his standards. 
     <<if GetRelationshipScore("Tommy") < 80>>
+        <<SetSprite Middle Tommy/Frown>>
         // Strangers
         <<if $USC_Dialogue == 1>>
             Tommy: Be careful not to get your... dirt... on my Bucci shoes. 
@@ -118,6 +119,7 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 2>>
             Tommy: Y'know? You're not so bad for a public school kid.
                 -> Thanks?
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: You're welcome!
                     Tommy: Our business school is objectively better though, and you can pay your tuition with a credit card, so your tuition is free! 
                     Player: ...
@@ -173,7 +175,8 @@ Player: What should I do?
             Tommy: All the business stuff I learned wouldn't really matter since I'm just a ton of code. 
             Tommy: What if my whole personality is just code made by some weird UCLA kid based off of school stereotypes?
             Tommy: Wouldn't that be weird?
-        <<elseif $USC_Dialogue == 4>> 
+        <<elseif $USC_Dialogue == 4>>
+            <<SetSprite Middle Tommy/Snickering>>
             Tommy: Your outfit's not bad today. I think your sense of style is improving!
         <<else>> 
             Tommy: Even though I'm a business major, I think that I'm pretty nice!
@@ -187,6 +190,7 @@ Player: What should I do?
                     <<SetSprite Middle Tommy/Idle>>
                     Tommy: I got him! Here he is safe and sound!
                         -> Oh! That's a turtle...
+                            <<SetSprite Middle Tommy/Snickering>>
                             Tommy: OH! I guess I did do the right thing then. That's a relief. 
                             Tommy: I'm going to go put him back!
                             <<ClearSprite Middle>>
@@ -237,6 +241,7 @@ Player: What should I do?
                             Tommy: Yeah... we could get in major trouble for this... the kind my family probably can't bail me out of...
                 -> We probably shouldn't hack into the governor's email...
                     Tommy: Yeah...you're right. We could get in major trouble for this... the kind my family probably can't bail me out of...
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: More days to spend with you I suppose!
         <<elseif $USC_Dialogue == 3>>
             Tommy: Sorry I was kind of an ass to you when we first met.
@@ -244,6 +249,7 @@ Player: What should I do?
             Tommy: I'm sorry... I hope that I can make it up to you. 
                 -> It's alright! Just treat me out for food some time alright?
                     <<AddRelationshipScore Tommy 10>>
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: Yeah! Of course!
                 -> Yeah that was pretty awful of you...
                     Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
@@ -269,12 +275,14 @@ Player: What should I do?
                     Tommy: The piles kind of stress me out though...
                 -> Donate them!
                     <<AddRelationshipScore Tommy 10>>
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: That sounds like a good idea!
                     Tommy: There's this refugee shelter that I've been looking into.
                     Tommy: They could really use some clothes donations...
                     Tommy: Yeah! I think I'll donate the clothes to them!
                 -> Sell them and donate the money to charity!
                     <<AddRelationshipScore Tommy 10>>
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: That sounds like a good idea!
                     Tommy: There's this non-profit summer school for underprivileged kids that I've been looking into.
                     Tommy: They could really use some new books and school supplies...
@@ -292,25 +300,35 @@ Player: What should I do?
                     Tommy: I'm tutoring him in English and public speaking, for your information...
                 -> What's that like?
                     Tommy: Oh! It's pretty cool! I tutor kids in English and in public speaking. 
-                    Tommy: There's this one kid that comes from a more disadvantaged family, but he works really hard and he's really smart.
-                    Tommy: It made me think about how lucky I am to be born off in a well-off family...
+                    Tommy: There's this one kid that comes from a poor family, but he works really hard and he's really smart.
+                    Tommy: That's thing, actually.
+                    Tommy: I don't like poor people, since they're usually lazy to make money for themselves.
+                    -> Huh? Where did you hear that from?
+                        Tommy: Oh! Stan told me! He's really smart and teaches me a lot of things about the world!
+                    -> That's an unfair assessment to make. 
+                        Tommy: R-really? If you say so, then maybe Stan really meant that for some poor people.
+                    Tommy: Knowing about this made me think about how lucky I am to be born off in a well-off family...
                     Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
+                    Tommy: If anything, I know I'm not that smart, but I always love learning new stuff!
                     Tommy: I'm a lot more grateful for what I have. I think I still want to do something more for people like my tutee though.
         <<elseif $USC_Dialogue == 3>>
             Tommy: I think that the most lovely part about you is your personality.
             Tommy: I feel like I can talk to you for hours and never get bored.
-            Tommy: You make my days a lot better.
+            Tommy: You make my nights a lot better.
         <<elseif $USC_Dialogue == 4>> 
             Tommy: Do you ever get scared walking around at night?
             Tommy: The squirrels around here can be really dangerous if you aren't careful.
             Tommy: That's why I carry around squirrel repellant when walking around here. 
             Tommy: I'm not the best fighter, but I would fight off a squirrel to save you, even if it tore my shirt.
-            Tommy: You mean a lot to me.
+            Tommy: You mean...a lot to me now.
         <<else>> 
-            Tommy: I used to be really materialistic, but I think that meeting you changed a lot of my perspective. 
-            Tommy: Money really isn't everything, and while having money can alleviate a lot of sources of stress, I think that the best happiness comes from spending time with people you care about.
-            Tommy: There's this show that came out recently that I think you'd like...
-            Tommy: Maybe you can come over to my place and we can watch it together sometime...
+            Tommy: You know...every time you gave me something, I just thought that you wanted to get on my good side.
+            Tommy: But, well, just seeing you and talking to you made me happy. 
+            Tommy: And well, I'll admit that money really isn't everything.
+            Tommy: While having money can alleviate a lot of sources of stress, I think that the best happiness comes from spending time with people you care about.
+            Tommy: ...
+            Tommy: Hey, um, there's this show that came out recently that I think you'd like!
+            Tommy: Maybe...maybe you can come over to my place and we can watch it together sometime...
         <<endif>>
     <<endif>>
     <<jump USCGarden>>
@@ -324,6 +342,7 @@ Player: What should I do?
     <<AddRelationshipScore Tommy {$GiftScore}>>
     <<if $GiftScore == 20>>
         //Loved Gift
+        <<SetSprite Middle Tommy/Snickering>>
         Tommy: Why thank you! I love these!
     <<elseif $GiftScore == 10>>
         //Liked Gift
@@ -406,7 +425,7 @@ position: 125,-26
         Player: Did that squirrel just TALK?
         Player: That's enough nature today...I'm... going to leave...
         <<ClearSprite Middle>>
-        -> Leave it Alone
+        -> Leave it alone
         <<ClearSprite Middle>>
         Player: He took $50... why?!
         <<AddMoney 50>>
@@ -749,7 +768,7 @@ Player: What should I do?
             Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
         <<elseif $UCI_Dialogue == 3>>
             Irene: What brings you here?
-            Irene: Did you come here to get out of your room too?
+            Irene: Did you came here to get out of your room too?
             -> Yeah. I wanted to refreshen my head.
                 <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Idle>>
@@ -766,6 +785,8 @@ Player: What should I do?
                 Player: Yeah, it's a creepy feeling. Being all alone, with little to no one around.
                 <<SetSprite Middle Irene/Angry>>
                 Irene: Ohh...You think so? I think that it's kinda nice..haha...
+            -> Yeah, it's a nice time of peace and silence...
+                Irene: Totally! Awesome to know someone who feels the same way! 
         <<else>> 
             Irene: The night is always a great time to game! Helps me focus somehow.
             -> Isn't it hard to stay focused when you're tired?
