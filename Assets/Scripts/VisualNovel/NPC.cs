@@ -25,7 +25,7 @@ public class NPC : MonoBehaviour
         parent = transform.parent;
 
         background = GameObject.Find("Background").GetComponent<Image>();
-        blackScreen = parent.parent.Find("Black Screen").GetComponent<Image>();
+        blackScreen = GameObject.Find("Black Screen").GetComponent<Image>();
     }
 
     [YarnCommand("SetSprite")]
@@ -60,8 +60,8 @@ public class NPC : MonoBehaviour
         transform.SetAsLastSibling();
         image.DOColor(Color.white, 0.5f);
         // First child is the bottom sprite, which will never be inactive
-        parent.GetChild(1).GetComponent<Image>().DOColor(inactiveColor, 0.5f);
-        parent.GetChild(2).GetComponent<Image>().DOColor(inactiveColor, 0.5f);
+        parent.GetChild(1).GetComponent<Image>().DOColor(new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, parent.GetChild(1).GetComponent<Image>().color.a), 0.5f);
+        parent.GetChild(2).GetComponent<Image>().DOColor(new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, parent.GetChild(2).GetComponent<Image>().color.a), 0.5f);
     }
 
     [YarnCommand("PlaySound")]
