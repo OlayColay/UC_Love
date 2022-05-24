@@ -909,9 +909,9 @@ position: -5,87
     <<SetSprite Middle BearBox/Blush>>
     BearBox: Welcome to the Gym! We let students work here as freelancer trainers so that they can earn some spending money.
     <<SetSprite Middle BearBox/Idle>>
-    BearBox: There's a bunch of engineering majors here that don't know what machine weights are, so they could really use your help.
+    BearBox: There's a bunch of engineering majors here that don't even know what machine weights are, so they could really use your help.
     <<SetActiveChar Right>>
-    Cole: Hello, I'm a Computer Science major, and I wrote this joke. It's a true statement, to be fair, so please don't be mad at the writing team.
+    Cole: Hello, I'm a Computer Science major, and I wrote this joke. It's just the truth, so please don't be mad at the writing team.
     <<SetActiveChar Middle>>
     <<Wait 1>>
     BearBox: Uhhh...
