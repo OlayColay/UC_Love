@@ -351,6 +351,8 @@ Player: What should I do?
         <<if GetRelationshipScore("Kelly") >= 500>>
             Player: Would you like to go to the dance with me?
             Kelly: Y-yes! I'd love to!
+            <<set $DancePartner = 0>>
+            <<jump Dance>>
         <<else>>
             Kelly: I have a project I have to work on...
             <<AddRelationshipScore Kelly -20>>
@@ -822,6 +824,7 @@ Player: What should I do?
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
             <<AddRelationshipScore Ellie -20>>
+            <<jump UCLALibrary>>
         <<endif>>
     -> Cancel
         <<jump UCLALibrary>>

@@ -391,9 +391,13 @@ position: 212,-6
         <<set $AskRiviera = true>>
         <<if GetRelationshipScore("Riviera") >= 500>>
             Player: Would you like to go to the dance with me?
-            Riviera: Y-yes! I'd love to!
+            <<SetSprite Middle Riviera/LB>>
+            Riviera: I'd love to! I hope that you like to dance!
+            <<set $DancePartner = 4>>
+            <<jump Dance>>
         <<else>>
-            Riviera: I have a project I have to work on...
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: I respect your courage but I think you might be a bit too forward. 
             <<AddRelationshipScore Riviera -20>>
             <<jump UCRPlaza>>
         <<endif>>
@@ -886,6 +890,7 @@ Player: What should I do?
         <<else>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
             <<AddRelationshipScore Ellie -20>>
+            <<jump UCLAPlaza>>
         <<endif>>
     -> Cancel
         <<jump UCLAPlaza>>
