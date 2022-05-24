@@ -50,7 +50,7 @@ public class ShopScreen : MonoBehaviour
             });
         }
 
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : null);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
     }
 
     void OnDisable()

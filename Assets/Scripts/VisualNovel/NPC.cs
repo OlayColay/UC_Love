@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         parent = transform.parent;
 
-        background = parent.parent.Find("Background").GetComponent<Image>();
+        background = GameObject.Find("Background").GetComponent<Image>();
         blackScreen = parent.parent.Find("Black Screen").GetComponent<Image>();
     }
 
