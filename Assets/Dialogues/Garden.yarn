@@ -358,16 +358,23 @@ Player: What should I do?
         <<if GetRelationshipScore("Tommy") >= 240>>
             <<jump TommyDate>>
         <<else>>
+            <<SetSprite Middle Tommy/Angry>>
             Tommy: Uhhh... ew...
+             <<SetSprite Middle Tommy/Idle>>
             <<jump USCGarden>>
         <<endif>>
     -> Ask to the dance
         <<set $AskTommy = true>>
         <<if GetRelationshipScore("Tommy") >= 400>>
             Player: Would you like to go to the dance with me?
-            Tommy: I would love to!
+            <<SetSprite Middle Tommy/Snickering>>
+            Tommy: I'd be honored to go!
+            <<set $DancePartner = 5>>
+            <<jump Dance>>
         <<else>>
-            Tommy: Uhhhh... no thanks.
+            <<SetSprite Middle Tommy/Angry>>
+            Tommy: Uhhhh... no thanks. I wouldn't step foot in there even for a Bucci x Bouis Vuitton collaboration.
+            <<SetSprite Middle Tommy/Idle>>
             <<AddRelationshipScore Tommy -20>>
         <<endif>>
     -> Cancel
@@ -677,6 +684,8 @@ Player: What should I do?
         <<if GetRelationshipScore("Santana") >= 500>>
             Player: Would you like to go to the dance with me?
             Santana: I would love to!
+            <<Set $DancePartner = 3>>
+            <<jump Dance>>
         <<else>>
             <<SetSprite Middle/Santana/Angry>>
             Santana: Oh... I'm flattered but I don't know if I'm going to go...
