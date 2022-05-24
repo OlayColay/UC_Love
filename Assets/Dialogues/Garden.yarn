@@ -706,8 +706,12 @@ Player: What should I do?
             Irene: Sorry, could you move out of the way?
             Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
         <<elseif $UCI_Dialogue == 3>>
-            Irene: Woah woah! You kinda scared me!
+            Irene: Woah woah! I almost bumped into you there!
             Irene: Haha, it's my fault for not paying attention though!
+        //Reminder for Bella that the below two lines logically work, BUT REMEMBER TO CHANGE THEM IF PASTING
+        //IRENE'S DIALOGUE INTO THE CAFE OR THE PLAZA!! 
+        //These lines should only be said at night. Since she only appears at the garden at night, it's ok
+        // that $UCI_Dialogue references night 
         <<elseif $UCI_Dialogue == 4>> 
             Irene: Woahhh...there's another midnight owl just like me!
         <<else>> 
@@ -763,52 +767,70 @@ Player: What should I do?
                 <<SetSprite Middle Irene/Idle>>
             <<endif>>
         <<elseif $UCI_Dialogue == 2>>
+            <<SetSprite Middle Irene/Flirty>>
             Irene: Just gonna say, when I have free time, I like to stream games on Witch!
             Irene: I like a lot of niche games, so streaming on Witch is a nice way to interact with other people in the fandom!
             Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
-            Irene: What brings you here?
             Irene: Did you come here to get out of your room too?
-            -> Yeah. I wanted to refreshen my head.
+            -> Yeah. I wanted to get some fresh air!
                 <<AddRelationshipScore Irene 10>>
-                <<SetSprite Middle Irene/Idle>>
+                <<SetSprite Middle Irene/Flirty>>
                 Irene: Yeah, that's fair. I always like coming here too for that reason.
                 Irene: As much as I'm fine staying indoors, coming out every now and then is good too.
+                <<SetSprite Middle Irene/Idle>>
             -> Sorta... Just here because I couldn't fall asleep.
                 <<AddRelationshipScore Irene 10>>
                 <<SetSprite Middle Irene/Sad>>
                 Irene: Oh dang... hopefully that doesn't happen too often.
-                Irene: I may be a midnight owl myself, but I still try to get my Z's in.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: It helps your body sleep easier if you spend some time away from work and screens before bed.
+                Irene: I usually like to take a walk here after my stream hours. 
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: I may be a night owl myself, but I still have to get my Z's in.
+                Irene: Zot zot zot!
+                <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
             Irene: Y'know that feeling of being out late at night without anyone around except a few people?
             -> Yeah, it's a creepy feeling... 
                 Player: Yeah, it's a creepy feeling. Being all alone, with little to no one around.
-                <<SetSprite Middle Irene/Angry>>
-                Irene: Ohh...You think so? I think that it's kinda nice..haha...
-            -> Yeah, it's a nice time of peace and silence...
-                Irene: Totally! Awesome to know someone who feels the same way! 
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Ohh...You think so? I think that it's kinda nice...haha...
+                Irene: I feel really secure because I have a black belt in karate.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I might not look like it, but I can whoop ass!
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: If someone ever attacked us out here, I can hard carry you!
+                <<SetSprite Middle Irene/Idle>>
+            -> Yeah, it's really peaceful...
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: Yeah... I think the cold of the night air and the sound of crickets are really relaxing.
+                <<SetSprite Middle Irene/Idle>>
         <<else>> 
-            Irene: The night is always a great time to game! Helps me focus somehow.
+            Irene: The night is always a great time to game! It helps me focus somehow.
             -> Isn't it hard to stay focused when you're tired?
                 Player: Isn't it hard to stay focused when you're tired? 
                 Player: After all, you can only do so much when you're running low on energy.
-                Irene: LMAO!! That's where I have my boba to help me out with that!
+                Irene: LMAO!! I usually have boba to help me out with that!
                 -> Boba? At this time??
                     <<SetSprite Middle Irene/Angry>>
                     <<Shake Middle>>
-                    Irene: What?? Can't a gal like me get her calories?
+                    Irene: What?? It's a nice treat after a long day...
                     Player: N-no, sorry! I didn't mean like that.
                     Irene: Sure...
+                    <<SetSprite Middle Irene/Idle>>
                 -> Gotta get your sugar in the form of deliciousness.
                     <<SetSprite Middle Irene/Excited>>
-                    Irene: Totally!! I love getting 100% sweetness, no ice, boba, pudding, and of course, salty cream on the top!!
-                    Irene: Total recommend. Ten out ten!!!
-                    Player: Haha! I'll have my next order like that next time, then.
-                    <<AddRelationshipScore Irene 10>>
-                    Irene: For sure!
+                    Irene: Totally!! I love getting Jasmine Milk Tea with 120% sweetness, no ice, boba, pudding, and of course, salty cream on the top!!
+                    Irene: I call it Slurp Juice because I down it in like 30 seconds!
+                    <<SetSprite Middle Irene/Idle>>
+                    -> Haha! I'll have my next order like that next time, then.
+                        <<AddRelationshipScore Irene 10>>
+                        Irene: For sure!
             -> Yeah, I get that.
-                Irene: Totally! I don't know why, though.
-                Player: Who knows...
+                Irene: You should 1v1 me on Beast of Legends sometime!
+                <<SetSprite Middle Irene/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
         <<if $UCI_Dialogue == 1>>
@@ -820,20 +842,33 @@ Player: What should I do?
                 <<SetSprite Middle Irene/Excited>>>
                 Irene: You got that right! I always like switching savory to sweet, vice versa.
                 Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
+                Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!
                 -> Sounds good! I'd like to try that too.
                     Irene: It's really good! Of course, I can't have it all the time, but when I do, it hits the spot!
                     <<SetSprite Middle Irene/Idle>>
-                    Irene: By the way, do you wanna drop any socials if you got any?
-                    Irene: Like Discourse.
+                    Irene: By the way, do you have a Discourse?
                     -> Yeah sure! Here's mine...
-                        Irene: Awesome!! Nice to make another friend!
+                        <<SetSprite Middle Irene/Excited>>
+                        Irene: Awesome!! We should play BoBlox together sometime!
+                        <<SetSprite Middle Irene/Idle>>
                     -> Oh um... I don't.
-                        Irene: Oh that's a bummer.. Let me know if you ever get one!
+                        Irene: Oh that's a bummer... Let me know if you ever get one!
                 -> That sounds unhealthy...
                     <<SetSprite Middle Irene/Angry>>
                     <<AddRelationshipScore Irene -10>>
-                    Irene: Oh... um..yeah. I don't have it all the time, but yeah.
-                    Irene: Imma go..okay?
+                    Irene: Oh... um..yeah... I guess so...
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: I don't have it all the time, but yeah.
+                    Irene: I... have to get going.
+                    <<SetSprite Middle Irene/Idle>>
+                -> That sounds strange...
+                    <<SetSprite Middle Irene/Angry>>
+                    <<AddRelationshipScore Irene -10>>
+                    Irene: Well, you don't have to yuck my yum...
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: You haven't even given it a shot...
+                    Irene: I... have to get going.
+                    <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 
@@ -846,7 +881,21 @@ Player: What should I do?
             Irene: Looks like I'm seeing you quite often these nights!
             Irene: What for?
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            <<SetSprite Middle Irene/Excited>>
+            Irene: I think that you kind of look like a character from a dating simulator!
+            <<SetSprite Middle Irene/IdleLB>>
+            Irene: You have really nice hands. And you're really tall!
+            -> Maybe you're just short!
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Hey! Don't make me take back my compliment!
+                Irene: I'll have you know that I'm a whole 5'1!
+                Irene: ... rounded up but that's besides the point!
+                Irene: Silly!
+                <<SetSprite Middle Irene/Idle>>
+            -> You look like a dating simulator character too!
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Silly!
+                <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 
@@ -935,10 +984,14 @@ Player: What should I do?
             Irene: I don't really know how to dance aside from default emote dances...
             <<SetSprite Middle Irene/Awkward>>
             Irene: But as long as you're alright with that, I'd love to go with you!
+            <<set $DancePartner = 3>>
+            <<jump Dance>>
         <<else>>
+            <<SetSprite Middle Irene/Awkward>>
             Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
-            Irene: I don't think that I'm very comfortable going to the dance right now.
+            Irene: I don't think that I want to do that in public...
             <<AddRelationshipScore Irene -20>>
+            <<SetSprite Middle Irene/Idle>>
         <<endif>>
     -> Cancel
         <<jump UCIGarden>>
