@@ -565,7 +565,7 @@ Player: What should I do?
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 4>> 
             <<SetSprite Middle Santana/sad>>
-            Santana: Sometimes the visitors here can get realy rude...
+            Santana: Sometimes the visitors here can get really rude...
             Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
             Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
             Santana: It really upset me... I wish that I could stand up to them more but I get really nervous.
@@ -585,9 +585,78 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Santana") >= 200 && GetRelationshipScore("Santana") < 300>> //Friends
         <<if $UCSB_Dialogue == 1>>
-            Santana: a
+            Santana: I try to go to the gym every night to unwind with a bit of yoga after work.
+            Santana: I'm not as toned or athletic as the other people in the gym, but I try to focus on on my personal fitness journey.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: People are kind of like plants y'know? We all grow at our own pace.
+            <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
-            Santana: a
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sigh... some of the garden visitors are really rude...
+            Santana: One kid trampled all over the flowers that I planted after I told him not to pick them...
+            Santana: I wish that I could stand up to them, but I don't know how to...
+            -> It's probably best to keep your head low... you are at work after all!
+            -> I can help you!
+                Santana: Really?
+                <<SetSprite Middle Santana/LB>>
+                Santana: That means a lot to me...
+                <<SetSprite Middle Santana/bliss>>
+                Santana: What should I do?
+                -> Speak with authority!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: Oh... do I not currently speak with authority?
+                    <<SetSprite Middle Santana/Idle>>
+                    Santana: Usually, when someone's breaking a rule or something I say something like...
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: "Umm... I'm really sorry to bother you sir... but could you pretty please not... pick the flowers?"
+                    Player: Speak with authority! Like this!
+                    Player: Excuse me sir, please don't pick the flowers. They're a threatened species and we need to protect them!
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Oh! I see... thank you!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But what happens if they just don't listen to me?
+                    -> Yell at them!
+                        Santana: I don't think that I could do that...
+                        Santana: It would just escalate the situation further...
+                    -> Ignore them
+                        Santana: I don't think that I could do that...   
+                        Santana: It's my job to protect the garden and the guests...
+                        Santana: I'd get into a lot of trouble...                     
+                    -> Call your supervisor
+                        <<SetSprite Middle Santana/bliss>>
+                        Santana: I've always been a little hesitant to bother my supervisor, but I think that if I give dealing with an unruly visitor a good faith effort and they still aren't cooperating, I'll call my supervisor!
+                        Santana: Thank you for the advice! I feel a lot more prepared!
+                        <<SetSprite Middle Santana/Idle>>
+                    -> Ask them to leave
+                        <<SetSprite Middle Santana/bliss>>
+                        Santana: I could definitely try that!
+                        <<SetSprite Middle Santana/Angry>>
+                        Santana: But what if they don't listen to that too?
+                        -> You can call campus security!
+                            Player: If an unruly visitor is destroying property, being a nuisance, or berating you, it falls within the jurisdiction of campus security!
+                            <<SetSprite Middle Santana/bliss>>
+                            Santana: Oh! I didn't know that!
+                            Santana: Thank you for the advice!
+                            <<SetSprite Middle Santana/Idle>>
+                        -> You can call your supervisor!
+                            <<SetSprite Middle Santana/bliss>>
+                            Santana: I've always been a little hesitant to bother my supervisor, but I think that if I give dealing with an unruly visitor a good faith effort and they still aren't cooperating, I'll call my supervisor!
+                            Santana: Thank you for the advice! I feel a lot more prepared!
+                            <<SetSprite Middle Santana/Idle>>
+                -> Look them in the eyes!
+                    Santana: Oh! Now that you mention it, I do tend to avoid eye contact when I'm nervous...
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: I'll try to be more conscious of that!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But what happens if they just don't listen to me?
+                -> Be more lenient!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But if I'm more lenient, visitors can hurt the plants or animals there...
+                    Santana: Some of them are threatened species... I can't just let them do that!
+                    Santana: I'd get in trouble with my supervisor too!
+                    <<SetSprite Middle Santana/Sad>>
+                    Santana: I appreciate the advice though...
+                    <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
             Santana: a
         <<elseif $UCSB_Dialogue == 4>> 
@@ -602,9 +671,11 @@ Player: What should I do?
             Santana: It's really quiet and romantic. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
+            <<SetSprite Middle Santana/LB>>
             Santana: Wouldn't it be fun to have a picnic together someday?
+            <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: 
+            Santana: a
         <<elseif $UCSB_Dialogue == 4>> 
             Santana: a
         <<else>> 
