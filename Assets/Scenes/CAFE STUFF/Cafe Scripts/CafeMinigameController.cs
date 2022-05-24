@@ -242,7 +242,7 @@ public class CafeMinigameController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong ingredient!\tYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
+            // Debug.Log("Wrong ingredient!\tYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
 
             // Add stuff that happens if you get an ingredient wrong here
             //clear sprites from blender child...

@@ -71,6 +71,20 @@ public static class Inventory
     [YarnCommand("AddRelationshipScore")]
     public static void ChangeRelationshipScore(string name, int change) { relationshipScores[name] += change; }
 
+    [YarnCommand("CleanSave")]
+    public static void CleanSave()
+    {
+        relationshipScores.Clear();
+        foreach (string name in names)
+            relationshipScores.Add(name, 0);
+
+        money = 100;
+        day = 0;
+        time = 0;
+
+        list.Clear();
+    }
+
     // Inventory
 
     [YarnCommand("AddItem")]
@@ -109,7 +123,7 @@ public static class Inventory
 
         if (givenItem == null)
         {
-            Debug.LogError("Couldn't find item in list! Are you looking for a key item?");
+            // Debug.LogError("Couldn't find item in list! Are you looking for a key item?");
             return;
         }
         
@@ -172,13 +186,13 @@ public static class Inventory
             item = keyItemList.Find(i => i.name == itemName);
             if (item != null)
                 return "Gifts/" + item.sprite.name;
-            Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
+            // Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
             return "nothing";
         }
         item = list.Find(i => i.name == itemName);
         if (item != null)
             return "Gifts/" + item.sprite.name;
-        Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
+        // Debug.LogError("Item with sprite not found! Make sure that you check for its existence in the inventory before allowing the option to use it to be chosen");
         return "nothing";
     }
 
@@ -225,7 +239,12 @@ public static class Inventory
         // Reconstruct the save data
 
         // 1. Reconstruct relationship scores
-        HashtableToDictionary(data.relationshipScores, relationshipScores);
+        Inventory.relationshipScores["Ellie"] = data.relationshipScores[0];
+        Inventory.relationshipScores["Kelly"] = data.relationshipScores[1];
+        Inventory.relationshipScores["Santana"] = data.relationshipScores[2];
+        Inventory.relationshipScores["Riviera"] = data.relationshipScores[3];
+        Inventory.relationshipScores["Irene"] = data.relationshipScores[4];
+        Inventory.relationshipScores["Tommy"] = data.relationshipScores[5];
 
         // 2. Reconstruct day
         day = data.day;
@@ -238,13 +257,5 @@ public static class Inventory
         {
             Inventory.list.Add(item.asItem());
         }
-    }
-
-    // Utility function
-    public static void HashtableToDictionary<K, V>(Hashtable table, Dictionary<K, V> result)
-    {
-        result.Clear();
-        foreach (DictionaryEntry entry in table)
-            result.Add((K)entry.Key, (V)entry.Value);
     }
 }

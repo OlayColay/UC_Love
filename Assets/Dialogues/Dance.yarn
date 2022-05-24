@@ -2,8 +2,9 @@
 tags:
 position: -99,4
 ---
-<<SetBackground Backgrounds/Dance>>
 <<Fade false>>
+<<SetBackground Backgrounds/Dance>>
+<<Fade true>>
 <<if $DancePartner == 0>>
     <<SetSprite Middle Kelly/lbom>>
     Player: Woah... the dance looks amazing!

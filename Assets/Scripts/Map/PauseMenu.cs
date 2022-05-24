@@ -13,12 +13,12 @@ public class PauseMenu : MonoBehaviour
     {
         if (GameIsPaused)
         {
-            Debug.Log("Resuming game");
+            // Debug.Log("Resuming game");
             Resume();
         }
         else
         {
-            Debug.Log("Pausing game");
+            // Debug.Log("Pausing game");
             Pause();
         }
     }
@@ -41,21 +41,21 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Debug.Log("Loading menu...");
+        // Debug.Log("Loading menu...");
         Time.timeScale = 1f;
         SceneManager.LoadScene("UiScene");
     }
 
     public void Save()
     {
-        Debug.Log("Saving...");
+        // Debug.Log("Saving...");
         Inventory.SaveGame();
         Notification.Notify("Game saved!", "SFX/Buy");
     }
 
     public void OpenInventory()
     {
-        Debug.Log("Opening inventory...");
+        // Debug.Log("Opening inventory...");
         Time.timeScale = 0f;
         GameIsPaused = true;
         MapEvents.current.GamePaused(true);

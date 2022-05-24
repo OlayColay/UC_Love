@@ -5,6 +5,8 @@ System: WARNING! If you create a new game, it will erase any saves you have! Con
 -> Yes!
 -> Nah
     <<LoadScene UiScene>>
+    <<stop>>
+<<CleanSave>>
 <<SaveVariable "MainSave" "">>
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>

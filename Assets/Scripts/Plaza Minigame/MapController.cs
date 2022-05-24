@@ -17,7 +17,7 @@ public class MapController : MonoBehaviour
     public void SetEnemyDifficulty(string difficulty)
     {
         this.difficulty = difficulty;
-        Debug.Log("plaza difficulty: " + difficulty);
+        // Debug.Log("plaza difficulty: " + difficulty);
 
         // (speed, activationrange)
         //easy      150, 8
@@ -70,7 +70,7 @@ public class MapController : MonoBehaviour
         int currentCount = 0;
         int enemyCount = Random.Range(minEnemyCount, maxEnemyCount);
 
-        Debug.Log("Plaza enemies spawned: " + enemyCount);
+        // Debug.Log("Plaza enemies spawned: " + enemyCount);
 
         GameObject[] spawnPositions = GameObject.FindGameObjectsWithTag("Spawn");
         spawnIndexList.AddRange(Enumerable.Range(0, spawnPositions.Length));
@@ -78,7 +78,7 @@ public class MapController : MonoBehaviour
 
         if (minEnemyCount > spawnPositions.Length)
         {
-            Debug.Log("min number of enemies too large, not enough spawn positions");
+            // Debug.Log("min number of enemies too large, not enough spawn positions");
         }
 
         while (currentCount <= enemyCount)
