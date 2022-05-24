@@ -683,6 +683,7 @@ Player: What should I do?
         <<set $AskSantana = true>>
         <<if GetRelationshipScore("Santana") >= 500>>
             Player: Would you like to go to the dance with me?
+            <<SetSprite Middle Santana/bliss>>
             Santana: I would love to!
             <<Set $DancePartner = 3>>
             <<jump Dance>>
@@ -1038,6 +1039,7 @@ Player: What should I do?
             Irene: I don't think that I want to do that in public...
             <<AddRelationshipScore Irene -20>>
             <<SetSprite Middle Irene/Idle>>
+            <<jump UCIGarden>>
         <<endif>>
     -> Cancel
         <<jump UCIGarden>>
