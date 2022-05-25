@@ -539,7 +539,7 @@ Player: What should I do?
                     Ellie: Oh, sorry to bother you... I'll try to reach out to her but she tends to wall herself off from me...
                     <<SetSprite Middle Ellie/Idle>>
                 -> I think that it might be more meaningful if you reached out to her yourself!
-                <<AddRelationshipScore Ellie 10>>
+                    <<AddRelationshipScore Ellie 10>>
                     Player: I think that it might be more meaningful if you reached out to her yourself!
                     Player: It would mean a lot to your sister to know that you care for her. 
                     <<SetSprite Middle Ellie/cmc>>

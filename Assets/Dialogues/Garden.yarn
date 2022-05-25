@@ -661,7 +661,13 @@ Player: What should I do?
                     Santana: I appreciate the advice though...
                     <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: a
+            Santana: Oh! Please be careful!
+            Santana: You'll hurt the flowers over there!
+            -> Thanks for telling me about it!
+                Santana: Looks like that they are fine!
+                Santana: That's a relief.
+            -> Oh damn... I'm really sorry.
+                Santana: No..it's okay
         <<elseif $UCSB_Dialogue == 4>> 
             Santana: a
         <<else>> 
