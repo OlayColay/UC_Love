@@ -450,6 +450,9 @@ position: 125,-26
     <<ClearSprite Middle>>
     <<AddMoney 100>>
 <<elseif $Random_Event_Dialogue == 7>>
+    Player: Huh... There's a sign that says, "DO NOT FEED THE SQUIRREL."
+    Player: ...Noted.
+    <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 8>>
     //UCI special item
     //NOTE: Finalize special items then add AddItem commands after "Oh!"
