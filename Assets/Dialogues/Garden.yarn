@@ -376,6 +376,7 @@ Player: What should I do?
             Tommy: Uhhhh... no thanks. I wouldn't step foot in there even for a Bucci x Bouis Vuitton collaboration.
             <<SetSprite Middle Tommy/Idle>>
             <<AddRelationshipScore Tommy -20>>
+            <<jump USCGarden>>
         <<endif>>
     -> Cancel
         <<jump USCGarden>>
@@ -960,7 +961,18 @@ Player: What should I do?
                     Irene: I... have to get going.
                     <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            <<SetSprite Middle Irene/Excited>>
+            Irene: Oh there you are! I wanted to tell you something!
+            Irene: Umm....
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: ...
+            <<Shake Middle>>
+            Irene: ... I forgor...
+            <<SetSprite Middle Irene/Excited>>
+            <<Shake Middle>>
+            Irene: No wait! I rember! I found this new indie platformer game called Skreech! 
+            Irene: It looks really cool and the art is really great! We should play it together sometime!
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
             Irene: 
         <<else>> 
