@@ -4,13 +4,18 @@ tags:
 <<Fade true 0>>
 System: WARNING! If you create a new game, it will erase any saves you have! Continue?
 -> Yes!
+    <<jump NewGame>>
 -> Nah
     <<LoadScene UiScene>>
-    <<stop>>
+===
+title: NewGame
+tags:
+---
 <<CleanSave>>
 <<SaveVariable "MainSave" "">>
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>
+<<Fade true 0>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
     <<jump Orientation>>

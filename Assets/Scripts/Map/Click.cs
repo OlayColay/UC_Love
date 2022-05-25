@@ -111,6 +111,6 @@ public class Click : MonoBehaviour
         }
 
         FindObjectOfType<DialogueRunner>().StartDialogue(sceneName);
-        SceneManager.UnloadSceneAsync(sceneName == "Intro" ? "UiScene" : "MapScene");
+        SceneManager.UnloadSceneAsync((sceneName == "Intro" || sceneName == "NewGame") ? "UiScene" : "MapScene");
     }
 }

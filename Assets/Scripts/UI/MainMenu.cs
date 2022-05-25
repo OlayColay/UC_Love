@@ -10,18 +10,30 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Image blackScreen;
 
+    private void Awake()
+    {
+        if (PlayerPrefs.GetString("MainSave", "") == "")
+        {
+            GameObject load = GameObject.Find("LoadButton");
+            load.GetComponent<Button>().enabled = false;
+            load.GetComponent<Image>().color = Color.gray;
+        }
+    }
+
     public void NewGame()
     {
-        // Inventory.ClearSave();
-        blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(Click.LoadYarnScene("Intro")));
+        if (PlayerPrefs.GetString("MainSave", "") == "")
+        {
+            blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(Click.LoadYarnScene("NewGame")));
+        }
+        else
+        {
+            blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(Click.LoadYarnScene("Intro")));
+        }
     }
 
     public void LoadGame()
     {
-        if (PlayerPrefs.GetString("MainSave", "") == "")
-        {
-            return;
-        }
 
         Inventory.LoadGame();
         blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
