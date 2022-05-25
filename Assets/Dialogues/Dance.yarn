@@ -34,7 +34,7 @@ position: -99,4
     Player: Woah... the dance looks amazing!
     Riviera: Yeah! The startups' contributions really tie the whole place together!
     Riviera: I think I see my friend's catering booth over there!
-    <<SetSprite Middle Riviera/>>
+    <<SetSprite Middle Riviera/LB>>
     Riviera: Thank you for inviting me. It's really nice to be able to spend the evening with you like this!
 <<else>>
     <<SetSprite Middle Tommy/Idle>>
