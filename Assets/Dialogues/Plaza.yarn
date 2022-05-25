@@ -483,7 +483,7 @@ Player: What should I do?
             Ellie: Oh hey! I think you're in the Introduction to Psychology class right? With Professor BearBox?
                 -> Yeah! I'm taking it for a general requirement. Are you in that class too?
                     Ellie: Oh cool! Well... kind of...
-                    Ellie: I'm a course reader for that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returnign as a course reader for it.
+                    Ellie: I'm a course reader for that class! I grade the papers for it. Intro to Psych was one of my favorite classes, so I'm really happy to be returning as a course reader for it.
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: I am a psychology major though... so I may be a little biased!
                     <<SetSprite Middle Ellie/lb>>
@@ -874,6 +874,7 @@ Player: What should I do?
             <<set $DancePartner = 1>>
             <<jump Dance>>
         <<else>>
+            <<SetSprite Middle Ellie/Angry>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
             <<AddRelationshipScore Ellie -20>>
             <<jump UCLAPlaza>>

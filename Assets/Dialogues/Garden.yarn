@@ -376,6 +376,7 @@ Player: What should I do?
             Tommy: Uhhhh... no thanks. I wouldn't step foot in there even for a Bucci x Bouis Vuitton collaboration.
             <<SetSprite Middle Tommy/Idle>>
             <<AddRelationshipScore Tommy -20>>
+            <<jump USCGarden>>
         <<endif>>
     -> Cancel
         <<jump USCGarden>>
@@ -567,7 +568,7 @@ Player: What should I do?
             Santana: Sometimes visitors make the job kind of stressful though... especially when they're rude.
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 4>> 
-            <<SetSprite Middle Santana/sad>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: Sometimes the visitors here can get really rude...
             Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
             Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
@@ -577,7 +578,7 @@ Player: What should I do?
             Santana: Some garden guests are really nice but others are really mean.
             <<SetSprite Middle Santana/bliss>>
             Santana: One of our regulars brought me a bouquet of fresh flowers as a thank you for taking such good care of the garden.
-            <<SetSprite Middle Santana/sad>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: On the other hand, someone once chucked a fist-full of koi feed at me after I warned him about feeding the squirrels.
             <<SetSprite Middle Santana/bliss>>
             Santana: His hand got bit immediately after though.
@@ -768,7 +769,7 @@ Player: What should I do?
             <<Set $DancePartner = 3>>
             <<jump Dance>>
         <<else>>
-            <<SetSprite Middle/Santana/Angry>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: Oh... I'm flattered but I don't know if I'm going to go...
             <<AddRelationshipScore Santana -20>>
             <<jump UCSBGarden>>
@@ -929,7 +930,7 @@ Player: What should I do?
         <<elseif $UCI_Dialogue == 2>>
             Irene: It's late, but I sure could go for some ramen right now.
             -> That's a great idea. Can't be hungry when you have to focus on your games.
-                <<SetSprite Middle Irene/Excited>>>
+                <<SetSprite Middle Irene/Excited>>
                 Irene: You got that right! I always like switching savory to sweet, vice versa.
                 Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
                 Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!
@@ -943,14 +944,6 @@ Player: What should I do?
                         <<SetSprite Middle Irene/Idle>>
                     -> Oh um... I don't.
                         Irene: Oh that's a bummer... Let me know if you ever get one!
-                -> That sounds unhealthy...
-                    <<SetSprite Middle Irene/Angry>>
-                    <<AddRelationshipScore Irene -10>>
-                    Irene: Oh... um..yeah... I guess so...
-                    <<SetSprite Middle Irene/Sad>>
-                    Irene: I don't have it all the time, but yeah.
-                    Irene: I... have to get going.
-                    <<SetSprite Middle Irene/Idle>>
                 -> That sounds strange...
                     <<SetSprite Middle Irene/Angry>>
                     <<AddRelationshipScore Irene -10>>
@@ -959,6 +952,14 @@ Player: What should I do?
                     Irene: You haven't even given it a shot...
                     Irene: I... have to get going.
                     <<SetSprite Middle Irene/Idle>>
+            -> That sounds unhealthy...
+                <<SetSprite Middle Irene/Angry>>
+                <<AddRelationshipScore Irene -10>>
+                Irene: Oh... um..yeah... I guess so...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: I don't have it all the time, but yeah.
+                Irene: I... have to get going.
+                <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
             Irene: 
         <<elseif $UCI_Dialogue == 4>> 

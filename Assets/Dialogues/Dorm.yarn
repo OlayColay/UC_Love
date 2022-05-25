@@ -54,10 +54,11 @@ Player: What should I do?
             Player: Some people have cash to burn I suppose.
         <<endif>>
         <<UpdateTimeOfDay>>
+        <<set $TimeOfDayDorm3 to GetTimeOfDay()>>
         Player: Oh! Would you look at the time!
-        <<if $TimeOfDayDorm == 0>>
+        <<if $TimeOfDayDorm3 == 0>>
             Player: It's already morning!
-        <<elseif $TimeOfDayDorm == 1>>
+        <<elseif $TimeOfDayDorm3 == 1>>
             Player: It's already noon!
         <<else>>
             Player: It's already evening!

@@ -211,7 +211,7 @@ BearBox: And that, UCL can't compare to your home campus and that you're probabl
 BearBox: But even though the situation we're in may suck, we can still make the best of it!
 <<SetSprite Middle BearBox/Blush>>
 BearBox: Though UCL may not be as shiny as a private school, there's still a ton you can do here!
-BearBox: We have a ton of campus job opportunities and areas to explore!
+BearBox: We have a lot of campus job opportunities and areas to explore!
 BearBox: I hear the girls around here are really cute too! Everyone is very sweet when you get to know them.
 <<SetSprite Middle BearBox/Idle>>
 BearBox: Keep your chin up kiddo! 

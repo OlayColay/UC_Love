@@ -185,6 +185,7 @@ Player: What should I do?
         <<elseif $UCBDialogueCafe == 4>> 
             Kelly: If you have room in your schedule, you should take the Game Theory course here.
             Kelly: I found it really interesting and it's pretty easy if you do the problem sets and pay attention to lecture.
+            <<SetSprite Middle Kelly/lbcm>>
             Kelly: If you take it, let me know and I'll send my notes over to you!
         <<else>> 
             Kelly: I'd really like to see the sunset in Los Angeles one day... I don't really go outside that often. 
