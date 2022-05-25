@@ -161,7 +161,7 @@ Squirrel: ... Or if we can buy a bouncy castle.
 Squirrel: The winning student is...
 Squirrel: Student number 123!
 -> That's me!
-<<Shake Right>>
+<<Shake Left>>
 <<SetSprite Left BearBox/Blush>>
 BearBox: Woah! Congratulations! 
 <<if $DancePartner == 0>>
