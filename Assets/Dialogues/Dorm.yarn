@@ -24,7 +24,7 @@ Player: What should I do?
             <<jump AdditionalNap>>
 -> Scroll on Social Media
     <<set $Computer_Info to RandomRange (1,6)>>
-    You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
+    Narrator: You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
         <<if $Computer_Info == 1>>
             Player: Kelly is following BolyMoly, the skincare company.
             Player: They make really nice sheet masks! I can see why she likes them.

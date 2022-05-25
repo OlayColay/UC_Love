@@ -909,7 +909,7 @@ position: 1,103
     <<SetSprite Middle BearBox/Idle>>
     BearBox: For some reason, people here will shove flyers to literally anything that has a face to shove them into, including me. 
     BearBox: Just the other day, I saw a squirrel get pelted by a USAC voting form that was folded into a ninja-star.
-    BearBox: So I could really use your help avoiding these hooligans! You can direct me with the WASD keys. My wheels will get stack if I get hit by 3 flyers.
+    BearBox: So I could really use your help avoiding these hooligans! You can direct me with the WASD keys. My wheels will get stuck if I get hit by 3 flyers.
     BearBox: Our client today will be at the North end of the plaza, so we have a sea of people to navigate through.
     BearBox: We could wait for it to die down a bit to make things Easy, or at least Medium, but that would pay less since it takes longer.
     <<SetSprite Middle BearBox/Blush>>
