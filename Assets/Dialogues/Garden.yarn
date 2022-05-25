@@ -1044,16 +1044,36 @@ Player: What should I do?
             Irene: So the other day, I was thinking about it.
             -> About what?
                 Irene: About you, actually.
-                Irene: I'll just tell you upfront.
-                Irene: I...like you.
+                Irene: I'll just tell you upfront. I...like you.
                 Irene: It's always fun to talk to you about games and play together.
-                Irene: Like, it's just you and me! 
+                Irene: Like, it's just you and me!
+                Irene: So it's...um..easier to be myself.
+                -> What do you mean?
+                    Irene: So I'm a live streamer. And let's just say that it's not so easy to really talk about whatever I want all the time. 
+                    Irene: Of course, I'm not thinking of saying anything bad!
+                    Irene: More like, as a gamer gal, it sometimes feels suffocating.
+                -> Are you hiding something?
+                    Irene: ...
+                    Irene: It's not really much of a secret, since I'm a live streamer.
+                    Irene: But I don't have that many friends who really know about me.
+                    Irene: And well...I'm honestly afraid that I might end up saying something that people can take out of context and use it to hurt me.
+                Player: That must be hard to deal with.
+                Irene: Yeah. It really is.
+                Irene: But that's why I appreciate you a lot.
             -> About me??
                 Irene: W-what? NO!!
                 Irene: ...
-                Irene: ...Yes.  
+                Irene: ...Yes.
+            Irene: If you're coming this many times late at night just to see me, it's a no brainer as to why you come.
+            Irene: And...I love seeing you!
+            Irene: You're really sweet whenever you come by and I love talking to you.
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            Irene: Oh! You're here!! Come quick!!!
+            -> Huh? What's going on?
+                Irene: The sky is so clear tonight! We can see the stars!
+                Irene: It's a rare sight!
+                Irene: Come on, I'll help you climb a tree!
+            -> Okay, okay! Heading over!
         <<else>> 
             Irene: 
         <<endif>>
