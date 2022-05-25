@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    public string difficulty = "easy";
+    public string difficulty = "hard";
 
     public GameObject enemyChaser;
     public GameObject enemyRunner;
