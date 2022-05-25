@@ -450,6 +450,9 @@ position: 125,-26
     <<ClearSprite Middle>>
     <<AddMoney 100>>
 <<elseif $Random_Event_Dialogue == 7>>
+    Player: Huh... There's a sign that says, "DO NOT FEED THE SQUIRREL."
+    Player: ...Noted.
+    <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 8>>
     //UCI special item
     //NOTE: Finalize special items then add AddItem commands after "Oh!"
@@ -658,7 +661,13 @@ Player: What should I do?
                     Santana: I appreciate the advice though...
                     <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: a
+            Santana: Oh! Please be careful!
+            Santana: You'll hurt the flowers over there!
+            -> Thanks for telling me about it!
+                Santana: Looks like that they are fine!
+                Santana: That's a relief.
+            -> Oh damn... I'm really sorry.
+                Santana: No..it's okay
         <<elseif $UCSB_Dialogue == 4>> 
             Santana: a
         <<else>> 

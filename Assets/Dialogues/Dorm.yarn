@@ -46,7 +46,7 @@ Player: What should I do?
             Player: It's a photo of Ellie! Seems like she just redecorated her room!
             Player: Woah! She has so many Rikakume Bear plushies!
             Player: She must really love them to collect that many!
-            Player: IThey are really soft though... I kind of want one too!
+            Player: They are really soft though... I kind of want one too!
         <<else>>
             Player: I don't know if this person goes here but he looks a little familiar...
             Player: I feel like I've seen that red hair somewhere... but I can't remember where.
