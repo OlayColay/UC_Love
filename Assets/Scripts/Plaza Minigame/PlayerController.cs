@@ -76,12 +76,15 @@ public class PlayerController : MonoBehaviour
             flyer2.transform.position = Vector3.SmoothDamp(flyer2.transform.position, Camera.main.transform.position + flyer2offset, ref currentVelocityFlyer2, smoothTime);
         }
 
-        if ((health <= 0) && (!gameOver))
+        if ((health <= 0))
         {
             flyer3.GetComponent<SpriteRenderer>().enabled = true;
             flyer3.transform.position = Vector3.SmoothDamp(flyer3.transform.position, Camera.main.transform.position + flyer3offset, ref currentVelocityFlyer3, smoothTime);
             // Debug.Log("you lose!!!!!!!!!!!!!!!!!!!");
+        }
 
+        if ((health <= 0) && (!gameOver))
+        {
             gameOver = true;
             gameWon = false;
         }
