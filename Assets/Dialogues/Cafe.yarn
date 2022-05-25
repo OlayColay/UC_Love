@@ -23,7 +23,9 @@ Player: What should I do?
     <<if $TimeOfDayCafe == 0>>
         <<jump UCBCafe>>
     <<elseif $TimeOfDayCafe == 1>>
-        <<jump UCICafe>>
+        Player: Oops! There's no one here at the moment...
+        <<jump Cafe>>
+        //<<jump UCICafe>>
     <<else>>
         <<jump UCRCafe>>
     <<endif>>
@@ -338,6 +340,7 @@ Player: What should I do?
         <<if GetRelationshipScore("Kelly") >= 500>>
             Player: Would you like to go to the dance with me?
             Kelly: Y-yes! I'd love to!
+            <<SetSprite Middle Kelly/hbom>>
             <<set $DancePartner = 0>>
             <<jump Dance>>
         <<else>>

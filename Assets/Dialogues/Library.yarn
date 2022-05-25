@@ -38,10 +38,6 @@ Player: What should I do?
     <<else>>
         <<jump UCLALibrary>>
     <<endif>>
--> Work
-    Player: Oops! There's no job to do here currently.
-    <<jump Library>>
-    //After Working works, update time
 -> Leave  
     <<LoadScene MapScene>>
 ===
@@ -188,6 +184,8 @@ Player: What should I do?
                 <<SetSprite Middle Kelly/lbom>>
                 Kelly: Thank you for the encouragement... it means a lot...
                 Kelly: I think it will be a while before I'm ready to wear anything new outside though.
+                <<SetSprite Middle Kelly/lbcm>>
+                Kelly: I think I'll ask my sister if I can borrow some of her clothes!
                 <<SetSprite Middle Kelly/Idle>>
             -> I don't think that the "ClickClock" style would suit you...
                 <<SetSprite Middle Kelly/sad>>
@@ -350,6 +348,7 @@ Player: What should I do?
         <<set $AskKelly = true>>
         <<if GetRelationshipScore("Kelly") >= 500>>
             Player: Would you like to go to the dance with me?
+            <<SetSprite Middle Kelly/hbom>>
             Kelly: Y-yes! I'd love to!
             <<set $DancePartner = 0>>
             <<jump Dance>>
