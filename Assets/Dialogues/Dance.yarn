@@ -145,7 +145,7 @@ Squirrel: So we're going to hold a raffle to decide how to spend the money!
 Squirrel: If you all take a look at your dance tickets, you'll see a little number at the bottom!
 Squirrel: The student with the winning ticket number will decide if UCL will stay as a consolidation of the UCs...
 Squirrel: Or if UCL will be split back to its original colleges...
-<<SetSprite Left BearBox>>
+<<SetSprite Left BearBox/Blush>>
 BearBox: Or if we can buy a bouncy castle!
 Squirrel: ... Or if we can buy a bouncy castle. 
 -> Hold up, shouldn't this decision be made by someone more qualified rather than a random student?
