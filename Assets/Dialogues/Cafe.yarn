@@ -744,7 +744,7 @@ position: -36,93
     BearBox: Welcome to the Acorn Cafe! We let students work here as freelancers so that they can earn some spending money.
     <<SetSprite Middle BearBox/Idle>>
     BearBox: I don't want to imply that it's an easy job though! You humans drink things that I could never understand - I just order straight-up lithium-ion whenever I come here.
-    BearBox: Anyhoo, to start making a drink, you'll need to press the SPACE button. Make sure you're ready though becasue that will start the timer.
+    BearBox: Anyhoo, to start making a drink, you'll need to press the SPACE button. Make sure you're ready though because that will start the timer.
     BearBox: Once a drink is started, you'll press the corresponding buttons for your ingredients.
     BearBox: A good tip I've heard is that your hand will travel down the left side of your keyboard as you add ingredients.
     <<SetSprite Middle BearBox/Blush>>
