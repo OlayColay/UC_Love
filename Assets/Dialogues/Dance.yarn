@@ -211,12 +211,33 @@ BearBox: What should we do with the budget?
     BearBox: I'll go and make the preparations and leave you two alone! Enjoy the rest of the night ok?
     <<ClearSprite Left>>
     <<if $DancePartner == 0>>
-        Kelly:
-        Kelly: 
+        <<SetSprite Middle Kelly/lbom>>
+        Kelly: I'm really glad that you're deciding to stay...
+        <<SetSprite Middle Kelly/sad>>
+        Kelly: Everyone is dancing... but I don't really know how to dance...
+        <<SetSprite Middle Kelly/hbom>>
+        Kelly: Say... do you think that you could show me?
+        <<SetSprite Middle Kelly/hbcm>>
+        Kelly: I might look a little silly, but I don't care as long as I'm with you. 
     <<elseif $DancePartner == 1>>
-        Ellie: 
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: On behalf of the school, thank you for putting the funding towards UCL!
+        Ellie: I think that it will really make a difference!
+        <<SetSprite Middle Ellie/lb>>
+        Ellie: Y'know... I was in the dance club for a bit and I learned how to waltz from there...
+        <<SetSprite Middle Ellie/HB>>
+        Ellie: Here! I'll show you! Let's go dancing!
     <<elseif $DancePartner == 2>>
-        Santana:
+        <<SetSprite Middle Santana/bliss>>
+        Santana: I'm really glad that you chose to keep UCL! I grew really attached to the plants I raised.
+        Santana: I wonder if we'll be able to improve the garden a bit with the new funding!
+        Santana: I was thinking that we could put a picnic table in the middle near the pond... 
+        <<SetSprite Middle Santana/HB>>
+        Santana: It'd be really nice to go on a picnic with you there...
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Enough garden talk though! I've always been a bit of a wallflower, but I want to step out of my comfort zone and dance a little bit!
+        <<SetSprite Middle Santana/HB>>
+        Santana: C'mon! Let's go dance!
     <<elseif $DancePartner == 3>>
         <<SetSprite Middle Irene/ExcitedLB>>
         Irene: I'm glad that you're sticking around pogchamp!
@@ -226,7 +247,15 @@ BearBox: What should we do with the budget?
         Irene: You hold all my uwus, gamer.
         Irene: Now let's go default dance on the dance floor!
     <<elseif $DancePartner == 4>>
-        Riviera:
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: I think that UCL will become a much better place with the new funding!
+        Riviera: I heard that they're going to start a resource center for startups! I'm really excited!
+        Riviera: Oh yeah! I wanted to tell you that... my cousin's quincenera is coming up soon... she's letting me bring a plus one!
+        Riviera: I was thinking about introducing you to my family then if that's alright with you!
+        <<SetSprite Middle Riviera/LB>>
+        Riviera: I've been telling them all about you... and they've been really excited to meet you!
+        <<SetSprite Middle Riviera/HB>>
+        Riviera: Let's hit the dance floor to practice our dance moves!
     <<else>>
         Tommy: Even though I don't go here, I'm glad that you decided to keep the school!
         Tommy: I'd be able to visit you often since I'm in the area. 
@@ -311,6 +340,19 @@ Player: Oh shoot! I'm running late to class again!
     <<Fade false>>
     <<LoadScene Credits>>
 <<elseif $DancePartner == 2>>
+    <<SetSprite Middle Santana/LB>>
+    Santana: There you are! I was starting to get worried!
+    <<SetSprite Middle Santana/bliss>>
+    Santana: Are you alright? You seem a little out of breath!
+    <<SetSprite Middle Santana/LB>>
+    Santana: Here! I'll walk with you to class! 
+    <<SetSprite Middle Santana/bliss>>
+    Santana: It's alright if you're a little late! Take your time so that you don't trip on the stairs! Your health and safety are more important than saving a couple of minutes!
+    <<SetSprite Middle Santana/LB>>
+    Santana: We can take a short cut through the garden! Hold my hand so the squirrels know that you're with me!
+    Player: Yes!
+    <<Fade false>>
+    <<LoadScene Credits>>
 <<elseif $DancePartner == 3>>
     <<SetSprite Middle Irene/Excited>>
     Irene: Bro! Where were you? We're going to be coming in clutch to get to class!
@@ -337,7 +379,38 @@ Player: Oh shoot! I'm running late to class again!
     <<Fade false>>
     <<LoadScene Credits>>
 <<else>>
-    Tommy: 
+    Tommy: Oh hey! There you are! How have you been?
+    -> Wait... you don't even go here! What are you doing here?
+        <<SetSprite Middle Tommy/Flustered>>
+        Tommy: I just wanted to see how the campus remodel was coming along... 
+        <<SetSprite Middle Tommy/Idle>>
+        Tommy: The campus looks really nice thanks to you!
+        <<SetSprite Middle Tommy/Flushed>>
+        Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
+    -> I'm doing good! How are you doing?
+        <<SetSprite Middle Tommy/Snickering>>
+        Tommy: I'm doing good too! 
+        <<SetSprite Middle Tommy/Idle>>
+        Tommy: You're probably wondering what I'm doing here since I don't even go here...
+        Tommy: I just wanted to see how the campus remodel was coming along... the campus looks really nice thanks to you!
+        <<SetSprite Middle Tommy/Flushed>>
+        Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
+    <<SetSprite Middle Tommy/Awkward>>
+    Tommy: Anyways, don't you have a class or something to get to?
+    <<SetSprite Middle Tommy/Flustered>>
+    Player: Oh shoot! I forgot that I'm running late to class!
+    <<SetSprite Middle Tommy/Awkward>>
+    Tommy: Well.. if you're going to be late anyways...
+    <<SetSprite Middle Tommy/Idle>>
+    Tommy: Would you want to ditch and get lunch together?
+    Tommy: We can go to wherever you want, my treat!
+    <<SetSprite Middle Tommy/Flustered>>
+    <<Shake Middle>>
+    Tommy: But we gotta get going soon! I think I parked in a tow-away zone!
+    <<SetSprite Middle Tommy/Idle>>
+    Player: Yes!
+    <<Fade false>>
+    <<LoadScene Credits>>
 <<endif>>
 ===
 title: BreakUCL

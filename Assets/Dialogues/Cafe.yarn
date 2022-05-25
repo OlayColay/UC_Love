@@ -665,6 +665,30 @@ position: 207,66
         <<endif>>
     <<endif>>
     <<jump UCRCafe>>
+-> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCRCafe>>
+    <<endif>> 
+    <<set $GiftRiviera = true>>
+    <<set $GiftScoreRCafe = GetItemScore("Riviera")>>
+    <<AddRelationshipScore Riviera {$GiftScore}>>
+    <<if $GiftScoreRCafe == 20>>
+        //Loved Gift
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: Oh thanks! I'm always running out of these! I really love these!
+        <<SetSprite Middle Riviera/Idle>>
+    <<elseif $GiftScoreRCafe == 10>>
+        //Liked Gift
+        Riviera: This is pretty nice! Thanks.
+        <<SetSprite Middle Riviera/Idle>>
+    <<else>>
+        //Hated Gift
+        <<SetSprite Middle Riviera/Sad>>
+        Riviera: Err… I'm not sure what I'm supposed to do with these…
+        <<SetSprite Middle Riviera/Idle>>
+    <<endif>>
+    <<jump UCRCafe>>
 -> Ask <<if $AskRiviera == false>>
     -> Ask on a date
         <<set $AskRiviera = true>>
@@ -694,30 +718,6 @@ position: 207,66
         <<endif>>
     -> Cancel
         <<jump UCRCafe>>
--> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
-    <<OpenInventory>>
-    <<if GetInventoryCanceled() == true>>
-        <<jump UCRCafe>>
-    <<endif>> 
-    <<set $GiftRiviera = true>>
-    <<set $GiftScoreRCafe = GetItemScore("Riviera")>>
-    <<AddRelationshipScore Riviera {$GiftScore}>>
-    <<if $GiftScoreRCafe == 20>>
-        //Loved Gift
-        <<SetSprite Middle Riviera/Happy>>
-        Riviera: Oh thanks! I'm always running out of these! I really love these!
-        <<SetSprite Middle Riviera/Idle>>
-    <<elseif $GiftScoreRCafe == 10>>
-        //Liked Gift
-        Riviera: This is pretty nice! Thanks.
-        <<SetSprite Middle Riviera/Idle>>
-    <<else>>
-        //Hated Gift
-        <<SetSprite Middle Riviera/Sad>>
-        Riviera: Err… I'm not sure what I'm supposed to do with these…
-        <<SetSprite Middle Riviera/Idle>>
-    <<endif>>
-    <<jump UCRCafe>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
