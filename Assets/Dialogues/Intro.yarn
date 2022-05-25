@@ -219,12 +219,12 @@ BearBox: If it makes you feel better, this campus combination thing might be tem
 BearBox: UCL is hosting a fundraiser dance later this year to raise money to split the UCs back up!
 BearBox: If you go and bring a date with you, we might have a good shot at raising enough money to return the UCs to their former glory!
 <<SetSprite Middle BearBox/Blush>>
-BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
-BearBox: Before you go, administration told me to pass on this message for new students!
+BearBox: I have to go help the other students with orientation.
+BearBox: But before I go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the top floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can save your game by hitting the floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
 BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
-BearBox: I'm not sure what that means... but hope that you first day stays good, alright?
+BearBox: I'm not sure what that means... but hope that your first day stays good, alright?
 BearBox: Stay out of trouble!
 <<Fade false>>
 <<LoadScene MapScene>>
