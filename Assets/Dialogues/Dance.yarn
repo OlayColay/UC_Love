@@ -190,12 +190,11 @@ BearBox: Woah! Congratulations!
     <<SetSprite Middle Tommy/Flustered>>
     Tommy: H-hey!
     Squirrel: I'm out, they don't pay me enough for this. 
-    <<ClearSprite Right>>
 <<else>>
     Squirrel: Can I please leave now? This squirrel costume smells like unwashed college students. 
     Squirrel: Y'know what? I'm out, they don't pay me enough for this. 
-    <<ClearSprite Right>>
 <<endif>>
+<<ClearSprite Right>>
 BearBox: Now the fate of UCL rests solely in your hands...
 <<SetSprite Left BearBox/Idle>>
 BearBox: This year has been an eventful one thus far... and I want you to think deeply about what has become important to you when you make this decision.
