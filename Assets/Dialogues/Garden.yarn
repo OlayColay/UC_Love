@@ -766,7 +766,7 @@ Player: What should I do?
             Player: Would you like to go to the dance with me?
             <<SetSprite Middle Santana/bliss>>
             Santana: I would love to!
-            <<Set $DancePartner = 3>>
+            <<set $DancePartner = 2>>
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Santana/Angry>>
