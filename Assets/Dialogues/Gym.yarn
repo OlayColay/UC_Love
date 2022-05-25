@@ -465,7 +465,7 @@ Player: What should I do?
                     Ellie: Hopefully tomorrow is a little better!
                     <<SetSprite Middle Ellie/Idle>>
                 -> It's a bit rough... How's your day so far?
-                    <<SetSprite Middle Ellie/sad>>
+                    <<SetSprite Middle Ellie/cmo>>
                     Ellie: Oh, I'm sorry to hear that. Some days are kind of cruddy. 
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Tomorrow is a new day though! 
