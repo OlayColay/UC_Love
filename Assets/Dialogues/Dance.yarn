@@ -113,7 +113,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
 <<SetSprite Left BearBox/Idle>>
 BearBox: Oh! The ceremonial procedures are starting! You guys are going to love this!
 <<SetSprite Right Squirrel/Mascot>>
-<<Shake Left>>
+<<Shake Right>>
 -> WHAT THE HELL IS THAT?
     <<SetSprite Left BearBox/Angry>>
     BearBox: That's rude of you! Don't you know that this is UCL's mascot?
@@ -287,15 +287,16 @@ title: KeepUCL
 position: 145,-124
 ---
 <<Fade false>>
+<<SetBackground Backgrounds/dorm>>
 <<ClearSprite Middle>>
 <<Fade true>>
-<<SetBackground Backgrounds/dorm>>
 Player: Ever since the fundraiser dance, the UCL campus has become a lot nicer.
 Player: Even if my new suitemate is a little... eccentric...
 <<SetSprite Right Squirrel/Mascot>>
+<<SetActiveChar Right>>
 Squirrel: Hey man, mind your own fricking business.
 Squirrel: And can you stop narrating your every thought? What are you? An anime protagonist?
-<<ClearSprite>>
+<<ClearSprite Right>>
 Player: A lot of the bathrooms have been remodeled, the lecture halls have charging ports, and I hear that they're making a new dorm!
 Player: Though the upgrades are really nice, I can't say that they're the best part about going to UCL...
 Player: I think that the best part of going to UCL is...
