@@ -20,6 +20,7 @@ System: Created new save file! Do you want to play the intro? It is recommended 
 -> Play through Intro
     <<jump Orientation>>
 -> Skip Intro
+    <<Fade false 0>>
     <<LoadScene MapScene>>
 ===
 title: Orientation

@@ -100,6 +100,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fa684b2f-048d-440d-8141-0de92463a282",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b37e3715-636d-4c83-91cd-a7a672c060b0",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -113,6 +124,17 @@
                     "name": "",
                     "id": "78cf159a-6214-4bc1-946d-a6f7b108f9bc",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cross",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5a9ebb8-b3af-4c0a-a5b8-e7440608f47f",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

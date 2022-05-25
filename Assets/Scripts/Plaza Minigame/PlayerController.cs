@@ -61,8 +61,11 @@ public class PlayerController : MonoBehaviour
     void Update(){
         moveInput = playerInput.Player.Move.ReadValue<Vector2>();
 
-        animator.SetFloat("horizontal", moveInput[0]);
-        animator.SetFloat("vertical", moveInput[1]);
+        if (Mathf.Abs(moveInput.x) >= float.Epsilon || Mathf.Abs(moveInput.y) >= float.Epsilon)
+        {
+            animator.SetFloat("horizontal", moveInput[0]);
+            animator.SetFloat("vertical", moveInput[1]);
+        }
 
         if (health <= 2)
         {
