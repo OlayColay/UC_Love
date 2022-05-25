@@ -159,7 +159,6 @@ Player: What should I do?
         <<elseif $UCB_Dialogue == 2>>
             Kelly: Could I get your opinion on something? Be honest, do I look intimidating?
             -> Yeah, a little!
-            <<AddRelationshipScore Kelly 10>>
                 <<AddRelationshipScore Kelly 10>>
                 Kelly: Yeah... I think so too. I do kind of have a grumpy face... my parents say this a lot too...
                 Kelly: To be honest, it was kind of rough growing up with my sister. 
