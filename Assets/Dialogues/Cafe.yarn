@@ -608,8 +608,8 @@ position: 207,66
             <<SetSprite Middle Riviera/Idle>>
         <<else>>
             Riviera: I was going through my emails yesterday when I realized that I've always been a really independent person.
-            Riviera: My mom told that when I was a kid, whenever I fell or got hurt I never cried. Apparently, I would just get up and get a bandaid all by myself. 
-            Riviera: I think that going into business really made me realize how independent I was. 
+            Riviera: My mom told me that when I was a kid, whenever I fell or got hurt I never cried. Apparently, I would just get up and get a bandaid all by myself. 
+            Riviera: I think that going into business really made me realize how independent I am. 
             Riviera: I used to think that getting help from other people meant that you were weak, but now I think that it takes courage to ask for help when you need it.
             <<SetSprite Middle Riviera/lb>>
             Riviera: I feel like I can be vulnerable around you. I trust you a lot. 
