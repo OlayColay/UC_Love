@@ -60,4 +60,10 @@ public static class YarnFunctions
             return PlayerPrefs.GetString(name, "");
         }
     }
+
+    [YarnFunction("IsComputer")]
+    public static bool IsComputer()
+    {
+        return (SystemInfo.deviceType != DeviceType.Desktop);
+    }
 }

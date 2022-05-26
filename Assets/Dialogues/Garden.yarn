@@ -421,22 +421,22 @@ position: 125,-26
         Player: It's searching around my bag...
         Player: Hey! HEY! That's my money! Give it back!
         -> Fight the Squirrel
-        Player: Listen up here partner! I'm already being bullied by personifications of private schools!
-        Player: I'll be damned if I let a damn squirrel take my lunch money!
-        Player: Get over here and fight me like a real man you son of a gun!
-        <<ClearSprite Middle>>
-        Player: Oh! He ran away! 
-        Player: If you are what you eat, I suppose that squirrel was...
-        Player: All bark and no bite! Badum Tss!!
-        <<SetSprite Middle Squirrel/Idle>>
-        Squirrel: Squirrels don't eat bark though you fool. 
-        Player: Did that squirrel just TALK?
-        Player: That's enough nature today...I'm... going to leave...
-        <<ClearSprite Middle>>
+            Player: Listen up here partner! I'm already being bullied by personifications of private schools!
+            Player: I'll be damned if I let a damn squirrel take my lunch money!
+            Player: Get over here and fight me like a real man you son of a gun!
+            <<ClearSprite Middle>>
+            Player: Oh! He ran away! 
+            Player: If you are what you eat, I suppose that squirrel was...
+            Player: All bark and no bite! Badum Tss!!
+            <<SetSprite Middle Squirrel/Idle>>
+            Squirrel: Squirrels don't eat bark though you fool. 
+            Player: Did that squirrel just TALK?
+            Player: That's enough nature today...I'm... going to leave...
+            <<ClearSprite Middle>>
         -> Leave it alone
-        <<ClearSprite Middle>>
-        Player: He took $50... why?!
-        <<AddMoney 50>>
+            <<ClearSprite Middle>>
+            Player: He took $50... why?!
+            <<AddMoney -50>>
 <<elseif $Random_Event_Dialogue == 4>>
     Player: I have a feeling that if I take a walk at night, I'll meet someone unexpected. 
 <<elseif $Random_Event_Dialogue == 5>>
@@ -453,7 +453,6 @@ position: 125,-26
 <<elseif $Random_Event_Dialogue == 7>>
     Player: Huh... There's a sign that says, "DO NOT FEED THE SQUIRREL."
     Player: ...Noted.
-    <<AddMoney 50>>
 <<elseif $Random_Event_Dialogue == 8>>
     //UCI special item
     //NOTE: Finalize special items then add AddItem commands after "Oh!"
@@ -490,8 +489,13 @@ position: 125,-26
     Player: OH MY GOD! HELP ME!!! HOLY SHIT!!! I'M BEING ATTACKED BY A SQUIRREL!!!!
     <<ClearSprite Middle>>
     Player: .... owww... that hurt a lot more than I anticipated...
-    Player: AND HE TOOK $200??? WHY!!!
-    <<AddMoney -200>>
+    <<if IsComputer()>>
+        Player: AND HE TOOK $200??? WHY!!!
+        <<AddMoney -200>>
+    <<else>>
+        Player: AND HE TOOK $20??? WHY!!!
+        <<AddMoney -20>>
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 15>>
     <<SetSprite Middle Squirrel/Idle>>
     Player: Oh! A squirrel! 

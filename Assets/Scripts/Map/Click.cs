@@ -47,7 +47,7 @@ public class Click : MonoBehaviour
                 MapEvents.current.LocationSelected(newLocation);
             }
 
-            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            if (Mouse.current.leftButton.wasReleasedThisFrame || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Ended))
             {
                 // Debug.Log("Travel to " + newLocation.name);
                 
@@ -74,11 +74,25 @@ public class Click : MonoBehaviour
     GameObject GetElementOverMouse()
     {
         // Get the location of the click
-        Vector3 mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
-            Mouse.current.position.x.ReadValue(),
-            Mouse.current.position.y.ReadValue(),
-            Camera.main.nearClipPlane
-        ));
+        Vector3 mouseLocation;
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
+                touch.position.x,
+                touch.position.y,
+                Camera.main.nearClipPlane
+            ));
+        }
+        else
+        {
+            mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
+                Mouse.current.position.x.ReadValue(),
+                Mouse.current.position.y.ReadValue(),
+                Camera.main.nearClipPlane
+            ));
+        }
+        
 
         // Debug.Log(string.Format("Mouse position x={0} y={1} z={2}",
         //     mouseLocation.x,

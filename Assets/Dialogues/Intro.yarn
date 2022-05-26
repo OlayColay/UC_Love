@@ -222,8 +222,8 @@ BearBox: If you go and bring a date with you, we might have a good shot at raisi
 BearBox: I have to go help the other students with orientation.
 BearBox: But before I go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
-BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
+BearBox: "You can save your game by hitting the floppy disk icon in the top right corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can check your inventory by clicking the backpack icon to the right of the save icon!"
 BearBox: I'm not sure what that means... but hope that your first day stays good, alright?
 BearBox: Stay out of trouble!
 <<Fade false>>

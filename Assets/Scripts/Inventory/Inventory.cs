@@ -53,15 +53,12 @@ public static class Inventory
     [YarnFunction("GetMoney")]
     public static int GetMoney() { return money; }
     [YarnCommand("SetMoney")]
-    public static bool SetMoney(int Money)
+    public static void SetMoney(int Money)
     {
-        if (Money < 0)
-            return false;
-        money = Money;
-        return true;
+        money = Mathf.Max(Money, 0);
     }
     [YarnCommand("AddMoney")]
-    public static bool ChangeMoney(int change) { return SetMoney(GetMoney() + change); }
+    public static void ChangeMoney(int change) { SetMoney(GetMoney() + change); }
 
     // Relationship scores
     [YarnFunction("GetRelationshipScore")]

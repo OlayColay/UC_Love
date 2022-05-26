@@ -29,7 +29,7 @@ Player: What should I do?
     <<else>>
         <<jump UCRCafe>>
     <<endif>>
--> Work
+-> Work <<if IsComputer()>>
     <<jump CafeWork>>
 -> Leave
     <<LoadScene MapScene>>

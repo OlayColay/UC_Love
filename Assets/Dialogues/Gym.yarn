@@ -37,7 +37,7 @@ Player: What should I do?
     <<else>>
         <<jump UCSBGym>>
     <<endif>>
--> Work as a workout trainer
+-> Work as a workout trainer <<if IsComputer()>>
     <<jump GymWork>>
 -> Leave
     <<LoadScene MapScene>>
