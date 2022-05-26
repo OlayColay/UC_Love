@@ -41,7 +41,12 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        // Debug.Log("Quitting game!!");
-        Application.Quit(); // Doesn't work in Unity Editor
+        #if (UNITY_EDITOR)
+            UnityEditor.EditorApplication.isPlaying = false;
+        #elif (UNITY_STANDALONE) 
+            Application.Quit();
+        #elif (UNITY_WEBGL)
+            Application.OpenURL("https://olaycolay.itch.io/uc-love");
+        #endif
     }
 }
