@@ -12,6 +12,6 @@ public class Credits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<RectTransform>().DOMoveY(endPosY + 250, duration).SetEase(Ease.Linear).OnComplete(() => SceneManager.LoadScene(0));
+        GetComponent<RectTransform>().DOAnchorPosY(endPosY, duration).SetEase(Ease.Linear).OnComplete(() => SceneManager.LoadScene(0));
     }
 }
