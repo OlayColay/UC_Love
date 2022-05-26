@@ -305,14 +305,16 @@ public class GymMinigameController : MonoBehaviour
         pushupBackground.transform.DOScale(2f, 10f);
 
         // Repeat every frame until pushup target is reached or time limit is exceeded
-        while (curPushups < pushupTarget && pushupSlider.value < pushupMax)
+        while(curPushups < pushupTarget && pushupSlider.value < pushupMax)
         {
             pushupSlider.value += pushupSpeed;
+            keyboard.enabled = (pushupSlider.value >= pushupThreshold);
             yield return new WaitForFixedUpdate(); // Wait a frame before repeating
         }
         
         pushupSlider.gameObject.SetActive(false);
         pushupArea.gameObject.SetActive(false);
+        keyboard.enabled = false;
 
         if (curPushups >= pushupTarget)
         {
