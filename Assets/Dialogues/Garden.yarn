@@ -766,7 +766,7 @@ Player: What should I do?
         <<endif>>
     -> Ask to the dance
         <<set $AskSantana = true>>
-        <<if GetRelationshipScore("Santana") >= 500>>
+        <<if GetRelationshipScore("Santana") >= 400>>
             Player: Would you like to go to the dance with me?
             <<SetSprite Middle Santana/bliss>>
             Santana: I would love to!
@@ -1166,7 +1166,7 @@ Player: What should I do?
         <<endif>>
     -> Ask to the dance
         <<set $AskIrene = true>>
-        <<if GetRelationshipScore("Irene") >= 500>>
+        <<if GetRelationshipScore("Irene") >= 400>>
             Player: Would you like to go to the dance with me?
             Irene: To be honest...
             Irene: I don't really know how to dance aside from default emote dances...

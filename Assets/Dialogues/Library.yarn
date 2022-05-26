@@ -346,7 +346,7 @@ Player: What should I do?
         <<endif>>
     -> Ask to the dance
         <<set $AskKelly = true>>
-        <<if GetRelationshipScore("Kelly") >= 500>>
+        <<if GetRelationshipScore("Kelly") >= 400>>
             Player: Would you like to go to the dance with me?
             <<SetSprite Middle Kelly/hbom>>
             Kelly: Y-yes! I'd love to!
@@ -815,7 +815,7 @@ Player: What should I do?
         <<endif>>
     -> Ask to the dance
         <<set $AskEllie = true>>
-        <<if GetRelationshipScore("Ellie") >= 500>>
+        <<if GetRelationshipScore("Ellie") >= 400>>
             Player: Would you like to go to the dance with me?
             Ellie: I'd love to! We're going to have so much fun!
             <<set $DancePartner = 1>>
