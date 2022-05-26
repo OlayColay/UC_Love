@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
@@ -25,6 +28,7 @@ public class Click : MonoBehaviour
     {
         // Subscribe to the event system
         MapEvents.current.onGamePaused += SetDisabled;
+        EnhancedTouchSupport.Enable();
     }
 
     // Update is called once per frame
@@ -47,7 +51,7 @@ public class Click : MonoBehaviour
                 MapEvents.current.LocationSelected(newLocation);
             }
 
-            if (Mouse.current.leftButton.wasReleasedThisFrame || (Input.touchCount > 0 && Input.GetTouch(0).phase == UnityEngine.TouchPhase.Ended))
+            if (Mouse.current.leftButton.wasReleasedThisFrame || (Touch.activeTouches.Count > 0 && Touch.activeTouches[0].phase == TouchPhase.Ended))
             {
                 // Debug.Log("Travel to " + newLocation.name);
                 
@@ -75,12 +79,12 @@ public class Click : MonoBehaviour
     {
         // Get the location of the click
         Vector3 mouseLocation;
-        if (Input.touchCount > 0)
+        if (Touch.activeTouches.Count > 0)
         {
-            Touch touch = Input.GetTouch(0);
+            Vector2 touch = Touch.activeTouches[0].screenPosition;
             mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
-                touch.position.x,
-                touch.position.y,
+                touch.x,
+                touch.y,
                 Camera.main.nearClipPlane
             ));
         }

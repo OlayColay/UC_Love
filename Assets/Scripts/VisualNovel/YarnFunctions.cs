@@ -64,6 +64,6 @@ public static class YarnFunctions
     [YarnFunction("IsComputer")]
     public static bool IsComputer()
     {
-        return (SystemInfo.deviceType != DeviceType.Desktop);
+        return !Application.isMobilePlatform;
     }
 }
