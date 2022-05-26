@@ -1000,7 +1000,13 @@ Player: What should I do?
                 Irene: It was completely worth it though!
                 <<SetSprite Middle Irene/Idle>>
         <<else>> 
-            Irene: 
+            Irene: Being an electrical engineering major has its perks!
+            <<SetSprite Middle Irene/Excited>>
+            Irene: I built a really cool gamer set up based on what I learned from my classes.
+            Irene: Every time that I get a kill in Beast of Legends, my setup goes rainbow for a while!
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: You should check it out sometime!
+            <<SetSprite Middle Irene/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
         <<if $UCI_Dialogue == 1>>
@@ -1027,7 +1033,27 @@ Player: What should I do?
                 Irene: Silly!
                 <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: I'm thinking about changing my Discourse profile picture...
+            Irene: Which one of these should I choose?
+            -> The Squirrel!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Haha! That one looks kind of goofy!
+                Irene: It kind of reminds me of you a bit if you look at the eyes!
+            -> The Anteater!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Ooh! Yeah, I really like the art style of this one!
+                Irene: Anteaters are one of my favorite animals too! They're shaped kind of funny!
+            -> The Cat!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Oh! I like this one too! It's really cute!
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: It kind of reminds me of you...
+            -> BearBox!
+                Irene: Oh! I like this one too! It's really cute!
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: It kind of reminds me of you...
+            <<SetSprite Middle Irene/Idle>>
+            Irene: Thanks for the help!
         <<elseif $UCI_Dialogue == 4>> 
             Irene: 
         <<else>> 
@@ -1119,8 +1145,34 @@ Player: What should I do?
                 Irene: It's a rare sight!
                 Irene: Come on, I'll help you climb a tree!
             -> Okay, okay! Heading over!
+                Irene: The sky is so clear tonight! We can see the stars!
+                Irene: It's a rare sight!
+                Irene: Come on, I'll help you climb a tree!
         <<else>> 
-            Irene: 
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I feel like I can be myself around you, bro.
+            <<SetSprite Middle Irene/Sad>>
+            Irene: Sometimes, I feel like I have to put on a mask or restrain myself when I'm around other people.
+            <<SetSprite Middle Irene/Sad>>
+            Irene: I never really fit in as a kid... and I always felt like the "weird" kid that people tended to avoid...
+            <<SetSprite Middle Irene/VerySad>>
+            Irene: It was just... really lonely y'know?
+            <<SetSprite Middle Irene/VeryVerySad>>
+            Irene: I'm sorry... I got kind of emotional there...
+            Irene: Can... I have a hug?
+            -> Yes!
+                <<SetSprite Middle Irene/VerySad>>
+                Irene: Thanks bro...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: You give nice hugs... I feel a lot better now. 
+                <<SetSprite Middle Irene/IdleHB>>
+                Irene: I'm really glad to have you in my life...
+            -> No...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: Oh... that's alright. Sorry to bother you.
+                <<SetSprite Middle Irene/Angry>>
+                Irene: I think I'm going to get some boba to cheer up then... take care ok?
+                <<SetSprite Middle Irene/Idle>>
         <<endif>>
     <<endif>>
     <<jump UCIGarden>>
