@@ -101,7 +101,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 targetVelocity = moveInput * maxSpeed;
         rb.velocity =  Vector3.SmoothDamp(rb.velocity, targetVelocity, ref currentVelocityPlayer, smoothTime);
-
+        // Wheels spin only if moving
+        animator.speed = rb.velocity.magnitude / maxSpeed;
     }
 
      private void OnCollisionEnter2D(Collision2D collision)
