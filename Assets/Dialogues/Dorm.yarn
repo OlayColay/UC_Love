@@ -106,6 +106,7 @@ Player: What should I do?
 title: AdditionalNap
 position: 189,-70
 ---
+<<Fade true>>
 <<UpdateTimeOfDay>>
 <<set $TimeOfDayDorm2 to GetTimeOfDay()>>
 Player: Wow... that was a good nap! Oh! Would you look at the time!
@@ -119,5 +120,6 @@ Player: Wow... that was a good nap! Oh! Would you look at the time!
 -> Leave
     <<LoadScene MapScene>>
 -> Hit snooze (Pass More Time)
+    <<Fade false>>
     <<jump AdditionalNap>>
 ===

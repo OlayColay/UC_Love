@@ -974,7 +974,27 @@ Player: What should I do?
             Irene: It looks really cool and the art is really great! We should play it together sometime!
             <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            Irene: I bet that I could beat you in a fight!
+            Irene: When I was a kid, my parents were always concerned that I would get picked on because of my size.
+            Irene: I was really small compared to the other kids at school!
+            Irene: My parents enrolled my in karate, and I was surprisingly good at it! I got a black belt in no time and I even went to state competitions!
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: I got disqualified before I could go to nationals though...
+            -> Why?
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Apparently, t-posing over your opponent is "bad sportsmanship", but I thought it was hilarious!
+                Irene: My opponent was a bit of a sore sport though!
+                <<SetSprite Middle Irene/Idle>>
+            -> I'm sorry to hear that...
+                <<SetSprite Middle Irene/Excited>>
+                Irene: No no! It was completely my fault!
+                <<Shake Middle>>
+                Irene: It's a... it's a really funny story!
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: I kept t-posing over my opponents and one of the referees deemed it bad sportsmanship and disqualified me.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: It was completely worth it though!
+                <<SetSprite Middle Irene/Idle>>
         <<else>> 
             Irene: 
         <<endif>>

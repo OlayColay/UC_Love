@@ -354,7 +354,7 @@ Player: Oh shoot! I'm running late to class again!
         Kelly: Well, that is true... we are about 10 minutes early...
         <<SetSprite Middle Kelly/hbcm>>
         Kelly: But I wanted to take the scenic route to class! I want to stop and smell the roses with you!
-        Kelly: Let's get going so Professor BearBox doesn't run over our toes in class!
+        Kelly: Let's get going! I'll pick up some squirrel repellent on the way!
         Player: Yes!
         <<Fade false>>
         <<LoadScene Credits>>
