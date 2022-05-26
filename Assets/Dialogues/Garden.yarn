@@ -808,9 +808,11 @@ Player: What should I do?
         //These lines should only be said at night. Since she only appears at the garden at night, it's ok
         // that $UCI_Dialogue references night 
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: Woahhh...there's another midnight owl just like me!
+            Irene: Have you seen a vending machine around here?
+            Irene: I kind of want to buy some B-Fuel.
         <<else>> 
-            Irene: Oh hey. Kinda rare to see another person around this time.
+            Irene: Sorry, I'm kind of low on energy right now.
+            Irene: They ran out of B-Fuel at the store so I've been feeling kind of groggy. 
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
         <<if $UCI_Dialogue == 1>>
@@ -907,7 +909,7 @@ Player: What should I do?
             -> Isn't it hard to stay focused when you're tired?
                 Player: Isn't it hard to stay focused when you're tired? 
                 Player: After all, you can only do so much when you're running low on energy.
-                Irene: LMAO!! I usually have boba to help me out with that!
+                Irene: I usually have boba to help me out with that!
                 -> Boba? At this time??
                     <<SetSprite Middle Irene/Angry>>
                     <<Shake Middle>>
@@ -1010,12 +1012,11 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
         <<if $UCI_Dialogue == 1>>
-            Irene: Looks like I'm seeing you quite often these nights!
-            Irene: What for?
-            -> I came here just to see you.
-                Irene: O-oh! I-I see...
-            -> The same reason as you.
-                Irene: O-oh! R-really?
+            Irene: I got a pretty nice check from a B-Fuel sponsorship that I did an while back...
+            Irene: I was thinking about using it to get this new Birby co-op game that just came out!
+            <<SetSprite Middle Irene/IdleLB>>
+            Irene: Maybe we can play it together sometime...
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 2>>
             <<SetSprite Middle Irene/Excited>>
             Irene: I think that you kind of look like a character from a dating simulator!
@@ -1087,57 +1088,9 @@ Player: What should I do?
                 -> Haha, of course. 
                     Irene: Don't make fun of meee!!
         <<elseif $UCI_Dialogue == 2>>
-            Irene: You know, I was thinking...
-            Irene: It's always nice to talk to you.
-            Irene: Like, if anything, as a live-streamer, sometimes it's honestly hard to interact with people.
-            Irene: Since I'm in the position to give content, while also responding accordingly to what people want from me.
-            -> You should cherish yourself more.
-                Irene: !!
-                Irene: ...Yeah..you're right. 
-            -> You're more than you think you are.
-                Irene: !!!
-                Irene: You think so..?
-            Irene: It's just hard...you know? When you have to act a certain way just to not get cancelled.
-            Irene: Already harder since I'm a gamer girl too.
-            Irene: ...
-            Irene: I've had my fair share of certain types of users who said some things that I can never unread anymore.
-            -> Do what you love to do...
-                Player: Do what you love to do, and I'm here for you to cheer you on!
-                <<Shake Middle>>
-                Irene: Thanks! I really mean it. 
-                Irene: I really do mean it. You're very caring and I love that about you.  
-            -> Take some breaks...
-                Player: Take some breaks when you need to. You're human too, after all.
-                Irene: But if I do...I..!
-                Irene: ...
-                Irene: What would I have left of me, if not this...?
+            Irene: 
         <<elseif $UCI_Dialogue == 3>>
-            Irene: So the other day, I was thinking about it.
-            -> About what?
-                Irene: About you, actually.
-                Irene: I'll just tell you upfront. I...like you.
-                Irene: It's always fun to talk to you about games and play together.
-                Irene: Like, it's just you and me!
-                Irene: So it's...um..easier to be myself.
-                -> What do you mean?
-                    Irene: So I'm a live streamer. And let's just say that it's not so easy to really talk about whatever I want all the time. 
-                    Irene: Of course, I'm not thinking of saying anything bad!
-                    Irene: More like, as a gamer gal, it sometimes feels suffocating.
-                -> Are you hiding something?
-                    Irene: ...
-                    Irene: It's not really much of a secret, since I'm a live streamer.
-                    Irene: But I don't have that many friends who really know about me.
-                    Irene: And well...I'm honestly afraid that I might end up saying something that people can take out of context and use it to hurt me.
-                Player: That must be hard to deal with.
-                Irene: Yeah. It really is.
-                Irene: But that's why I appreciate you a lot.
-            -> About me??
-                Irene: W-what? NO!!
-                Irene: ...
-                Irene: ...Yes.
-            Irene: If you're coming this many times late at night just to see me, it's a no brainer as to why you come.
-            Irene: And...I love seeing you!
-            Irene: You're really sweet whenever you come by and I love talking to you.
+            Irene: 
         <<elseif $UCI_Dialogue == 4>> 
             Irene: Oh! You're here!! Come quick!!!
             -> Huh? What's going on?
