@@ -356,7 +356,34 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskTommy = true>>
         <<if GetRelationshipScore("Tommy") >= 240>>
-            <<jump TommyDate>>
+            <<AddRelationshipScore Tommy 10>>
+            Tommy: Alright, but it better be to someplace nice!
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Tommy/Idle>>
+            <<Fade true>>
+            <<Wait 4>>
+            <<SetSprite Date Tommy/Awkward>>
+            Tommy: I didn't know that this area had such good food!
+            <<SetSprite Date Tommy/Snickering>>
+            Tommy: The flavors are really simple, but they combine so well together!
+            <<SetSprite Date Tommy/Idle>>
+            Tommy: I should definitely expand my horizons a bit more!
+            <<SetSprite Date Tommy/Snickering>>
+            Tommy: Thank you for showing me this place!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<SetBackground Backgrounds/Garden/NightWarm>>
+            <<SetSprite Middle Tommy/Idle>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            <<SetSprite Middle Tommy/Idle>>
+            Tommy: I had a really good time! Thank you. 
+            <<jump USCGarden>>
         <<else>>
             <<SetSprite Middle Tommy/Angry>>
             Tommy: Uhhh... ew...
@@ -756,7 +783,37 @@ Player: What should I do?
         <<if GetRelationshipScore("Santana") >= 300>>
             <<SetSprite Middle Santana/LB>>
             Santana: That would be lovely!
-            <<jump SantanaDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Santana/LB>>
+            <<Fade true>>
+            <<Wait 4>>
+            <<SetSprite Date Santana/bliss>>
+            Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
+            <<SetSprite Date Santana/LB>>
+            Santana: It's really nice to be able to share this meal with you!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $TimeOfDayGarden == 0>>
+                <<SetBackground Backgrounds/Garden/Morning>>
+                //Sets background as Garden Morning if it is Daytime
+            <<elseif $TimeOfDayGarden == 1>>
+                <<SetBackground Backgrounds/Garden/Noon>>
+                //Sets background as Garden Afternoon if it is Afternoon
+            <<else>>
+                <<SetBackground Backgrounds/Garden/NightWarm>>
+                //Sets background as Garden Night if it Evening
+            <<endif>>
+            <<SetSprite Middle Santana/bliss>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Santana: I had a really great time! Thank you for taking me out!
+            <<SetSprite Middle Santana/Idle>>
+            <<jump UCSBGarden>>
         <<else>>
             <<SetSprite Middle Santana/Angry>>
             Santana: Ummm... sorry... I don't feel that way about you.
@@ -1158,7 +1215,7 @@ Player: What should I do?
         <<if GetRelationshipScore("Irene") >= 300>>
             <<SetSprite Middle Irene/ExcitedLB>>
             <<AddRelationshipScore Irene 10>>
-            Irene: Sure bro!
+            Irene: Poggers, I was just craving some pasta! I'd love to!
             <<Fade false>>
             <<ClearSprite Middle>>
             <<SetActiveChar Date>>
@@ -1199,9 +1256,10 @@ Player: What should I do?
         <<set $AskIrene = true>>
         <<if GetRelationshipScore("Irene") >= 400>>
             Player: Would you like to go to the dance with me?
+            <<SetSprite Middle Irene/Awkward>>
             Irene: To be honest...
             Irene: I don't really know how to dance aside from default emote dances...
-            <<SetSprite Middle Irene/Awkward>>
+            <<SetSprite Middle Irene/ExcitedLB>>
             Irene: But as long as you're alright with that, I'd love to go with you!
             <<set $DancePartner = 3>>
             <<jump Dance>>
