@@ -943,6 +943,19 @@ Player: What should I do?
         <<SetSprite Middle Santana/Angry>>
         Santana: Erm… I'm not sure what to do with these… but thank you...
         <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreS == 40>>
+        Santana: Oh! My spade!
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Where did you find this? I've been looking everywhere for it! Thank you so much!
+        Santana: This was a congratulatory gift from my mom for getting an internship in the garden! It really means a lot to me...
+        Santana: She taught me how to garden and everything! I wouldn't be where I am without her.
+        <<SetSprite Middle Santana/Idle>>
+        Santana: She lives a little far away so I can't see her as often... 
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Being able to use this spade day-to-day makes me feel like she's right with me as I work!
+        <<SetSprite Middle Santana/LB>>
+        Santana: Thank you so much!
+        <<SetSprite Middle Santana/Idle>>
     <<else>>
         // Not their key item gift
         Santana: Oh! This looks important, but it's not mine...
