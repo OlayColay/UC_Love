@@ -19,7 +19,7 @@ tags:
 // <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
-    <<jump Orientation>>
+    <<jump Alt>>
 -> Skip Intro
     <<Fade false 0>>
     <<LoadScene MapScene>>

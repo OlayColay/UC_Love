@@ -1,25 +1,6 @@
 ﻿title: Alt
 tags:
 ---
-title: Intro
-tags:
----
-WARNING! If you create a new game, it will erase any saves you have! Continue?
--> Yes!
--> Nah
-    <<LoadScene UiScene>>
-<<SaveVariable "MainSave" "">>
-<<SaveVariable "UCR_Intro" false>>
-<<SaveVariable "BobamonGo" 0>>
-Created new save file! Do you want to play the intro? It is recommended for new players.
--> Play through Intro
-    <<jump Orientation>>
--> Skip Intro
-    <<LoadScene MapScene>>
-===
-title: Orientation
-position: 192,-57
----
 <<FadeBackground Backgrounds/Dorm 2>>
 Player: Ugh… my head… I shouldn't have slept so late last night…
 Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
@@ -144,6 +125,8 @@ Stan: Alright, alright.
 <<endif>>
 Player: Hey! HEY! Put me down!
 <<Fade false>>
+<<SetBackground Backgrounds/BlackScreen>>
+<<Fade true 0>>
 <<ClearSprite Middle>>
 <<ClearSprite Right>>
 Player: Ow... Ick...
@@ -164,6 +147,8 @@ BearBox: Hey! Tommy Trojan and Stan Ford! Just what do you two think you're doin
 Tommy: Uh oh...
 Stan: We better get going...
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
+<<Fade false 0>>
+<<SetBackground Backgrounds/Plaza/plaza_morning>>
 <<SetSprite Middle BearBox/Idle>>
 <<SetActiveChar Middle>>
 <<Fade true>>

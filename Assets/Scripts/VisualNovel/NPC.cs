@@ -57,9 +57,10 @@ public class NPC : MonoBehaviour
     [YarnCommand("SetActiveChar")]
     public void SetActiveChar()
     {
-        transform.SetAsLastSibling();
+        transform.SetSiblingIndex(3);
         image.DOColor(Color.white, 0.5f);
-        // First child is the bottom sprite, which will never be inactive
+        // Last child is the bottom sprite, which will never be inactive
+        parent.GetChild(0).GetComponent<Image>().DOColor(new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, parent.GetChild(0).GetComponent<Image>().color.a), 0.5f);
         parent.GetChild(1).GetComponent<Image>().DOColor(new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, parent.GetChild(1).GetComponent<Image>().color.a), 0.5f);
         parent.GetChild(2).GetComponent<Image>().DOColor(new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, parent.GetChild(2).GetComponent<Image>().color.a), 0.5f);
     }

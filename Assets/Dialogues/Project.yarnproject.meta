@@ -21,6 +21,7 @@ ScriptedImporter:
   - {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
   - {fileID: 6391573757903218779, guid: a57c54f571a03e94cb9406355914bd21, type: 3}
   - {fileID: 6391573757903218779, guid: a90823882bea7f54c9a97dcb457f2e6f, type: 3}
+  - {fileID: 6391573757903218779, guid: ad18fd6e81db2d949848cce45a4ffc24, type: 3}
   compileErrors: []
   serializedDeclarations:
   - name: $BerkeleyDialogue
@@ -111,12 +112,20 @@ ScriptedImporter:
     description: Garden.yarn, node Garden, line 15
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $Flavor_Text
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node Garden, line 30
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $USC_Dialogue
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Garden.yarn, node USCGarden, line 14
+    description: Garden.yarn, node USCGarden, line 15
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $GiftScore
@@ -124,7 +133,15 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Garden.yarn, node USCGarden, line 253
+    description: Garden.yarn, node USCGarden, line 255
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $DancePartner
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Garden.yarn, node USCGarden, line 284
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $Random_Event_Dialogue
@@ -148,7 +165,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Garden.yarn, node UCSBGarden, line 134
+    description: Garden.yarn, node UCSBGarden, line 208
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $UCI_Dialogue
@@ -164,7 +181,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Garden.yarn, node UCIGarden, line 22
+    description: Garden.yarn, node UCIGarden, line 29
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $GiftScoreI
@@ -172,7 +189,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Garden.yarn, node UCIGarden, line 131
+    description: Garden.yarn, node UCIGarden, line 351
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $TalkKelly
@@ -252,7 +269,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Library.yarn, node UCBLibrary, line 282
+    description: Library.yarn, node UCBLibrary, line 268
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
   - name: $UCLA_Dialogue_Library
@@ -263,20 +280,12 @@ ScriptedImporter:
     description: Library.yarn, node UCLALibrary, line 9
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
-  - name: $UCLA_Dialogue
-    typeName: Number
-    defaultValueBool: 0
-    defaultValueNumber: 0
-    defaultValueString: 
-    description: Library.yarn, node UCLALibrary, line 26
-    isImplicit: 1
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
   - name: $UCLA_Quit
     typeName: Bool
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Library.yarn, node UCLALibrary, line 263
+    description: Library.yarn, node UCLALibrary, line 258
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
   - name: $GiftScoreELibrary
@@ -284,15 +293,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Library.yarn, node UCLALibrary, line 422
-    isImplicit: 1
-    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
-  - name: $DancePartner
-    typeName: String
-    defaultValueBool: 0
-    defaultValueNumber: 0
-    defaultValueString: 
-    description: Library.yarn, node UCLALibrary, line 459
+    description: Library.yarn, node UCLALibrary, line 415
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
   - name: $TalkRiviera
@@ -348,7 +349,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Gym.yarn, node UCRGym, line 140
+    description: Gym.yarn, node UCRGym, line 130
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
   - name: $GiftScoreRGym
@@ -356,7 +357,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Gym.yarn, node UCRGym, line 367
+    description: Gym.yarn, node UCRGym, line 345
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
   - name: $UCLA_Dialogue_Gym
@@ -372,7 +373,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Gym.yarn, node UCLAGym, line 422
+    description: Gym.yarn, node UCLAGym, line 416
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
   - name: $TimeOfDayPlaza
@@ -404,7 +405,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Plaza.yarn, node UCRPlaza, line 367
+    description: Plaza.yarn, node UCRPlaza, line 345
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
   - name: $UCLA_Dialogue_Plaza
@@ -420,7 +421,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Plaza.yarn, node UCLAPlaza, line 421
+    description: Plaza.yarn, node UCLAPlaza, line 414
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
   - name: $TimeOfDayDorm
@@ -439,12 +440,20 @@ ScriptedImporter:
     description: Dorm.yarn, node Dorm, line 24
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
+  - name: $TimeOfDayDorm3
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Dorm.yarn, node Dorm, line 55
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
   - name: $TimeOfDayDorm2
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Dorm.yarn, node AdditionalNap, line 3
+    description: Dorm.yarn, node AdditionalNap, line 4
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
   - name: $TimeOfDayCafe
@@ -468,7 +477,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Cafe.yarn, node UCBCafe, line 282
+    description: Cafe.yarn, node UCBCafe, line 266
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
   - name: $UCRDialogueCafe
@@ -492,7 +501,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Cafe.yarn, node UCRCafe, line 367
+    description: Cafe.yarn, node UCRCafe, line 316
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
   - name: $PlayerPronouns
