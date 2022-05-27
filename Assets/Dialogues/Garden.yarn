@@ -485,6 +485,7 @@ position: 125,-26
         //UCI special item
         //NOTE: Finalize special items then add AddItem commands after "Oh!"
         Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
+        <<AddItem 1 40 1 1 1 1 "Gifts/Boof" "Boof" true>>
         <<SaveVariable "Diary" "true">>
     <<else>>
         Player: I should probably return any lost items that I found...
@@ -495,6 +496,7 @@ position: 125,-26
     //UCLA special item
         Player: Oh! I found a recipe book! It looks special... I wonder who it belongs to...
         <<SaveVariable "Cookbook" "true">>
+        <<AddItem 40 0 0 0 0 0 "Gifts/Boof" "Boof" true>>
     <<else>>
         Player: I should probably return any lost items that I found...
         Player: I'm sure that they mean a lot to someone!
@@ -505,6 +507,7 @@ position: 125,-26
         Player: Oh! I found a... tote bag? It looks like something a couple of kids made... 
         Player: It looks special... I wonder who it belongs to...
         <<SaveVariable "Bag" "true">>
+        <<AddItem 3 3 3 40 3 3 "Gifts/Boof" "Boof" true>>
     <<else>>
         Player: The campus is really starting to grow on me...
     <<endif>>
@@ -513,6 +516,7 @@ position: 125,-26
     //UCI special item
         Player: Oh! I found a keychain! It looks special... I wonder who it belongs to...
         <<SaveVariable "Chain" "true">>
+        <<AddItem 4 4 4 4 40 4 "Gifts/Boof" "Boof" true>>
     <<else>>
         Player: I kind of want to try a new indie game...
         Player: I heard that Skreech is pretty fun! I should try it out!
@@ -522,6 +526,7 @@ position: 125,-26
     //UCSB special item
         Player: Oh! I found a spade! It looks special... I wonder who it belongs to...
         <<SaveVariable "Poem" "true">>
+        <<AddItem 2 2 40 2 2 2 "Gifts/Boof" "Boof" true>>
     <<else>>
         Player: I could really go for a can of cold B-Fuel right now...
         <<SetSprite Middle Squirrel/Idle>>
@@ -550,6 +555,7 @@ position: 125,-26
     //USC special item
         Player: Oh! I found a watch! It looks expensive... I wonder who it belongs to...
         <<SaveVariable "Watch" "true">>
+        <<AddItem 5 5 5 5 5 40 "Gifts/Boof" "Boof" true>>
     <<else>>
         Player: The garden seems quiet today...
         Player: I wonder who I will take to the dance...
@@ -1287,10 +1293,31 @@ Player: What should I do?
         <<SetSprite Middle Irene/IdleLB>>
         Irene: Oh pog! Thanks!
         <<SetSprite Middle Irene/Idle>>
-    <<else>> //Hated Gift
+    <<elseif $GiftScoreI == -10>> //Hated Gift
         <<SetSprite Middle Irene/Angry>>
         Irene: These are kinda cringe...
         <<SetSprite Middle Irene/Idle>>
+    <<else>>
+        // Not their key item gift
+        Irene: What the f@$%? This isn't mine
+        <<if $GiftScoreI == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Boof" "Boof" true>>
+        <<elseif $GiftScoreI == 1>> // Kelly's
+            <<AddRelationshipScore Irene -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Boof" "Boof" true>>
+        <<elseif $GiftScoreI == 2>> // Santana's
+            <<AddRelationshipScore Irene -2>>
+            <<AddItem 2 40 2 2 2 2 "Gifts/Boof" "Boof" true>>
+        <<elseif $GiftScoreI == 3>> // Riviera's
+            <<AddRelationshipScore Irene -3>>
+            <<AddItem 3 40 3 3 3 3 "Gifts/Boof" "Boof" true>>
+        <<elseif $GiftScoreI == 4>> // Irene's
+            <<AddRelationshipScore Irene -4>>
+            <<AddItem 4 40 4 4 4 4 "Gifts/Boof" "Boof" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Irene -5>>
+            <<AddItem 5 40 5 5 5 5 "Gifts/Boof" "Boof" true>>
+        <<endif>>
     <<endif>>
     <<jump UCIGarden>>
 -> Ask <<if $AskIrene == false>> 
