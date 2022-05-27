@@ -1053,8 +1053,9 @@ Player: What should I do?
                 Irene: Oh! I like this one too! It's really cute!
                 <<SetSprite Middle Irene/IdleLB>>
                 Irene: It kind of reminds me of you...
-            <<SetSprite Middle Irene/Idle>>
+            <<SetSprite Middle Irene/Excited>>
             Irene: Thanks for the help!
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
             Irene: 
         <<else>> 
