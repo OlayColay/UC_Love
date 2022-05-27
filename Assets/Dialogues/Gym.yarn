@@ -959,6 +959,7 @@ position: -5,87
         <<GymMinigame 50 5 3 20 900>>
         <<set $Dwayne to LoadVariable("Dwayne")>>
         <<if GymMinigameWon() && $Dwayne != "true">>
+            <<PlayMusic Music/Gameplay>>
             <<jump Dwayne>>
         <<endif>>
     <<PlayMusic Music/Gameplay>>
