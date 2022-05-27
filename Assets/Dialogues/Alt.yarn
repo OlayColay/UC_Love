@@ -126,9 +126,9 @@ Stan: Alright, alright.
 Player: Hey! HEY! Put me down!
 <<Fade false>>
 <<SetBackground Backgrounds/BlackScreen>>
-<<Fade true 0>>
 <<ClearSprite Middle>>
 <<ClearSprite Right>>
+<<Fade true 0>>
 Player: Ow... Ick...
 Tommy: Nice throw Stan!
 <<if $PlayerPronouns == 0>>
@@ -176,7 +176,7 @@ BearBox: If you go and bring a date with you, we might have a good shot at raisi
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
 BearBox: Before you go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the top floppy disk icon in the top left corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
 BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
 BearBox: I'm not sure what that means... but have a good first day alright?
 BearBox: Stay out of trouble!
