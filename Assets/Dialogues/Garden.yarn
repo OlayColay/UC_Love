@@ -350,6 +350,20 @@ Player: What should I do?
     <<elseif $GiftScore == -10>>
         //Hated Gift
         Tommy: Ick… did you pick these off the clearance rack?
+    <<elseif $GiftScore == 40>>
+        <<SetSprite Middle Tommy/Awkward>>
+        Tommy: You found my watch?
+        <<SetSprite Middle Tommy/Snickering>>
+        Tommy: Thank you so much! This means a lot to me!
+        <<SetSprite Middle Tommy/Idle>>
+        Tommy: It was my late grandfather's watch... I didn't get to spend a lot of time with my parents growing up because they were always kind of busy...
+        Tommy: My grandpa was kind of my father figure... 
+        Tommy: On Sundays, we'd go out to the pier and go fishing together.
+        <<SetSprite Middle Tommy/Snickering>>
+        Tommy: I was never really good at it, but I had a great time regardless!
+        Tommy: He wasn't very materialistic or very wealthy, but he had a lot of love for those around him. I respect him a lot.
+        Tommy: Having his watch makes me feel like he's still with me...
+        Tommy: Thank you so much for returning it!
     <<else>>
         // Not their key item gift
         Tommy: Oh! This looks important, but it's not mine...
