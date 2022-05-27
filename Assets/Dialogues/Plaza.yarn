@@ -366,7 +366,6 @@ position: 212,-6
         <<if GetRelationshipScore("Riviera") >= 300>>
             <<SetSprite Middle Riviera/lb>>
             Riviera: Sure! I think it'd be fun!
-            //piss
             <<AddRelationshipScore Riviera 10>>
             <<Fade false>>
             <<ClearSprite Middle>>
