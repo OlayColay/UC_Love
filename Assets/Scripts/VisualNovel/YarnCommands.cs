@@ -71,7 +71,6 @@ public class YarnCommands : MonoBehaviour
         BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
         yield return new WaitForSecondsRealtime(1f);
         Camera vnCamera = Camera.main;
-        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
         
         var sceneLoad = SceneManager.LoadSceneAsync("PlazaMinigame", LoadSceneMode.Additive);
         while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
@@ -79,6 +78,7 @@ public class YarnCommands : MonoBehaviour
             yield return null;
         }
 
+        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
         vnCamera.gameObject.SetActive(false);
         Background.Instance.gameObject.SetActive(false);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
@@ -116,7 +116,6 @@ public class YarnCommands : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         Camera vnCamera = Camera.main;
         EventSystem es = EventSystem.current;
-        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
         es.enabled = false;
         
         var sceneLoad = SceneManager.LoadSceneAsync("CafeMinigame", LoadSceneMode.Additive);
@@ -125,6 +124,7 @@ public class YarnCommands : MonoBehaviour
             yield return null;
         }
 
+        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
         vnCamera.gameObject.SetActive(false);
         Background.Instance.gameObject.SetActive(false);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 currentVelocityPlayer = Vector3.zero;
     private Animator animator;
+    private AudioClip paper;
 
   
     //flyers (screen cover)
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        paper = Resources.Load<AudioClip>("SFX/Paper");
 
         flyer1offset = (flyer1.transform.position - Camera.main.transform.position);
         flyer2offset = (flyer2.transform.position - Camera.main.transform.position);
@@ -110,6 +112,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             // Debug.Log("hit");
+            MusicPlayer.audioSource.PlayOneShot(paper);
             health--;
             Destroy(collision.gameObject);
         }

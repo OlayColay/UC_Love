@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventoryScreen : MonoBehaviour
@@ -52,7 +53,8 @@ public class InventoryScreen : MonoBehaviour
             }
         }
 
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
+        if (Gamepad.current != null)
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
     }
 
     void OnDisable()
@@ -76,9 +78,12 @@ public class InventoryScreen : MonoBehaviour
             selectedItem = Inventory.keyItemList.Find(i => i.name == itemName);
             Inventory.keyItemList.Remove(selectedItem);
         }
+        else
+        {
+            Inventory.list.Remove(selectedItem);
+        }
 
         MusicPlayer.audioSource.PlayOneShot(pop);
-        Inventory.list.Remove(selectedItem);
     }
 
     public void SwitchInventory(bool isKeyItems)

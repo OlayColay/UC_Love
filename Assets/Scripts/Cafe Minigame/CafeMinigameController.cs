@@ -28,6 +28,10 @@ public class CafeMinigameController : MonoBehaviour
     public Transform Blender;
     public TextMeshProUGUI Words;
     public TextMeshProUGUI Timer;
+
+    private AudioClip ding;
+    private AudioClip pop;
+    private AudioClip error;
     
     // 2D array that is used for the order randomizer in CreateOrder()
     private string[][] layers = new string[][] {
@@ -82,6 +86,7 @@ public class CafeMinigameController : MonoBehaviour
     void FinishOrder()
     {
         orderStarted = false;
+        MusicPlayer.audioSource.PlayOneShot(ding);
 
         //clear sprites from blender child...
         for(int i = 1; i < 7; i++)
@@ -102,6 +107,10 @@ public class CafeMinigameController : MonoBehaviour
         time = 15f; // Hard-coding because I don't care
         gameFinished = false;
         Timer.text = time.ToString("0.00");
+
+        ding = Resources.Load<AudioClip>("SFX/Ding");
+        pop = Resources.Load<AudioClip>("SFX/Pop");
+        error = Resources.Load<AudioClip>("SFX/Error");
 
         if (controls != null)
         {
@@ -217,6 +226,7 @@ public class CafeMinigameController : MonoBehaviour
             // Debug.Log("Successfully added " + attemptedIngredient + " to the order!");
 
             // Add stuff that happens when an ingredient is correct here
+            MusicPlayer.audioSource.PlayOneShot(pop);
             AddToBlender(attemptedIngredient);
   
             i++;
@@ -243,6 +253,7 @@ public class CafeMinigameController : MonoBehaviour
         else
         {
             // Debug.Log("Wrong ingredient!\tYou added: " + attemptedIngredient + "\tNeeded ingredient: " + nextIngredient);
+            MusicPlayer.audioSource.PlayOneShot(error);
 
             // Add stuff that happens if you get an ingredient wrong here
             //clear sprites from blender child...
