@@ -319,8 +319,8 @@ BearBox: What should we do with the budget?
 title: KeepUCL
 position: 145,-124
 ---
-<<Fade true>>
 <<SetBackground Backgrounds/dorm>>
+<<Fade true>>
 Player: Ever since the fundraiser dance, the UCL campus has become a lot nicer.
 Player: Even if my new suitemate is a little... eccentric...
 <<SetSprite Right Squirrel/Mascot>>
@@ -456,7 +456,6 @@ Player: Oh shoot! I'm running late to class again!
 title: BreakUCL
 position: 138,2
 ---
-<<SetBackground Backgrounds/BadEndClassroom>>
 <<if $DancePartner == 0>>
     <<SetSprite Middle Kelly/sad>>
     <<SetActiveChar Middle>>
