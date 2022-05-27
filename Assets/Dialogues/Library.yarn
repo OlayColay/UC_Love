@@ -835,6 +835,7 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskEllie = true>>
         <<if GetRelationshipScore("Ellie") >= 300>>
+            <<AddRelationshipScore Ellie 10>>
             <<SetSprite Middle Ellie/lb>>
             Ellie: I'd love to go! 
             Ellie: But let me treat you to boba afterwards, kay? 
@@ -849,6 +850,7 @@ Player: What should I do?
             Ellie: Thanks for taking me out! The food here is really good!
             <<Fade false>>
             <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
             <<SetSprite Middle Ellie/lb>>
             <<if $OptionalPowellCat == 9>>
                 <<if $TimeofDayLibrary == 0>>

@@ -847,10 +847,35 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskEllie = true>>
         <<if GetRelationshipScore("Ellie") >= 300>>
+            <<AddRelationshipScore Ellie 10>>
             <<SetSprite Middle Ellie/lb>>
             Ellie: I'd love to go! 
             Ellie: But let me treat you to boba afterwards, kay? 
-            <<jump EllieDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Ellie/lb>>
+            <<Fade true>>
+            <<Wait 4>>
+            Ellie: Thanks for taking me out! The food here is really good!
+            <<Fade false>>
+            <<ClearSprite Date>>
+            <<ClearSprite Bottom>>
+            <<SetSprite Middle Ellie/lb>>
+            <<if $TimeOfDayGym == 0>>
+                <<SetBackground Backgrounds/Gym/Morning>>
+            <<elseif $TimeOfDayGym == 1>>
+                <<SetBackground Backgrounds/Gym/Noon>>
+            <<else>>
+                <<SetBackground Backgrounds/Gym/Night>>
+            <<endif>>
+            <<SetSprite Middle Ellie/Idle>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Ellie: That was really fun! Thank you for the food!
+            <<jump UCLAGym>>
         <<else>>
             <<SetSprite Middle Ellie/Angry>>
             Ellie: Umm.. sorry... I have... ummm... back-to-back club meetings that day...

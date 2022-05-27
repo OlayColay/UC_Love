@@ -324,11 +324,31 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskKelly = true>>
         <<if GetRelationshipScore("Kelly") >= 300>>
+            <<AddRelationshipScore Kelly 10>>
             <<SetSprite Middle Kelly/lbom>>
             Kelly: Oh! Um...let me check my schedule...
             <<SetSprite Middle Kelly/lbcm>>
             Kelly: I can make time for a date!
-            <<jump KellyDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Kelly/lbcm>>
+            <<Fade true>>
+            <<Wait 4>>
+            Kelly: I really needed a break from studying...
+            Kelly: ...Thank you for taking me out!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<SetBackground Backgrounds/Cafe/Cafe>>
+            <<SetSprite Middle Kelly/lbcm>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Kelly: I usually eat junk food or instant noodles... so thank you for the pasta!
+            <<SetSprite Middle Kelly/Idle>>
+            <<jump UCBCafe>>
         <<else>>
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
