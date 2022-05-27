@@ -254,5 +254,10 @@ public static class Inventory
         {
             Inventory.list.Add(item.asItem());
         }
+        Inventory.keyItemList.Clear();
+        foreach (SerializableItem keyItem in data.keyInventory)
+        {
+            Inventory.keyItemList.Add(keyItem.asItem());
+        }
     }
 }

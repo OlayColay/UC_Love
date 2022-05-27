@@ -8,6 +8,7 @@ public class SaveData
     // We're using arrays because they're serializable
     public int[] relationshipScores;
     public SerializableItem[] inventory;
+    public SerializableItem[] keyInventory;
     public int day;
     public int time;
     public int money;
@@ -30,6 +31,12 @@ public class SaveData
         {
             // Debug.Log(Inventory.list[i].serialForm.name);
             inventory[i] = Inventory.list[i].serialForm;
+        }
+        keyInventory = new SerializableItem[Inventory.keyItemList.Count];
+        for (int i = 0; i < Inventory.keyItemList.Count; i++)
+        {
+            // Debug.Log(Inventory.keyItemList[i].serialForm.name);
+            keyInventory[i] = Inventory.keyItemList[i].serialForm;
         }
         
         // 3. Copy the day number
