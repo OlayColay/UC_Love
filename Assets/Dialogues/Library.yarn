@@ -329,7 +329,7 @@ Player: What should I do?
         <<SetSprite Middle Kelly/Idle>>
     <<else>>
         // Not their key item gift
-        Kelly: What the f@$%? This isn't mine
+        Kelly: Oh! This looks important, but it's not mine...
         <<if $GiftScoreK == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreK == 1>> // Kelly's
@@ -852,7 +852,7 @@ Player: What should I do?
         <<SetSprite Middle Ellie/Idle>>
     <<else>>
         // Not their key item gift
-        Ellie: What the f@$%? This isn't mine
+        Ellie: Oh! This looks important, but it's not mine...
         <<if $GiftScoreELibrary == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreELibrary == 1>> // Kelly's

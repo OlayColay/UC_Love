@@ -378,7 +378,7 @@ position: 241,-105
         <<SetSprite Middle Riviera/Idle>>
     <<else>>
         // Not their key item gift
-        Riviera: What the f@$%? This isn't mine
+        Riviera: Oh! This looks important, but it's not mine...
         <<if $GiftScoreRGym == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreRGym == 1>> // Kelly's
@@ -896,7 +896,7 @@ Player: What should I do?
         <<SetSprite Middle Ellie/Idle>>
     <<else>>
         // Not their key item gift
-        Ellie: What the f@$%? This isn't mine
+        Ellie: Oh! This looks important, but it's not mine...
         <<if $GiftScoreEGym == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreEGym == 1>> // Kelly's

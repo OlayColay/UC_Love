@@ -44,9 +44,490 @@ Player: What should I do?
 title: UCIPlaza
 position: 211,-126
 ---
-
-Player: No one is here right now...
+<<SetSprite Middle Irene/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
+    <<set $TalkIrene to true>>
+    <<AddRelationshipScore Irene 10>>
+    <<set $UCIDialoguePlaza = Dice(5)>>
+    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+        <<if $UCIDialoguePlaza == 1>>
+            Irene: Ah sorry, I'm running late for raid hour.
+        <<elseif $UCIDialoguePlaza == 2>>
+            Irene: Sorry, could you move out of the way?
+            Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
+        <<elseif $UCIDialoguePlaza == 3>>
+            Irene: Woah woah! I almost bumped into you there!
+            Irene: Haha, it's my fault for not paying attention though!
+        //Reminder for Bella that the below two lines logically work, BUT REMEMBER TO CHANGE THEM IF PASTING
+        //IRENE'S DIALOGUE INTO THE CAFE OR THE PLAZA!! 
+        //These lines should only be said at night. Since she only appears at the garden at night, it's ok
+        // that $UCIDialoguePlaza references night 
+        <<elseif $UCIDialoguePlaza == 4>> 
+            Irene: Have you seen a vending machine around here?
+            Irene: I kind of want to buy some B-Fuel.
+        <<else>> 
+            Irene: Sorry, I'm kind of low on energy right now.
+            Irene: They ran out of B-Fuel at the store so I've been feeling kind of groggy. 
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
+        <<if $UCIDialoguePlaza == 1>>
+            <<if $BobamonGo == 0>>
+            Irene: I see you around a lot here. Do you play Bobamon Go?
+            -> Yes!
+                <<AddRelationshipScore Irene 10>>
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Really? That's so cool! I play BoGo too! It's one of my favorite games!
+                Irene: I don't know many people that play it!
+                <<SetSprite Middle Irene/Sad>>
+                Irene: A lot of people think that it's a trash game or "cringey"...
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: So I'm really happy to find another player! Let's add each other!
+                <<Set $BobamonGo = 1>>
+            -> I don't.
+                Irene: Aww. really? You should play! Bobamon Go is really fun and cute!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: It's a good game to play when you're walking from class to class. 
+                Irene: If you have friends, you can trade or battle with them too!
+                Irene: You should download it! It'd be fun to play together!
+                -> I'll try it out!
+                    <<AddRelationshipScore Irene 10>>
+                    <<SetSprite Middle Irene/Excited>>
+                    <<Shake Middle>>
+                    Irene: Really?! Poggers! 
+                    Irene: I don't have many friends that that play Bobamon!
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: A lot of people think that it's a trash game or "cringey"...
+                    <<SetSprite Middle Irene/Flirty>>
+                    Irene: I'm glad that you're willing to give it a shot though! It means a lot to me!
+                    <<Set $BobamonGo = 1>>
+                    <<SetSprite Middle Irene/Idle>>
+                -> It's not my cup of tea.
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: Oh... are you sure? Sorry to bother you... 
+                    Irene: It's stupid I guess, but I get really excited about this game. 
+                    <<Set $BobamonGo = 2>>
+                    <<SetSprite Middle Irene/Idle>>
+            <<elseif $BobamonGo == 1>>
+                Irene: Oh hey! Out Bobamon hunting?
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I just caught a Rikakume over there if you want to get it!
+                <<SetSprite Middle Irene/Idle>>
+            <<else>>
+                Irene: Um, sorry, I'm in the middle of Bobamon hunting right now.
+                <<SetSprite Middle Irene/sad>>
+                Irene: I wish you played. It'd be fun to play with a friend. 
+                <<SetSprite Middle Irene/Idle>>
+            <<endif>>
+        <<elseif $UCIDialoguePlaza == 2>>
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: Just gonna say, when I have free time, I like to stream games on Witch!
+            Irene: I like a lot of niche games, so streaming on Witch is a nice way to interact with other people in the fandom!
+            Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 3>>
+            Irene: Are you heading to the Cafe to get a drink too?
+            -> Yeah. I wanted to get some coffee!
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: Yeah, I always like going there too for the coffee too!
+                Irene: As much as I'm fine staying indoors, coming out every now and then is good too.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I usually go there to get an iced coffee. I like to mix it with B-Fuel for the ultimate energy drink!
+                <<SetSprite Middle Irene/Idle>>
+            -> No... I just wanted to enjoy the plaza's atmosphere!
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Huh... I can't say I understand that but alright!
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: I'm pretty weird too, so no judgement here!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I usually go there to get an iced coffee. I like to mix it with B-Fuel for the ultimate energy drink!
+                <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 4>> 
+            Irene: Y'know that feeling of being out late at night without anyone around except a few people?
+            -> Yeah, it's a creepy feeling... 
+                Player: Yeah, it's a creepy feeling. Being all alone, with little to no one around.
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Ohh...You think so? I think that it's kinda nice...haha...
+                Irene: I feel really secure because I have a black belt in karate.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: I might not look like it, but I can whoop ass!
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: If someone ever attacked us out there, I can hard carry you!
+                <<SetSprite Middle Irene/Idle>>
+            -> Yeah, it's really peaceful...
+                <<SetSprite Middle Irene/Flirty>>
+                Irene: Yeah... I think the cold of the night air and the sound of crickets are really relaxing.
+                <<SetSprite Middle Irene/Idle>>
+        <<else>> 
+            Irene: I usually like to stream games at night! Something about the night helps me focus!
+            -> Isn't it hard to stay focused when you're tired?
+                Player: Isn't it hard to stay focused when you're tired? 
+                Player: After all, you can only do so much when you're running low on energy.
+                Irene: I usually have boba to help me out with that!
+                -> Boba? At night??!
+                    <<SetSprite Middle Irene/Sad>>
+                    <<Shake Middle>>
+                    Irene: What?? It's a nice treat after a long day...
+                    <<SetSprite Middle Irene/Idle>>
+                -> Gotta get your sugar in the form of deliciousness.
+                    <<SetSprite Middle Irene/Excited>>
+                    Irene: Totally!! I love getting Jasmine Milk Tea with 120% sweetness, no ice, boba, pudding, and of course, salty cream on the top!!
+                    Irene: I call it Slurp Juice because I down it in like 30 seconds!
+                    <<SetSprite Middle Irene/Idle>>
+                    -> Haha! I'll have my next order like that next time, then.
+                        <<AddRelationshipScore Irene 10>>
+                        Irene: For sure!
+            -> Yeah, I get that.
+                Irene: You should 1v1 me on Beast of Legends sometime!
+                <<SetSprite Middle Irene/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
+        <<if $UCIDialoguePlaza == 1>>
+            Irene: Sometimes, I forget whether or not I've told you something, and I say it again.
+            Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
+        <<elseif $UCIDialoguePlaza == 2>>
+            Irene: I sure could go for some ramen right now.
+            -> Me too! I love ramen!
+                <<SetSprite Middle Irene/Excited>>>
+                Irene: You got that right! I always like switching savory to sweet, vice versa.
+                Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
+                Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!
+                -> Sounds good! I'd like to try that too.
+                    Irene: It's really good! Of course, I can't have it all the time, but when I do, it hits the spot!
+                    <<SetSprite Middle Irene/Idle>>
+                    Irene: By the way, do you have a Discourse?
+                    -> Yeah sure! Here's mine...
+                        <<SetSprite Middle Irene/Excited>>
+                        Irene: Awesome!! We should play BoBlox together sometime!
+                        <<SetSprite Middle Irene/Idle>>
+                    -> Oh um... I don't.
+                        Irene: Oh that's a bummer... Let me know if you ever get one!
+                -> That sounds unhealthy...
+                    <<SetSprite Middle Irene/Angry>>
+                    <<AddRelationshipScore Irene -10>>
+                    Irene: Oh... um..yeah... I guess so...
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: I don't have it all the time, but yeah.
+                    Irene: I... have to get going.
+                    <<SetSprite Middle Irene/Idle>>
+                -> That sounds strange...
+                    <<SetSprite Middle Irene/Angry>>
+                    <<AddRelationshipScore Irene -10>>
+                    Irene: Well, you don't have to yuck my yum...
+                    <<SetSprite Middle Irene/Sad>>
+                    Irene: You haven't even given it a shot...
+                    Irene: I... have to get going.
+                    <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 3>>
+            <<SetSprite Middle Irene/Excited>>
+            Irene: Oh there you are! I wanted to tell you something!
+            Irene: Umm....
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: ...
+            <<Shake Middle>>
+            Irene: ... I forgor...
+            <<SetSprite Middle Irene/Excited>>
+            <<Shake Middle>>
+            Irene: No wait! I rember! I found this new indie platformer game called Skreech! 
+            Irene: It looks really cool and the art is really great! We should play it together sometime!
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 4>> 
+            Irene: I bet that I could beat you in a fight!
+            Irene: When I was a kid, my parents were always concerned that I would get picked on because of my size.
+            Irene: I was really small compared to the other kids at school!
+            Irene: My parents enrolled my in karate, and I was surprisingly good at it! I got a black belt in no time and I even went to state competitions!
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: I got disqualified before I could go to nationals though...
+            -> Why?
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Apparently, t-posing over your opponent is "bad sportsmanship", but I thought it was hilarious!
+                Irene: My opponent was a bit of a sore sport though!
+                <<SetSprite Middle Irene/Idle>>
+            -> I'm sorry to hear that...
+                <<SetSprite Middle Irene/Excited>>
+                Irene: No no! It was completely my fault!
+                <<Shake Middle>>
+                Irene: It's a... it's a really funny story!
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: I kept t-posing over my opponents and one of the referees deemed it bad sportsmanship and disqualified me.
+                <<SetSprite Middle Irene/Excited>>
+                Irene: It was completely worth it though!
+                <<SetSprite Middle Irene/Idle>>
+        <<else>> 
+            Irene: Being an electrical engineering major has its perks!
+            <<SetSprite Middle Irene/Excited>>
+            Irene: I built a really cool gamer set up based on what I learned from my classes.
+            Irene: Every time that I get a kill in Beast of Legends, my setup goes rainbow for a while!
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: You should check it out sometime!
+            <<SetSprite Middle Irene/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
+        <<if $UCIDialoguePlaza == 1>>
+            Irene: I got a pretty nice check from a B-Fuel sponsorship that I did an while back...
+            Irene: I was thinking about using it to get this new Birby co-op game that just came out!
+            <<SetSprite Middle Irene/IdleLB>>
+            Irene: Maybe we can play it together sometime...
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 2>>
+            <<SetSprite Middle Irene/Excited>>
+            Irene: I think that you kind of look like a character from a dating simulator!
+            <<SetSprite Middle Irene/IdleLB>>
+            Irene: You have really nice hands. And you're really tall!
+            -> Maybe you're just short!
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Hey! Don't make me take back my compliment!
+                Irene: I'll have you know that I'm a whole 5'1!
+                Irene: ... rounded up but that's besides the point!
+                Irene: Silly!
+                <<SetSprite Middle Irene/Idle>>
+            -> You look like a dating simulator character too!
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Silly!
+                <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 3>>
+            Irene: I'm thinking about changing my Discourse profile picture...
+            Irene: Which one of these should I choose?
+            -> The Squirrel!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Haha! That one looks kind of goofy!
+                Irene: It kind of reminds me of you a bit if you look at the eyes!
+            -> The Anteater!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Ooh! Yeah, I really like the art style of this one!
+                Irene: Anteaters are one of my favorite animals too! They're shaped kind of funny!
+            -> The Cat!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: Oh! I like this one too! It's really cute!
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: It kind of reminds me of you...
+            -> BearBox!
+                Irene: Oh! I like this one too! It's really cute!
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: It kind of reminds me of you...
+            <<SetSprite Middle Irene/Excited>>
+            Irene: Thanks for the help!
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 4>> 
+            <<SetSprite Middle Irene/Excited>>
+            Irene: You've been acting kind of like a sussy litte baka bro.
+            Irene: You're getting into simp territory with how often you've been appearing lately!
+            <<SetSprite Middle Irene/IdleHB>>
+            Irene: I don't mind it though... I like having you around...
+        <<else>> 
+            Irene: I've been watching this anime called BoBoo's Bizzare Adventures and I think that it's really funny!
+            Irene: Each part is really unique from the others and they're all amazing in their own ways!
+            Irene: There's this really epic battle scene where the main character has to use both brains and brawn in order to fight the villain.
+            Irene: He gets cornered and almost dies multiple times but the ways that he figures out a last minute solution are so creative and crazy!
+            Irene: Like this one time, he outsmarted the villain using a magnet! A magnet!
+            Irene: I wish that I had half of his brain power!
+            Irene: His character design is so cool too! Like... he's based off of a delinquent and is so cool! 
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: Ah! I'm rambling...
+            <<SetSprite Middle Irene/VerySad>>
+            Irene: Sorry... you probably think that I'm cringey or something...
+            -> Aren't you a little too old for anime?
+                Irene: I just want to watch something that I enjoy...
+                Irene: I'm not hurting anybody...
+            -> I love hearing you talk about things that make you happy!
+                Irene: ... Really?
+                Irene: You're not capping?
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: ... thanks... that means a lot to me.
+        <<endif>>    
+    <<else>> //Lovers
+        <<if $UCIDialoguePlaza == 1>>
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I want you to tell me about all your interests and hobbies too!
+            Irene: I want you to be able to be yourself around me...
+            <<SetSprite Middle Irene/IdleHB>>
+            Irene: I'll be by your side no matter what!
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 2>>
+            Irene: These past few days, I've kind of wanted to change up my streams a bit...
+            Irene: I got really big for playing Beast of Legends, but I want to branch out into other games that've caught my interest!
+            Irene: I want to try streaming Skreech or playing dating simulators on stream...
+            -> I'm sure that your stream will love you for you! Do what makes you happy!
+                <<SetSprite Middle Irene/Excited>>
+                Irene: You're right! I think I'll stream some indie games then!
+                Irene: You'll tune in right? 
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Thank you for the advice!
+            -> Maybe you should stick to something you know will be popular...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: I guess...
+                Irene: It's just a little tiring to play the same thing over and over... 
+                Irene: I feel kind of boxed in and can't really be myself...
+                <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 3>>
+            <<SetSprite Middle Irene/Excited>>
+            Irene: There's an anime convention that's coming up! 
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I was wondering if you'd want to go with me!
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: I think I want to cosplay as one of the characters from Beast of Legends!
+            <<SetSprite Middle Irene/ExcitedHB>>
+            Irene: Wouldn't it be fun if you also went as a Beast of Legends character? We would make a really cool duo!
+            <<SetSprite Middle Irene/Idle>>
+        <<elseif $UCIDialoguePlaza == 4>> 
+            <<SetSprite Middle Irene/Excited>>
+            Irene: Oh! Are you doing anything tonight?
+            <<SetSprite Middle Irene/IdleLB>>
+            Irene: The sky is going to be really clear tonight! We're going to be able to see the stars!
+            <<SetSprite Middle Irene/ExcitedHB>>
+            Irene: It's a rare sight! We should watch the stars together!
+            <<SetSprite Middle Irene/Idle>>
+        <<else>> 
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I feel like I can be myself around you, bro.
+            <<SetSprite Middle Irene/Sad>>
+            Irene: Sometimes, I feel like I have to put on a mask or restrain myself when I'm around other people.
+            <<SetSprite Middle Irene/Sad>>
+            Irene: I never really fit in as a kid... and I always felt like the "weird" kid that people tended to avoid...
+            <<SetSprite Middle Irene/VerySad>>
+            Irene: It was just... really lonely y'know?
+            <<SetSprite Middle Irene/VeryVerySad>>
+            <<Shake Middle>>
+            Irene: You don't think that I'm weird in a bad way... right?
+            Irene: I'm sorry... I got kind of emotional there...
+            Irene: Can... I have a hug?
+            -> Yes!
+                <<SetSprite Middle Irene/VerySad>>
+                Irene: Thanks bro...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: You give nice hugs... I feel a lot better now. 
+                <<SetSprite Middle Irene/IdleHB>>
+                Irene: I'm really glad to have you in my life...
+            -> No...
+                <<SetSprite Middle Irene/Sad>>
+                Irene: Oh... that's alright. Sorry to bother you.
+                <<SetSprite Middle Irene/Angry>>
+                Irene: I think I'm going to get some boba to cheer up then... take care ok?
+                <<SetSprite Middle Irene/Idle>>
+        <<endif>>
+    <<endif>>
+    <<jump UCIPlaza>>
+-> Give Gift <<if $GiftIrene == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>//Lines in but sprite names need to be swapped out
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCIPlaza>>
+    <<endif>> 
+    <<set $GiftIrene = true>>
+    <<set $GiftScoreIPlaza = GetItemScore("Irene")>>
+    <<AddRelationshipScore Irene {$GiftScoreIPlaza}>>
+    <<if $GiftScoreIPlaza == 20>> //Loved Gift
+        <<SetSprite Middle Irene/ExcitedHB>>
+        Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
+        <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreIPlaza == 10>> //Liked Gift
+        <<SetSprite Middle Irene/IdleLB>>
+        Irene: Oh pog! Thanks!
+        <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreIPlaza == -10>> //Hated Gift
+        <<SetSprite Middle Irene/Angry>>
+        Irene: These are kinda cringe...
+        <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreIPlaza == 40>>
+        <<SetSprite Middle Irene/Excited>>
+        Irene: Oh! My keychain! You found it!
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: Thank you so much! This means a lot to me...
+        Irene: It was a gift from my grandma from when I was a little kid... she didn't really understand the stuff I was interested in, but she wanted me to be happy regardless!
+        <<SetSprite Middle Irene/Excited>>
+        Irene: She was trying to buy a Bobamon keychain for me, but she bought a knock-off instead!
+        <<SetSprite Middle Irene/IdleLB>>
+        Irene: It still means a lot to me though... thank you so much for returning it!
+        <<SetSprite Middle Irene/Idle>>
+    <<else>>
+        // Not their key item gift
+        Irene: Oh! This looks important, but it's not mine...
+        <<if $GiftScoreIPlaza == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreIPlaza == 1>> // Kelly's
+            <<AddRelationshipScore Irene -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreIPlaza == 2>> // Santana's
+            <<AddRelationshipScore Irene -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreIPlaza == 3>> // Riviera's
+            <<AddRelationshipScore Irene -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreIPlaza == 4>> // Irene's
+            <<AddRelationshipScore Irene -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Irene -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
+    <<endif>>
+    <<jump UCIPlaza>>
+-> Ask <<if $AskIrene == false>> 
+    -> Ask on a date
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 300>>
+            <<SetSprite Middle Irene/ExcitedLB>>
+            <<AddRelationshipScore Irene 10>>
+            Irene: Poggers, I was just craving some pasta! I'd love to!
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Irene/IdleLB>>
+            <<Fade true>>
+            <<Wait 4>>
+            Irene: This place is really cool! It rally hits the spot...
+            Irene: Thanks for the food bro!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $TimeOfDayPlaza == 0>>
+                <<SetBackground Backgrounds/Garden/Morning>>
+                //Sets background as Garden Morning if it is Daytime
+            <<elseif $TimeOfDayPlaza == 1>>
+                <<SetBackground Backgrounds/Garden/Noon>>
+                //Sets background as Garden Afternoon if it is Afternoon
+            <<else>>
+                <<SetBackground Backgrounds/Garden/NightWarm>>
+                //Sets background as Garden Night if it Evening
+            <<endif>>
+            <<SetSprite Middle Irene/Flirty>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: Next time, let's go for ramen! My treat!
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIPlaza>>
+        <<else>>
+            <<SetSprite Middle Irene/sad>>
+            Irene: Uhhhh... sorry bro... raid hour is usually around that time...
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIPlaza>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskIrene = true>>
+        <<if GetRelationshipScore("Irene") >= 400>>
+            Player: Would you like to go to the dance with me?
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: To be honest...
+            Irene: I don't really know how to dance aside from default emote dances...
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: But as long as you're alright with that, I'd love to go with you!
+            <<set $DancePartner = 3>>
+            <<jump Dance>>
+        <<else>>
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
+            Irene: I don't think that I want to do that in public...
+            <<AddRelationshipScore Irene -20>>
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIPlaza>>
+        <<endif>>
+    -> Cancel
+        <<jump UCIPlaza>>
 -> Leave
+    <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
 title: UCRPlaza
@@ -385,7 +866,7 @@ position: 212,-6
         <<SetSprite Middle Riviera/Idle>>
     <<else>>
         // Not their key item gift
-        Riviera: What the f@$%? This isn't mine
+        Riviera: Oh! This looks important, but it's not mine...
         <<if $GiftScoreRPlaza == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreRPlaza == 1>> // Kelly's
@@ -900,7 +1381,7 @@ Player: What should I do?
         <<SetSprite Middle Ellie/Idle>>
     <<else>>
         // Not their key item gift
-        Ellie: What the f@$%? This isn't mine
+        Ellie: Oh! This looks important, but it's not mine...
         <<if $GiftScoreEPlaza == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreEPlaza == 1>> // Kelly's

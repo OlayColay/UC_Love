@@ -320,7 +320,7 @@ Player: What should I do?
         <<SetSprite Middle Kelly/Idle>>
     <<else>>
         // Not their key item gift
-        Kelly: What the f@$%? This isn't mine
+        Kelly: Oh! This looks important, but it's not mine...
         <<if $GiftScoreKCafe == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreKCafe == 1>> // Kelly's
@@ -731,7 +731,7 @@ position: 207,66
         <<SetSprite Middle Riviera/Idle>>
     <<else>>
         // Not their key item gift
-        Riviera: What the f@$%? This isn't mine
+        Riviera: Oh! This looks important, but it's not mine...
         <<if $GiftScoreRCafe == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreRCafe == 1>> // Kelly's
@@ -816,21 +816,21 @@ Player: What should I do?
 -> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
     <<set $TalkIrene to true>>
     <<AddRelationshipScore Irene 10>>
-    <<set $UCI_Dialogue = Dice(5)>>
+    <<set $UCIDialogueCafe = Dice(5)>>
     <<if GetRelationshipScore("Irene") < 100>> //Strangers
-        <<if $UCI_Dialogue == 1>>
+        <<if $UCIDialogueCafe == 1>>
             Irene: Ah sorry, I'm running late for raid hour.
-        <<elseif $UCI_Dialogue == 2>>
+        <<elseif $UCIDialogueCafe == 2>>
             Irene: Sorry, could you move out of the way?
             Irene: I'm trying to catch a Bobamon, but you're standing right in front of it.
-        <<elseif $UCI_Dialogue == 3>>
+        <<elseif $UCIDialogueCafe == 3>>
             Irene: Woah woah! I almost bumped into you there!
             Irene: Haha, it's my fault for not paying attention though!
         //Reminder for Bella that the below two lines logically work, BUT REMEMBER TO CHANGE THEM IF PASTING
         //IRENE'S DIALOGUE INTO THE CAFE OR THE PLAZA!! 
         //These lines should only be said at night. Since she only appears at the garden at night, it's ok
-        // that $UCI_Dialogue references night 
-        <<elseif $UCI_Dialogue == 4>> 
+        // that $UCIDialogueCafe references night 
+        <<elseif $UCIDialogueCafe == 4>> 
             Irene: Have you seen a vending machine around here?
             Irene: I kind of want to buy some B-Fuel.
         <<else>> 
@@ -838,7 +838,7 @@ Player: What should I do?
             Irene: They ran out of B-Fuel at the store so I've been feeling kind of groggy. 
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 100 && GetRelationshipScore("Irene") < 200>> //Acquaintances
-        <<if $UCI_Dialogue == 1>>
+        <<if $UCIDialogueCafe == 1>>
             <<if $BobamonGo == 0>>
             Irene: I see you around a lot here. Do you play Bobamon Go?
             -> Yes!
@@ -886,13 +886,13 @@ Player: What should I do?
                 Irene: I wish you played. It'd be fun to play with a friend. 
                 <<SetSprite Middle Irene/Idle>>
             <<endif>>
-        <<elseif $UCI_Dialogue == 2>>
+        <<elseif $UCIDialogueCafe == 2>>
             <<SetSprite Middle Irene/Flirty>>
             Irene: Just gonna say, when I have free time, I like to stream games on Witch!
             Irene: I like a lot of niche games, so streaming on Witch is a nice way to interact with other people in the fandom!
             Irene: If you want to check it out, I usually stream at 7:30 on Wednesday nights!
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 3>>
+        <<elseif $UCIDialogueCafe == 3>>
             Irene: Did you come here to get a drink too?
             -> Yeah. I wanted to get some coffee!
                 <<SetSprite Middle Irene/Flirty>>
@@ -909,7 +909,7 @@ Player: What should I do?
                 <<SetSprite Middle Irene/Excited>>
                 Irene: I usually come here to get an iced coffee. I like to mix it with B-Fuel for the ultimate energy drink!
                 <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 4>> 
+        <<elseif $UCIDialogueCafe == 4>> 
             Irene: Y'know that feeling of being out late at night without anyone around except a few people?
             -> Yeah, it's a creepy feeling... 
                 Player: Yeah, it's a creepy feeling. Being all alone, with little to no one around.
@@ -949,10 +949,10 @@ Player: What should I do?
                 <<SetSprite Middle Irene/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 200 && GetRelationshipScore("Irene") < 300>> //Friends
-        <<if $UCI_Dialogue == 1>>
+        <<if $UCIDialogueCafe == 1>>
             Irene: Sometimes, I forget whether or not I've told you something, and I say it again.
             Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
-        <<elseif $UCI_Dialogue == 2>>
+        <<elseif $UCIDialogueCafe == 2>>
             Irene: I sure could go for some ramen right now.
             -> Me too! I love ramen!
                 <<SetSprite Middle Irene/Excited>>>
@@ -985,7 +985,7 @@ Player: What should I do?
                     Irene: You haven't even given it a shot...
                     Irene: I... have to get going.
                     <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 3>>
+        <<elseif $UCIDialogueCafe == 3>>
             <<SetSprite Middle Irene/Excited>>
             Irene: Oh there you are! I wanted to tell you something!
             Irene: Umm....
@@ -998,7 +998,7 @@ Player: What should I do?
             Irene: No wait! I rember! I found this new indie platformer game called Skreech! 
             Irene: It looks really cool and the art is really great! We should play it together sometime!
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 4>> 
+        <<elseif $UCIDialogueCafe == 4>> 
             Irene: I bet that I could beat you in a fight!
             Irene: When I was a kid, my parents were always concerned that I would get picked on because of my size.
             Irene: I was really small compared to the other kids at school!
@@ -1030,13 +1030,13 @@ Player: What should I do?
             <<SetSprite Middle Irene/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Irene") >= 300 && GetRelationshipScore("Irene") < 400>> //Crushing
-        <<if $UCI_Dialogue == 1>>
+        <<if $UCIDialogueCafe == 1>>
             Irene: I got a pretty nice check from a B-Fuel sponsorship that I did an while back...
             Irene: I was thinking about using it to get this new Birby co-op game that just came out!
             <<SetSprite Middle Irene/IdleLB>>
             Irene: Maybe we can play it together sometime...
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 2>>
+        <<elseif $UCIDialogueCafe == 2>>
             <<SetSprite Middle Irene/Excited>>
             Irene: I think that you kind of look like a character from a dating simulator!
             <<SetSprite Middle Irene/IdleLB>>
@@ -1052,7 +1052,7 @@ Player: What should I do?
                 <<SetSprite Middle Irene/ExcitedLB>>
                 Irene: Silly!
                 <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 3>>
+        <<elseif $UCIDialogueCafe == 3>>
             Irene: I'm thinking about changing my Discourse profile picture...
             Irene: Which one of these should I choose?
             -> The Squirrel!
@@ -1075,7 +1075,7 @@ Player: What should I do?
             <<SetSprite Middle Irene/Excited>>
             Irene: Thanks for the help!
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 4>> 
+        <<elseif $UCIDialogueCafe == 4>> 
             <<SetSprite Middle Irene/Excited>>
             Irene: You've been acting kind of like a sussy litte baka bro.
             Irene: You're getting into simp territory with how often you've been appearing lately!
@@ -1103,14 +1103,14 @@ Player: What should I do?
                 Irene: ... thanks... that means a lot to me.
         <<endif>>    
     <<else>> //Lovers
-        <<if $UCI_Dialogue == 1>>
+        <<if $UCIDialogueCafe == 1>>
             <<SetSprite Middle Irene/Flirty>>
             Irene: I want you to tell me about all your interests and hobbies too!
             Irene: I want you to be able to be yourself around me...
             <<SetSprite Middle Irene/IdleHB>>
             Irene: I'll be by your side no matter what!
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 2>>
+        <<elseif $UCIDialogueCafe == 2>>
             Irene: These past few days, I've kind of wanted to change up my streams a bit...
             Irene: I got really big for playing Beast of Legends, but I want to branch out into other games that've caught my interest!
             Irene: I want to try streaming Skreech or playing dating simulators on stream...
@@ -1126,7 +1126,7 @@ Player: What should I do?
                 Irene: It's just a little tiring to play the same thing over and over... 
                 Irene: I feel kind of boxed in and can't really be myself...
                 <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 3>>
+        <<elseif $UCIDialogueCafe == 3>>
             <<SetSprite Middle Irene/Excited>>
             Irene: There's an anime convention that's coming up! 
             <<SetSprite Middle Irene/Flirty>>
@@ -1136,7 +1136,7 @@ Player: What should I do?
             <<SetSprite Middle Irene/ExcitedHB>>
             Irene: Wouldn't it be fun if you also went as a Beast of Legends character? We would make a really cool duo!
             <<SetSprite Middle Irene/Idle>>
-        <<elseif $UCI_Dialogue == 4>> 
+        <<elseif $UCIDialogueCafe == 4>> 
             <<SetSprite Middle Irene/Excited>>
             Irene: Oh! Are you doing anything tonight?
             <<SetSprite Middle Irene/IdleLB>>
@@ -1180,21 +1180,21 @@ Player: What should I do?
         <<jump UCICafe>>
     <<endif>> 
     <<set $GiftIrene = true>>
-    <<set $GiftScoreI = GetItemScore("Irene")>>
-    <<AddRelationshipScore Irene {$GiftScoreI}>>
-    <<if $GiftScoreI == 20>> //Loved Gift
+    <<set $GiftScoreICafe = GetItemScore("Irene")>>
+    <<AddRelationshipScore Irene {$GiftScoreICafe}>>
+    <<if $GiftScoreICafe == 20>> //Loved Gift
         <<SetSprite Middle Irene/ExcitedHB>>
         Irene: OH MY GOSH! I LOVE THESE! Thanks pogchamp! 
         <<SetSprite Middle Irene/Idle>>
-    <<elseif $GiftScoreI == 10>> //Liked Gift
+    <<elseif $GiftScoreICafe == 10>> //Liked Gift
         <<SetSprite Middle Irene/IdleLB>>
         Irene: Oh pog! Thanks!
         <<SetSprite Middle Irene/Idle>>
-    <<elseif $GiftScoreI == -10>> //Hated Gift
+    <<elseif $GiftScoreICafe == -10>> //Hated Gift
         <<SetSprite Middle Irene/Angry>>
         Irene: These are kinda cringe...
         <<SetSprite Middle Irene/Idle>>
-    <<elseif $GiftScoreI == 40>>
+    <<elseif $GiftScoreICafe == 40>>
         <<SetSprite Middle Irene/Excited>>
         Irene: Oh! My keychain! You found it!
         <<SetSprite Middle Irene/Flirty>>
@@ -1208,18 +1208,18 @@ Player: What should I do?
     <<else>>
         // Not their key item gift
         Irene: Oh! This looks important, but it's not mine...
-        <<if $GiftScoreI == 0>> // Ellie's
+        <<if $GiftScoreICafe == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
-        <<elseif $GiftScoreI == 1>> // Kelly's
+        <<elseif $GiftScoreICafe == 1>> // Kelly's
             <<AddRelationshipScore Irene -1>>
             <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
-        <<elseif $GiftScoreI == 2>> // Santana's
+        <<elseif $GiftScoreICafe == 2>> // Santana's
             <<AddRelationshipScore Irene -2>>
             <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
-        <<elseif $GiftScoreI == 3>> // Riviera's
+        <<elseif $GiftScoreICafe == 3>> // Riviera's
             <<AddRelationshipScore Irene -3>>
             <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
-        <<elseif $GiftScoreI == 4>> // Irene's
+        <<elseif $GiftScoreICafe == 4>> // Irene's
             <<AddRelationshipScore Irene -4>>
             <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
         <<else>> // Tommy's
