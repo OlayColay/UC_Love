@@ -864,6 +864,18 @@ position: 212,-6
         <<SetSprite Middle Riviera/Sad>>
         Riviera: Err… I'm not sure what I'm supposed to do with these…
         <<SetSprite Middle Riviera/Idle>>
+    <<elseif $GiftScoreRPlaza == 40>>
+        <<SetSprite Middle Riviera/LB>>
+        Riviera: Oh! You found my bag!
+        Riviera: I've been looking everywhere for it! Thank you so much!
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: My brothers made me this bag as a "good luck" gift for one one my showcases.
+        <<SetSprite Middle Riviera/Sad>>
+        Riviera: I didn't do very well in that one and I was feeling pretty cruddy afterwards, but having the bag made me feel like they were by my side cheering me on...
+        Riviera: The bag is a little tacky, but it means a lot to me...
+        <<SetSprite Middle Riviera/HB>>
+        Riviera: Thank you so much for finding it! I owe you one!
+        <<SetSprite Middle Riviera/Idle>>
     <<else>>
         // Not their key item gift
         Riviera: Oh! This looks important, but it's not mine...
