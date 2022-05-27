@@ -366,7 +366,38 @@ position: 212,-6
         <<if GetRelationshipScore("Riviera") >= 300>>
             <<SetSprite Middle Riviera/lb>>
             Riviera: Sure! I think it'd be fun!
-            <<jump RivieraDate>>
+            //piss
+            <<AddRelationshipScore Riviera 10>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Riviera/LB>>
+            <<Fade true>>
+            <<Wait 4>>
+            Riviera: Wow! The food here is top notch!
+            Riviera: Thank you for treating me out!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $TimeOfDayPlaza == 0>>
+                <<SetBackground Backgrounds/Plaza/plaza_morning>>
+                //Sets background as Plaza Morning if it is Daytime
+            <<elseif $TimeOfDayPlaza == 1>>
+                <<SetBackground Backgrounds/Plaza/plaza_noon>>
+                //Sets background as Plaza Afternoon if it is Afternoon
+            <<else>>
+                <<SetBackground Backgrounds/Plaza/plaza_night>>
+                //Sets background as Plaza Night if it Evening
+            <<endif>>
+            <<SetSprite Middle Riviera/LB>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            <<SetSprite Middle Riviera/HB>>
+            Riviera: I had such a great time! We should do this again sometime!
+            <<SetSprite Middle Riviera/Idle>>
+            <<jump UCRPlaza>>
         <<else>>
             <<SetSprite Middle Riviera/Angry>>
             Riviera: I admire your guts for asking, but no thanks.

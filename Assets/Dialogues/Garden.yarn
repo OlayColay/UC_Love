@@ -1157,6 +1157,7 @@ Player: What should I do?
         <<set $AskIrene = true>>
         <<if GetRelationshipScore("Irene") >= 300>>
             <<SetSprite Middle Irene/ExcitedLB>>
+            <<AddRelationshipScore Irene 10>>
             Irene: Sure bro!
             <<Fade false>>
             <<ClearSprite Middle>>
