@@ -29,33 +29,16 @@ public class YarnCommands : MonoBehaviour
     }
 
     [YarnCommand("PlayMusic")]
-    public static void PlayMusic(string introPath, string loopPath)
+    public static void PlayMusic(string musicPath)
     {
-        AudioClip introClip = Resources.Load<AudioClip>(introPath);
-        if ((Background.Instance.audioSource.clip = introClip) == null)
+        AudioClip musicClip = Resources.Load<AudioClip>(musicPath);
+        if ((MusicPlayer.audioSource.clip = musicClip) == null)
         {
             // Debug.LogError("Couldn't find audio clip in " + introPath);
             return;
         }
-        Background.Instance.audioSource.loop = false;
-        Background.Instance.audioSource.Play();
-
-        AudioClip loopClip = Resources.Load<AudioClip>(loopPath);
-        if (loopClip == null)
-        {
-            return;
-        }
-
-        YarnCommands yc = Background.Instance.gameObject.AddComponent<YarnCommands>();
-        yc.StartCoroutine(yc.PlayLoop(introClip.length, loopClip));
-    }
-    private IEnumerator PlayLoop(float introLength, AudioClip loopClip)
-    {
-        yield return new WaitForSecondsRealtime(introLength);
-        Background.Instance.audioSource.clip = loopClip;
-        Background.Instance.audioSource.loop = true;
-        Background.Instance.audioSource.Play();
-        Destroy(Background.Instance.gameObject.GetComponent<YarnCommands>());
+        MusicPlayer.audioSource.loop = true;
+        MusicPlayer.audioSource.Play();
     }
 
     [YarnCommand("GymMinigame")]

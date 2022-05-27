@@ -16,6 +16,7 @@ tags:
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>
 <<Fade true 0>>
+// <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
     <<jump Orientation>>
