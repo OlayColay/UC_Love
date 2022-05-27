@@ -118,7 +118,7 @@ public class Click : MonoBehaviour
     public static IEnumerator LoadYarnScene(string sceneName)
     {
         if (EventSystem.current) EventSystem.current.enabled = false;
-        FindObjectOfType<AudioListener>().enabled = false;
+        // FindObjectOfType<AudioListener>().enabled = false;
 
         AsyncOperation async = SceneManager.LoadSceneAsync("VisualNovel", LoadSceneMode.Additive);
 
