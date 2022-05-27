@@ -347,9 +347,30 @@ Player: What should I do?
     <<elseif $GiftScore == 10>>
         //Liked Gift
         Tommy: Not bad. You've got good taste.
-    <<else>>
+    <<elseif $GiftScore == -10>>
         //Hated Gift
         Tommy: Ick… did you pick these off the clearance rack?
+    <<else>>
+        // Not their key item gift
+        Tommy: What the f@$%? This isn't mine
+        <<if $GiftScore == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScore == 1>> // Kelly's
+            <<AddRelationshipScore Tommy -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScore == 2>> // Santana's
+            <<AddRelationshipScore Tommy -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScore == 3>> // Riviera's
+            <<AddRelationshipScore Tommy -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScore == 4>> // Irene's
+            <<AddRelationshipScore Tommy -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Tommy -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
     <<endif>>
     <<jump USCGarden>>
 -> Ask <<if $AskTommy == false>>

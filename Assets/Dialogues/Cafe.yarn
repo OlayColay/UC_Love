@@ -313,11 +313,32 @@ Player: What should I do?
         <<SetSprite Middle Kelly/lbcm>>
         Kelly: Oh! Uh… thanks!
         <<SetSprite Middle Kelly/Idle>>
-    <<else>>
+    <<elseif $GiftScoreKCafe == -10>>
         //Hated Gift
         <<SetSprite Middle Kelly/Angry>>
         Kelly: Is this a joke?
         <<SetSprite Middle Kelly/Idle>>
+    <<else>>
+        // Not their key item gift
+        Kelly: What the f@$%? This isn't mine
+        <<if $GiftScoreKCafe == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreKCafe == 1>> // Kelly's
+            <<AddRelationshipScore Kelly -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreKCafe == 2>> // Santana's
+            <<AddRelationshipScore Kelly -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreKCafe == 3>> // Riviera's
+            <<AddRelationshipScore Kelly -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreKCafe == 4>> // Irene's
+            <<AddRelationshipScore Kelly -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Kelly -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
     <<endif>>
     <<jump UCBCafe>>
 -> Ask <<if $AskKelly == false>>
@@ -703,11 +724,32 @@ position: 207,66
         //Liked Gift
         Riviera: This is pretty nice! Thanks.
         <<SetSprite Middle Riviera/Idle>>
-    <<else>>
+    <<elseif $GiftScoreRCafe == -10>>
         //Hated Gift
         <<SetSprite Middle Riviera/Sad>>
         Riviera: Err… I'm not sure what I'm supposed to do with these…
         <<SetSprite Middle Riviera/Idle>>
+    <<else>>
+        // Not their key item gift
+        Riviera: What the f@$%? This isn't mine
+        <<if $GiftScoreRCafe == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreRCafe == 1>> // Kelly's
+            <<AddRelationshipScore Riviera -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreRCafe == 2>> // Santana's
+            <<AddRelationshipScore Riviera -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreRCafe == 3>> // Riviera's
+            <<AddRelationshipScore Riviera -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreRCafe == 4>> // Irene's
+            <<AddRelationshipScore Riviera -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Riviera -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
     <<endif>>
     <<jump UCRCafe>>
 -> Ask <<if $AskRiviera == false>>

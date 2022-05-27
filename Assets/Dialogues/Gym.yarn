@@ -354,6 +354,51 @@ position: 241,-105
         <<endif>>
     <<endif>>
     <<jump UCRGym>>
+-> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCRGym>>
+    <<endif>> 
+    <<set $GiftRiviera = true>>
+    <<set $GiftScoreRGym = GetItemScore("Riviera")>>
+    <<AddRelationshipScore Riviera {$GiftScore}>>
+    <<if $GiftScoreRGym == 20>>
+        //Loved Gift
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: Oh thanks! I'm always running out of these! I really love these!
+        <<SetSprite Middle Riviera/Idle>>
+    <<elseif $GiftScoreRGym == 10>>
+        //Liked Gift
+        Riviera: This is pretty nice! Thanks.
+        <<SetSprite Middle Riviera/Idle>>
+    <<elseif $GiftScoreRGym == -10>>
+        //Hated Gift
+        <<SetSprite Middle Riviera/Sad>>
+        Riviera: Err… I'm not sure what I'm supposed to do with these…
+        <<SetSprite Middle Riviera/Idle>>
+    <<else>>
+        // Not their key item gift
+        Riviera: What the f@$%? This isn't mine
+        <<if $GiftScoreRGym == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreRGym == 1>> // Kelly's
+            <<AddRelationshipScore Riviera -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreRGym == 2>> // Santana's
+            <<AddRelationshipScore Riviera -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreRGym == 3>> // Riviera's
+            <<AddRelationshipScore Riviera -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreRGym == 4>> // Irene's
+            <<AddRelationshipScore Riviera -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Riviera -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
+    <<endif>>
+    <<jump UCRGym>>
 -> Ask <<if $AskRiviera == false>>
     -> Ask on a date
         <<set $AskRiviera = true>>
@@ -414,30 +459,6 @@ position: 241,-105
         <<endif>>
     -> Cancel
         <<jump UCRGym>>
--> Give Gift <<if $GiftRiviera == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
-    <<OpenInventory>>
-    <<if GetInventoryCanceled() == true>>
-        <<jump UCRGym>>
-    <<endif>> 
-    <<set $GiftRiviera = true>>
-    <<set $GiftScoreRGym = GetItemScore("Riviera")>>
-    <<AddRelationshipScore Riviera {$GiftScore}>>
-    <<if $GiftScoreRGym == 20>>
-        //Loved Gift
-        <<SetSprite Middle Riviera/Happy>>
-        Riviera: Oh thanks! I'm always running out of these! I really love these!
-        <<SetSprite Middle Riviera/Idle>>
-    <<elseif $GiftScoreRGym == 10>>
-        //Liked Gift
-        Riviera: This is pretty nice! Thanks.
-        <<SetSprite Middle Riviera/Idle>>
-    <<else>>
-        //Hated Gift
-        <<SetSprite Middle Riviera/Sad>>
-        Riviera: Err… I'm not sure what I'm supposed to do with these…
-        <<SetSprite Middle Riviera/Idle>>
-    <<endif>>
-    <<jump UCRGym>>
 -> Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
@@ -869,10 +890,31 @@ Player: What should I do?
         <<SetSprite Middle Ellie/smc>>
         Ellie: That's so sweet of you!
         <<SetSprite Middle Ellie/Idle>>
-    <<else>> //Hated Gift
+    <<elseif $GiftScoreEGym == -10>> //Hated Gift
         <<SetSprite Middle Ellie/Angry>>
         Ellie: Ehhhm….. thanks?
         <<SetSprite Middle Ellie/Idle>>
+    <<else>>
+        // Not their key item gift
+        Ellie: What the f@$%? This isn't mine
+        <<if $GiftScoreEGym == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreEGym == 1>> // Kelly's
+            <<AddRelationshipScore Ellie -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreEGym == 2>> // Santana's
+            <<AddRelationshipScore Ellie -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreEGym == 3>> // Riviera's
+            <<AddRelationshipScore Ellie -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreEGym == 4>> // Irene's
+            <<AddRelationshipScore Ellie -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Ellie -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
     <<endif>>
     <<jump UCLAGym>>
 -> Ask <<if $AskEllie == false>>
