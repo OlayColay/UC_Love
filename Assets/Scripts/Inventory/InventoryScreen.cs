@@ -15,9 +15,12 @@ public class InventoryScreen : MonoBehaviour
     [HideInInspector] public static Item selectedItem = null;
     [HideInInspector] public static bool canceled = false;
     private bool isKeyItems = false;
+    private AudioClip pop;
 
     void OnEnable()
     {
+        pop = Resources.Load<AudioClip>("SFX/Pop");
+        
         if (isKeyItems)
         {
             background.sprite = keyItemsBackground;
@@ -74,6 +77,7 @@ public class InventoryScreen : MonoBehaviour
             Inventory.keyItemList.Remove(selectedItem);
         }
 
+        MusicPlayer.audioSource.PlayOneShot(pop);
         Inventory.list.Remove(selectedItem);
     }
 
@@ -86,6 +90,7 @@ public class InventoryScreen : MonoBehaviour
 
     public static void Cancel()
     {
+        MusicPlayer.audioSource.PlayOneShot(Resources.Load<AudioClip>("SFX/Pop"));
         canceled = true;
     }
 }

@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private Image blackScreen;
+    private AudioClip pop;
 
     private void Awake()
     {
+        pop = Resources.Load<AudioClip>("SFX/Pop");
         if (PlayerPrefs.GetString("MainSave", "") == "")
         {
             GameObject load = GameObject.Find("LoadButton");
@@ -22,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         if (PlayerPrefs.GetString("MainSave", "") == "")
         {
             blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(Click.LoadYarnScene("NewGame")));
@@ -34,7 +37,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        
+        MusicPlayer.audioSource.PlayOneShot(pop);
         Inventory.LoadGame();
         blackScreen.DOFade(1f, 0.5f).OnComplete( () => { 
             SceneManager.LoadScene("MapScene");
@@ -44,6 +47,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         #if (UNITY_EDITOR)
             UnityEditor.EditorApplication.isPlaying = false;
         #elif (UNITY_WEBGL)

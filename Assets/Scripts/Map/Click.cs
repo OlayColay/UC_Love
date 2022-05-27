@@ -18,6 +18,7 @@ public class Click : MonoBehaviour
     [SerializeField]
     private Image blackScreen;
 
+    private AudioClip pop;
     private GameObject selectedLocation; // The currently selected location
 
     private bool isActive = true; // If this script should be active
@@ -26,6 +27,7 @@ public class Click : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pop = Resources.Load<AudioClip>("SFX/Pop");
         // Subscribe to the event system
         MapEvents.current.onGamePaused += SetDisabled;
         EnhancedTouchSupport.Enable();
@@ -59,8 +61,7 @@ public class Click : MonoBehaviour
                 // instead of as a Coroutine?
                 // The reason that I use a Coroutine is so that we can wait for the scene to load with a
                 // while loop without freezing the game :)
-                        
-                FindObjectOfType<AudioListener>().enabled = false;
+                MusicPlayer.audioSource.PlayOneShot(pop);
                 FindObjectOfType<EventSystem>().enabled = false;
                 blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(LoadYarnScene(newLocation.name)));
             }

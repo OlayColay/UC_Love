@@ -8,6 +8,12 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
     [SerializeField] GameObject pauseMenuUI;
+    private AudioClip pop;
+
+    private void Awake()
+    {
+        pop = Resources.Load<AudioClip>("SFX/Pop");
+    }
 
     public void TogglePauseGame()
     {
@@ -25,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -33,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -41,6 +49,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         // Debug.Log("Loading menu...");
         Time.timeScale = 1f;
         SceneManager.LoadScene("UiScene");
@@ -48,13 +57,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Save()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         // Debug.Log("Saving...");
         Inventory.SaveGame();
-        Notification.Notify("Game saved!", "SFX/Buy");
+        Notification.Notify("Game saved!", "");
     }
 
     public void OpenInventory()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         // Debug.Log("Opening inventory...");
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -64,6 +75,7 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseInventory()
     {
+        MusicPlayer.audioSource.PlayOneShot(pop);
         Inventory.inventoryScreen.gameObject.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
