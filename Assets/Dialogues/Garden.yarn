@@ -1158,7 +1158,36 @@ Player: What should I do?
         <<if GetRelationshipScore("Irene") >= 300>>
             <<SetSprite Middle Irene/ExcitedLB>>
             Irene: Sure bro!
-            <<jump IreneDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Irene/IdleLB>>
+            <<Fade true>>
+            <<Wait 4>>
+            Irene: This place is really cool!
+            Irene: Thanks for the food bro!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $TimeOfDayGarden == 0>>
+                <<SetBackground Backgrounds/Garden/Morning>>
+                //Sets background as Garden Morning if it is Daytime
+            <<elseif $TimeOfDayGarden == 1>>
+                <<SetBackground Backgrounds/Garden/Noon>>
+                //Sets background as Garden Afternoon if it is Afternoon
+            <<else>>
+                <<SetBackground Backgrounds/Garden/NightWarm>>
+                //Sets background as Garden Night if it Evening
+            <<endif>>
+            <<SetSprite Middle Irene/Flirty>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: Next time, let's go for ramen! My treat!
+            <<SetSprite Middle Irene/Idle>>
+            <<jump UCIGarden>>
         <<else>>
             <<SetSprite Middle Irene/sad>>
             Irene: Uhhhh... sorry bro... raid hour is usually around that time...
