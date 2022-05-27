@@ -904,10 +904,31 @@ Player: What should I do?
         <<SetSprite Middle Santana/lbcm>>
         Santana: Thank you!
         <<SetSprite Middle Santana/Idle>>
-    <<else>> //Hated Gift
+    <<elseif $GiftScoreS == -10>> //Hated Gift
         <<SetSprite Middle Santana/Angry>>
         Santana: Erm… I'm not sure what to do with these… but thank you...
         <<SetSprite Middle Santana/Idle>>
+    <<else>>
+        // Not their key item gift
+        Santana: What the f@$%? This isn't mine
+        <<if $GiftScoreS == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreS == 1>> // Kelly's
+            <<AddRelationshipScore Santana -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreS == 2>> // Santana's
+            <<AddRelationshipScore Santana -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreS == 3>> // Riviera's
+            <<AddRelationshipScore Santana -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreS == 4>> // Irene's
+            <<AddRelationshipScore Santana -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Santana -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
     <<endif>>
     <<jump UCSBGarden>>
 -> Ask <<if $AskSantana == false>>
