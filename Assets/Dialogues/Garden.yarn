@@ -1168,41 +1168,29 @@ Player: What should I do?
             Irene: Thanks for the help!
             <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
-            Irene: 
+            <<SetSprite Middle Irene/Excited>>
+            Irene: You've been acting kind of like a sussy litte baka bro.
+            Irene: You're getting into simp territory with how often you've been appearing lately!
+            <<SetSprite Middle Irene/IdleHB>>
+            Irene: I don't mind it though... I like having you around...
         <<else>> 
-            Irene: 
+            Irene: I've been watching this anime called BoBoo's Bizzare Adventures and I think that it's really funny!
+            Irene: Each part is really unique from the others and they're all amazing in their own ways!
+            Irene: There's this really epic battle scene where the main character has to use both brains and brawn in order to fight the villain.
+            Irene: He gets cornered and almost dies multiple times but the ways that he figures out a last minute solution are so creative and crazy!
+            Irene: Like this one time, he outsmarted the villain using a magnet! A magnet!
+            Irene: I wish that I had half of his brain power!
+            Irene: His character design is so cool too! Like... he's based off of a delinquent and is so cool! 
+            -> Aren't you a little too old for anime?
+            -> I'm glad that you 
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: I'll have to say, it's kinda sus to meet at night all the time.
-            -> W-what? What do you mean?
-                <<SetSprite Middle Irene/Awkward>>
-                Irene: U-um! I mean... Y'know...like as if these are secret meetings..
-                Irene: I don't mean it in any other way!!
-                -> Yeahhh sureee...
-                    Irene: Well...unless you wanna keep it just that.
-                    <<SetSprite Middle Irene/IdleLB>>
-                    Irene: Nothing more?
-                    -> Maybe?
-                        Irene: What's that supposed to mean?
-                -> Mhm, whatever you say.
-                    Irene: Okay, now you're making me feel embarassed.
-                    Irene: It's just...y'know, exciting.
-                    Irene: Like..!!
-                    <<Shake Middle>>
-                    Irene: Oh my God. Just let me perish in a hole!!!
-                    Player: Haha, not on my watch!
-                    Player: You're too cute to hide in a hole.
-                    <<AddRelationshipScore Irene 30>>
-                    <<SetSprite Middle Irene/ExcitedHB>>
-                    <<Shake Middle>>
-                    Irene: Stopppp!! You're making me blush too much!
-                -> Haha, of course. 
-                    Irene: Don't make fun of meee!!
+            Irene: 
         <<elseif $UCI_Dialogue == 2>>
-            Irene: 
+            Irene: UNFINISHED
         <<elseif $UCI_Dialogue == 3>>
-            Irene: 
+            Irene: UNFINISHED
         <<elseif $UCI_Dialogue == 4>> 
             Irene: Oh! You're here!! Come quick!!!
             -> Huh? What's going on?
@@ -1223,6 +1211,8 @@ Player: What should I do?
             <<SetSprite Middle Irene/VerySad>>
             Irene: It was just... really lonely y'know?
             <<SetSprite Middle Irene/VeryVerySad>>
+            <<Shake Middle>>
+            Irene: You don't think that I'm weird in a bad way... right?
             Irene: I'm sorry... I got kind of emotional there...
             Irene: Can... I have a hug?
             -> Yes!
