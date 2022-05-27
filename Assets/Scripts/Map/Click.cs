@@ -24,7 +24,6 @@ public class Click : MonoBehaviour
     private bool isActive = true; // If this script should be active
     private int delayFrames = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         pop = Resources.Load<AudioClip>("SFX/Pop");
