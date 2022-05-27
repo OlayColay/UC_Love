@@ -162,7 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.06
   applicationIdentifier:
     Android: com.ACMStudio.UCLove
-    Standalone: com.DefaultCompany.UC-Love
+    Standalone: com.ACM-Studio.UC-Love
   buildNumber:
     Standalone: 0
     iPhone: 0

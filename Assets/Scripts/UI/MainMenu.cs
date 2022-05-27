@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        YarnCommands.SaveVariable("Dwayne", "false");
         pop = Resources.Load<AudioClip>("SFX/Pop");
         if (PlayerPrefs.GetString("MainSave", "") == "")
         {

@@ -179,4 +179,10 @@ public class YarnCommands : MonoBehaviour
             // Debug.Log("Saved string " + variable + " to " + name);
         }
     }
+
+    [YarnCommand("Dwayne")]
+    public static void Dwayne()
+    {
+        Cursor.SetCursor(Resources.Load<Texture2D>("Dwayne/Running"), new Vector2(18, 0), CursorMode.Auto);
+    }
 }

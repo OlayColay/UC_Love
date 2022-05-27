@@ -110,3 +110,24 @@ Dwayne: How difficult of a workout are you up for?
     <<jump Workout>>
 -> No way!
 ===
+title: Dwayne
+---
+<<Fade true>>
+<<SetActiveChar Middle>>
+<<SetSprite Middle Dwayne/Idle>>
+Dwayne: ITS ABOUT DRIVE - ITS ABOUT POWER - WE STAY HUNGRY - WE DEVOUR
+Dwayne: PUT IN THE WORK - PUT IN THE HOURS - AND TAKE WHATS OURS
+Player: Oh mein gott, it's Dwayne "The Rock" Johnson!
+Dwayne: Hahah! Yes, it is indeed. I have been watching you put in the work and the hours at the gym.
+Dwayne: As a reward for such an impressive feat, I want to give you a portion of my power.
+-> ... Okay?
+    <<SaveVariable Dwayne true>>
+    Dwayne: Alright! What can I say except for you're welcome?
+    <<Dwayne>>
+-> No thanks, Dwayne
+    <<Wait 1>>
+    <<SetSprite Middle Dwayne/Eyebrow>>
+    <<PlaySound Middle SFX/VineBoom>>
+    Dwayne: Hm, that's too bad. Get out of my sight, kid.
+<<LoadScene MapScene>>
+===
