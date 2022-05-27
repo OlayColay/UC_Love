@@ -1101,11 +1101,8 @@ Player: What should I do?
                 Player: After all, you can only do so much when you're running low on energy.
                 Irene: I usually have boba to help me out with that!
                 -> Boba? At this time??
-                    <<SetSprite Middle Irene/Angry>>
-                    <<Shake Middle>>
+                    <<SetSprite Middle Irene/Sad>>
                     Irene: What?? It's a nice treat after a long day...
-                    Player: N-no, sorry! I didn't mean like that.
-                    Irene: Sure...
                     <<SetSprite Middle Irene/Idle>>
                 -> Gotta get your sugar in the form of deliciousness.
                     <<SetSprite Middle Irene/Excited>>
@@ -1286,13 +1283,18 @@ Player: What should I do?
             Irene: I got really big for playing Beast of Legends, but I want to branch out into other games that've caught my interest!
             Irene: I want to try streaming Skreech or playing dating simulators on stream...
             -> I'm sure that your stream will love you for you! Do what makes you happy!
+                <<SetSprite Middle Irene/Excited>>
                 Irene: You're right! I think I'll stream some indie games then!
                 Irene: You'll tune in right? 
+                <<SetSprite Middle Irene/ExcitedLB>>
                 Irene: Thank you for the advice!
+                <<SetSprite Middle Irene/Idle>>
             -> Maybe you should stick to something you know will be popular...
+                <<SetSprite Middle Irene/Sad>>
                 Irene: I guess...
                 Irene: It's just a little tiring to play the same thing over and over... 
                 Irene: I feel kind of boxed in and can't really be myself...
+                <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 3>>
             <<SetSprite Middle Irene/Excited>>
             Irene: There's an anime convention that's coming up! 
