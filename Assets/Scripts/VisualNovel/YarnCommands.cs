@@ -41,6 +41,12 @@ public class YarnCommands : MonoBehaviour
         MusicPlayer.audioSource.Play();
     }
 
+    [YarnCommand("StopMusic")]
+    public static void StopMusic()
+    {
+        MusicPlayer.audioSource.Stop();
+    }
+
     [YarnCommand("GymMinigame")]
     public static IEnumerator GymMinigame(int liftGainPerPress, int punchTarget, float punchTime, int pushupSpeed, int pushupThreshold)
     {

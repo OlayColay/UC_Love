@@ -34,9 +34,12 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-
+        
         Inventory.LoadGame();
-        blackScreen.DOFade(1f, 0.5f).OnComplete( () => SceneManager.LoadScene("MapScene"));
+        blackScreen.DOFade(1f, 0.5f).OnComplete( () => { 
+            SceneManager.LoadScene("MapScene");
+            YarnCommands.PlayMusic("Music/Gameplay");
+        });
     }
 
     public void QuitGame()
