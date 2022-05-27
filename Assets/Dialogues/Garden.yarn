@@ -454,25 +454,55 @@ position: 125,-26
     Player: Huh... There's a sign that says, "DO NOT FEED THE SQUIRREL."
     Player: ...Noted.
 <<elseif $Random_Event_Dialogue == 8>>
-    //UCI special item
-    //NOTE: Finalize special items then add AddItem commands after "Oh!"
-    Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
+    <<if LoadVariable("Diary") != "true">>
+        //UCI special item
+        //NOTE: Finalize special items then add AddItem commands after "Oh!"
+        Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
+        <<SaveVariable "Diary" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 9>>
+    <<if LoadVariable("Cookbook") != "true">>
     //UCLA special item
     Player: Oh! I found a recipe book! It looks special... I wonder who it belongs to...
+        <<SaveVariable "Cookbook" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 10>>
+    <<if LoadVariable("Bag") != "true">>
     //UCR special item
     Player: Oh! I found a... tote bag? It looks like something a couple of kids made... 
     Player: It looks special... I wonder who it belongs to...
+        <<SaveVariable "Bag" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 11>>
+    <<if LoadVariable("Chain") != "true">>
     //UCI special item
     Player: Oh! I found a key chain! It looks special... I wonder who it belongs to...
+        <<SaveVariable "Chain" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 12>>
+    <<if LoadVariable("Poem") != "true">>
     //UCSB special item
     Player: Oh! I found a handwritten poem book! It looks special... I wonder who it belongs to...
+        <<SaveVariable "Poem" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 13>>
+    <<if LoadVariable("Watch") != "true">>
     //USC special item
     Player: Oh! I found a watch! It looks expensive... I wonder who it belongs to...
+        <<SaveVariable "Watch" "true">>
+    <<else>>
+        Player: 
+    <<endif>>
 <<elseif $Random_Event_Dialogue == 14>>
     <<SetSprite Middle Squirrel/Idle>>
     Player: Oh! A squirrel! Hey there buddy!
