@@ -761,9 +761,38 @@ Player: What should I do?
             -> Oh damn... I'm really sorry.
                 Santana: No..it's okay
         <<elseif $UCSB_Dialogue == 4>> 
-            Santana: a
+            Santana: I'm hosting a bouquet-making workshop soon! You should come by!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: It's free and you can learn a lot about flower arrangement!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: We'll be using the common flowers, not the endangered or threatened ones, so don't worry!
+            Santana: Certain flowers have certain meanings attached to them... there's a whole secret code of flowers!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: It's one of the reasons that I love them so much!
+            <<SetSprite Middle Santana/Idle>>
         <<else>> 
-            Santana: a
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Some visitors keep literring in the garden even though there's signs telling them not to...
+            Santana: The trash really hurts the plants and animals... I'm not sure how I can get the visitors to stop though...
+            Santana: I want to stand up for myself and the garden, but I'm scared of confrontation.
+            -> Just pick up after them...
+                Santana: There's so many though... and it's really easy to miss a piece of trash...
+                Santana: An animal can easily accidentally eat a piece before I can pick it up too...
+                <<SetSprite Middle Santana/Idle>>
+            -> Be assertive!
+                Santana: But how?
+                -> Remember what you're standing up for!
+                    Player: If you remember what you're standing up for, you can be more confident!
+                    <<SetSprite Middle Santana/Idle>>
+                    Santana: You're right! I care a lot about the garden and the environment!
+                    Santana: I think that I can draw my courage from there!
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Thank you for the advice.... I really appreciate it!
+                    <<SetSprite Middle Santana/Idle>>
+                -> Assert dominance by yelling at them!
+                    Santana: I don't really yell at people...
+                    Santana: I don't think that there's really ever any reason to yell at someone...
+                    <<SetSprite Middle Santana/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Santana") >= 300 && GetRelationshipScore("Santana") < 400>> //Crushing
         <<if $UCSB_Dialogue == 1>>
@@ -776,11 +805,35 @@ Player: What should I do?
             Santana: Wouldn't it be fun to have a picnic together someday?
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: a
+            Santana: I learned how to garden from my mom when I was a kid...
+            <<SetSprite Middle Santana/bliss>>
+            Santana: She taught me how to propagate succulents and how to check for when a plant needs water.
+            <<SetSprite Middle Santana/Idle>>
+            Santana: I don't think that I would be where I am without her... she really inspired me to pursue biology and work here in the garden.
+            Santana: She gave me a spade as a congratulatory presenet when I got the internship here!
+            <<SetSprite Middle Santana/Angry>>
+            Santana: She lives a little far away though, and I miss her a lot. 
+            <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 4>> 
-            Santana: a
+            <<SetSprite Middle Santana/Sad>>
+            Santana: I feel like everyone is really rushed these days... 
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I know life can get really busy, but sometimes it's good to stop and smell the roses, literally and figuratively!
+            <<SetSprite Middle Santana/LB>>
+            Santana: If you ever feel overwhelmed or stressed, I want you to know that I'm there for you too!
+            Santana: We can do some yoga or take a walk together to destress!
+            <<SetSprite Middle Santana/HB>>
+            Santana: I really enjoy your company and you've done so much for me, and I want to return the favor!
+            <<SetSprite Middle Santana/Idle>>
         <<else>> 
-            Santana: a
+            Santana: Oh! Look at the pond!
+            <<SetSprite Middle Santana/LB>>
+            Santana: There's a pair of ducks floating together! How cute!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: Did you know that in Chinese culture, mandarin ducks signify love and fidelity?
+            <<SetSprite Middle Santana/HB>>
+            Santana: I think that's really sweet! To be a duck on a pond with my lover!
+            <<SetSprite Middle Santana/Idle>>
         <<endif>>
     <<else>> //Lovers
         <<if $UCSB_Dialogue == 1>>
@@ -805,13 +858,33 @@ Player: What should I do?
                     Santana: Every plant, animal, and insect are important to their ecosystems! Even the squirrels that run around here are critical to the garden's health.
                     <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 2>>
-            Santana: a 
+            <<SetSprite Middle Santana/bliss>>
+            Santana: Working here is a lot more fun now that I'm able to stand up to rude visitors!
+            Santana: They're a lot more respectful of me and the garden now!
+            <<SetSprite Middle Santana/LB>>
+            Santana: I don't think I would be where I am without you... 
+            Santana: Thank you for helping me grow!
+            <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: a 
+            <<SetSprite Middle Santana/LB>>
+            Santana: Say, have you thought about going to the dance coming up?
+            Santana: I kind of want to go... but I'm a little shy and don't want to go alone...
+            <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 4>> 
-            Santana: a
+            <<SetSprite Middle Santana/LB>>
+            Santana: One day, I want to watch the sunset with you on the beach!
+            <<SetSprite Middle Santana/HB>>
+            Santana: There's a really pretty beach nearby.... and hearing the waves crash on the shore is really romantic. 
+            <<SetSprite Middle Santana/Idle>>
         <<else>> 
-            Santana: a
+            Santana: After college, I want to live and work in the countryside for a little.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: The city is nice and all, but I the peace you get from being in nature is like no other!
+            <<SetSprite Middle Santana/LB>>
+            Santana: I've been looking at little cottages in the prarie and thinking about all the fun I'd have out there!
+            Santana: I could bake little pastries and have a cute little garden and whatnot!
+            <<SetSprite Middle Santana/HB>>
+            Santana: If you want... you can come with me!
         <<endif>>
     <<endif>>
     <<jump UCSBGarden>>
