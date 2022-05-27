@@ -1181,12 +1181,22 @@ Player: What should I do?
             Irene: Like this one time, he outsmarted the villain using a magnet! A magnet!
             Irene: I wish that I had half of his brain power!
             Irene: His character design is so cool too! Like... he's based off of a delinquent and is so cool! 
+            <<SetSprite Middle Irene/Awkward>>
+            Irene: Ah! I'm rambling...
+            <<SetSprite Middle Irene/VerySad>>
+            Irene: Sorry... you probably think that I'm cringey or something...
             -> Aren't you a little too old for anime?
-            -> I'm glad that you 
+                Irene: I just want to watch something that I enjoy...
+                Irene: I'm not hurting anybody...
+            -> I love hearing you talk about things that make you happy!
+                Irene: ... Really?
+                Irene: You're not capping?
+                <<SetSprite Middle Irene/IdleLB>>
+                Irene: ... thanks... that means a lot to me.
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: 
+            Irene: UNFINISHED
         <<elseif $UCI_Dialogue == 2>>
             Irene: UNFINISHED
         <<elseif $UCI_Dialogue == 3>>
