@@ -15,13 +15,21 @@ tags:
 <<SaveVariable "MainSave" "">>
 <<SaveVariable "UCR_Intro" false>>
 <<SaveVariable "BobamonGo" 0>>
+<<SaveVariable "Diary" "false">>
+<<SaveVariable "Cookbook" "false">>
+<<SaveVariable "Bag" "false">>
+<<SaveVariable "Chain" "false">>
+<<SaveVariable "Poem" "false">>
+<<SaveVariable "Watch" "false">>
 <<Fade true 0>>
 // <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
+    <<PlayMusic Music/Gameplay>>
     <<jump Orientation>>
 -> Skip Intro
     <<Fade false 0>>
+    <<PlayMusic Music/Gameplay>>
     <<LoadScene MapScene>>
 ===
 title: Orientation
