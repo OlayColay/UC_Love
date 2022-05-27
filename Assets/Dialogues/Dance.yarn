@@ -2,6 +2,7 @@
 tags:
 position: -99,4
 ---
+<<PlayMusic Music/Title>>
 <<Fade false>>
 <<SetBackground Backgrounds/Dance>>
 <<Fade true>>
@@ -222,6 +223,7 @@ BearBox: Woah! Congratulations!
 <<endif>>
 <<ClearSprite Right>>
 <<SetActiveChar Left>>
+<<PlayMusic Music/Emotional>>
 BearBox: Now the fate of UCL rests solely in your hands...
 <<SetSprite Left BearBox/Idle>>
 BearBox: This year has been an eventful one thus far... and I want you to think deeply about what has become important to you when you make this decision.
@@ -319,6 +321,7 @@ BearBox: What should we do with the budget?
 title: KeepUCL
 position: 145,-124
 ---
+<<PlayMusic Music/Minigame>>
 <<SetBackground Backgrounds/dorm>>
 <<Fade true>>
 Player: Ever since the fundraiser dance, the UCL campus has become a lot nicer.
@@ -335,6 +338,7 @@ Player: Oh shoot! I'm running late to class again!
 <<Fade false>>
 <<SetBackground Backgrounds/Plaza/plaza_noon>>
 <<Fade true>> 
+<<PlayMusic Music/Emotional>>
 <<if $DancePartner == 0>>
     <<SetSprite Middle Kelly/Idle>>
     <<SetActiveChar Middle>>
@@ -356,6 +360,7 @@ Player: Oh shoot! I'm running late to class again!
         Kelly: But I wanted to take the scenic route to class! I want to stop and smell the roses with you!
         Kelly: Let's get going! I'll pick up some squirrel repellent on the way!
         Player: Yes!
+        <<PlayMusic Music/Title>>
         <<Fade false>>
         <<LoadScene Credits>>
 <<elseif $DancePartner == 1>>
@@ -373,6 +378,7 @@ Player: Oh shoot! I'm running late to class again!
     <<SetSprite Middle Ellie/lb>>
     Ellie: I'll show you the secret short cut to get to class! Here! Hold my hand!
     Player: Yes!
+    <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<elseif $DancePartner == 2>>
@@ -388,6 +394,7 @@ Player: Oh shoot! I'm running late to class again!
     <<SetSprite Middle Santana/LB>>
     Santana: We can take a short cut through the garden! Hold my hand so the squirrels know that you're with me!
     Player: Yes!
+    <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<elseif $DancePartner == 3>>
@@ -402,6 +409,7 @@ Player: Oh shoot! I'm running late to class again!
     <<Shake Middle>>
     Irene: ... I'll race you there! Last one to class buys boba!
     Player: Yes!
+    <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<elseif $DancePartner == 4>>
@@ -415,6 +423,7 @@ Player: Oh shoot! I'm running late to class again!
     <<SetSprite Middle Riviera/HB>>
     Riviera: Hold my hand! I'll protect you, alright?
     Player: Yes!
+    <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<else>>
@@ -449,6 +458,7 @@ Player: Oh shoot! I'm running late to class again!
     Tommy: But we gotta get going soon! I think I parked in a tow-away zone!
     <<SetSprite Middle Tommy/Idle>>
     Player: Yes!
+    <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<endif>>
@@ -527,6 +537,7 @@ Player: Sometimes, I wish I could redo everything and choose differently...
 title: BouncyCastle
 position: 132,89
 ---
+<<PlayMusic Music/Minigame>>
 <<if $DancePartner == 0>>
     <<SetSprite Middle Kelly/Idle>>
     <<SetActiveChar Middle>>
