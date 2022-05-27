@@ -333,11 +333,47 @@ Player: What should I do?
     -> Ask on a date
         <<set $AskKelly = true>>
         <<if GetRelationshipScore("Kelly") >= 300>>
+            <<AddRelationshipScore Kelly 10>>
             <<SetSprite Middle Kelly/lbom>>
             Kelly: Oh! Um...let me check my schedule...
             <<SetSprite Middle Kelly/lbcm>>
             Kelly: I can make time for a date!
-            <<jump KellyDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Kelly/lbcm>>
+            <<Fade true>>
+            <<Wait 4>>
+            Kelly: I really needed a break from studying...
+            Kelly: ...Thank you for taking me out!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $OptionalPowellCat == 9>>
+                <<if $TimeofDayLibrary == 0>>
+                    <<SetBackground Backgrounds/Library/MorningCat>>
+                <<elseif $TimeofDayLibrary == 1>>
+                    <<SetBackground Backgrounds/Library/NoonCat>>
+                <<else>>
+                    <<SetBackground Backgrounds/Library/NightCat>>
+                <<endif>>
+            <<else>>
+                <<if $TimeofDayLibrary == 0>>
+                    <<SetBackground Backgrounds/Library/Morning>>
+                <<elseif $TimeofDayLibrary == 1>>
+                    <<SetBackground Backgrounds/Library/Noon>>
+                <<else>>
+                    <<SetBackground Backgrounds/Library/Night>>
+                <<endif>>
+            <<endif>>
+            <<SetSprite Middle Kelly/lbcm>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Kelly: I usually eat junk food or instant noodles... so thank you for the pasta!
+            <<SetSprite Middle Kelly/Idle>>
+            <<jump UCBLibrary>>
         <<else>>
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
