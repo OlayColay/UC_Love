@@ -1194,9 +1194,20 @@ Player: What should I do?
         <<SetSprite Middle Irene/Angry>>
         Irene: These are kinda cringe...
         <<SetSprite Middle Irene/Idle>>
+    <<elseif $GiftScoreI == 40>>
+        <<SetSprite Middle Irene/Excited>>
+        Irene: Oh! My keychain! You found it!
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: Thank you so much! This means a lot to me...
+        Irene: It was a gift from my grandma from when I was a little kid... she didn't really understand the stuff I was interested in, but she wanted me to be happy regardless!
+        <<SetSprite Middle Irene/Excited>>
+        Irene: She was trying to buy a Bobamon keychain for me, but she bought a knock-off instead!
+        <<SetSprite Middle Irene/IdleLB>>
+        Irene: It still means a lot to me though... thank you so much for returning it!
+        <<SetSprite Middle Irene/Idle>>
     <<else>>
         // Not their key item gift
-        Irene: What the f@$%? This isn't mine
+        Irene: Oh! This looks important, but it's not mine...
         <<if $GiftScoreI == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreI == 1>> // Kelly's
