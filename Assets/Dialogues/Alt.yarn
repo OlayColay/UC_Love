@@ -89,6 +89,7 @@ Tommy: S-Stan...
     <<SetSprite Middle Stan/Furious>>
     <<SetSprite Right Tommy/Angry>>
     <<SetActiveChar Middle>>
+    <<PlaySound Middle SFX/VineBoom>>
     <<Shake Middle>>
     Stan: ... It's one thing for me to make fun of Tommy.
     <<SetSprite Middle Stan/Furious2>>
@@ -156,9 +157,10 @@ BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
 <<Shake Middle>>
 BearBox: Hooligans! The lot of them!
 <<SetSprite Middle BearBox/Idle>>
+<<PlayMusic Music/Emotional>>
 BearBox: Are you alright?
 -> Yeah!
-    BearBox: You can drop the tough guy act... I know the transition to UCL has been a rough one for all of us.
+    BearBox: You don't have to put on a tough front... I know the transition to UCL has been a rough one for all of us.
 -> Not really...
     BearBox: I'm sorry... I know the transition to UCL has been a rough one for all of us.
 BearBox: I know UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
@@ -176,10 +178,12 @@ BearBox: If you go and bring a date with you, we might have a good shot at raisi
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
 BearBox: Before you go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
-BearBox: "You can check your inventory by clicking the backpack icon in the top right!"
+BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the second icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can also toggle auto-save on or off by clicking the BearBox icon!"
+BearBox: "Plus, you can check your inventory by clicking the backpack icon in the top right!"
 BearBox: I'm not sure what that means... but have a good first day alright?
 BearBox: Stay out of trouble!
 <<Fade false>>
+<<PlayMusic Music/Gameplay>>
 <<LoadScene MapScene>>
 ===

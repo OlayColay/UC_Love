@@ -1196,21 +1196,51 @@ Player: What should I do?
         <<endif>>    
     <<else>> //Lovers
         <<if $UCI_Dialogue == 1>>
-            Irene: UNFINISHED
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I want you to tell me about all your interests and hobbies too!
+            Irene: I want you to be able to be yourself around me...
+            <<SetSprite Middle Irene/IdleHB>>
+            Irene: I'll be by your side no matter what!
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 2>>
-            Irene: UNFINISHED
+            Irene: These past few days, I've kind of wanted to change up my streams a bit...
+            Irene: I got really big for playing Beast of Legends, but I want to branch out into other games that've caught my interest!
+            Irene: I want to try streaming Skreech or playing dating simulators on stream...
+            -> I'm sure that your stream will love you for you! Do what makes you happy!
+                Irene: You're right! I think I'll stream some indie games then!
+                Irene: You'll tune in right? 
+                Irene: Thank you for the advice!
+            -> Maybe you should stick to something you know will be popular...
+                Irene: I guess...
+                Irene: It's just a little tiring to play the same thing over and over... 
+                Irene: I feel kind of boxed in and can't really be myself...
         <<elseif $UCI_Dialogue == 3>>
-            Irene: UNFINISHED
+            <<SetSprite Middle Irene/Excited>>
+            Irene: There's an anime convention that's coming up! 
+            <<SetSprite Middle Irene/Flirty>>
+            Irene: I was wondering if you'd want to go with me!
+            <<SetSprite Middle Irene/ExcitedLB>>
+            Irene: I think I want to cosplay as one of the characters from Beast of Legends!
+            <<SetSprite Middle Irene/ExcitedHB>>
+            Irene: Wouldn't it be fun if you also went as a Beast of Legends character? We would make a really cool duo!
+            <<SetSprite Middle Irene/Idle>>
         <<elseif $UCI_Dialogue == 4>> 
+            <<SetSprite Middle Irene/Excited>>
             Irene: Oh! You're here!! Come quick!!!
             -> Huh? What's going on?
+                <<SetSprite Middle Irene/IdleLB>>
                 Irene: The sky is so clear tonight! We can see the stars!
                 Irene: It's a rare sight!
+                <<SetSprite Middle Irene/ExcitedHB>>
                 Irene: Come on, I'll help you climb a tree!
+                <<SetSprite Middle Irene/Idle>>
             -> Okay, okay! Heading over!
+                <<SetSprite Middle Irene/IdleLB>>
                 Irene: The sky is so clear tonight! We can see the stars!
                 Irene: It's a rare sight!
+                <<SetSprite Middle Irene/ExcitedHB>>
                 Irene: Come on, I'll help you climb a tree!
+                <<SetSprite Middle Irene/Idle>>
         <<else>> 
             <<SetSprite Middle Irene/Flirty>>
             Irene: I feel like I can be myself around you, bro.
@@ -1278,7 +1308,7 @@ Player: What should I do?
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
             <<Wait 4>>
-            Irene: This place is really cool!
+            Irene: This place is really cool! It rally hits the spot...
             Irene: Thanks for the food bro!
             <<Fade false>>
             <<ClearSprite Bottom>>
