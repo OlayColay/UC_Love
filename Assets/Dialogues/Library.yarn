@@ -802,7 +802,40 @@ Player: What should I do?
             <<SetSprite Middle Ellie/lb>>
             Ellie: I'd love to go! 
             Ellie: But let me treat you to boba afterwards, kay? 
-            <<jump EllieDate>>
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Ellie/lb>>
+            <<Fade true>>
+            <<Wait 4>>
+            Ellie: Thanks for taking me out! The food here is really good!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<SetSprite Middle Ellie/lb>>
+            <<if $OptionalPowellCat == 9>>
+                <<if $TimeofDayLibrary == 0>>
+                    <<SetBackground Backgrounds/Library/MorningCat>>
+                <<elseif $TimeofDayLibrary == 1>>
+                    <<SetBackground Backgrounds/Library/NoonCat>>
+                <<else>>
+                    <<SetBackground Backgrounds/Library/NightCat>>
+                <<endif>>
+            <<else>>
+                <<if $TimeofDayLibrary == 0>>
+                    <<SetBackground Backgrounds/Library/Morning>>
+                <<elseif $TimeofDayLibrary == 1>>
+                    <<SetBackground Backgrounds/Library/Noon>>
+                <<else>>
+                    <<SetBackground Backgrounds/Library/Night>>
+                <<endif>>
+            <<endif>>
+            <<SetSprite Middle Ellie/Idle>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Ellie: That was really fun! Thank you for the food!
+            <<jump UCLALibrary>>
         <<else>>
             <<SetSprite Middle Ellie/Angry>>
             Ellie: Umm.. sorry... I have... ummm... back-to-back club meetings that day...

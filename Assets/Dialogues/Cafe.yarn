@@ -725,6 +725,8 @@ position: 207,66
 title: UCICafe
 position: 203,-155
 ---
+Player: Oops! There's no one here at the moment!
+<<jump Cafe>>
 ===
 title: CafeWork
 position: -36,93
