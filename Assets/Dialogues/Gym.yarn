@@ -907,7 +907,7 @@ Player: What should I do?
         Ellie: Ehhhm….. thanks?
         <<SetSprite Middle Ellie/Idle>>
     <<elseif $GiftScoreEGym == 40>>
-        Ellie: Oh! My recipe book! I've been lookig everywhere for that!
+        Ellie: Oh! My recipe book! I've been looking everywhere for that!
         <<SetSprite Middle Ellie/smc>>
         Ellie: Thank you so much for returning it to me!
         Ellie: I really like cooking and I used to make food for my freinds and family.
