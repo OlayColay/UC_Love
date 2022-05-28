@@ -376,6 +376,18 @@ position: 241,-105
         <<SetSprite Middle Riviera/Sad>>
         Riviera: Err… I'm not sure what I'm supposed to do with these…
         <<SetSprite Middle Riviera/Idle>>
+    <<elseif $GiftScoreRGym == 40>>
+        <<SetSprite Middle Riviera/LB>>
+        Riviera: Oh! You found my bag!
+        Riviera: I've been looking everywhere for it! Thank you so much!
+        <<SetSprite Middle Riviera/Happy>>
+        Riviera: My brothers made me this bag as a "good luck" gift for one one my showcases.
+        <<SetSprite Middle Riviera/Sad>>
+        Riviera: I didn't do very well in that one and I was feeling pretty cruddy afterwards, but having the bag made me feel like they were by my side cheering me on...
+        Riviera: The bag is a little tacky, but it means a lot to me...
+        <<SetSprite Middle Riviera/HB>>
+        Riviera: Thank you so much for finding it! I owe you one!
+        <<SetSprite Middle Riviera/Idle>>
     <<else>>
         // Not their key item gift
         Riviera: Oh! This looks important, but it's not mine...
@@ -982,8 +994,397 @@ Player: What should I do?
 title: UCSBGym
 position: 242,62
 ---
-Player: No one is here right now...
+//ADD IN TALK, GIFT, ASK
+<<SetSprite Middle Santana/Idle>>
+<<SetActiveChar Middle>>
+Player: What should I do?
+-> Talk to Santana <<if $TalkSantana == false>>
+    <<set $TalkSantana to true>>
+    <<AddRelationshipScore Santana 10>>
+    <<SetSprite Middle Santana/Idle>>
+    <<SetActiveChar Middle>>
+    <<set $UCSBDialogueGym = Dice(5)>>
+    <<if GetRelationshipScore("Santana") < 100>> //Strangers
+        <<if $UCSBDialogueGym == 1>>
+            Santana: Hello there! Are you going to the garden?
+            <<SetSprite Middle Santana/bliss>>
+            Santana: We just opened for the season! Be sure to check out the Ancient Forests section! 
+            Santana: There are some really nifty trees in there. 
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 2>>
+            Santana: If you want to feed the koi in the koi pond, there's a koi feed machine by the gate entrance!
+            Santana: Watch out for the squirrels though! They will attack you for food.
+        <<elseif $UCSBDialogueGym == 3>>
+            Santana: If you have any questions about the plants or animals here, don't hesitate to ask me!
+            Santana: I'm interning here for one of my biology major requirements!
+            Santana: Some people think that it's cumbersome, but I think that it's a great way to learn about nature in some place other than a classroom.
+        <<elseif $UCSBDialogueGym == 4>> 
+            Santana: I heard that if you take a walk around the West end here, weird things can happen to you.
+            Santana: I've heard of people hearing voices or finding money on the ground!
+        <<else>> 
+            Santana: This is one of the more quiet places on campus. It's kind of nice to go out here and do yoga or paint.
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 100 && GetRelationshipScore("Santana") < 200>> //Acquaintances
+        <<if $UCSBDialogueGym == 1>>
+            Santana: If you get the chance, you should check out the Eschscholzia californica's! 
+            Santana: They're only in bloom for a short while each year.
+        <<elseif $UCSBDialogueGym == 2>>
+            Santana: Be careful of the squirrels if you take a walk. They're a bit weird!
+        <<elseif $UCSBDialogueGym == 3>>
+            Santana: Working at the garden is a pretty great job overall!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I get to spend a lot of my time with the plants and animals. The natural environment is really soothing for the soul.
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sometimes visitors make the job kind of stressful though... especially when they're rude.
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 4>> 
+            <<SetSprite Middle Santana/sad>>
+            Santana: Sometimes the visitors here can get really rude...
+            Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
+            Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
+            Santana: It really upset me... I wish that I could stand up to them more but I get really nervous.
+            <<SetSprite Middle Santana/Idle>> 
+        <<else>> 
+            Santana: Some garden guests are really nice but others are really mean.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: One of our regulars brought me a bouquet of fresh flowers as a thank you for taking such good care of the garden.
+            <<SetSprite Middle Santana/sad>>
+            Santana: On the other hand, someone once chucked a fist-full of koi feed at me after I warned him about feeding the squirrels.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: His hand got bit immediately after though.
+            Santana: I feel bad for chuckling... but that was swift karma if I ever saw it!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: Visitors are kind of like the squirrels here I guess! Some of them are really nice and some of them are really nasty.
+            Santana: If you were a squirrel, you'd be one of the nice ones though...
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 200 && GetRelationshipScore("Santana") < 300>> //Friends
+        <<if $UCSBDialogueGym == 1>>
+            Santana: I try to go to the gym every night to unwind with a bit of yoga after work.
+            Santana: I'm not as toned or athletic as the other people in the gym, but I try to focus on on my personal fitness journey.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: People are kind of like plants y'know? We all grow at our own pace.
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 2>>
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sigh... some of the garden visitors are really rude...
+            Santana: One kid trampled all over the flowers that I planted after I told him not to pick them...
+            Santana: I wish that I could stand up to them, but I don't know how to...
+            -> It's probably best to keep your head low... you are at work after all!
+            -> I can help you!
+                Santana: Really?
+                <<SetSprite Middle Santana/LB>>
+                Santana: That means a lot to me...
+                <<SetSprite Middle Santana/bliss>>
+                Santana: What should I do?
+                -> Speak with authority!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: Oh... do I not currently speak with authority?
+                    <<SetSprite Middle Santana/Idle>>
+                    Santana: Usually, when someone's breaking a rule or something I say something like...
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: "Umm... I'm really sorry to bother you sir... but could you pretty please not... pick the flowers?"
+                    Player: Speak with authority! Like this!
+                    Player: Excuse me sir, please don't pick the flowers. They're a threatened species and we need to protect them!
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Oh! I see... thank you!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But what happens if they just don't listen to me?
+                    -> Yell at them!
+                        Santana: I don't think that I could do that...
+                        Santana: It would just escalate the situation further...
+                    -> Ignore them
+                        Santana: I don't think that I could do that...   
+                        Santana: It's my job to protect the garden and the guests...
+                        Santana: I'd get into a lot of trouble...                     
+                    -> Call your supervisor
+                        <<SetSprite Middle Santana/bliss>>
+                        Santana: I've always been a little hesitant to bother my supervisor, but I think that if I give dealing with an unruly visitor a good faith effort and they still aren't cooperating, I'll call my supervisor!
+                        Santana: Thank you for the advice! I feel a lot more prepared!
+                        <<SetSprite Middle Santana/Idle>>
+                    -> Ask them to leave
+                        <<SetSprite Middle Santana/bliss>>
+                        Santana: I could definitely try that!
+                        <<SetSprite Middle Santana/Angry>>
+                        Santana: But what if they don't listen to that too?
+                        -> You can call campus security!
+                            Player: If an unruly visitor is destroying property, being a nuisance, or berating you, it falls within the jurisdiction of campus security!
+                            <<SetSprite Middle Santana/bliss>>
+                            Santana: Oh! I didn't know that!
+                            Santana: Thank you for the advice!
+                            <<SetSprite Middle Santana/Idle>>
+                        -> You can call your supervisor!
+                            <<SetSprite Middle Santana/bliss>>
+                            Santana: I've always been a little hesitant to bother my supervisor, but I think that if I give dealing with an unruly visitor a good faith effort and they still aren't cooperating, I'll call my supervisor!
+                            Santana: Thank you for the advice! I feel a lot more prepared!
+                            <<SetSprite Middle Santana/Idle>>
+                -> Look them in the eyes!
+                    Santana: Oh! Now that you mention it, I do tend to avoid eye contact when I'm nervous...
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: I'll try to be more conscious of that!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But what happens if they just don't listen to me?
+                -> Be more lenient!
+                    <<SetSprite Middle Santana/Angry>>
+                    Santana: But if I'm more lenient, visitors can hurt the plants or animals there...
+                    Santana: Some of them are threatened species... I can't just let them do that!
+                    Santana: I'd get in trouble with my supervisor too!
+                    <<SetSprite Middle Santana/Sad>>
+                    Santana: I appreciate the advice though...
+                    <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 3>>
+            Santana: Oh! Please be careful!
+            Santana: You'll hurt the flowers in the vase over there!
+            -> Thanks for telling me about it!
+                Santana: Looks like that they are fine!
+                Santana: That's a relief.
+            -> Oh damn... I'm really sorry.
+                Santana: No..it's okay
+        <<elseif $UCSBDialogueGym == 4>> 
+            Santana: I'm hosting a bouquet-making workshop soon! You should come by!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: It's free and you can learn a lot about flower arrangement!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: We'll be using the common flowers, not the endangered or threatened ones, so don't worry!
+            Santana: Certain flowers have certain meanings attached to them... there's a whole secret code of flowers!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: It's one of the reasons that I love them so much!
+            <<SetSprite Middle Santana/Idle>>
+        <<else>> 
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Some visitors keep literring in the garden even though there's signs telling them not to...
+            Santana: The trash really hurts the plants and animals... I'm not sure how I can get the visitors to stop though...
+            Santana: I want to stand up for myself and the garden, but I'm scared of confrontation.
+            -> Just pick up after them...
+                Santana: There's so many though... and it's really easy to miss a piece of trash...
+                Santana: An animal can easily accidentally eat a piece before I can pick it up too...
+                <<SetSprite Middle Santana/Idle>>
+            -> Be assertive!
+                Santana: But how?
+                -> Remember what you're standing up for!
+                    Player: If you remember what you're standing up for, you can be more confident!
+                    <<SetSprite Middle Santana/Idle>>
+                    Santana: You're right! I care a lot about the garden and the environment!
+                    Santana: I think that I can draw my courage from there!
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Thank you for the advice.... I really appreciate it!
+                    <<SetSprite Middle Santana/Idle>>
+                -> Assert dominance by yelling at them!
+                    Santana: I don't really yell at people...
+                    Santana: I don't think that there's really ever any reason to yell at someone...
+                    <<SetSprite Middle Santana/Idle>>
+        <<endif>>
+    <<elseif GetRelationshipScore("Santana") >= 300 && GetRelationshipScore("Santana") < 400>> //Crushing
+        <<if $UCSBDialogueGym == 1>>
+            Santana: The garden is a really nice place to meet someone for a date don't you think?
+            <<SetSprite Middle Santana/LB>>
+            Santana: It's really quiet and romantic. 
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 2>>
+            <<SetSprite Middle Santana/LB>>
+            Santana: Wouldn't it be fun to have a picnic together someday?
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 3>>
+            Santana: I learned how to garden from my mom when I was a kid...
+            <<SetSprite Middle Santana/bliss>>
+            Santana: She taught me how to propagate succulents and how to check for when a plant needs water.
+            <<SetSprite Middle Santana/Idle>>
+            Santana: I don't think that I would be where I am without her... she really inspired me to pursue biology and work here in the garden.
+            Santana: She gave me a spade as a congratulatory presenet when I got the internship here!
+            <<SetSprite Middle Santana/Angry>>
+            Santana: She lives a little far away though, and I miss her a lot. 
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 4>> 
+            <<SetSprite Middle Santana/Sad>>
+            Santana: I feel like everyone is really rushed these days... 
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I know life can get really busy, but sometimes it's good to stop and smell the roses, literally and figuratively!
+            <<SetSprite Middle Santana/LB>>
+            Santana: If you ever feel overwhelmed or stressed, I want you to know that I'm there for you too!
+            Santana: We can do some yoga or take a walk together to destress!
+            <<SetSprite Middle Santana/HB>>
+            Santana: I really enjoy your company and you've done so much for me, and I want to return the favor!
+            <<SetSprite Middle Santana/Idle>>
+        <<else>> 
+            Santana: Oh! Look at the pond!
+            <<SetSprite Middle Santana/LB>>
+            Santana: There's a pair of ducks floating together! How cute!
+            <<SetSprite Middle Santana/bliss>>
+            Santana: Did you know that in Chinese culture, mandarin ducks signify love and fidelity?
+            <<SetSprite Middle Santana/HB>>
+            Santana: I think that's really sweet! To be a duck on a pond with my lover!
+            <<SetSprite Middle Santana/Idle>>
+        <<endif>>
+    <<else>> //Lovers
+        <<if $UCSBDialogueGym == 1>>
+            Santana: Would you still like me if I was a worm?
+                -> Why are you asking that?
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: It's just a silly little hypothetical! I'm not turning into a worm any time soon hopefully!
+                    <<SetSprite Middle Santana/Idle>>
+                -> Of course!
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: Oh that's a relief! 
+                    <<SetSprite Middle Santana/bliss>>
+                    Santana: Worms are really important for the health of an ecosystem.
+                    Santana: I guess if I were to turn into a worm, nothing would change much really.
+                    <<SetSprite Middle Santana/lb>>
+                    Santana: I'd still be there tending to the garden. Hopefully, you'd still visit me though!
+                    <<SetSprite Middle Santana/Idle>>
+                -> I really hate worms...
+                    <<SetSprite Middle Santana/sad>>
+                    Santana: Why? Worms are really important to each ecosystem!
+                    Santana: They break down dead matter and air out the soil, which makes it possible for plants to take root. 
+                    Santana: Every plant, animal, and insect are important to their ecosystems! Even the squirrels that run around here are critical to the garden's health.
+                    <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 2>>
+            <<SetSprite Middle Santana/bliss>>
+            Santana: Working here is a lot more fun now that I'm able to stand up to rude visitors!
+            Santana: They're a lot more respectful of me and the garden now!
+            <<SetSprite Middle Santana/LB>>
+            Santana: I don't think I would be where I am without you... 
+            Santana: Thank you for helping me grow!
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 3>>
+            <<SetSprite Middle Santana/LB>>
+            Santana: Say, have you thought about going to the dance coming up?
+            Santana: I kind of want to go... but I'm a little shy and don't want to go alone...
+            <<SetSprite Middle Santana/Idle>>
+        <<elseif $UCSBDialogueGym == 4>> 
+            <<SetSprite Middle Santana/LB>>
+            Santana: One day, I want to watch the sunset with you on the beach!
+            <<SetSprite Middle Santana/HB>>
+            Santana: There's a really pretty beach nearby.... and hearing the waves crash on the shore is really romantic. 
+            <<SetSprite Middle Santana/Idle>>
+        <<else>> 
+            Santana: After college, I want to live and work in the countryside for a little.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: The city is nice and all, but I the peace you get from being in nature is like no other!
+            <<SetSprite Middle Santana/LB>>
+            Santana: I've been looking at little cottages in the prarie and thinking about all the fun I'd have out there!
+            Santana: I could bake little pastries and have a cute little garden and whatnot!
+            <<SetSprite Middle Santana/HB>>
+            Santana: If you want... you can come with me!
+        <<endif>>
+    <<endif>>
+    <<jump UCSBGym>>
+-> Give Gift <<if $GiftSantana == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
+    <<OpenInventory>>
+    <<if GetInventoryCanceled() == true>>
+        <<jump UCSBGym>>
+    <<endif>> 
+    <<set $GiftSantana = true>>
+    <<set $GiftScoreSGym = GetItemScore("Santana")>>
+    <<AddRelationshipScore Santana {$GiftScoreSGym}>>
+    <<if $GiftScoreSGym == 20>> //Loved Gift
+        <<SetSprite Middle Santana/hbom>>
+        Santana: Oh! These are lovely! I love these... thank you so much!
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreSGym == 10>> //Liked Gift
+        <<SetSprite Middle Santana/lbcm>>
+        Santana: Thank you!
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreSGym == -10>> //Hated Gift
+        <<SetSprite Middle Santana/Angry>>
+        Santana: Erm… I'm not sure what to do with these… but thank you...
+        <<SetSprite Middle Santana/Idle>>
+    <<elseif $GiftScoreSGym == 40>>
+        Santana: Oh! My spade!
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Where did you find this? I've been looking everywhere for it! Thank you so much!
+        Santana: This was a congratulatory gift from my mom for getting an internship in the garden! It really means a lot to me...
+        Santana: She taught me how to garden and everything! I wouldn't be where I am without her.
+        <<SetSprite Middle Santana/Idle>>
+        Santana: She lives a little far away so I can't see her as often... 
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Being able to use this spade day-to-day makes me feel like she's right with me as I work!
+        <<SetSprite Middle Santana/LB>>
+        Santana: Thank you so much!
+        <<SetSprite Middle Santana/Idle>>
+    <<else>>
+        // Not their key item gift
+        Santana: Oh! This looks important, but it's not mine...
+        <<if $GiftScoreSGym == 0>> // Ellie's
+            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+        <<elseif $GiftScoreSGym == 1>> // Kelly's
+            <<AddRelationshipScore Santana -1>>
+            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+        <<elseif $GiftScoreSGym == 2>> // Santana's
+            <<AddRelationshipScore Santana -2>>
+            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+        <<elseif $GiftScoreSGym == 3>> // Riviera's
+            <<AddRelationshipScore Santana -3>>
+            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+        <<elseif $GiftScoreSGym == 4>> // Irene's
+            <<AddRelationshipScore Santana -4>>
+            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+        <<else>> // Tommy's
+            <<AddRelationshipScore Santana -5>>
+            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+        <<endif>>
+    <<endif>>
+    <<jump UCSBGym>>
+-> Ask <<if $AskSantana == false>>
+    -> Ask on a date
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 300>>
+            <<SetSprite Middle Santana/LB>>
+            Santana: That would be lovely!
+            <<Fade false>>
+            <<ClearSprite Middle>>
+            <<SetActiveChar Date>>
+            <<SetBackground Backgrounds/Date>>
+            <<SetSprite Bottom Backgrounds/Table>>
+            <<SetSprite Date Santana/LB>>
+            <<Fade true>>
+            <<Wait 4>>
+            <<SetSprite Date Santana/bliss>>
+            Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
+            <<SetSprite Date Santana/LB>>
+            Santana: It's really nice to be able to share this meal with you!
+            <<Fade false>>
+            <<ClearSprite Bottom>>
+            <<ClearSprite Date>>
+            <<if $TimeOfDayGarden == 0>>
+                <<SetBackground Backgrounds/Garden/Morning>>
+                //Sets background as Garden Morning if it is Daytime
+            <<elseif $TimeOfDayGarden == 1>>
+                <<SetBackground Backgrounds/Garden/Noon>>
+                //Sets background as Garden Afternoon if it is Afternoon
+            <<else>>
+                <<SetBackground Backgrounds/Garden/NightWarm>>
+                //Sets background as Garden Night if it Evening
+            <<endif>>
+            <<SetSprite Middle Santana/bliss>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            Santana: I had a really great time! Thank you for taking me out!
+            <<SetSprite Middle Santana/Idle>>
+            <<jump UCSBGym>>
+        <<else>>
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Ummm... sorry... I don't feel that way about you.
+            Santana: We can still be friends though! I enjoy your company. 
+            <<SetSprite Middle Santana/Idle>>
+            <<jump UCSBGym>>
+        <<endif>>
+    -> Ask to the dance
+        <<set $AskSantana = true>>
+        <<if GetRelationshipScore("Santana") >= 400>>
+            Player: Would you like to go to the dance with me?
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I would love to!
+            <<set $DancePartner = 2>>
+            <<jump Dance>>
+        <<else>>
+            <<SetSprite Middle/Santana/Angry>>
+            Santana: Oh... I'm flattered but I don't know if I'm going to go...
+            <<AddRelationshipScore Santana -20>>
+            <<jump UCSBGym>>
+        <<endif>>
+    -> Cancel
+        <<jump UCSBGym>>
 -> Leave
+    <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
 title: GymWork
