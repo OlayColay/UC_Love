@@ -784,7 +784,7 @@ Player: What should I do?
                     Santana: But if I'm more lenient, visitors can hurt the plants or animals there...
                     Santana: Some of them are threatened species... I can't just let them do that!
                     Santana: I'd get in trouble with my supervisor too!
-                    <<SetSprite Middle Santana/Sad>>
+                    <<SetSprite Middle Santana/Angry>>
                     Santana: I appreciate the advice though...
                     <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
@@ -850,7 +850,7 @@ Player: What should I do?
             Santana: She lives a little far away though, and I miss her a lot. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 4>> 
-            <<SetSprite Middle Santana/Sad>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: I feel like everyone is really rushed these days... 
             <<SetSprite Middle Santana/bliss>>
             Santana: I know life can get really busy, but sometimes it's good to stop and smell the roses, literally and figuratively!
@@ -932,11 +932,11 @@ Player: What should I do?
     <<set $GiftScoreS = GetItemScore("Santana")>>
     <<AddRelationshipScore Santana {$GiftScoreS}>>
     <<if $GiftScoreS == 20>> //Loved Gift
-        <<SetSprite Middle Santana/hbom>>
+        <<SetSprite Middle Santana/HB>>
         Santana: Oh! These are lovely! I love these... thank you so much!
         <<SetSprite Middle Santana/Idle>>
     <<elseif $GiftScoreS == 10>> //Liked Gift
-        <<SetSprite Middle Santana/lbcm>>
+        <<SetSprite Middle Santana/LB>>
         Santana: Thank you!
         <<SetSprite Middle Santana/Idle>>
     <<elseif $GiftScoreS == -10>> //Hated Gift
