@@ -906,6 +906,16 @@ Player: What should I do?
         <<SetSprite Middle Ellie/Angry>>
         Ellie: Ehhhm….. thanks?
         <<SetSprite Middle Ellie/Idle>>
+    <<elseif $GiftScoreEGym == 40>>
+        Ellie: Oh! My recipe book! I've been lookig everywhere for that!
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: Thank you so much for returning it to me!
+        Ellie: I really like cooking and I used to make food for my freinds and family.
+        Ellie: Lately I haven't had much time to cook because I've been really busy...
+        Ellie: But getting the book again is inspiring me to start cooking again!
+        <<SetSprite Middle Ellie/lb>>
+        Ellie: Thank you so much! I'll cook something for you as a thank you sometime!
+        <<SetSprite Middle Ellie/Idle>>
     <<else>>
         // Not their key item gift
         Ellie: Oh! This looks important, but it's not mine...

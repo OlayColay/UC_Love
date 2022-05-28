@@ -26,7 +26,7 @@ tags:
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
     <<PlayMusic Music/Gameplay>>
-    <<jump Orientation>>
+    <<jump Alt>>
 -> Skip Intro
     <<Fade false 0>>
     <<PlayMusic Music/Gameplay>>

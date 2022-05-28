@@ -318,6 +318,20 @@ Player: What should I do?
         <<SetSprite Middle Kelly/Angry>>
         Kelly: Is this a joke?
         <<SetSprite Middle Kelly/Idle>>
+    <<elseif $GiftScoreKCafe == 40>>
+        <<SetSprite Middle Kelly/lbom>>
+        Kelly: Is that... my diary??!
+        Kelly: Ummm... I'm not sure how you got this... I thought I lost it a long time ago!
+        <<SetSprite Middle Kelly/angry>>
+        <<Shake Middle>>
+        Kelly: You didn't look through it right?!
+        <<SetSprite Middle Kelly/lbom>>
+        Kelly: Sorry... it's just a little embarassing...
+        Kelly: It sounds kind of silly, but I used to journal a lot, especially when I was stressed.
+        Kelly: I used it as a stress outlet, so the diary is really personal to me...
+        <<SetSprite Middle Kelly/lbcm>>
+        Kelly: I think I'll start writing again! Thank you!
+        <<SetSprite Middle Kelly/Idle>>
     <<else>>
         // Not their key item gift
         Kelly: Oh! This looks important, but it's not mine...
