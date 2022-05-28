@@ -12,6 +12,12 @@ ScriptedImporter:
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
   parseErrorMessages:
+  - '819:4: Error: $UCI_Dialogue (Number) cannot be assigned a undefined
+
+    <<set
+    $UCI_Dialogue = Dice(5)>>
+
+'
   - '1183:4: Error: $GiftScoreI (Number) cannot be assigned a undefined
 
     <<set
