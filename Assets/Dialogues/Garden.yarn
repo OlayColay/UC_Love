@@ -520,7 +520,7 @@ position: 125,-26
         //UCI special item
         //NOTE: Finalize special items then add AddItem commands after "Oh!"
         Player: Oh! I found a diary! It looks special... I wonder who it belongs to...
-        <<AddItem 1 40 1 1 1 1 "Gifts/DiaryDiary" "DiaryDiary" true>>
+        <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
         <<SaveVariable "Diary" "true">>
     <<else>>
         Player: I should probably return any lost items that I found...
