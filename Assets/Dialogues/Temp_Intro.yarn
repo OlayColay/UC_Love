@@ -1,0 +1,271 @@
+title: Temp_Intro
+tags:
+---
+<<Fade true 0>>
+System: WARNING! If you create a new game, it will erase any saves you have! Continue?
+-> Yes!
+    <<jump NewGame>>
+-> Nah
+    <<LoadScene UiScene>>
+===
+title: NewGame
+tags:
+---
+<<CleanSave>>
+<<SaveVariable "MainSave" "">>
+<<SaveVariable "UCR_Intro" false>>
+<<SaveVariable "BobamonGo" 0>>
+<<SaveVariable "Diary" "false">>
+<<SaveVariable "Cookbook" "false">>
+<<SaveVariable "Bag" "false">>
+<<SaveVariable "Chain" "false">>
+<<SaveVariable "Poem" "false">>
+<<SaveVariable "Watch" "false">>
+<<Fade true 0>>
+// <<PlayMusic Music/Emotional>>
+System: Created new save file! Do you want to play the intro? It is recommended for new players.
+-> Play through Intro
+    <<PlayMusic Music/Gameplay>>
+    <<jump Alt>>
+-> Skip Intro
+    <<Fade false 0>>
+    <<PlayMusic Music/Gameplay>>
+    <<LoadScene MapScene>>
+===
+title: Orientation
+position: 192,-57
+---
+<<FadeBackground Backgrounds/Dorm 2>>
+Player: Ugh… my head… I shouldn't have slept so late last night…
+Player: Everything went by like a blur as I moved in to this dorm yesterday...
+Player: I can't really help it though. Ever since the University of California announced the merger, I've been stressed non-stop.
+Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
+Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
+Player: Oh shoot! I better get going if I want to make it up the stairs without wheezing my lungs out!
+<<FadeBackground Backgrounds/Plaza/plaza_noon 2>>
+Player: UCL... what a weird name for a campus.
+Player: I think that it used to be a campus that started with UCL, but the last letter fell off or something.
+Player: I guess they didn't have the budget to fix the sign, so they just renamed the new campus to UCL...
+Player: I'm not looking forward to this...
+<<SetSprite Middle BearBox/Idle>>
+???: Hey, welcome to campus!
+-> Whoa, what the hell are you??!
+    <<SetSprite Middle BearBox/Angry>>
+    ???: Excuse you! I'm the PREMIER delivery service for college students, known as BearBox!
+    BearBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BearBox/Idle>>
+-> OH MY GOD!! Can I pet you?
+    <<SetSprite Middle BearBox/Angry>>
+    ???: Absolutely not! Who do you think you are? Hmph!
+    ???: I'm the PREMIER delivery service for college students, known as BearBox!
+    BearBox: Because this is your first day on campus I'll give you a pass, but be sure to complete your NeverFi training so you don't go around saying stuff like that again!
+    <<SetSprite Middle BearBox/Idle>>
+-> Thank you! Your hat is really cute!
+    <<SetSprite Middle BearBox/Blush>>
+    ???: Oh! Thank you! I'm part of the premier delivery service for college students here on campus, known as BearBox. 
+    BearBox: I love the job, but the hat is a cool bonus!
+    <<SetSprite Middle BearBox/Idle>>
+BearBox: Anyway, today's the last day for Intro Week!
+BearBox: People from all sorts of places are here today as incoming students like you or to find out more about our school! 
+BearBox: So we're giving away pronoun buttons to make introductions a little easier for everyone!
+BearBox: Would you like one? 
+-> Yes! I'll take the he/him button please!
+    <<set $PlayerPronouns = 0>>
+-> Yes! I'll take the she/her button please!
+    <<set $PlayerPronouns = 1>>
+-> Yes! I'll take the they/them button please!
+    <<set $PlayerPronouns = 2>>
+BearBox: Sure thing! Here you go! 
+BearBox: Try to go around to talk!
+BearBox: And don't worry about feeling shy! I'm always here to help you out, champ!
+BearBox: Have a great day and stay out of trouble!
+<<ClearSprite Middle>>
+Player: Well, I hope so too. Let's take a look around.
+Player: Hmm, maybe I can meet someone if I..
+-> Go left
+    ???: Excuse me! If you don't mind me asking, but did you see my sister?
+    ???: She has short, dark hair with glasses on! I think she's also wearing a dark blue sweater. 
+    Player: No, I haven't seen her..
+    ???: Oh.. That's okay! Thanks for letting me know! See you around!
+    <<ClearSprite Middle>>
+    ???: Um...excuse me. Have you seen my sister?
+    ???: She has long brown hair with the tips dyed in a lighter tone that is tied up into pigtails.
+    ???: And she was wearing a light blue dress.
+    Player: Oh, uh, you just passed her!
+    ???: Thank you. If you are a new student here, see you around.
+    <<ClearSprite Middle>>
+    Player: That was...interesting. Just two sisters lost in the crowd, I guess.
+
+-> Go right
+    ???: Woah!! Sorry for walking into you!
+    ???: I really wasn't paying much attention to the things in front of me.
+    Player: No worries! Just be more careful.
+    ???: For sure, for sure. OH DANG! The next raid is going to start!
+    ???: Catch you later!!!
+    <<ClearSprite Middle>>
+    Player: Haha...looks like she's totally invested into her game.
+    ???: Um...excuse me.
+    Player: Woah!
+    ???: I'm so sorry! I didn't mean to startle you...!
+    Player: You're fine! I wasn't paying much attention, that's all.
+    Player: Did you want to ask me something?
+    ???: Ah...yes. Do you happen to know where the garden is?
+    ???: I usually get lost..
+    Player: Oh yeah, I do! Just keep going this way.
+    ???: I see! Thank you very much!
+    ???: If you ever have the time to visit, please come to the garden!
+    Player: Okay! See you around!
+    <<ClearSprite Middle>>
+    Player: That was...interesting. Just two girls trying to get around the crowd, I guess.
+
+-> Go straight
+    ???: Hey, you!
+    Player: Me?
+    ???: Yes, you!
+    ???: Would you like to sign this petition to fundraise a school dance?
+    ???: We're hoping that people can come so that we raise enough money to separate the schools, actually.
+    Player: Oh, um... I can't dance.
+    ???: Haha, that's okay!
+    ???: Maybe you can bring a cute date with you to spend a nice evening together!
+    ???: Oh dang! I gotta go! Take this flyer and consider it!
+    ???: Byeee!
+    Player: That was...interesting. Just one girl making sense to this entire situation and trying to help.
+
+Player: Hmmm...maybe I should head back. Getting tired already, and I'll need the sleep for the first day tomorrow.
+<<SetSprite Middle Stan/Smiling>>
+???: Hey there! You seem to be a new student.
+Player: Oh! Um, yeah. Just moved yesterday so...
+<<SetSprite Middle Stan/Giggle>>
+???: I see! What year are you in...?
+<<SetSprite Right Tommy/Snickering>>
+<<SetActiveChar Right>>
+???: Hey, Stan. Who are you talking to?
+<<SetActiveChar Middle>>
+Stan: Oh hey, Tommy! Just a new student to this school!
+<<SetSprite Right Tommy/Flustered>>
+<<SetActiveChar Right>>
+Tommy: Really, dude? You shouldn't be talking to losers from this stupid university.
+Player: E-Excuse me?
+<<SetSprite Middle Tommy/Idle>>
+<<SetSprite Right Stan/Passive>>
+<<SetActiveChar Right>>
+Stan: Come on, Tommy.. You shouldn't say those kind of things.
+Stan: This place is for gifted students.
+<<SetSprite Middle Tommy/Frown>>
+<<SetActiveChar Middle>>
+Tommy: Gifted? Sureee...
+Tommy: But it's still full of poor people.
+Player: Dude...
+<<SetSprite Right Stan/Question>>
+<<SetActiveChar Right>>
+Stan: It's still a university, though.
+<<SetSprite Right Stan/Question>>
+Stan: Also...Tommy, what are you wearing?
+Stan: You smell weird? 
+<<SetActiveChar Middle>>
+<<SetSprite Middle Tommy/Flustered>>
+Tommy: M-me? 
+Tommy: OI! This right here is the new Bucci perfume! Tommy Trojan only wears the best of the best!
+<<SetActiveChar Right>>
+Stan: ... Perfume? 
+Stan: Tommy, did you check if it was perfume for women?
+<<SetActiveChar Middle>>
+<<SetSprite Middle Tommy/Awkward>>
+Tommy: No it's not! I-I think?? It's for sure for guys! I have the bottle right here!
+Tommy: See?
+Tommy: It clearly says right here: Bucci Flora: Eau de...
+Tommy: ... Parfum...
+<<Shake Middle>>
+<<SetSprite Middle Tommy/Flustered>>
+<<Shake Middle>>
+Tommy: !!!
+<<SetSprite Middle Tommy/Flushed>>
+Tommy: Well that's beside the point!
+<<SetSprite Right Stan/Giggle>>
+<<SetActiveChar Right>>
+Stan: For sure, for sure. You've got some cute moments like this, as always.
+<<SetSprite Middle Tommy/Flushed>>
+<<SetActiveChar Middle>>
+<<Shake Middle>>
+Tommy: S-Stan...
+<<SetSprite Right Stan/Giggle>>
+<<SetActiveChar Right>>
+Stan: Haha, of course I'm kidding!
+<<SetSprite Right Stan/Idle>>
+Stan: Oh did you hear about the dance?
+<<SetSprite Middle Tommy/Awkward>>
+<<SetActiveChar Middle>>
+Tommy: The what?
+<<SetActiveChar Right>>
+Stan: A dance! Apparently, it's meant to be a fundraiser event to separate the schools or something.
+Stan: It sounds fun!
+<<SetSprite Middle Tommy/Idle>>
+<<SetActiveChar Middle>>
+Tommy: Yeah? Well, I bet this loser here can't get a date to go with for sure.
+-> We'll see about that!
+    Tommy: Ha! You've got some spunk to mess with me.
+-> Bet!
+    Tommy: Oh yeah? Watch what you say, dude.
+Tommy: I, Tommy Trojan, am rich, after all.
+Tommy: If you manage to get a date, I'll personally hand you the funds for the schools to separate!
+<<SetSprite Middle Tommy/Angry>>
+Tommy: But if you don't, prepare yourself!
+<<SetSprite Right Stan/Frown>>
+<<SetActiveChar Right>>
+Stan: Tommy, aren't you going to far...?
+<<SetActiveChar Middle>>
+Tommy: Of course not, Stan!
+Tommy: If anything, my pride is on the line, no matter who is challenging me!
+<<SetSprite Middle Tommy/Frown>>
+Tommy: With that said, let's go, Stan.
+Tommy: We've spent enough time dealing with stupid and poor people.
+<<ClearSprite Middle>>
+<<SetSprite Middle Stan/Frown>>
+Stan: ...
+<<SetSprite Middle Stan/Smiling>>
+Stan: It might be hard to, but I hope you forgive his behavior. 
+Stan: He's just irritated today because he couldn't find his watch.
+Stan: I'll have to go chase after him now, but just in case...
+<<SetSprite Middle Stan/Giggle>>
+Stan: I can be your date if you want me to, since you seem to be a nice person.
+Stan: With that said, hope to see you around!
+Stan: I'm a guy who's really easy to spot!
+<<ClearSprite Middle>>
+Player: ...
+Player: Whelp. Cheers to my peaceful school year...
+<<SetSprite Middle BearBox/Idle>>
+<<SetActiveChar Middle>>
+BearBox: Hey buddy, you seem to be down. What happened?
+Player: Well...I just met two dudes named Stan and Tommy and they-
+<<SetSprite Middle BearBox/Angry>>
+<<Shake Middle>>
+BearBox: WHAT?!
+BearBox: Hooligans! The lot of them!
+<<SetSprite Middle BearBox/Idle>>
+BearBox: Did those two bother you?
+-> Yeah!
+    BearBox: Oh darn! Stan's okay, but that Tommy Trojan...
+    BearBox: Besides him, I know that the transition to UCL has been a rough one for all of us.
+-> Kinda...
+    Player: Kinda...
+    BearBox: Sorry to hear. That Tommy Trojan sure is problematic.
+    Bearbox: Plus, I know that the transition to UCL has been a rough one for all of us.
+BearBox: And that, UCL can't compare to your home campus and that you're probably wishing none of this ever happened.
+BearBox: But even though the situation we're in may suck, we can still make the best of it!
+<<SetSprite Middle BearBox/Blush>>
+BearBox: Though UCL may not be as shiny as a private school, there's still a ton you can do here!
+BearBox: We have a lot of campus job opportunities and areas to explore!
+BearBox: And hopefully you can meet better people to talk to instead of the likes of Tommy Trojan.
+<<SetSprite Middle BearBox/Angry>>
+BearBox: That kid just likes to flaunt his wealth at every moment!
+<<SetSprite Middle BearBox/Blush>>
+BearBox: With that said, I have to go help the other students with orientation.
+BearBox: But before I go, administration told me to pass on this message for new students!
+<<SetSprite Middle BearBox/Idle>>
+BearBox: "You can save your game by hitting the floppy disk icon in the top right corner! It's the middle icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can check your inventory by clicking the backpack icon to the right of the save icon!"
+BearBox: I'm not sure what that means... but hope that your first day stays good, alright?
+BearBox: Stay out of trouble!
+<<Fade false>>
+<<LoadScene MapScene>>
+===
