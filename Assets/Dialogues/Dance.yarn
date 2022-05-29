@@ -122,7 +122,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
 <<SetActiveChar Left>>
 BearBox: Oh! The ceremonial procedures are starting! You guys are going to love this!
 <<SetSprite Right Squirrel/Mascot>>
-<<Shake Left>>
+<<Shake Right>>
 -> WHAT THE HELL IS THAT?
     <<SetSprite Left BearBox/Angry>>
     <<SetActiveChar Left>>

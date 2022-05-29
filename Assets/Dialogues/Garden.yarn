@@ -220,17 +220,22 @@ Player: What should I do?
             Tommy: I made a lot of random businesses when I was growing up.
             Tommy: I remember for one of them I would charge people $5 to generate a password for them.
             Tommy: My parents' friends would all support my business too, which is kind of weird because now I know the password of the governor's email.
+            <<SetSprite Middle Tommy/Snickering>>
             Tommy: I wonder if he still uses that same password... that'd be a state security crisis wouldn't it?
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: What if we tried logging into his email? We could reverse the whole merging thing of the UC schools... if you want...
             Tommy: I'd really miss seeing you around at night though, but I want you to be happy.
                 -> Let's do it!
+                    <<SetSprite Middle Tommy/Idle>>
                     Tommy: Just give me a minute to punch in his login information... done!
+                    <<SetSprite Middle Tommy/Awkward>>
                     Tommy: Hey...Are you sure you want to do this?
                         -> Yes! I can't wait to get back to how things were before all of this mess!
                             Tommy: Alright... I logged in! I'm sending out an executive order to reverse the UC consolidation. 
                             Tommy: Ok... it's done! I guess starting tomorrow, you can start going to class normally.
                             Tommy: I'm not sure why, but I'll really miss seeing you around!
                             Tommy: I can't seem to shake the feeling that we were supposed be something more though...
+                            <<SetSprite Middle Tommy/Idle>>
                             Tommy: Take care alright? Goodbye...
                             <<FadeBackground BadEndClassroom 5>>
                             Player: I can't believe that Tommy was actually able to deconsolidate the UCs! 
@@ -240,10 +245,13 @@ Player: What should I do?
                         -> Actually, this might not be a good idea...
                             Tommy: Yeah... we could get in major trouble for this... the kind my family probably can't bail me out of...
                 -> We probably shouldn't hack into the governor's email...
+                    <<SetSprite Middle Tommy/Flustered>>
                     Tommy: Yeah...you're right. We could get in major trouble for this... the kind my family probably can't bail me out of...
                     <<SetSprite Middle Tommy/Snickering>>
                     Tommy: More days to spend with you I suppose!
+                    <<SetSprite Middle Tommy/Idle>>
         <<elseif $USC_Dialogue == 3>>
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: Sorry I was kind of an ass to you when we first met.
             Tommy: I guess I grew up pretty sheltered...but still, that doesn't excuse my behavior. 
             Tommy: I'm sorry... I hope that I can make it up to you. 
@@ -251,28 +259,37 @@ Player: What should I do?
                     <<AddRelationshipScore Tommy 10>>
                     <<SetSprite Middle Tommy/Snickering>>
                     Tommy: Yeah! Of course!
+                    <<SetSprite Middle Tommy/Idle>>
                 -> Yeah that was pretty awful of you...
                     Tommy: It was... I can't help but beat myself up thinking about how hurtful it must have been to you. 
+                    Tommy: It really keeps me up at night... I'm sorry...
+                    <<SetSprite Middle Tommy/Idle>>
         <<elseif $USC_Dialogue == 4>> 
             Tommy: Y'know, I wouldn't mind going out sometime with you... maybe to some place nice. 
         <<else>> 
             Tommy: I saw this sweater at the Bucci store the other day.
             Tommy: It had a bear on it and it reminded me of you. 
+            <<SetSprite Middle Tommy/Snickering>>
             Tommy: Anyways, I bought it for you. 
             Tommy: Oh it's not that expensive or anything. It was on sale for like $2000.
+            <<SetSprite Middle Tommy/Idle>>
             Tommy: Nothing major. I hope you like it though...
         <<endif>>
     <<else>>
         //Lovers
         <<if $USC_Dialogue == 1>>
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: I was going through my closet this weekend and I was thinking that I have a ton of clothes.
             Tommy: I used to be really obsessed with collecting designer fashion.
+            <<SetSprite Middle Tommy/Idle>>
             Tommy: But lately I find more happiness volunteering or spending quality time with my friends or family...
-            Tommy: and with you...
+            Tommy: ...and with you...
             Tommy: What do you think that I should do with all the clothes I don't wear?
                 -> Keep them! You spent a lot of money on them!
+                    <<SetSprite Middle Tommy/Awkward>>
                     Tommy: Ah, yeah... I did spend a lot of money on them...
                     Tommy: The piles kind of stress me out though...
+                    <<SetSprite Middle Tommy/Idle>>
                 -> Donate them!
                     <<AddRelationshipScore Tommy 10>>
                     <<SetSprite Middle Tommy/Snickering>>
