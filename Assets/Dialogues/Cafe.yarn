@@ -23,9 +23,7 @@ Player: What should I do?
     <<if $TimeOfDayCafe == 0>>
         <<jump UCBCafe>>
     <<elseif $TimeOfDayCafe == 1>>
-        Player: Oops! There's no one here at the moment...
-        <<jump Cafe>>
-        //<<jump UCICafe>>
+        <<jump UCICafe>>
     <<else>>
         <<jump UCRCafe>>
     <<endif>>

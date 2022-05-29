@@ -64,42 +64,42 @@ Player: What should I do?
             Player: It's already evening!
         <<endif>>
         <<jump Dorm>>
--> Work on UCL (Debug)
-    -> Set Relationship Scores //Ask Cole for Help
-        -> Set All Relationship Scores to Acquaintance Stage
-            <<SetRelationshipScore Kelly 100>>
-            <<SetRelationshipScore Ellie 100>>
-            <<SetRelationshipScore Santana 100>>
-            <<SetRelationshipScore Irene 100>>
-            <<SetRelationshipScore Riviera 100>>
-            <<SetRelationshipScore Tommy 80>>
-        -> Set All Relationship Scores to Friends Stage
-            <<SetRelationshipScore Kelly 200>>
-            <<SetRelationshipScore Ellie 200>>
-            <<SetRelationshipScore Santana 200>>
-            <<SetRelationshipScore Irene 200>>
-            <<SetRelationshipScore Riviera 200>>
-            <<SetRelationshipScore Tommy 160>>
-        -> Set All Relationship Scores to Crushing Stage
-            <<SetRelationshipScore Kelly 300>>
-            <<SetRelationshipScore Ellie 300>>
-            <<SetRelationshipScore Santana 300>>
-            <<SetRelationshipScore Irene 300>>
-            <<SetRelationshipScore Riviera 300>>
-            <<SetRelationshipScore Tommy 240>>
-        -> Set All Relationship Scores to Lovers Stage
-            <<SetRelationshipScore Kelly 500>>
-            <<SetRelationshipScore Ellie 500>>
-            <<SetRelationshipScore Santana 500>>
-            <<SetRelationshipScore Irene 500>>
-            <<SetRelationshipScore Riviera 500>>
-            <<SetRelationshipScore Tommy 520>>
-        Player: Done!
-        <<jump Dorm>>
-    -> Print Money
-        <<AddMoney 5000>>
-        Player: I just printed $5000!
-        <<jump Dorm>>
+// -> Work on UCL (Debug)
+//     -> Set Relationship Scores //Ask Cole for Help
+//         -> Set All Relationship Scores to Acquaintance Stage
+//             <<SetRelationshipScore Kelly 100>>
+//             <<SetRelationshipScore Ellie 100>>
+//             <<SetRelationshipScore Santana 100>>
+//             <<SetRelationshipScore Irene 100>>
+//             <<SetRelationshipScore Riviera 100>>
+//             <<SetRelationshipScore Tommy 80>>
+//         -> Set All Relationship Scores to Friends Stage
+//             <<SetRelationshipScore Kelly 200>>
+//             <<SetRelationshipScore Ellie 200>>
+//             <<SetRelationshipScore Santana 200>>
+//             <<SetRelationshipScore Irene 200>>
+//             <<SetRelationshipScore Riviera 200>>
+//             <<SetRelationshipScore Tommy 160>>
+//         -> Set All Relationship Scores to Crushing Stage
+//             <<SetRelationshipScore Kelly 300>>
+//             <<SetRelationshipScore Ellie 300>>
+//             <<SetRelationshipScore Santana 300>>
+//             <<SetRelationshipScore Irene 300>>
+//             <<SetRelationshipScore Riviera 300>>
+//             <<SetRelationshipScore Tommy 240>>
+//         -> Set All Relationship Scores to Lovers Stage
+//             <<SetRelationshipScore Kelly 500>>
+//             <<SetRelationshipScore Ellie 500>>
+//             <<SetRelationshipScore Santana 500>>
+//             <<SetRelationshipScore Irene 500>>
+//             <<SetRelationshipScore Riviera 500>>
+//             <<SetRelationshipScore Tommy 520>>
+//         Player: Done!
+//         <<jump Dorm>>
+//     -> Print Money
+//         <<AddMoney 5000>>
+//         Player: I just printed $5000!
+//         <<jump Dorm>>
 -> Leave
         <<LoadScene MapScene>>
 ===

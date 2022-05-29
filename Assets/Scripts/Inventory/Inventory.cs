@@ -80,6 +80,7 @@ public static class Inventory
         time = 0;
 
         list.Clear();
+        keyItemList.Clear();
     }
 
     // Inventory
