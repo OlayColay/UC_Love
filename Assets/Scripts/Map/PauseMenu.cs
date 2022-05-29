@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         MusicPlayer.audioSource.PlayOneShot(pop);
         // Debug.Log("Saving...");
         Inventory.SaveGame();
-        Notification.Notify("Game saved!", "");
+        Notification.instance.Wrapper("Game saved!", "");
     }
 
     public void OpenInventory()

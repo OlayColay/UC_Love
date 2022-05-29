@@ -305,6 +305,10 @@ public class CafeMinigameController : MonoBehaviour
             Inventory.ChangeMoney(100 + (drinksFinished-2)*100);
             gameWon = true;
         }
+        else
+        {
+            gameWon = false;
+        }
 
         DOTween.Clear();
         gameFinished = true;
