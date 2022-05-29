@@ -1386,7 +1386,7 @@ Player: What should I do?
             <<set $DancePartner = 2>>
             <<jump Dance>>
         <<else>>
-            <<SetSprite Middle/Santana/Angry>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: Oh... I'm flattered but I don't know if I'm going to go...
             <<AddRelationshipScore Santana -20>>
             <<jump UCSBGym>>
