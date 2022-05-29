@@ -147,7 +147,7 @@ BearBox: Anyways, guys, gals, and nonbinary pals, it is with great pleasure that
 BearBox: Thanks to you all, we have raised an exorbitant amount of money!
 <<SetSprite Left BearBox/Idle>>
 BearBox: Unfortunately... we're not really sure what to do with it.
-What do you mean you don't know what to do with it?!
+Player: What do you mean you don't know what to do with it?!
 BearBox: Well, some students want to use it to separate the UCs back into separate UCs.
 BearBox: Other students have grown attached to UCL and want to use the money to improve and maintain it instead!
 <<SetSprite Left BearBox/Blush>>
