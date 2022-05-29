@@ -101,14 +101,19 @@ Player: What should I do?
         <<SetSprite Middle Tommy/Frown>>
         // Strangers
         <<if $USC_Dialogue == 1>>
+            <<SetSprite Middle Tommy/Frown>>
             Tommy: Be careful not to get your... dirt... on my Bucci shoes. 
         <<elseif $USC_Dialogue == 2>>
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: Oh sorry, I don't have cash on me.
         <<elseif $USC_Dialogue == 3>>
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: Can I get some security backup here?
-        <<elseif $USC_Dialogue == 4>> 
+        <<elseif $USC_Dialogue == 4>>
+            <<SetSprite Middle Tommy/Frown>>
             Tommy: What an... interesting... choice of an outfit...
-        <<else>> 
+        <<else>>
+            <<SetSprite Middle Tommy/Angry>>
             Tommy: Looking for a fight or something?
             Tommy: I'd totally take you on but uh... I don't want to scuff my Bucci watch. 
         <<endif>>
@@ -127,22 +132,26 @@ Player: What should I do?
             Tommy: Do you like taking night time walks too?
                 -> Yeah!
                     Tommy: Me too. It's nice to take a break from the city life once in a while. 
-                -> I just come here to see you. 
+                -> I just come here to see you.
+                    <<SetSprite Middle Tommy/Flustered>>
                     Tommy: Uhhhhhhhhhhhhhhhhh.... did you mean to click on this option?
                     Tommy: Creep. 
                 -> No, I just came here to fight you!
                     <<AddRelationshipScore Tommy -20>>
+                    <<SetSprite Middle Tommy/Flustered>>
                     Tommy: I'd totally take you on but uh... 
                     Tommy: I'm carrying... eggs... in my....pocket... 
                     Tommy: ...AND I DON'T WANT THEM TO BREAK!!
                     Tommy: ...so maybe another day...
         <<elseif $USC_Dialogue == 4>> 
+            <<SetSprite Middle Tommy/Idle>>
             Tommy: Sometimes you can see the squirrels do funny things at night.
             Tommy: One time I was eating and a squirrel started yelling at me to give it food. You have to resist feeding them though. 
             Tommy: The writer of this dialogue sequence got a nasty squirrel bite trying to feed one of those bastards. 
             Tommy: It made her bleed a ton and she still has the scar.
             Tommy: But I digress.
         <<else>> 
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: To be honest, I don't really know why we still have national debt.
             Tommy: Can't the government just print more money or something? That's what I would do if I was president.
             Tommy: Maybe I should run for president after college! I'll make my own party! I'll call it the "Deez Nuts" party!
@@ -156,19 +165,24 @@ Player: What should I do?
         <<elseif $USC_Dialogue == 2>>
             Tommy: My family and friends always told me to stay away from the common folk.
             -> Why's that?
+                <<SetSprite Middle Tommy/Frown>>
                 Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
                 Tommy: I'm starting to think that they're wrong though. 
                 Tommy: I really like the conversations that I have with you.
             -> Your social circle sucks!
                 <<AddRelationshipScore Tommy -20>>
+                <<SetSprite Middle Tommy/Angry>>
                 Tommy: Hey, I don't agree with all their ideas but I have a lot of respect for them...
                 Tommy: Maybe they were right about some things. Geez. 
-            -> What do you think? 
+            -> What do you think?
+                <<SetSprite Middle Tommy/Frown>> 
                 Tommy: I don't know, I feel like they could be wrong. 
                 Tommy: They always told me that people outside of our social circle were uncouth and unambitious.
+                <<SetSprite Middle Tommy/Idle>>
                 Tommy: I'm starting to think that they're wrong though. 
                 Tommy: I really like the conversations that I have with you.
         <<elseif $USC_Dialogue == 3>>
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: What if we were all just living in a simulation or something?
             Tommy: Like just think about all of the philosophical implications of that!
             Tommy: None of the designer stuff I collect would really matter since nothing would be real.
@@ -197,24 +211,29 @@ Player: What should I do?
                             <<SetSprite Middle Tommy/Idle>>
                             Tommy: Alright! He's back home sweet home. What a relief!
                 -> That's nice of you!
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: I know right?
         <<endif>>
     <<elseif GetRelationshipScore("Tommy") >= 240 && GetRelationshipScore("Tommy") < 320>>
         // Crushing
         <<if $USC_Dialogue == 1>>
             Tommy: It's kind of chilly tonight.
+            <<SetSprite Middle Tommy/Awkward>>
             Tommy: Are you cold?
                 -> Yeah...
                     <<AddRelationshipScore Tommy 10>>
                     Tommy: Oh! Do you want to borrow my jacket?  
                         -> Take the jacket.
                             Player: Thanks! 
+                            <<SetSprite Middle Tommy/Idle>>
                             Tommy: Don't mention it. Don't worry about washing it or returning it! I have plenty.
                             Tommy: ...Besides you look really good with it on. 
                         -> Turn him down.
                             Player: Oh no, I'm good!
+                            <<SetSprite Middle Tommy/Flustered>>
                             Tommy: Oh ok. But if you catch a cold don't spread it to me!
                 -> Not really.
+                    <<SetSprite Middle Tommy/Flustered>>
                     Tommy: Oh ok. But if you catch a cold don't spread it to me!
         <<elseif $USC_Dialogue == 2>>
             Tommy: I made a lot of random businesses when I was growing up.
@@ -312,21 +331,31 @@ Player: What should I do?
             Tommy: I'm in this club that tutors high school kids and the whole experience is really changing my world view. 
                 -> I hope you aren't tutoring in economics Mr. Money Grows on Trees!
                     <<AddRelationshipScore Tommy -10>>
+                    <<SetSprite Middle Tommy/Flustered>>
                     Tommy: Hey! I know money doesn't grow on trees! 
+                    <<SetSprite Middle Tommy/Awkward>>
                     Tommy: Supply and demand confuses me... and I'm still not sure how a credit card works, but that was kind of mean!
                     Tommy: I'm tutoring him in English and public speaking, for your information...
                 -> What's that like?
+                    <<SetSprite Middle Tommy/Snickering>>
                     Tommy: Oh! It's pretty cool! I tutor kids in English and in public speaking. 
+                    <<SetSprite Middle Tommy/Idle>>
                     Tommy: There's this one kid that comes from a poor family, but he works really hard and he's really smart.
                     Tommy: That's thing, actually.
+                    <<SetSprite Middle Tommy/Frown>>
                     Tommy: I don't like poor people, since they're usually lazy to make money for themselves.
                     -> Huh? Where did you hear that from?
+                        <<SetSprite Middle Tommy/Snickering>>
                         Tommy: Oh! Stan told me! He's really smart and teaches me a lot of things about the world!
                     -> That's an unfair assessment to make. 
+                        <<SetSprite Middle Tommy/Awkward>>
+                        <<Shake Middle>>
                         Tommy: R-really? If you say so, then maybe Stan really meant that for some poor people.
+                    <<SetSprite Middle Tommy/Frown>>
                     Tommy: Knowing about this made me think about how lucky I am to be born off in a well-off family...
                     Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
                     Tommy: If anything, I know I'm not that smart, but I always love learning new stuff!
+                    <<SetSprite Middle Tommy/Idle>>
                     Tommy: I'm a lot more grateful for what I have. I think I still want to do something more for people like my tutee though.
         <<elseif $USC_Dialogue == 3>>
             Tommy: I think that the most lovely part about you is your personality.
