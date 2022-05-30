@@ -8,6 +8,9 @@ public class MusicPlayer : MonoBehaviour
     {
         if (audioSource)
         {
+            MusicPlayer.audioSource.clip = Resources.Load<AudioClip>("Music/Title");
+            MusicPlayer.audioSource.Play();
+            Destroy(this.gameObject);
             return;
         }
 

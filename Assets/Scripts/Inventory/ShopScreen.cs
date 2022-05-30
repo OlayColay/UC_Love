@@ -70,25 +70,25 @@ public class ShopScreen : MonoBehaviour
 
         if (keyItems[index] && Inventory.keyItemList.Count == 6)
         {
-            Notification.Notify("Special Item inventory is full!", "SFX/Error");
+            Notification.instance.Wrapper("Special Item inventory is full!", "SFX/Error");
             return;
         }
         else if (!keyItems[index] && Inventory.list.Count == 6)
         {
-            Notification.Notify("Item inventory is full!", "SFX/Error");
+            Notification.instance.Wrapper("Item inventory is full!", "SFX/Error");
             return;
         }
 
         // If not enough currency, can't buy the item
         if (Inventory.GetMoney() < costs[index])
         {
-            Notification.Notify("Not enough cash for " + shopItems[index].name + '!', "SFX/Error");
+            Notification.instance.Wrapper("Not enough cash for " + shopItems[index].name + '!', "SFX/Error");
             return;
         }
 
         selectedItem = shopItems[index];
         Inventory.ChangeMoney(-costs[index]);
-        Notification.Notify(selectedItem.name + " purchased!", "SFX/Buy");
+        Notification.instance.Wrapper(selectedItem.name + " purchased!", "SFX/Buy");
         cash.text = '$' + Inventory.GetMoney().ToString();
 
         if (keyItems[index])

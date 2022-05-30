@@ -82,54 +82,54 @@ BearBox: Have a great day and stay out of trouble!
 <<ClearSprite Middle>>
 Player: Well, I hope so too. Let's take a look around.
 Player: Hmm, maybe I can meet someone if I..
--> Go left
-    ???: Excuse me! If you don't mind me asking, but did you see my sister?
-    ???: She has short, dark hair with glasses on! I think she's also wearing a dark blue sweater. 
-    Player: No, I haven't seen her..
-    ???: Oh.. That's okay! Thanks for letting me know! See you around!
-    <<ClearSprite Middle>>
-    ???: Um...excuse me. Have you seen my sister?
-    ???: She has long brown hair with the tips dyed in a lighter tone that is tied up into pigtails.
-    ???: And she was wearing a light blue dress.
-    Player: Oh, uh, you just passed her!
-    ???: Thank you. If you are a new student here, see you around.
-    <<ClearSprite Middle>>
-    Player: That was...interesting. Just two sisters lost in the crowd, I guess.
 
--> Go right
-    ???: Woah!! Sorry for walking into you!
-    ???: I really wasn't paying much attention to the things in front of me.
-    Player: No worries! Just be more careful.
-    ???: For sure, for sure. OH DANG! The next raid is going to start!
-    ???: Catch you later!!!
-    <<ClearSprite Middle>>
-    Player: Haha...looks like she's totally invested into her game.
-    ???: Um...excuse me.
-    Player: Woah!
-    ???: I'm so sorry! I didn't mean to startle you...!
-    Player: You're fine! I wasn't paying much attention, that's all.
-    Player: Did you want to ask me something?
-    ???: Ah...yes. Do you happen to know where the garden is?
-    ???: I usually get lost..
-    Player: Oh yeah, I do! Just keep going this way.
-    ???: I see! Thank you very much!
-    ???: If you ever have the time to visit, please come to the garden!
-    Player: Okay! See you around!
-    <<ClearSprite Middle>>
-    Player: That was...interesting. Just two girls trying to get around the crowd, I guess.
+???: Excuse me! If you don't mind me asking, but did you see my sister?
+???: She has short, dark hair with glasses on! I think she's also wearing a dark blue sweater. 
+Player: No, I haven't seen her..
+???: Oh.. That's okay! Thanks for letting me know! See you around!
+<<ClearSprite Middle>>
+???: Um...excuse me. Have you seen my sister?
+???: She has long brown hair with the tips dyed in a lighter tone that is tied up into pigtails.
+???: And she was wearing a light blue dress.
+Player: Oh, uh, you just passed her!
+???: Thank you. If you are a new student here, see you around.
+<<ClearSprite Middle>>
+Player: That was...interesting. Just two sisters lost in the crowd, I guess.
+Player: Hopefully, I don't get lost in the crowd myself.
 
--> Go straight
-    ???: Hey, you!
-    Player: Me?
-    ???: Yes, you!
-    ???: Would you like to sign this petition to fundraise a school dance?
-    ???: We're hoping that people can come so that we raise enough money to separate the schools, actually.
-    Player: Oh, um... I can't dance.
-    ???: Haha, that's okay!
-    ???: Maybe you can bring a cute date with you to spend a nice evening together!
-    ???: Oh dang! I gotta go! Take this flyer and consider it!
-    ???: Byeee!
-    Player: That was...interesting. Just one girl making sense to this entire situation and trying to help.
+???: Woah!! Sorry for walking into you!
+???: I really wasn't paying much attention to the things in front of me.
+Player: No worries! Just be more careful.
+???: For sure, for sure. OH DANG! The next raid is going to start!
+???: Catch you later!!!
+<<ClearSprite Middle>>
+Player: Haha...looks like she's totally invested into her game.
+???: Um...excuse me.
+Player: Woah!
+???: I'm so sorry! I didn't mean to startle you...!
+Player: You're fine! I wasn't paying much attention, that's all.
+Player: Did you want to ask me something?
+???: Ah...yes. Do you happen to know where the garden is?
+???: I usually get lost..
+Player: Oh yeah, I do! Just keep going this way.
+???: I see! Thank you very much!
+???: If you ever have the time to visit, please come to the garden!
+Player: Okay! See you around!
+<<ClearSprite Middle>>
+Player: More girls roaming around, huh.
+Player: To be fair, there's so many people around..
+    
+???: Hey, you!
+Player: Me?
+???: Yes, you!
+???: Would you like to sign this petition to fundraise a school dance?
+???: We're hoping that people can come so that we raise enough money to separate the schools, actually.
+Player: Oh, um... I can't dance.
+???: Haha, that's okay!
+???: Maybe you can bring a cute date with you to spend a nice evening together!
+???: Oh dang! I gotta go! Take this flyer and consider it!
+???: Byeee!
+Player: And...finally, I meet one girl making sense to this entire situation.
 
 Player: Hmmm...maybe I should head back. Getting tired already, and I'll need the sleep for the first day tomorrow.
 <<SetSprite Middle Stan/Smiling>>
@@ -153,8 +153,7 @@ Stan: Come on, Tommy.. You shouldn't say those kind of things.
 Stan: This place is for gifted students.
 <<SetSprite Middle Tommy/Frown>>
 <<SetActiveChar Middle>>
-Tommy: Gifted? Sureee...
-Tommy: But it's still full of poor people.
+Tommy: Gifted? Sureee... But it's still full of poor people.
 Player: Dude...
 <<SetSprite Right Stan/Question>>
 <<SetActiveChar Right>>
