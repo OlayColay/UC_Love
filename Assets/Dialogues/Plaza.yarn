@@ -483,14 +483,14 @@ Player: What should I do?
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
             <<if $TimeOfDayPlaza == 0>>
-                <<SetBackground Backgrounds/Garden/Morning>>
-                //Sets background as Garden Morning if it is Daytime
+                <<SetBackground Backgrounds/Plaza/Morning>>
+                //Sets background as Plaza Morning if it is Daytime
             <<elseif $TimeOfDayPlaza == 1>>
-                <<SetBackground Backgrounds/Garden/Noon>>
-                //Sets background as Garden Afternoon if it is Afternoon
+                <<SetBackground Backgrounds/Plaza/Noon>>
+                //Sets background as Plaza Afternoon if it is Afternoon
             <<else>>
-                <<SetBackground Backgrounds/Garden/NightWarm>>
-                //Sets background as Garden Night if it Evening
+                <<SetBackground Backgrounds/Plaza/NightWarm>>
+                //Sets background as Plaza Night if it Evening
             <<endif>>
             <<SetSprite Middle Irene/Flirty>>
             <<SetActiveChar Middle>>
