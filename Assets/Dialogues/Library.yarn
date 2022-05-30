@@ -67,8 +67,11 @@ Player: What should I do?
                 Kelly: sigh...
                 <<SetSprite Middle Kelly/Idle>>
             -> No, I was just heading to the library to study!
+                <<SetSprite Middle Kelly/om>>
                 Kelly: Ah! Sorry... people usually ask me where my sister Ellie is and it gets... really annoying.
+                <<SetSprite Middle Kelly/sad>>
                 Kelly: I've been a little on edge... sorry. 
+                <<SetSprite Middle Kelly/om>>
                 Kelly: What subject are you studying for today?
                 -> Computer Science!
                     <<AddRelationshipScore Kelly 10>>
@@ -81,9 +84,13 @@ Player: What should I do?
                     Kelly: Um... 
                     Kelly: Ah... nevermind... sorry...
                 -> Chemical Engineering!
+                    <<SetSprite Middle Kelly/om>>
                     Kelly: Oh! Cool. Um... good luck studying.
+                    <<SetSprite Middle Kelly/Idle>>
                 -> Psychology!
+                    <<SetSprite Middle Kelly/om>>
                     Kelly: Oh! Cool. Um... good luck studying.
+                    <<SetSprite Middle Kelly/Idle>>
                 -> Political Science!
                     <<AddRelationshipScore Kelly 10>>
                     <<SetSprite Middle Kelly/lbcm>>
@@ -150,7 +157,7 @@ Player: What should I do?
                 Kelly: I feel kind of bad complaining about her or taking her for granted... maybe I should appreciate her more. 
                 <<SetSprite Middle Kelly/Idle>>
             -> Maybe she's worried about you...
-                <<SetSprite Middle Kelly/lbom>>
+                <<SetSprite Middle Kelly/om>>
                 <<AddRelationshipScore Kelly 10>>
                 Kelly: ...oh... I never thought about it that way....
                 Kelly: I think that she does care a lot about me... I feel guilty because I've been pushing her away...
@@ -246,6 +253,7 @@ Player: What should I do?
             Kelly: Sometimes I forget to drink my coffee and I get really tired.
             <<SetSprite Middle Kelly/lbom>>
             Kelly: ...I feel a lot less tired when I'm around you though...
+            <<Shake Middle>>
             Kelly: ... which is weird because I think that violates the Law of Conservation!
             <<SetSprite Middle Kelly/Idle>>
         <<else>> 
