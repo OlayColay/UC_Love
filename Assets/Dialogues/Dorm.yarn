@@ -1,10 +1,9 @@
-﻿title: Dorm
+﻿
+
+title: ActualDorm
 tags:
 ---
-<<SetBackground Backgrounds/Dorm>>
-<<Fade true>>
 <<set $TimeOfDayDorm to GetTimeOfDay()>>
-Player: Home sweet home!
 Player: What should I do?
 -> Take a nap (Pass Time)
         <<Fade false>>
@@ -25,6 +24,7 @@ Player: What should I do?
             <<jump AdditionalNap>>
 -> Scroll on Social Media
     <<set $Computer_Info to LoadVariable("Computer_Info")>>
+    {$Computer_Info}
     Narrator: You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
         <<if $Computer_Info == 1>>
             Player: Oh! It's a notice from the UCL Instagram page!
@@ -32,34 +32,40 @@ Player: What should I do?
             Player: "There's a lot of lost possessions strewn around in the gardens, and a lot of them look sentimental."
             Player: "We don't have the budget to retreive them though, so you'll have to find it yourself."
             Player: Huh... maybe I should take a walk around the garden. 
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<elseif $Computer_Info == 2>>
             Player: Oh! Irene has a sponsored post with B-Fuel.
             Player: Judging from the giant fridge of B-Fuel in the background of the photo, I think that she actually likes B-Fuel.
             Player: It's great that she got a sponsorship for a product she loves.
             Player: That kind of fits with her gamer personality...
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<elseif $Computer_Info == 3>>
             Player: Oh! Santana visited the Pick-Your-Own Flower Field!
             Player: She seems to really love flowers.
             Player: She seems to like nature a lot... so it makes sense. 
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<elseif $Computer_Info == 4>>
             Player: Oh! Riviera is following the same stationery company that I do...
             Player: I guess she really likes their notepads too! They're a little pricey, but really high quality!
             Player: She's really hardworking... I can see her running out of notepads easily.
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<elseif $Computer_Info == 5>>
             Player: It's a photo of Ellie! Seems like she just redecorated her room!
             Player: Woah! She has so many Rikakume Bear plushies!
             Player: She must really love them to collect that many!
             Player: They are really soft though... I kind of want one too!
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<elseif $Computer_Info == 6>>
             Player: Kelly is following BolyMoly, the skincare company.
             Player: They make really nice sheet masks! I can see why she likes them.
             Player: Makes sense since she's stressed all the time...
-            <<SaveVariable "Computer_Info" $Computer_Info+1>>
+            <<set $Computer_Info to $Computer_Info + 1>>
+            <<SaveVariable "Computer_Info" $Computer_Info>>
         <<else>>
             Player: I don't know if this person goes here but he looks a little familiar...
             Player: I feel like I've seen that red hair somewhere... but I can't remember where.
@@ -77,7 +83,7 @@ Player: What should I do?
         <<else>>
             Player: It's already evening!
         <<endif>>
-        <<jump Dorm>>
+        <<jump ActualDorm>>
 //-> Work on UCL (Debug)
 //    -> Set Relationship Scores //Ask Cole for Help
 //         -> Set All Relationship Scores to Acquaintance Stage
@@ -136,4 +142,12 @@ Player: Wow... that was a good nap! Oh! Would you look at the time!
 -> Hit snooze (Pass More Time)
     <<Fade false>>
     <<jump AdditionalNap>>
+===
+title: Dorm
+position: -193,1
+---
+<<SetBackground Backgrounds/Dorm>>
+<<Fade true>>
+Player: Home sweet home!
+<<jump ActualDorm>>
 ===
