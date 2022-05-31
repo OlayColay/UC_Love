@@ -4,6 +4,7 @@ tags:
 <<SetBackground Backgrounds/Dorm>>
 <<Fade true>>
 <<set $TimeOfDayDorm to GetTimeOfDay()>>
+Player: Home sweet home!
 Player: What should I do?
 -> Take a nap (Pass Time)
         <<Fade false>>
