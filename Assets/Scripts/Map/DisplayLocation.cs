@@ -12,14 +12,11 @@ public class DisplayLocation : MonoBehaviour
     {
         // Initialize
         textField = GetComponent<Text>();
-
-        // Subscribe to the event system
-        MapEvents.current.onLocationSelected += Display;
     }
 
-    private void Display(GameObject location)
+    public void Display(GameObject location)
     {
         // Change the text field to show what was clicked on
-        textField.text = location.name;
+        textField.text = location.transform.parent.name;
     }
 }

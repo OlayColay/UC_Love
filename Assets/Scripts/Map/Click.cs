@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
-using TouchPhase = UnityEngine.InputSystem.TouchPhase;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
@@ -21,98 +17,16 @@ public class Click : MonoBehaviour
     private AudioClip pop;
     private GameObject selectedLocation; // The currently selected location
 
-    private bool isActive = true; // If this script should be active
-    private int delayFrames = 0;
-
-    void Start()
+    void Awake()
     {
         pop = Resources.Load<AudioClip>("SFX/Pop");
-        // Subscribe to the event system
-        MapEvents.current.onGamePaused += SetDisabled;
-        EnhancedTouchSupport.Enable();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadSceneWrapper(string sceneName)
     {
-        if (!isActive) return; // Don't do anything if the game is paused
-        if (delayFrames > 0)
-        {
-            delayFrames--;
-            return;
-        }
-
-        GameObject newLocation = GetElementOverMouse();
-
-        if (newLocation != null)
-        {
-            // If we ended up selecting something new, then tell the event system
-            if (selectedLocation == null || !selectedLocation.Equals(newLocation))
-            {
-                MapEvents.current.LocationSelected(newLocation);
-            }
-
-            if (Mouse.current.leftButton.wasReleasedThisFrame || (Touch.activeTouches.Count > 0 && Touch.activeTouches[0].phase == TouchPhase.Ended))
-            {
-                // Debug.Log("Travel to " + newLocation.name);
-                
-                // TODO: I'm not well-versed in Yarn, but should we just load the scene separately
-                // instead of as a Coroutine?
-                // The reason that I use a Coroutine is so that we can wait for the scene to load with a
-                // while loop without freezing the game :)
-                MusicPlayer.audioSource.PlayOneShot(pop);
-                FindObjectOfType<EventSystem>().enabled = false;
-                blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(LoadYarnScene(newLocation.name)));
-            }
-
-            selectedLocation = newLocation;
-        }
-    }
-
-    public void SetActive(bool val) {
-        if (!isActive && val) delayFrames = 3; // This prevents the same click from resuming the game AND traveling somewhere simultaneously
-        isActive = val;
-    }
-    public void SetDisabled(bool val) { SetActive(!val); }
-
-    GameObject GetElementOverMouse()
-    {
-        // Get the location of the click
-        Vector3 mouseLocation;
-        if (Touch.activeTouches.Count > 0)
-        {
-            Vector2 touch = Touch.activeTouches[0].screenPosition;
-            mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
-                touch.x,
-                touch.y,
-                Camera.main.nearClipPlane
-            ));
-        }
-        else
-        {
-            mouseLocation = Camera.main.ScreenToWorldPoint(new Vector3(
-                Mouse.current.position.x.ReadValue(),
-                Mouse.current.position.y.ReadValue(),
-                Camera.main.nearClipPlane
-            ));
-        }
-        
-
-        // Debug.Log(string.Format("Mouse position x={0} y={1} z={2}",
-        //     mouseLocation.x,
-        //     mouseLocation.y,
-        //     mouseLocation.z
-        //     ));
-
-        // Fire a raycast in place
-        RaycastHit2D raycastResult = Physics2D.Raycast(new Vector2(mouseLocation.x, mouseLocation.y), Vector2.zero, 0, selectableLayer);
-
-        // If we found something, select it
-        if (raycastResult.transform != null)
-        {
-            return raycastResult.transform.gameObject;
-        }
-        return null;
+        MusicPlayer.audioSource.PlayOneShot(pop);
+        FindObjectOfType<EventSystem>().enabled = false;
+        blackScreen.DOFade(1f, 0.5f).OnComplete( () => StartCoroutine(LoadYarnScene(sceneName)));
     }
 
     public static IEnumerator LoadYarnScene(string sceneName)

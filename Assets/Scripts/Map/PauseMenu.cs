@@ -33,18 +33,12 @@ public class PauseMenu : MonoBehaviour
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        MapEvents.current.GamePaused(false);
     }
 
     public void Pause()
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-        MapEvents.current.GamePaused(true);
     }
 
     public void LoadMenu()
@@ -66,10 +60,6 @@ public class PauseMenu : MonoBehaviour
     public void OpenInventory()
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
-        // Debug.Log("Opening inventory...");
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-        MapEvents.current.GamePaused(true);
         Inventory.OpenInventoryFromMap();
     }
 
@@ -77,8 +67,5 @@ public class PauseMenu : MonoBehaviour
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
         Inventory.inventoryScreen.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        MapEvents.current.GamePaused(false);
     }
 }

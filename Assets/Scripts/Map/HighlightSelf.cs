@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class HighlightSelf : MonoBehaviour
+public class HighlightSelf : MonoBehaviour, IPointerEnterHandler, ISelectHandler
 {
-    private SpriteRenderer spriteRenderer;
-    private Sprite plainSprite;
-    [SerializeField]
-    private Sprite highlightedSprite;
+    CameraControl cameraControl;
+    DisplayLocation display;
 
-    private void Start()
+    void Awake()
     {
-        // Fetch the sprite renderer
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        plainSprite = spriteRenderer.sprite;
-
-        // Subscribe to the event system
-        MapEvents.current.onLocationSelected += Highlight;
+        cameraControl = Camera.main.GetComponent<CameraControl>();
+        display = FindObjectOfType<DisplayLocation>();
     }
 
-    private void Highlight(GameObject location)
+    // When highlighted with mouse.
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        // If this is the location that was clicked on, highlight self
-        // Otherwise remove highlights
-        spriteRenderer.sprite = (location.name.Equals(this.name)) ? highlightedSprite : plainSprite;
+        Debug.Log("Pointer enter " + name);
+        OnSelect(eventData);
+    }
+    // When selected.
+    public void OnSelect(BaseEventData eventData)
+    {
+        cameraControl.PanCamera(gameObject);
+        display.Display(gameObject);
     }
 }

@@ -17,14 +17,6 @@ public class CameraControl : MonoBehaviour
     {
         origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         target = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-        // Debug.Log(string.Format("Origin: x={0} y={1}",
-        //     transform.position.x,
-        //     transform.position.y
-        // ));
-
-        // Subscribe to the event system
-        MapEvents.current.onLocationSelected += PanCamera;
     }
 
     void Update()
@@ -33,10 +25,10 @@ public class CameraControl : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, target, panningSpeed);
     }
 
-    private void PanCamera(GameObject location)
+    public void PanCamera(GameObject location)
     {
         // Adjust the target based on the new location's transform
-        Vector3 pos = location.GetComponent<Collider2D>().bounds.center;
+        Vector3 pos = location.transform.position;
         target.x = (pos.x - origin.x) * panningOffset + origin.x;
         target.y = (pos.y - origin.y) * panningOffset + origin.y;
     }

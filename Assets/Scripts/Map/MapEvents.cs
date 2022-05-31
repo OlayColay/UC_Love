@@ -25,21 +25,6 @@ public class MapEvents : MonoBehaviour
         } 
     }
 
-    public event Action<GameObject> onLocationSelected;
-    public void LocationSelected(GameObject location)
-    {
-        if (onLocationSelected != null)
-        {
-            onLocationSelected(location);
-        }
-    }
-
-    public event Action<bool> onGamePaused;
-    public void GamePaused(bool isPaused)
-    {
-        onGamePaused(isPaused);
-    }
-
     public void ToggleAutoSave()
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
