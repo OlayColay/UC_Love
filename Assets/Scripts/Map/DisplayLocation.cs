@@ -14,9 +14,9 @@ public class DisplayLocation : MonoBehaviour
         textField = GetComponent<Text>();
     }
 
-    public void Display(GameObject location)
+    public void Display(string text)
     {
         // Change the text field to show what was clicked on
-        textField.text = location.transform.parent.name;
+        textField.text = text;
     }
 }

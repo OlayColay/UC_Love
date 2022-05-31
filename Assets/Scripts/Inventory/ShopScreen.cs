@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using Yarn.Unity;
@@ -50,7 +51,8 @@ public class ShopScreen : MonoBehaviour
             });
         }
 
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+        if (Gamepad.current != null)
+            UnityEngine.EventSystems.EventSystem.current?.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : null);
     }
 
     void OnDisable()

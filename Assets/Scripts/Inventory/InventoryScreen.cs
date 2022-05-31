@@ -54,7 +54,7 @@ public class InventoryScreen : MonoBehaviour
         }
 
         if (Gamepad.current != null)
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
+            UnityEngine.EventSystems.EventSystem.current?.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
     }
 
     void OnDisable()

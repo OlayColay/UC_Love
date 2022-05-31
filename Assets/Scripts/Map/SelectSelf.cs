@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class HighlightSelf : MonoBehaviour, IPointerEnterHandler
+public class SelectSelf : MonoBehaviour, ISelectHandler
 {
     CameraControl cameraControl;
     DisplayLocation display;
@@ -14,10 +15,10 @@ public class HighlightSelf : MonoBehaviour, IPointerEnterHandler
         display = FindObjectOfType<DisplayLocation>();
     }
 
-    // When highlighted with mouse.
-    public void OnPointerEnter(PointerEventData eventData)
+    // When selected.
+    public void OnSelect(BaseEventData eventData)
     {
-        cameraControl.PanCamera(gameObject);
-        display.Display(transform.parent.name);
+        cameraControl.PanCamera(transform.GetChild(0).gameObject);
+        display.Display(name);
     }
 }
