@@ -577,8 +577,9 @@ position: 207,66
                 Riviera: ... to each their own I suppose...
             -> I also want to make something of myself!
                 <<AddRelationshipScore Riviera 10>>
-                <<SetSprite Middle Riviera>>
+                <<SetSprite Middle Riviera/Happy>>
                 Riviera: Birds of a feather flock together! 
+                <<SetSprite Middle Riviera/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
         <<if $UCRDialogueCafe == 1>>
