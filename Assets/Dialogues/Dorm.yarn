@@ -1,6 +1,4 @@
-﻿
-
-title: ActualDorm
+﻿title: ActualDorm
 tags:
 ---
 <<set $TimeOfDayDorm to GetTimeOfDay()>>
