@@ -82,10 +82,9 @@ BearBox: Have a great day and stay out of trouble!
 <<ClearSprite Middle>>
 Player: Well, I hope so too. Let's take a look around.
 Player: Hmm, maybe I can meet someone if I..
-
-???: Excuse me! If you don't mind me asking, but did you see my sister?
-???: She has short, dark hair with glasses on! I think she's also wearing a dark blue sweater. 
-Player: No, I haven't seen her..
+???: Excuse me! If you don't mind me asking, but have you seen my sister?
+???: She has short, dark hair with glasses on! I think she's also wearing a dark blue sweater...
+Player: No, I haven't seen her...
 ???: Oh.. That's okay! Thanks for letting me know! See you around!
 <<ClearSprite Middle>>
 ???: Um...excuse me. Have you seen my sister?
@@ -96,11 +95,10 @@ Player: Oh, uh, you just passed her!
 <<ClearSprite Middle>>
 Player: That was...interesting. Just two sisters lost in the crowd, I guess.
 Player: Hopefully, I don't get lost in the crowd myself.
-
 ???: Woah!! Sorry for walking into you!
 ???: I really wasn't paying much attention to the things in front of me.
 Player: No worries! Just be more careful.
-???: For sure, for sure. OH DANG! The next raid is going to start!
+???: For sure, for sure. OH POG! The next raid is going to start!
 ???: Catch you later!!!
 <<ClearSprite Middle>>
 Player: Haha...looks like she's totally invested into her game.
@@ -118,7 +116,6 @@ Player: Okay! See you around!
 <<ClearSprite Middle>>
 Player: More girls roaming around, huh.
 Player: To be fair, there's so many people around..
-    
 ???: Hey, you!
 Player: Me?
 ???: Yes, you!
@@ -130,7 +127,6 @@ Player: Oh, um... I can't dance.
 ???: Oh dang! I gotta go! Take this flyer and consider it!
 ???: Byeee!
 Player: And...finally, I meet one girl making sense to this entire situation.
-
 Player: Hmmm...maybe I should head back. Getting tired already, and I'll need the sleep for the first day tomorrow.
 <<SetSprite Middle Stan/Smiling>>
 ???: Hey there! You seem to be a new student.

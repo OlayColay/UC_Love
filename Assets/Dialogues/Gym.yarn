@@ -1016,7 +1016,7 @@ Player: What should I do?
     <<set $UCSBDialogueGym = Dice(5)>>
     <<if GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSBDialogueGym == 1>>
-            Santana: Hello there! Are you going to the garden?
+            Santana: Hello there! Have you visited the garden yet?
             <<SetSprite Middle Santana/bliss>>
             Santana: We just opened for the season! Be sure to check out the Ancient Forests section! 
             Santana: There are some really nifty trees in there. 
@@ -1025,18 +1025,21 @@ Player: What should I do?
             Santana: If you want to feed the koi in the koi pond, there's a koi feed machine by the gate entrance!
             Santana: Watch out for the squirrels though! They will attack you for food.
         <<elseif $UCSBDialogueGym == 3>>
-            Santana: If you have any questions about the plants or animals here, don't hesitate to ask me!
-            Santana: I'm interning here for one of my biology major requirements!
+            Santana: If you have any questions about the plants or animals at the garden, don't hesitate to ask me!
+            Santana: I'm interning there for one of my biology major requirements!
             Santana: Some people think that it's cumbersome, but I think that it's a great way to learn about nature in some place other than a classroom.
         <<elseif $UCSBDialogueGym == 4>> 
-            Santana: I heard that if you take a walk around the West end here, weird things can happen to you.
-            Santana: I've heard of people hearing voices or finding money on the ground!
+            Santana: I heard that if you take a walk around the West end of the garden, weird things can happen to you.
+            Santana: I've heard of people having weird interactions with the squirrels or finding money on the ground!
         <<else>> 
-            Santana: This is one of the more quiet places on campus. It's kind of nice to go out here and do yoga or paint.
+            Santana: The gym is a lot more quiet at night compared to during the day.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: I like to come here and do yoga at night. It's really peaceful!
+            <<SetSprite Middle Santana/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Santana") >= 100 && GetRelationshipScore("Santana") < 200>> //Acquaintances
         <<if $UCSBDialogueGym == 1>>
-            Santana: If you get the chance, you should check out the Eschscholzia californica's! 
+            Santana: If you get the chance, you should check out the Eschscholzia Californica's in the garden! 
             Santana: They're only in bloom for a short while each year.
         <<elseif $UCSBDialogueGym == 2>>
             Santana: Be careful of the squirrels if you take a walk. They're a bit weird!

@@ -21,6 +21,7 @@ tags:
 <<SaveVariable "Chain" "false">>
 <<SaveVariable "Poem" "false">>
 <<SaveVariable "Watch" "false">>
+<<SaveVariable "Computer_Info" 1>>
 <<Fade true 0>>
 // <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
