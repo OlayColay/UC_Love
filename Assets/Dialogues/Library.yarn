@@ -31,6 +31,66 @@ tags:
     <<endif>>
 <<endif>>
 <<Fade true>>
+
+
+
+<<set $FlavorTextLibrary = Dice(5)>>
+<<if $TimeOfDayLibrary == 0>>
+    <<if $FlavorTextLibrary == 1>>
+        Player: It's always so quiet in here...
+        Player: More so, since there's not that many people here at this time.
+    <<elseif $FlavorTextLibrary == 2>>
+        Player: There's something about the smell of books that makes me relaxed.
+        Player: I wonder if it's just me.
+    <<elseif $FlavorTextLibrary == 3>>
+        Player: I know that some people can't concentrate when it's too quiet.
+        Player: Must be the nerves.
+    <<elseif $FlavorTextLibrary == 4>>
+        Player: There's so many books here!
+        Player: Sure, it's a library, but I wonder how many years it would take to read them all...
+    <<else>>
+        Player: I can even hear my own footsteps echoing everywhere..
+        Player: I better be quiet in here! 
+    <<endif>>
+<<elseif $TimeOfDayLibrary == 1>>
+    <<if $FlavorTextLibrary == 1>>
+        Player: Unlike the public library I'm used to, this one is just way too pretty.
+        Player: The rustic atmosphere makes it feel...ancient.
+    <<elseif $FlavorTextLibrary == 2>>
+        Player: Got my waterbottle, my earphones, and my assignments to do.
+        Player: Time to get to work!
+    <<elseif $FlavorTextLibrary == 3>>
+        Player: Sometimes I feel really self-conscious over the sounds I might be making that ends up disracting other people here.
+        Player: ...I really hope that I'm quiet..
+    <<elseif $FlavorTextLibrary == 4>>
+        Player: Apparently, it's usual for students to forget to bring their ID when entering this building. 
+        Player: Gotta always remember to bring my ID with me! 
+    <<else>>
+        Player: If anything, this library seems more like a church than a library.
+        Player: It's probably the stained glass.
+    <<endif>>
+<<else>>
+    <<if $FlavorTextLibrary == 1>>
+        Player: Although it's really chilly outside right now, it feels fine staying here.
+        Player: I should bring a jacket or a hoodie with me though, just in case.
+    <<elseif $FlavorTextLibrary == 2>>
+        Player: I wonder how often they clean this place.
+        Player: Not that it's dirty, but rather that there's just too many books to take into account!
+    <<elseif $FlavorTextLibrary == 3>>
+        Player: Since it's late, there's a handful of students studying hard here!
+        Player: Maybe they're cramming? I'll never know.
+    <<elseif $FlavorTextLibrary == 4>>
+        Player: Libraries remind me of an ending of a show where a character dies from blood loss, but a librarian just thinks that he's sleeping.
+        Player: ...
+        Player: Now I'm just sad for thinking that. 
+    <<else>>
+        Player: It's because libraries like these that I feel like it's possible to get transported into another world.
+        Player: I wonder which book I'd like to be a part of. Maybe a romcom book...
+    <<endif>>
+<<endif>>
+
+
+
 Player: What should I do? 
 -> Meet someone
     <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>

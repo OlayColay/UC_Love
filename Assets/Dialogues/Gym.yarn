@@ -27,6 +27,63 @@ tags:
     //Sets background as Gym Night if it Evening
 <<endif>>
 <<Fade true>>
+
+
+<<set $FlavorTextGym = Dice(5)>>
+<<if $TimeOfDayGym == 0>>
+    <<if $FlavorTextGym == 1>>
+        Player: I felt a bit too lazy when I woke up from bed, but coming here was a great idea.
+    <<elseif $FlavorTextGym == 2>>
+        Player: If college life isn't about eating radioactive stuff to just keep you full, then I don't know what is!
+        Player: ...Thank God for gyms like these to keep me in shape. 
+    <<elseif $FlavorTextGym == 3>>
+        Player: It's nice that there are some people around.
+        Player: Too many would make me feel self-conscious.
+    <<elseif $FlavorTextGym == 4>>
+        Player: Sometimes, it feels intimidating coming here by myself.
+        Player: Oh well, maybe I can meet someone here along the way.
+    <<else>>
+        Player: There's just so many machines to choose from!
+        Player: What did they say? That this school was the "University of Calves and Lats"? 
+    <<endif>>
+<<elseif $TimeOfDayGym == 1>>
+    <<if $FlavorTextGym == 1>>
+        Player: Seeing how there's a sandbag over there, it would be pretty cool to learn martial arts!
+        Player: ...Of course, for self defense.
+    <<elseif $FlavorTextGym == 2>>
+        Player: There seems to be more people than I thought! 
+        Player: I wonder if it's a good idea to exercise before or after eating lunch..
+    <<elseif $FlavorTextGym == 3>>
+        Player: Something about gym music remind me of club music.
+        Player: Is it intentional?
+    <<elseif $FlavorTextGym == 4>>
+        Player: So I was told that there's a separate gym for athletes.
+        Player: But there's still this many people here! Wow!!
+    <<else>>
+        Player: Better go warm up before I hit any machine here.
+        Player: Wouldn't want to pull a muscle!
+    <<endif>>
+<<else>>
+    <<if $FlavorTextGym == 1>>
+        Player: Now if someone had to ask me how to get tired enough to fall asleep, exercising is the way to go.
+        Player: It's a healthy option anyway.
+    <<elseif $FlavorTextGym == 2>>
+        Player: The feeling of taking a shower to relax right before you sleep...
+        Player: It's almost a bit too addicting.
+    <<elseif $FlavorTextGym == 3>>
+        Player: Always good to bring a water bottle, especially when it comes to exercising.
+        Player: Good for the environment, and keeps you hydrated!
+    <<elseif $FlavorTextGym == 4>>
+        Player: There's so many people here than I expected!
+        Player: I guess people want their steps in for the day.
+    <<else>>
+        Player: Somehow, it always feels like I'm the only one who isn't fashionable or fit enough to be here.
+        Player: ...
+        Player: Yep, let's stop with the self-deprecation and pull some muscles.
+    <<endif>>
+<<endif>>
+
+
 //-----------------------------------------------------------------
 Player: What should I do?
 -> Meet someone
