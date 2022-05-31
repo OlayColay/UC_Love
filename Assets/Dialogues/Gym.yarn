@@ -151,11 +151,14 @@ position: 241,-105
             Riviera: There's nothing wrong with that way of life... but I can't really see myself living off of someone else's dime for the rest of myself.
             Riviera: I want to make something of myself!
             -> I don't know... if I could be a sugar baby I would!
+                <<SetSprite Middle Riviera/Sad>>
                 Riviera: ... to each their own I suppose...
+                <<SetSprite Middle Riviera/Idle>>
             -> I also want to make something of myself!
                 <<AddRelationshipScore Riviera 10>>
-                <<SetSprite Middle Riviera>>
+                <<SetSprite Middle Riviera/Happy>>
                 Riviera: Birds of a feather flock together! 
+                <<SetSprite Middle Riviera/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Riviera") >= 200 && GetRelationshipScore("Riviera") < 300>> //Friends
         <<if $UCRDialogueGym == 1>>
