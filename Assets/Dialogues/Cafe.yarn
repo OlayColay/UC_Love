@@ -477,7 +477,7 @@ position: 207,66
     <<AddRelationshipScore Riviera 10>>
     <<if GetRelationshipScore("Riviera") < 100>> //Strangers
         <<if $UCRDialogueCafe == 1>>
-               <<if $UCRIntroCafe == false>>
+                <<if $UCRIntroCafe == false>>
                     Riviera: Oh hey! I'm starting a marketing technology startup.
                     Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
                     Riviera: I'd really appreciate it if you checked it out!
@@ -543,12 +543,12 @@ position: 207,66
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Thanks! I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
-                <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
             -> The second one!
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Thanks! I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
-                <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
             -> Neither of them!
                 <<SetSprite Middle Riviera/sad>>
                 Riviera: Oh... back to the drawing board I suppose...
@@ -635,7 +635,7 @@ position: 207,66
             Riviera: I had a pitch competition a few days ago that didn't go too well... 
             Riviera: Usually I'm really confident, but once I get on stage I get nervous really easily...
             -> Take deep breaths...
-                <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: You're right! Sometimes I get so nervous that it gets hard to breathe and then I start sounding like I'm trying to rap Super Bass.
                 Riviera: I'll definitely be sure to be more mindful of my breathing! Thanks!
@@ -645,7 +645,7 @@ position: 207,66
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Oh! Now that you mention it... I do tend to overly gesticulate when I'm nervous!
                 Riviera: I'll definitely be sure to be more mindful of my hand gestures! Thanks!
-                <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
                 <<SetSprite Middle Riviera/Idle>>
             -> Cheat with flashcards! // TODO
                 <<SetSprite Middle Riviera/Idle>>
@@ -702,12 +702,12 @@ position: 207,66
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: When I make it big, I'll be sure to treat you out for a nice dinner!
                     <<SetSprite Middle Riviera/Idle>>
-                    <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                    <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
                 -> When you make it big, be sure to treat me out for dinner!
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Deal!
                     <<SetSprite Middle Riviera/Idle>>
-                    <<SaveVariable RivieraHelp $RivieraHelp+1>>
+                    <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
             -> Realistically speaking, it's a tough field... 90% of startups fail. 
                 Riviera: Sigh... I know...
                 <<SetSprite Middle Riviera/Idle>>
