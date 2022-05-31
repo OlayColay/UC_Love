@@ -29,18 +29,18 @@ tags:
 <<Fade true>>
 
 
-<<set $Flavor_Text = Dice(5)>>
+<<set $FlavorTextPlaza = Dice(5)>>
 <<if $TimeOfDayPlaza == 0>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextPlaza == 1>>
         Player: Oh dang, there's still a lot of people roaming around! 
         Player: There's quite a lot more morning birds than I thought.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextPlaza == 2>>
         Player: Even though the sun is just up, it sure is still chilly.
         Player: Better get myself a warm drink or something..
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextPlaza == 3>>
         Player: It's really unexpected to see this many people here.
         Player: I hope I don't bump into anyone on accident...
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextPlaza == 4>>
         Player: Wonder if more classes are just available in the morning.
         Player: I guess that explains why students seem to be in a rush right now.
     <<else>>
@@ -48,15 +48,15 @@ tags:
         Player: Maybe I should head inside the store.
     <<endif>>
 <<elseif $TimeOfDayPlaza == 1>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextPlaza == 1>>
         Player: Hnnngh...! That was a good stretch.
         Player: I should go for some lunch.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextPlaza == 2>>
         Player: Yayyy! Class is over!
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextPlaza == 3>>
         Player: Hmmm...should I eat a quick snack from the store, or just eat a proper meal in a dining hall?
         Player: Oh, the choices.
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextPlaza == 4>>
         Player: It usually passes my mind, but I really should take a picture next to the bear statue.
         Player: Might as well do it sometime.
     <<else>>
@@ -65,15 +65,15 @@ tags:
         Player: Makes sense, if people are going to litter around when they can simply put waste in the actual can, and not around it.
     <<endif>>
 <<else>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextPlaza == 1>>
         Player: Hmmm...there's not that many people around here.
         Player: I guess that I'm a rarity.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextPlaza == 2>>
         Player: I should head back home, but it's still nice to look around this place at this time.
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextPlaza == 3>>
         Player: There seems to be a group of people coming back from over there.
         Player: Maybe from a club meeting.
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextPlaza == 4>>
         Player: As much as it's night already, I don't feel so tired yet.
     <<else>>
         Player: I was told that if I look around, some cats might pop out.

@@ -20,16 +20,16 @@ tags:
 <<set $TimeOfDayCafe to GetTimeOfDay()>>
 
 
-<<set $Flavor_Text = Dice(5)>>
+<<set $FlavorTextCafe = Dice(5)>>
 <<if $TimeOfDayCafe == 0>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextCafe == 1>>
         Player: Oh! The smell of coffee! 
         Player: It sure is waking me up!
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextCafe == 2>>
         Player: Gotta get that sweet caffeine in me to start my day!
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextCafe == 3>>
         Player: I like mornings, and I like my coffee!
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextCafe == 4>>
         Player: Wow...there's so many people here trying to order coffee!
         Player: I feel sorry for the employees..
     <<else>>
@@ -37,32 +37,32 @@ tags:
         Player: Guess I'll never really know.
     <<endif>>
 <<elseif $TimeOfDayCafe == 1>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextCafe == 1>>
         Player: Hmm...the traffic sure died down.
         Player: Best to come here after the mornings then!
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextCafe == 2>>
         Player: It really feels like a long day...
         Player: I crave...the sugar..
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextCafe == 3>>
         Player: I don't know how people can really study here.
         Player: There may not be many right now, but it's still quite loud.
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextCafe == 4>>
         Player: Thank the employees of this cafe for their gracious patience and virtue in granting me sweet, sweet caffeine!
     <<else>>
         Player: I hear that being a barista is very hard.
         Player: I'd probably mess up so bad myself!
     <<endif>>
 <<else>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextCafe == 1>>
         Player: Ah...for a cold night like this, a nice cup of coffee is nice.
         Player: Can't say much for my sleep, though.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextCafe == 2>>
         Player: Dang...some students here are sure on the grind..
         Player: There's even one with 5 empty cups! Yikes!
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextCafe == 3>>
         Player: As expected, there's even less people here at this time.
         Player: That's good for students who really need the caffeine and the place to work or study!
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextCafe == 4>>
         Player: Surprisingly, hot chocolate with soy milk is pretty good.
         Player: Was skeptical at first, but now it's a 10 out of 10 recommended.
     <<else>>

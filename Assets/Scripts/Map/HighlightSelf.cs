@@ -18,7 +18,6 @@ public class HighlightSelf : MonoBehaviour, IPointerEnterHandler, ISelectHandler
     // When highlighted with mouse.
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Pointer enter " + name);
         OnSelect(eventData);
     }
     // When selected.

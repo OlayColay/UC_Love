@@ -30,34 +30,34 @@ position: -107,2
 <<Fade true>>
 
 
-<<set $Flavor_Text = Dice(5)>>
+<<set $FlavorTextGarden = Dice(5)>>
 <<if $TimeOfDayGarden == 0>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextGarden == 1>>
         Player: A morning stroll in the garden is great! 
         Player: I should come here more often.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextGarden == 2>>
         Player: The fresh air at this time is always refreshing. 
         Player: It's honestly a great way to wake up.
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextGarden == 3>>
         Player: It sure is nice and quiet here...
         Player: I wonder if there's anybody else here besides me.
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextGarden == 4>>
         Player: Wow, today's weather is great for a stroll!
     <<else>>
         Player: Ah...just me and nature. 
         Player: The birds are tweeting, the flowers are blooming.. 
     <<endif>>
 <<elseif $TimeOfDayGarden == 1>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextGarden == 1>>
         Player: It's always a treat to come here after a long lecture...
         Player: I should come here more often.
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextGarden == 2>>
         Player: It's always calming to be here... 
         Player: ...Such great place to just relax from the long day.
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextGarden == 3>>
         Player: Something about this garden relaxes me.
         Player: It's probably all the stress from school.
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextGarden == 4>>
         Player: I didn't think that a garden in a university would be this pretty.
         Player: Are my expectations just low? 
     <<else>>
@@ -65,16 +65,16 @@ position: -107,2
         Player: ...Am I getting too old? 
     <<endif>>
 <<else>>
-    <<if $Flavor_Text == 1>>
+    <<if $FlavorTextGarden == 1>>
         Player: It's quite chilly tonight!
         Player: Maybe I should have brought a jacket...
-    <<elseif $Flavor_Text == 2>>
+    <<elseif $FlavorTextGarden == 2>>
         Player: The silence at night may seem creepy to some, but it's not too bad.
         Player: I wonder if I'm the only one who thinks this way, though.
-    <<elseif $Flavor_Text == 3>>
+    <<elseif $FlavorTextGarden == 3>>
         Player: I love how this garden is available even at this time!
         Player: Vibing with nature is great!
-    <<elseif $Flavor_Text == 4>>
+    <<elseif $FlavorTextGarden == 4>>
         Player: Wonder how much it takes to maintain this place...
         Player: It sure is clean without any litter!
     <<else>>
