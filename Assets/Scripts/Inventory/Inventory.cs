@@ -157,7 +157,7 @@ public static class Inventory
     }
 
     [YarnFunction("GetItemName")]
-    public static string GetItemName(int index, bool isKeyItem = false)
+    public static string GetItemName(int index, bool isKeyItem)
     {
         if (isKeyItem)
         {
@@ -176,7 +176,7 @@ public static class Inventory
     }
 
     [YarnFunction("GetItemSprite")]
-    public static string GetItemSprite(string itemName, bool isKeyItem = false)
+    public static string GetItemSprite(string itemName, bool isKeyItem)
     {
         Item item;
         if (isKeyItem)
@@ -195,7 +195,7 @@ public static class Inventory
     }
 
     [YarnFunction("GetInventoryLength")]
-    public static int GetInventoryLength(bool isKeyItems = false)
+    public static int GetInventoryLength(bool isKeyItems)
     {
         return isKeyItems ? keyItemList.Count : list.Count;
     }
@@ -207,7 +207,7 @@ public static class Inventory
     }
 
     [YarnFunction("ItemExists")]
-    public static bool ItemExists(string itemName, bool isKeyItem = false)
+    public static bool ItemExists(string itemName, bool isKeyItem)
     {
         return isKeyItem ? (keyItemList.Find(i => i.name == itemName) != null ? true : false) : (list.Find(i => i.name == itemName) != null ? true : false);
     }

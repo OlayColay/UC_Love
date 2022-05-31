@@ -1415,7 +1415,7 @@ position: -5,87
         <<PlayMusic Music/Minigame>>
         <<GymMinigame 50 5 3 20 900>>
         <<set $Dwayne to LoadInt("Dwayne")>>
-        <<if GymMinigameWon() && $Dwayne != "true">>
+        <<if GymMinigameWon() && $Dwayne != 1>>
             <<PlayMusic Music/Gameplay>>
             <<jump Dwayne>>
         <<endif>>
