@@ -175,7 +175,7 @@ position: 241,-105
                         Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
                         -> Practice makes perfect!
                             <<AddRelationshipScore Riviera 10>>
-                            <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                            <<SaveVariable RivieraHelp {$RivieraHelp+2}>>
                             Riviera: You're right... Rome wasn't built in a day I suppose.
                             <<SetSprite Middle Riviera/happy>>
                             Riviera: Alright, let me try it again from the top!
