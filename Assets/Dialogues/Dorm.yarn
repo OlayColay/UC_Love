@@ -22,7 +22,7 @@ Player: What should I do?
             <<jump AdditionalNap>>
 -> Scroll on Social Media
     <<set $Computer_Info to LoadVariable("Computer_Info")>>
-    {$Computer_Info}
+    Narrator: Computer info is [$Computer_Info]
     Narrator: You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
         <<if $Computer_Info == 1>>
             Player: Oh! It's a notice from the UCL Instagram page!
