@@ -22,7 +22,6 @@ Player: What should I do?
             <<jump AdditionalNap>>
 -> Scroll on Social Media
     <<set $Computer_Info to LoadVariable("Computer_Info")>>
-    Narrator: Computer info is [$Computer_Info]
     Narrator: You scroll through Bearstagram for a while, liking occasional memes and browsing your feed, when something catches your eye.
         <<if $Computer_Info == 1>>
             Player: Oh! It's a notice from the UCL Instagram page!
@@ -30,40 +29,34 @@ Player: What should I do?
             Player: "There's a lot of lost possessions strewn around in the gardens, and a lot of them look sentimental."
             Player: "We don't have the budget to retreive them though, so you'll have to find it yourself."
             Player: Huh... maybe I should take a walk around the garden. 
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<elseif $Computer_Info == 2>>
             Player: Oh! Irene has a sponsored post with B-Fuel.
             Player: Judging from the giant fridge of B-Fuel in the background of the photo, I think that she actually likes B-Fuel.
             Player: It's great that she got a sponsorship for a product she loves.
             Player: That kind of fits with her gamer personality...
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<elseif $Computer_Info == 3>>
             Player: Oh! Santana visited the Pick-Your-Own Flower Field!
             Player: She seems to really love flowers.
             Player: She seems to like nature a lot... so it makes sense. 
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<elseif $Computer_Info == 4>>
             Player: Oh! Riviera is following the same stationery company that I do...
             Player: I guess she really likes their notepads too! They're a little pricey, but really high quality!
             Player: She's really hardworking... I can see her running out of notepads easily.
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<elseif $Computer_Info == 5>>
             Player: It's a photo of Ellie! Seems like she just redecorated her room!
             Player: Woah! She has so many Rikakume Bear plushies!
             Player: She must really love them to collect that many!
             Player: They are really soft though... I kind of want one too!
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<elseif $Computer_Info == 6>>
             Player: Kelly is following BolyMoly, the skincare company.
             Player: They make really nice sheet masks! I can see why she likes them.
             Player: Makes sense since she's stressed all the time...
-            <<set $Computer_Info to $Computer_Info + 1>>
-            <<SaveVariable "Computer_Info" $Computer_Info>>
+            <<SaveVariable "Computer_Info" {$Computer_Info + 1}>>
         <<else>>
             Player: I don't know if this person goes here but he looks a little familiar...
             Player: I feel like I've seen that red hair somewhere... but I can't remember where.

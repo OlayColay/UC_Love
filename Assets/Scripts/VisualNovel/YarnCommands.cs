@@ -163,6 +163,7 @@ public class YarnCommands : MonoBehaviour
     {
         int n;
         float f;
+        // Debug.Log(variable);
         if (int.TryParse(variable, out n))
         {
             PlayerPrefs.SetInt(name, n);
