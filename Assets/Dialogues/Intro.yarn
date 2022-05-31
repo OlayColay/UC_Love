@@ -12,22 +12,23 @@ title: NewGame
 tags:
 ---
 <<CleanSave>>
-<<SaveVariable "MainSave" "">>
-<<SaveVariable "UCR_Intro" false>>
-<<SaveVariable "BobamonGo" 0>>
-<<SaveVariable "Diary" "false">>
-<<SaveVariable "Cookbook" "false">>
-<<SaveVariable "Bag" "false">>
-<<SaveVariable "Chain" "false">>
-<<SaveVariable "Poem" "false">>
-<<SaveVariable "Watch" "false">>
-<<SaveVariable "Computer_Info" 1>>
+<<SaveString "MainSave" "">>
+<<SaveInt "UCR_Intro" 0>>
+<<SaveInt "BobamonGo" 0>>
+<<SaveString "Diary" "false">>
+<<SaveString "Cookbook" "false">>
+<<SaveString "Bag" "false">>
+<<SaveString "Chain" "false">>
+<<SaveString "Poem" "false">>
+<<SaveString "Watch" "false">>
+<<SaveInt "Computer_Info" 1>>
+<<SaveInt "Dwayne" 0>>
 <<Fade true 0>>
 // <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.
 -> Play through Intro
     <<PlayMusic Music/Gameplay>>
-    <<jump Alt>>
+    <<jump AltV2>>
 -> Skip Intro
     <<Fade false 0>>
     <<PlayMusic Music/Gameplay>>

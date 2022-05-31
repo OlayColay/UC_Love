@@ -44,21 +44,24 @@ public static class YarnFunctions
         return CafeMinigameController.gameWon;
     }
 
-    [YarnFunction("LoadVariable")]
-    public static dynamic LoadVariable(string name)
+    [YarnFunction("LoadInt")]
+    public static int LoadInt(string name)
     {
         if (PlayerPrefs.GetInt(name, int.MinValue) > int.MinValue)
         {
             return PlayerPrefs.GetInt(name, int.MinValue);
         }
-        else if (PlayerPrefs.GetFloat(name, float.MinValue) > int.MinValue)
-        {
-            return PlayerPrefs.GetFloat(name, float.MinValue);
-        }
         else
         {
-            return PlayerPrefs.GetString(name, "");
+            Debug.LogError("No saved int named " + name);
+            return int.MinValue;
         }
+    }
+
+    [YarnFunction("LoadString")]
+    public static string LoadString(string name)
+    {
+        return PlayerPrefs.GetString(name, "");
     }
 
     [YarnFunction("IsComputer")]

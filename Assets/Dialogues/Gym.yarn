@@ -46,32 +46,30 @@ title: UCRGym
 position: 241,-105
 ---
 //WRITE UCR CODE HERE
-<<set $UCRIntroGym to LoadVariable("UCR_Intro")>>
+<<set $UCRIntroGym to LoadInt("UCR_Intro")>>
 <<set $UCRDialogueGym to Dice(5)>>
 <<SetSprite Middle Riviera/Idle>>
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
     <<set $TalkRiviera to true>>
     <<AddRelationshipScore Riviera 10>>
-    <<if GetRelationshipScore("Riviera") < 100>> //Strangers
-        <<if $UCRDialogueGym == 1>>
-               <<if $UCRIntroGym == false>>
-                    Riviera: Oh hey! I'm starting a marketing technology startup.
-                    Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
-                    Riviera: I'd really appreciate it if you checked it out!
-                    <<SaveVariable "UCR_Intro" true>>
-                <<elseif $UCRIntroGym == true>>
-                    Riviera: Hey! Have you had a chance to check out my startup?
-                    -> Yeah!
-                        <<SetSprite Middle Riviera/happy>>
-                        <<AddRelationshipScore Riviera 10>>
-                        Riviera: Oh! Thank you! That means so much to me.
-                        Riviera: This startup is really my pride and joy. 
-                    -> No, I haven't.
-                        <<SetSprite Middle Riviera/sad>>
-                        Riviera: Oh... that's alright.
-                        <<SetSprite Middle Riviera/Idle>>
-                <<endif>>
+    <<if $UCRIntroGym != 1>>
+        Riviera: Oh hey! I'm starting a marketing technology startup.
+        Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
+        Riviera: I'd really appreciate it if you checked it out!
+        <<SaveInt "UCR_Intro" 1>>
+    <<elseif GetRelationshipScore("Riviera") < 100>> //Strangers
+        <<if $UCRDialogueCafe == 1>>
+            Riviera: Hey! Have you had a chance to check out my startup?
+            -> Yeah!
+                <<SetSprite Middle Riviera/happy>>
+                <<AddRelationshipScore Riviera 10>>
+                Riviera: Oh! Thank you! That means so much to me.
+                Riviera: This startup is really my pride and joy. 
+            -> No, I haven't.
+                <<SetSprite Middle Riviera/sad>>
+                Riviera: Oh... that's alright.
+                <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialogueGym == 2>>
             Riviera: Oh hey! I'd love to chat but I have a meeting I need to prepare for in a bit.
         <<elseif $UCRDialogueGym == 3>>
@@ -120,12 +118,12 @@ position: 241,-105
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Thanks! I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
-                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                <<SaveInt RivieraHelp {$RivieraHelp+1}>>
             -> The second one!
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Thanks! I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
-                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                <<SaveInt RivieraHelp {$RivieraHelp+1}>>
             -> Neither of them!
                 <<SetSprite Middle Riviera/sad>>
                 Riviera: Oh... back to the drawing board I suppose...
@@ -178,7 +176,7 @@ position: 241,-105
                         Riviera: I have to memorize the pitch and be confident presenting everything, but it seems impossible to get everything down.
                         -> Practice makes perfect!
                             <<AddRelationshipScore Riviera 10>>
-                            <<SaveVariable RivieraHelp {$RivieraHelp+2}>>
+                            <<SaveInt RivieraHelp {$RivieraHelp+2}>>
                             Riviera: You're right... Rome wasn't built in a day I suppose.
                             <<SetSprite Middle Riviera/happy>>
                             Riviera: Alright, let me try it again from the top!
@@ -216,7 +214,7 @@ position: 241,-105
             Riviera: I had a pitch competition a few days ago that didn't go too well... 
             Riviera: Usually I'm really confident, but once I get on stage I get nervous really easily...
             -> Take deep breaths...
-                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                <<SaveInt RivieraHelp {$RivieraHelp+1}>>
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: You're right! Sometimes I get so nervous that it gets hard to breathe and then I start sounding like I'm trying to rap Super Bass.
                 Riviera: I'll definitely be sure to be more mindful of my breathing! Thanks!
@@ -226,7 +224,7 @@ position: 241,-105
                 <<SetSprite Middle Riviera/happy>>
                 Riviera: Oh! Now that you mention it... I do tend to overly gesticulate when I'm nervous!
                 Riviera: I'll definitely be sure to be more mindful of my hand gestures! Thanks!
-                <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                <<SaveInt RivieraHelp {$RivieraHelp+1}>>
                 <<SetSprite Middle Riviera/Idle>>
             -> Cheat with flashcards!
                 <<SetSprite Middle Riviera/Idle>>
@@ -283,12 +281,12 @@ position: 241,-105
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: When I make it big, I'll be sure to treat you out for a nice dinner!
                     <<SetSprite Middle Riviera/Idle>>
-                    <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                    <<SaveInt RivieraHelp {$RivieraHelp+1}>>
                 -> When you make it big, be sure to treat me out for dinner!
                     <<SetSprite Middle Riviera/happy>>
                     Riviera: Deal!
                     <<SetSprite Middle Riviera/Idle>>
-                    <<SaveVariable RivieraHelp {$RivieraHelp+1}>>
+                    <<SaveInt RivieraHelp {$RivieraHelp+1}>>
             -> Realistically speaking, it's a tough field... 90% of startups fail. 
                 Riviera: Sigh... I know...
                 <<SetSprite Middle Riviera/Idle>>
@@ -312,7 +310,7 @@ position: 241,-105
             <<SetSprite Middle Riviera/happy>>
             Riviera: I pitched my startup at a conference this weekend and it went really well!
             Riviera: Everyone was really interested in my company and I even got an investor and a couple customers!
-            <<set $RivieraHelpG to LoadVariable("RivieraHelp")>>
+            <<set $RivieraHelpG to LoadInt("RivieraHelp")>>
             <<if $RivieraHelpG <= 2>>
                 Riviera: I'm really grateful to have my brothers to cheer me on!
                 Riviera: You helped a bit too I guess!
@@ -1416,7 +1414,7 @@ position: -5,87
     -> Hard
         <<PlayMusic Music/Minigame>>
         <<GymMinigame 50 5 3 20 900>>
-        <<set $Dwayne to LoadVariable("Dwayne")>>
+        <<set $Dwayne to LoadInt("Dwayne")>>
         <<if GymMinigameWon() && $Dwayne != "true">>
             <<PlayMusic Music/Gameplay>>
             <<jump Dwayne>>

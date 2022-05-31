@@ -158,27 +158,16 @@ public class YarnCommands : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    [YarnCommand("SaveVariable")]
-    public static void SaveVariable(string name, string variable)
+    [YarnCommand("SaveInt")]
+    public static void SaveInt(string name, int variable)
     {
-        int n;
-        float f;
-        // Debug.Log(variable);
-        if (int.TryParse(variable, out n))
-        {
-            PlayerPrefs.SetInt(name, n);
-            // Debug.Log("Saved int " + variable + " to " + name);
-        }
-        else if (float.TryParse(variable, out f))
-        {
-            PlayerPrefs.SetFloat(name, f);
-            // Debug.Log("Saved float " + variable + " to " + name);
-        }
-        else
-        {
-            PlayerPrefs.SetString(name, variable);
-            // Debug.Log("Saved string " + variable + " to " + name);
-        }
+        PlayerPrefs.SetInt(name, variable);
+    }
+
+    [YarnCommand("SaveString")]
+    public static void SaveString(string name, string variable)
+    {
+        PlayerPrefs.SetString(name, variable);
     }
 
     [YarnCommand("Dwayne")]

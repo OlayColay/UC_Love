@@ -314,6 +314,7 @@ Stan: Alright, alright.
     Tommy: Yeah! Let's chuck them in the trash can!
 <<endif>>
 Player: Hey! HEY! Put me down!
+<<Flip Left 0>>
 <<SetActiveChar Left>>
 <<SetSprite Left BearBox/Angry>>
 BearBox: Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
@@ -321,7 +322,8 @@ BearBox: Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
 <<SetSprite Middle Stan/Irritated>>
 <<Shake Middle>>
 Stan: Professor BearBox!
-<<SetActiveChar Middle Stan/Grin>>
+<<SetActiveChar Middle>>
+<<SetSprite Middle Stan/Grin>>
 Stan: Our... friend... here just tripped.
 <<SetSprite Middle Stan/Laughing>>
 <<if $PlayerPronouns == 0>>
@@ -339,10 +341,12 @@ BearBox: In fact, why don't we give him a call right now?
 Tommy: Uh oh...
 Stan: We better get going...
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
-<<Fade false 0>>
+<<Fade false>>
 <<SetBackground Backgrounds/Plaza/plaza_morning>>
 <<SetSprite Middle BearBox/Idle>>
 <<SetActiveChar Middle>>
+<<ClearSprite Left>>
+<<ClearSprite Right>>
 <<Fade true>>
 <<SetSprite Middle BearBox/Angry>>
 <<Shake Middle>>

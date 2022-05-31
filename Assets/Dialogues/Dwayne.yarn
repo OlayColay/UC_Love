@@ -121,7 +121,7 @@ Player: Oh mein gott, it's Dwayne "The Rock" Johnson!
 Dwayne: Hahah! Yes, it is indeed. I have been watching you put in the work and the hours at the gym.
 Dwayne: As a reward for such an impressive feat, I want to give you a portion of my power.
 -> ... Okay?
-    <<SaveVariable Dwayne true>>
+    <<SaveInt Dwayne 1>>
     Dwayne: Alright! What can I say except for you're welcome?
     <<Dwayne>>
 -> No thanks, Dwayne
