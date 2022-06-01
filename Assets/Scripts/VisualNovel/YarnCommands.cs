@@ -62,6 +62,8 @@ public class YarnCommands : MonoBehaviour
             yield return null;
         }
 
+        DOTween.Clear();
+
         SceneManager.UnloadSceneAsync("GymMinigame");
     }
 

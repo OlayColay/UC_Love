@@ -150,11 +150,6 @@ public class GymMinigameController : MonoBehaviour
         if (liftAmount >= liftTarget)
         {
             // Debug.Log("Succeeded at lifting!");
-            weight1.DOFade(0f, 1f);
-            weight2.DOFade(0f, 1f);
-            handle.DOFade(0f, 1f);
-            keyboard.enabled = false;
-
             StartCoroutine(MicrogameWon());
         }
         else
@@ -164,6 +159,10 @@ public class GymMinigameController : MonoBehaviour
             background.DOFade(0f, 1.5f).OnComplete( () => minigameDone = true);
             minigameWon = false;
         }
+        weight1.DOFade(0f, 1f);
+        weight2.DOFade(0f, 1f);
+        handle.DOFade(0f, 1f);
+        keyboard.enabled = false;
 
         yield return new WaitForSecondsRealtime(1f);
     }
@@ -199,13 +198,8 @@ public class GymMinigameController : MonoBehaviour
 
         if (curPunches >= punchTarget)
         {
-            audioSource.PlayOneShot(punchSFX[1]);
-
             // Debug.Log("Succeeded at punching!");
-            gymControls.GymActions.Jab.Disable();
-            gymControls.GymActions.Cross.Disable();
-            
-            punchingBag.DOFade(0f, 1f);
+            audioSource.PlayOneShot(punchSFX[1]);
 
             StartCoroutine("MicrogameWon");
         }
@@ -213,6 +207,11 @@ public class GymMinigameController : MonoBehaviour
         {
             PunchFail();
         }
+
+        gymControls.GymActions.Jab.Disable();
+        gymControls.GymActions.Cross.Disable();
+        
+        punchingBag.DOFade(0f, 1f);
     }
 
     // Punch from the left
@@ -220,7 +219,9 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 0)
         {
+            StopCoroutine("ResetBag");
             punchingBag.sprite = punchingBagSprites[2];
+            StartCoroutine("ResetBag");
 
             LeftClick.SetActive(false);
             curPunches++;
@@ -241,7 +242,9 @@ public class GymMinigameController : MonoBehaviour
     {
         if (punchSide == 1)
         {
+            StopCoroutine("ResetBag");
             punchingBag.sprite = punchingBagSprites[1];
+            StartCoroutine("ResetBag");
 
             RightClick.SetActive(false);
             curPunches++;
@@ -255,6 +258,12 @@ public class GymMinigameController : MonoBehaviour
         {
             PunchFail();
         }
+    }
+
+    IEnumerator ResetBag()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        punchingBag.sprite = punchingBagSprites[0];
     }
 
     void NewPunch()
@@ -278,6 +287,13 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Jab.Disable();
         gymControls.GymActions.Cross.Disable();
 
+        gymControls.GymActions.Jab.Disable();
+        gymControls.GymActions.Cross.Disable();
+        
+        punchingBag.DOFade(0f, 1f);
+
+        LeftClick.SetActive(false);
+        RightClick.SetActive(false);
         // Debug.Log("Failed at punching!");
 
         background.DOFade(0f, 1f).OnComplete( () => minigameDone = true);
@@ -319,16 +335,16 @@ public class GymMinigameController : MonoBehaviour
         if (curPushups >= pushupTarget)
         {
             // Debug.Log("Succeeded at pushups!");
-            gymControls.GymActions.Pushup.Disable();
-            pushupBackground.DOFade(0f, 1f);
-            yield return new WaitForSecondsRealtime(1f);
-
             StartCoroutine(MicrogameWon());
         }
         else
         {
             PushupFail();
         }
+
+        gymControls.GymActions.Pushup.Disable();
+        pushupBackground.DOFade(0f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
     }
 
     void Pushup()
@@ -355,6 +371,9 @@ public class GymMinigameController : MonoBehaviour
         
         pushupSlider.gameObject.SetActive(false);
         pushupArea.gameObject.SetActive(false);
+
+        gymControls.GymActions.Pushup.Disable();
+        pushupBackground.DOFade(0f, 1f);
 
         // Debug.Log("Failed at pushups!");
 
