@@ -452,6 +452,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Kelly/lbcm>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Kelly: I really needed a break from studying...
             Kelly: ...Thank you for taking me out!
@@ -988,6 +989,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Ellie: Thanks for taking me out! The food here is really good!
             <<Fade false>>

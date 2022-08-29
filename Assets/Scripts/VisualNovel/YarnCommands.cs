@@ -153,6 +153,25 @@ public class YarnCommands : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
     }
 
+    [YarnCommand("DateMinigame")]
+    public static IEnumerator DateMinigame()
+    {
+        var sceneLoad = SceneManager.LoadSceneAsync("Dundertale", LoadSceneMode.Additive);
+        while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
+        {
+            yield return null;
+        }
+
+        while (!DundertaleManager.minigameDone)
+        {
+            yield return null;
+        }
+
+        DOTween.Clear();
+
+        SceneManager.UnloadSceneAsync("Dundertale");
+    }
+
     [YarnCommand("LoadScene")]
     public static void LoadScene(string scene)
     {

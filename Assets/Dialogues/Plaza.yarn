@@ -536,6 +536,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Irene: This place is really cool! It rally hits the spot...
             Irene: Thanks for the food bro!
@@ -974,6 +975,7 @@ position: 212,-6
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Riviera/LB>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Riviera: Wow! The food here is top notch!
             Riviera: Thank you for treating me out!
@@ -1504,6 +1506,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Ellie: Thanks for taking me out! The food here is really good!
             <<Fade false>>

@@ -1084,6 +1084,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Santana/LB>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             <<SetSprite Date Santana/bliss>>
             Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
@@ -1585,6 +1586,7 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
+            <<DateMinigame>>
             <<Wait 4>>
             Irene: This place is really cool! It rally hits the spot...
             Irene: Thanks for the food bro!
