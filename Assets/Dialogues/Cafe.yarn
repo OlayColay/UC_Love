@@ -89,6 +89,7 @@ Player: What should I do?
 title: UCBCafe
 position: 216,-14
 ---
+<<set $UCBIntroCafe to LoadInt("UCB_Intro")>>
 <<SetSprite Middle Kelly/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -96,7 +97,10 @@ Player: What should I do?
     <<set $TalkKelly to true>>
     <<AddRelationshipScore Kelly 10>>
     <<set $UCBDialogueCafe = Dice(5)>>
-    <<if GetRelationshipScore("Kelly") < 100>> //Strangers
+    <<if $UCBIntroCafe != 1>>
+        Kelly: INTRO TEXT HERE
+        <<SaveInt "UCB_Intro" 1>>
+    <<elseif GetRelationshipScore("Kelly") < 100>> //Strangers
         <<if $UCBDialogueCafe == 1>>
             Kelly: I'm busy.
         <<elseif $UCBDialogueCafe == 2>>
@@ -889,6 +893,7 @@ position: 207,66
 title: UCICafe
 position: 203,-155
 ---
+<<set $UCIIntroCafe to LoadInt("UCI_Intro")>>
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -896,7 +901,10 @@ Player: What should I do?
     <<set $TalkIrene to true>>
     <<AddRelationshipScore Irene 10>>
     <<set $UCIDialogueCafe = Dice(5)>>
-    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+    <<if $UCIIntroCafe != 1>>
+        Irene: INTRO TEXT HERE
+        <<SaveInt "UCI_Intro" 1>>
+    <<elseif GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCIDialogueCafe == 1>>
             Irene: Ah sorry, I'm running late for raid hour.
         <<elseif $UCIDialogueCafe == 2>>

@@ -102,6 +102,7 @@ Player: Hmm..what should I do?
 title: USCGarden
 position: 139,58
 ---
+<<set $USCIntro to LoadInt("USC_Intro")>>
 <<SetSprite Middle Tommy/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -114,7 +115,10 @@ Player: What should I do?
     //relationship with the character. There are 5 levels of relationships: Strangers, Acquaintances,
     //Friends, Crushing, and Lovers. Normally, these are in increments of 100 (ie Strangers = 0-99)
     //but since USC is "rare" and shows up at night, I decided to lower his standards. 
-    <<if GetRelationshipScore("Tommy") < 80>>
+    <<if $USCIntro != 1>>
+        Tommy: INTRO TEXT HERE
+        <<SaveInt "USC_Intro" 1>>
+    <<elseif GetRelationshipScore("Tommy") < 80>>
         <<SetSprite Middle Tommy/Frown>>
         // Strangers
         <<if $USC_Dialogue == 1>>
@@ -735,7 +739,7 @@ position: 125,-26
 title: UCSBGarden
 position: 126,-113
 ---
-//ADD IN TALK, GIFT, ASK
+<<set $UCSBIntroPlaza to LoadInt("UCSB_Intro")>>
 <<SetSprite Middle Santana/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -745,7 +749,10 @@ Player: What should I do?
     <<SetSprite Middle Santana/Idle>>
     <<SetActiveChar Middle>>
     <<set $UCSB_Dialogue = Dice(5)>>
-    <<if GetRelationshipScore("Santana") < 100>> //Strangers
+    <<if $UCSBIntroGarden != 1>>
+        Santana: INTRO TEXT HERE
+        <<SaveInt "UCSB_Intro" 1>>
+    <<elseif GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSB_Dialogue == 1>>
             Santana: Hello there! Are you here for the garden?
             <<SetSprite Middle Santana/bliss>>
@@ -1131,6 +1138,7 @@ Player: What should I do?
 title: UCIGarden
 position: 128,-182
 ---
+<<set $UCIIntroGarden to LoadInt("UCI_Intro")>>
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -1138,7 +1146,10 @@ Player: What should I do?
     <<set $TalkIrene to true>>
     <<AddRelationshipScore Irene 10>>
     <<set $UCI_Dialogue = Dice(5)>>
-    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+    <<if $UCIIntroGarden != 1>>
+        Irene: INTRO TEXT HERE
+        <<SaveInt "UCI_Intro" 1>>
+    <<elseif GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCI_Dialogue == 1>>
             Irene: Ah sorry, I'm running late for raid hour.
         <<elseif $UCI_Dialogue == 2>>

@@ -100,6 +100,7 @@ Player: What should I do?
 title: UCIPlaza
 position: 211,-126
 ---
+<<set $UCIIntroPlaza to LoadInt("UCI_Intro")>>
 <<SetSprite Middle Irene/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -107,7 +108,10 @@ Player: What should I do?
     <<set $TalkIrene to true>>
     <<AddRelationshipScore Irene 10>>
     <<set $UCIDialoguePlaza = Dice(5)>>
-    <<if GetRelationshipScore("Irene") < 100>> //Strangers
+    <<if $UCIIntroPlaza != 1>>
+        Irene: INTRO TEXT HERE
+        <<SaveInt "UCI_Intro" 1>>
+    <<elseif GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCIDialoguePlaza == 1>>
             Irene: Ah sorry, I'm running late for raid hour.
         <<elseif $UCIDialoguePlaza == 2>>
@@ -1022,6 +1026,7 @@ position: 212,-6
 title: UCLAPlaza
 position: 219,98
 ---
+<<set $UCLAIntroPlaza to LoadInt("UCLA_Intro")>>
 <<SetSprite Middle Ellie/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -1029,7 +1034,10 @@ Player: What should I do?
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Plaza = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
-    <<if GetRelationshipScore("Ellie") < 100>> //Strangers
+    <<if $UCLAIntroPlaza != 1>>
+        Ellie: INTRO TEXT HERE
+        <<SaveInt "UCLA_Intro" 1>>
+    <<elseif GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue_Plaza == 1>>
             Ellie: Hey! Are you new on campus?
             -> Yes! I just started here.

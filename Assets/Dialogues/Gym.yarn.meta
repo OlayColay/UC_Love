@@ -11,10 +11,4 @@ ScriptedImporter:
   LastImportHadImplicitStringIDs: 1
   LastImportHadAnyStrings: 1
   isSuccessfullyParsed: 1
-  parseErrorMessages:
-  - '1418:33: Error: All terms of != must be the same, not Number, String
-
-    $Dwayne
-    != "true"
-
-'
+  parseErrorMessages: []

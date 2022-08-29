@@ -536,6 +536,7 @@ position: 241,-105
 title: UCLAGym
 position: 242,-21
 ---
+<<set $UCLAIntroGym to LoadInt("UCLA_Intro")>>
 <<SetSprite Middle Ellie/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -544,7 +545,10 @@ Player: What should I do?
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Gym = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
-    <<if GetRelationshipScore("Ellie") < 100>> //Strangers
+    <<if $UCLAIntroGym != 1>>
+        Ellie: INTRO TEXT HERE
+        <<SaveInt "UCLA_Intro" 1>>
+    <<elseif GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue_Gym == 1>>
             Ellie: Hey! Are you new on campus?
             -> Yes! I just started here.
@@ -1062,7 +1066,7 @@ Player: What should I do?
 title: UCSBGym
 position: 242,62
 ---
-//ADD IN TALK, GIFT, ASK
+<<set $UCSBIntroGym to LoadInt("UCSB_Intro")>>
 <<SetSprite Middle Santana/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -1072,7 +1076,10 @@ Player: What should I do?
     <<SetSprite Middle Santana/Idle>>
     <<SetActiveChar Middle>>
     <<set $UCSBDialogueGym = Dice(5)>>
-    <<if GetRelationshipScore("Santana") < 100>> //Strangers
+    <<if $UCSBIntroGym != 1>>
+        Santana: INTRO TEXT HERE
+        <<SaveInt "UCSB_Intro" 1>>
+    <<elseif GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSBDialogueGym == 1>>
             Santana: Hello there! Have you visited the garden yet?
             <<SetSprite Middle Santana/bliss>>

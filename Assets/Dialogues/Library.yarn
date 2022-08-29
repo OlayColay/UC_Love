@@ -104,6 +104,7 @@ Player: What should I do?
 title: UCBLibrary
 position: 194,-58
 ---
+<<set $UCBIntroLibrary to LoadInt("UCB_Intro")>>
 <<SetSprite Middle Kelly/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -111,7 +112,10 @@ Player: What should I do?
     <<set $TalkKelly to true>>
     <<AddRelationshipScore Kelly 10>>
     <<set $UCB_Dialogue = Dice(5)>>
-    <<if GetRelationshipScore("Kelly") < 100>> //Strangers
+    <<if $UCBIntroLibrary != 1>>
+        Kelly: INTRO TEXT HERE
+        <<SaveInt "UCB_Intro" 1>>
+    <<elseif GetRelationshipScore("Kelly") < 100>> //Strangers
         <<if $UCB_Dialogue == 1>>
             Kelly: I'm busy.
         <<elseif $UCB_Dialogue == 2>>
@@ -505,6 +509,7 @@ Player: What should I do?
 title: UCLALibrary
 position: 194,65
 ---
+<<set $UCLAIntroLibrary to LoadInt("UCLA_Intro")>>
 <<SetSprite Middle Ellie/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?
@@ -513,7 +518,10 @@ Player: What should I do?
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Library = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
-    <<if GetRelationshipScore("Ellie") < 100>> //Strangers
+    <<if $UCLAIntroLibrary != 1>>
+        Ellie: INTRO TEXT HERE
+        <<SaveInt "UCLA_Intro" 1>>
+    <<elseif GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue_Library == 1>>
             Ellie: Hey! Are you new on campus?
             -> Yes! I just started here.
