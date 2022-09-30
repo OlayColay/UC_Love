@@ -1,0 +1,82 @@
+﻿title: FootballField
+tags: 
+---
+//Interaction Settings
+//Stan 
+<<set $TalkStan to false>>
+<<set $GiftStan to false>>
+<<set $AskStan to false>>
+
+//Background Settings
+<<set $TimeOfDayField to GetTimeOfDay()>>
+<<if $TimeOfDayField == 0>>
+    <<SetBackground Backgrounds/Field/Morning>>
+    //Sets background as Field Morning if it is Daytime
+<<elseif $TimeOfDayField == 1>>
+    <<SetBackground Backgrounds/Field/Noon>>
+    //Sets background as Field Afternoon if it is Afternoon
+<<else>>
+    <<SetBackground Backgrounds/Field/Night>>
+    //Sets background as Field Night if it Evening
+<<endif>>
+<<Fade true>>
+
+//Flavor Text
+<<set $FlavorTextField = Dice(5)>>
+<<if $TimeOfDayField == 0>>
+    <<if $FlavorTextField == 1>>
+        Player: The air is pretty crisp and cool this morning.
+        Player: Today's weather is great for a stroll. 
+    <<elseif $FlavorTextField == 2>>
+        Player: The smell of morning dew on the freshly mowed grass is always so refreshing. 
+    <<elseif $FlavorTextField == 3>>
+        Player: It sure is nice and quiet here...
+        Player: I wonder if there's anybody else here besides me.
+    <<elseif $FlavorTextField == 4>>
+        Player: They only let really good athletes onto here... I got pretty lucky it seems!
+    <<else>>
+        Player: There's a few athletes on the field this morning working out.
+        Player: They seem really focused on their sport. 
+    <<endif>>
+<<elseif $TimeOfDayField == 1>>
+    <<if $FlavorTextField == 1>>
+        Player: The field is a little more crowded now that it's noon.
+        Player: There's a few groups here playing intramural sports.
+    <<elseif $FlavorTextField == 2>>
+        Player: Looks like they're preparing the field for an upcoming game. 
+        Player: It's always fun to watch the energy of the players. 
+    <<elseif $FlavorTextField == 3>>
+        Player: WOAH! That ball almost hit my head. 
+        Player: I better watch where I'm walking around here. 
+    <<elseif $FlavorTextField == 4>>
+        Player: The field is so expansive... I wonder how players are able to run across it so quickly. 
+    <<else>>
+        Player: All the grass here is making my allergies go haywire! 
+    <<endif>>
+<<else>>
+    <<if $FlavorTextField == 1>>
+        Player: The field is mostly empty at this hour except for the football team. 
+        Player: It's kind of hypnotizing watching them practice. 
+    <<elseif $FlavorTextField == 2>>
+        Player: Sometimes I want to sit here and just meditate...
+        Player: With how wet the ground is though, I'm worried it'll look like I peed my pants. 
+    <<elseif $FlavorTextField == 3>>
+        Player: It's a little chilly, but I guess it's good weather for if you're practicing a sport. 
+        Player: The athletes practicing here are really working up a sweat. 
+    <<elseif $FlavorTextField == 4>>
+        Player: The athletes' uniforms really highlight their physiques. 
+        Player: I wonder how much they have to work out to get to that stage.
+    <<else>>
+        Player: Looks like a game is about to start. The stands are packed!
+    <<endif>>
+<<endif>>
+Player: Hmm..what should I do?
+-> Meet someone
+    <<if $TimeOfDayField == 0 || $TimeOfDayField == 1>>
+        <<jump UCSBField>>
+    <<else>>
+        <<jump UCIField>>
+    <<endif>>
+-> Leave
+    <<LoadScene MapScene>>
+===
