@@ -19,6 +19,7 @@ public class Item
         scores.Add("Riviera", RScore);
         scores.Add("Irene", IScore);
         scores.Add("Tommy", USCScore);
+        scores.Add("Stan", -10);
 
         this.spritePath = spritePath;
         sprite = Resources.Load<Sprite>(spritePath);

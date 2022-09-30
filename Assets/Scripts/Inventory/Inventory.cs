@@ -9,7 +9,7 @@ public static class Inventory
     public static List<Item> keyItemList = new List<Item>();
     public static InventoryScreen inventoryScreen;
 
-    public static readonly string[] names = { "Kelly", "Ellie", "Santana", "Riviera", "Irene", "Tommy" };
+    public static readonly string[] names = { "Kelly", "Ellie", "Santana", "Riviera", "Irene", "Tommy", "Stan" };
     public static Dictionary<string, int> relationshipScores = new Dictionary<string, int>();
     private static int day = 1;
     private static int time = 0;    // 0 for morning, 1 for afternoon, 2 for night

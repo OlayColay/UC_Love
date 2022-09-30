@@ -13,7 +13,13 @@ tags:
 ---
 <<CleanSave>>
 <<SaveString "MainSave" "">>
+<<SaveInt "UCLA_Intro" 0>>
+<<SaveInt "UCB_Intro" 0>>
+<<SaveInt "UCI_Intro" 0>>
 <<SaveInt "UCR_Intro" 0>>
+<<SaveInt "UCSB_Intro" 0>>
+<<SaveInt "USC_Intro" 0>>
+<<SaveInt "Stan_Intro" 0>>
 <<SaveInt "BobamonGo" 0>>
 <<SaveString "Diary" "false">>
 <<SaveString "Cookbook" "false">>
