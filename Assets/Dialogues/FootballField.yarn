@@ -1,0 +1,76 @@
+﻿title: FootballField
+tags: 
+---
+//Interaction Settings
+//Stan 
+<<set $TalkStan to false>>
+<<set $GiftStan to false>>
+<<set $AskStan to false>>
+
+//Background Settings
+<<set $TimeOfDayField to GetTimeOfDay()>>
+<<if $TimeOfDayField == 0>>
+    <<SetBackground Backgrounds/Field/Morning>>
+    //Sets background as Field Morning if it is Daytime
+<<elseif $TimeOfDayField == 1>>
+    <<SetBackground Backgrounds/Field/Noon>>
+    //Sets background as Field Afternoon if it is Afternoon
+<<else>>
+    <<SetBackground Backgrounds/Field/Night>>
+    //Sets background as Field Night if it Evening
+<<endif>>
+<<Fade true>>
+
+//Flavor Text
+<<set $FlavorTextField = Dice(5)>>
+<<if $TimeOfDayField == 0>>
+    <<if $FlavorTextField == 1>>
+        Player: The air is pretty crisp and cool this morning.
+        Player: Today's weather is great for a stroll. 
+    <<elseif $FlavorTextField == 2>>
+        Player: The smell of morning dew on the freshly mowed grass is always so refreshing. 
+    <<elseif $FlavorTextField == 3>>
+        Player: It sure is nice and quiet here...
+        Player: I wonder if there's anybody else here besides me.
+    <<elseif $FlavorTextField == 4>>
+        Player: Sometimes I want to sit here and just meditate...
+        Player: With how wet the ground is though, I'm worried it'll look like I peed my pants. 
+    <<else>>
+        Player: There's a few athletes on the field this morning working out.
+        Player: They seem really focused on their sport. 
+    <<endif>>
+<<elseif $TimeOfDayField == 1>>
+    <<if $FlavorTextField == 1>>
+        Player: The field is a little more crowded now that it's noon.
+        Player: There's a few groups here playing intramural sports.
+    <<elseif $FlavorTextField == 2>>
+        Player: Looks like they're preparing the field for an upcoming game. 
+        Player: I don't know much about sports, but it's always fun to watch the energy of the players. 
+    <<elseif $FlavorTextField == 3>>
+        Player: 
+    <<elseif $FlavorTextField == 4>>
+        Player: I didn't think that a garden in a university would be this pretty.
+        Player: Are my expectations just low? 
+    <<else>>
+        Player: Wow...the flowers are blooming by the curb! 
+        Player: ...Am I getting too old? 
+    <<endif>>
+<<else>>
+    <<if $FlavorTextField == 1>>
+        Player: It's quite chilly tonight!
+        Player: Maybe I should have brought a jacket...
+    <<elseif $FlavorTextField == 2>>
+        Player: The silence at night may seem creepy to some, but it's not too bad.
+        Player: I wonder if I'm the only one who thinks this way, though.
+    <<elseif $FlavorTextField == 3>>
+        Player: I love how this garden is available even at this time!
+        Player: Vibing with nature is great!
+    <<elseif $FlavorTextField == 4>>
+        Player: Wonder how much it takes to maintain this place...
+        Player: It sure is clean without any litter!
+    <<else>>
+        Player: It almost seems magical to come here in the dark.
+        Player: No one's really comes out here at this time, after all.
+    <<endif>>
+<<endif>>
+===
