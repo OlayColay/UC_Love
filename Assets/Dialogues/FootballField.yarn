@@ -459,10 +459,11 @@ Player: What should I do?
             <<SetSprite Middle Stan/Idle>>
             <<jump StanLibrary>>
         <<else>>
-            <<SetSprite Middle Stan/Angry>>
-            Stan: No, I have a test to study for.
-            <<SetSprite Middle Stan/Idle>>
-            <<jump StanLibrary>>
+            <<SetSprite Middle Stan/Question>>
+            Stan: You? Me? A date together? 
+            Stan: That's hilarious. 
+            <<SetSprite Middle Stan/Laughing>>
+            <<jump Stan>>
         <<endif>>
     -> Ask to the dance
         <<set $AskStan = true>>
@@ -473,7 +474,14 @@ Player: What should I do?
             <<set $DancePartner = 0>>
             <<jump Dance>>
         <<else>>
-            Stan: I have a project I have to work on...
+            <<SetSprite Middle Stan/Question>>
+            Stan: You? Me? That dinky old dance?
+            <<SetSprite Middle Stan/Pitiful>>
+            Stan: I respect your little attempt to swindle me into your little fundraiser project, but I'd never be caught dead stepping foot into there. 
+            Stan: With YOU nonetheless!
+            <<SetSprite Middle Stan/Laughing>>
+            Stan: That's the most hilarious thing anyone has said to me this century!
+            <<SetSprite Middle Stan/Passive>>
             <<AddRelationshipScore Stan -20>>
             <<jump Stan>>
         <<endif>>
