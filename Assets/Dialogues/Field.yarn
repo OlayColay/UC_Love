@@ -81,7 +81,7 @@ title: Stan
 position: 153,-9
 ---
 <<set $StanIntro to LoadInt("Stan_Intro")>>
-<<SetSprite Middle Stan/Idle>>
+<<SetSprite Middle Stan/Smiling>>
 <<SetActiveChar Middle>>
 Player: What should I do?
 -> Talk to Stan <<if $TalkStan == false>>
@@ -212,7 +212,7 @@ Player: What should I do?
     <<if $GiftScoreStan == -10>>
         <<SetSprite Middle Stan/Angry>>
         Stan: Is this a joke?
-        <<SetSprite Middle Stan/Idle>>
+        <<SetSprite Middle Stan/Passive>>
     <<else>>
         // Not their key item gift
         Stan: Oh! This looks important, but it's not mine...
@@ -270,7 +270,7 @@ Player: What should I do?
             <<SetActiveChar Middle>>
             <<Fade true>>
             Stan: I usually eat junk food or instant noodles... so thank you for the pasta!
-            <<SetSprite Middle Stan/Idle>>
+            <<SetSprite Middle Stan/Passive>>
             <<jump Stan>>
         <<else>>
             <<SetSprite Middle Stan/Question>>
