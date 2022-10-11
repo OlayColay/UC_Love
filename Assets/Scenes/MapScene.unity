@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &41623889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41623890}
+  m_Layer: 8
+  m_Name: cameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &41623890
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41623889}
+  m_LocalRotation: {x: -0, y: -0, z: 0.26801133, w: 0.9634158}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1139543103}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6.02, y: -4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &62550277
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &178086660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &590896355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &698321931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +2927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &936234044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,6 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &944588694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +4092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &1139543102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,6 +4126,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2143075046}
+  - {fileID: 41623890}
   m_Father: {fileID: 382440869}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4589,6 +4632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &1268990573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,6 +7522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2980116cf310a8a4181555e3f2682c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 41623889}
 --- !u!114 &2143075048
 MonoBehaviour:
   m_ObjectHideFlags: 0

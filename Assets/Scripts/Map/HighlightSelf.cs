@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class HighlightSelf : MonoBehaviour, IPointerEnterHandler
 {
+    public GameObject externalCameraTarget;
+
     CameraControl cameraControl;
     DisplayLocation display;
 
@@ -17,7 +19,7 @@ public class HighlightSelf : MonoBehaviour, IPointerEnterHandler
     // When highlighted with mouse.
     public void OnPointerEnter(PointerEventData eventData)
     {
-        cameraControl.PanCamera(gameObject);
+        cameraControl.PanCamera(externalCameraTarget != null ? externalCameraTarget : gameObject);
         display.Display(transform.parent.name);
     }
 }
