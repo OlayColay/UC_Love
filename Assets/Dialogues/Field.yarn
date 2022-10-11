@@ -88,7 +88,7 @@ Player: What should I do?
     <<set $TalkStan to true>>
     <<AddRelationshipScore Stan 10>>
     <<set $Stan_Dialogue = Dice(5)>>
-    <<if $StanIntroField != 1>>
+    <<if $StanIntro != 1>>
         <<SetSprite Middle Stan/Pitiful>>
         Stan: Well if it isn't my favorite UC Loser... Did you come here looking for my attention?
         Stan: I'm surprised they allowed you onto this field. Usually it's reserved for the best athletes. 
