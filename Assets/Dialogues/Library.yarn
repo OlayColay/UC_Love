@@ -1,5 +1,6 @@
 ﻿title: Library
 tags:
+position: -61,-4
 ---
 //Interaction Settings
 //Kelly 
@@ -98,11 +99,14 @@ Player: What should I do?
     <<else>>
         <<jump UCLALibrary>>
     <<endif>>
+-> Work as a Librarian
+    <<Fade true>>
+    <<jump LibraryWork>>
 -> Leave  
     <<LoadScene MapScene>>
 ===
 title: UCBLibrary
-position: 194,-58
+position: 213,-56
 ---
 <<set $UCBIntroLibrary to LoadInt("UCB_Intro")>>
 <<SetSprite Middle Kelly/Idle>>
@@ -508,7 +512,7 @@ Player: What should I do?
     <<LoadScene MapScene>>
 ===
 title: UCLALibrary
-position: 194,65
+position: 223,92
 ---
 <<set $UCLAIntroLibrary to LoadInt("UCLA_Intro")>>
 <<SetSprite Middle Ellie/Idle>>
@@ -1043,6 +1047,31 @@ Player: What should I do?
         <<endif>>
     -> Cancel
         <<jump UCLALibrary>>
+->Leave
+    <<UpdateTimeOfDay>>
+    <<LoadScene MapScene>>
+===
+title: LibraryWork
+position: 195,20
+---
+<<set $LibraryWorkDialogue = Dice(5)>>
+<<if $LibraryWorkDialogue == 1>>
+    Player: Whew! I just earned $100 for shelving books.
+    Player: Better not spend it all on boba!
+<<elseif $LibraryWorkDialogue == 2>>
+    Player: That was chill, but maybe I should try other jobs on campus!
+    Player: They might be a little harder, but I think they pay more.
+<<elseif $LibraryWorkDialogue == 3>>
+    Player: Whew! What a tiring shift! 
+    Player: I think I saw a cat walking around but maybe I'm just tired. 
+<<elseif $LibraryWorkDialogue == 4>>
+    Player: This job doesn't pay too well, but it's pretty chill. 
+    Player: It's kind of fun to shush people for a living!
+<<else>>
+    Player: I noticed some cute girls studying here while shelving books. 
+    Player: Maybe I should talk to them sometime!
+<<endif>>
+<<AddMoney 100>>
 ->Leave
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>

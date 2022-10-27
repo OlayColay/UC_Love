@@ -122,7 +122,7 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 100 && GetRelationshipScore("Stan") < 200>> //Acquaintances
         <<if $Stan_Dialogue == 1>>
-            Stan: 
+            Stan:
         <<elseif $Stan_Dialogue == 2>>
             Stan: 
         <<elseif $Stan_Dialogue == 3>>
@@ -160,12 +160,31 @@ Player: What should I do?
                 Stan: Fine then! 
                 <<SetSprite Middle Stan/Pitiful>>
                 Stan: Keep throwing the ball like that and you'll throw the game too.
-                Stan: Your loss not mine. 
+                Stan: Your loss not mine. Tch. 
                 <<SetSprite Middle Stan/Passive>>
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
+            <<SetSprite Middle Stan/Smiling>>
+            Stan: I get that you're probably here to practice, but why are you coming here so often?
+            <<SetSprite Middle Stan/Grin>>
+            Stan: Are you trying to get me to fall in love with you or something? 
+            -> Yes
+                <<SetSprite Middle Stan/Question>>
+                <<Shake Middle>>
+                Stan: Oh...
+                Stan: 
+            -> No
+                Stan: 
         <<elseif $Stan_Dialogue == 3>>
-            Stan: 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: It's really important to train both your body and your mind. 
+            Stan: I spend a lot of time practicing on the field, but I also hit the books just as hard. 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Have you heard of my dad, Harvey Ford? He's the head of Ford Realty. He owns like half of the houses in California. 
+            <<SetSprite Middle Stan/Sweating>>
+            Stan: I hope to take over the family business one day, but it's going to take a lot to impress my old man enough to trust me with even a sliver of it. 
+            -> You'll get there someday!
+                Stan: Easy for you to say, you haven't even met my dad. 
+                Stan: He's smart and I respect his work ethic a lot, but 
         <<elseif $Stan_Dialogue == 4>> 
         <<else>> 
             Stan: 
@@ -275,7 +294,7 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Stan/Question>>
             Stan: You? Me? A date together? 
-            Stan: That's hilarious. 
+            Stan: That's hilarious. Why the hell would I ever do that? 
             <<SetSprite Middle Stan/Laughing>>
             <<jump Stan>>
         <<endif>>
