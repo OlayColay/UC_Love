@@ -486,7 +486,7 @@ position: 207,66
     <<set $TalkRiviera to true>>
     <<AddRelationshipScore Riviera 10>>
     <<if $UCRIntroC != 1>>
-        Riviera: Oh hey! I'm starting a marketing technology startup.
+        Riviera: Oh hey! My name is Riviera! I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
         Riviera: I'd really appreciate it if you checked it out!
         <<SaveInt "UCR_Intro" 1>>
@@ -909,7 +909,22 @@ Player: What should I do?
     <<AddRelationshipScore Irene 10>>
     <<set $UCIDialogueCafe = Dice(5)>>
     <<if $UCIIntroCafe != 1>>
-        Irene: INTRO TEXT HERE
+        <<SetSprite Middle Irene/Idle>>
+        Irene: ... need... caffeine...
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: Wait... you there... the way you're standing...
+        <<SetSprite Middle Irene/Excited>>
+        Irene: The way you're holding your backpack...
+        <<Shake Middle>>
+        Irene: IS THAT A BOBO'S REFERENCE? 
+        Irene: YOOOOOOOO!!! I love Bobo's Very Normal Adventures!! 
+        Irene: Wait you weren't making a Bobo's reference? You were just standing normally?
+        <<SetSprite Middle Irene/Awkward>>
+        Irene: Whoops, that's a little cringe of me to assume you were making a reference. Sorry about that pogchamp. 
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: My name's Irene! I really love anime and gaming, so if you want to nerd out together, I think we'd be great friends! 
+        Irene: See you around campus, gamer! 
+        <<SetSprite Middle Irene/Idle>>
         <<SaveInt "UCI_Intro" 1>>
     <<elseif GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCIDialogueCafe == 1>>
@@ -1176,7 +1191,7 @@ Player: What should I do?
             <<SetSprite Middle Irene/IdleHB>>
             Irene: I don't mind it though... I like having you around...
         <<else>> 
-            Irene: I've been watching this anime called BoBoo's Bizzare Adventures and I think that it's really funny!
+            Irene: I've been watching this anime called BoBo's Very Average Adventures and I think that it's really funny!
             Irene: Each part is really unique from the others and they're all amazing in their own ways!
             Irene: There's this really epic battle scene where the main character has to use both brains and brawn in order to fight the villain.
             Irene: He gets cornered and almost dies multiple times but the ways that he figures out a last minute solution are so creative and crazy!

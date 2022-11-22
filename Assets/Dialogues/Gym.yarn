@@ -111,7 +111,7 @@ position: 241,-105
     <<set $TalkRiviera to true>>
     <<AddRelationshipScore Riviera 10>>
     <<if $UCRIntroGym != 1>>
-        Riviera: Oh hey! I'm starting a marketing technology startup.
+        Riviera: Oh hey! My name is Riviera! I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
         Riviera: I'd really appreciate it if you checked it out!
         <<SaveInt "UCR_Intro" 1>>
