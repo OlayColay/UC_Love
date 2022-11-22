@@ -98,7 +98,13 @@ Player: What should I do?
     <<AddRelationshipScore Kelly 10>>
     <<set $UCBDialogueCafe = Dice(5)>>
     <<if $UCBIntroCafe != 1>>
-        Kelly: INTRO TEXT HERE
+        <<SetSprite Middle Kelly/Angry>>
+        Kelly: Ugh... a new student...
+        <<SetSprite Middle Kelly/Idle>>
+        Kelly: Hi. I'm Kelly. Fourth year computer science and political science major. Don't ask me why. 
+        Kelly: For the last time, no, this isn't where the new student orientation is. Those are held in the plaza. 
+        Kelly: Yes, they sell coffee on campus and no, I don't know where my sister is. 
+        Kelly: If you'll excuse me, nothing personal, but I have a lot of important tests to study for. 
         <<SaveInt "UCB_Intro" 1>>
     <<elseif GetRelationshipScore("Kelly") < 100>> //Strangers
         <<if $UCBDialogueCafe == 1>>

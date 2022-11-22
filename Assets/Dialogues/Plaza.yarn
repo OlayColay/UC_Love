@@ -1037,13 +1037,23 @@ Player: What should I do?
     <<set $UCLA_Dialogue_Plaza = Dice(5)>>
     <<AddRelationshipScore Ellie 10>>
     <<if $UCLAIntroPlaza != 1>>
-        Ellie: INTRO TEXT HERE
+        <<SetSprite Middle Ellie/Idle>>
+        Ellie: Hey there! You're new here right? Welcome to UCL! 
+        <<SetSprite Middle Ellie/Angry>>
+        Ellie: I know that your first few days at a new school can be a little scary. It's taking a bit of time for everyone to adjust to the consolidation of the UCs. 
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: You're definitely not alone though! 
+        <<SetSprite Middle Ellie/Angry>>
+        Ellie: My sister Kelly was absolutely inconsolable when she heard UC Berkeley would also be integrated into the UC consolidation. 
+        <<SetSprite Middle Ellie/smc>>
+        Ellie: I'm pretty busy between all my clubs and organizations, but feel free to come chat with me on campus if you ever need anything! 
+        <<SetSprite Middle Ellie/Idle>>
         <<SaveInt "UCLA_Intro" 1>>
     <<elseif GetRelationshipScore("Ellie") < 100>> //Strangers
         <<if $UCLA_Dialogue_Plaza == 1>>
             Ellie: Hey! Are you new on campus?
             -> Yes! I just started here.
-                Ellie: Oh! Welcome to UC Love! You'll love it here I promise!
+                Ellie: Oh! Welcome to UCL! You'll love it here I promise!
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
                 <<SetSprite Middle Ellie/Idle>>
@@ -1062,7 +1072,7 @@ Player: What should I do?
         <<elseif $UCLA_Dialogue_Plaza== 3>>
             Ellie: Hey! Sorry, I'm running late for the cooking club meeting!
         <<elseif $UCLA_Dialogue_Plaza== 4>> 
-            Ellie: Oh hey! You're new around here right?
+            Ellie: Oh hey! Have you joined any clubs yet? 
             Ellie: Are you pre-med or pre-health? You should join the Fitness Club here!
             <<SetSprite Middle Ellie/smc>>
             Ellie: We usually meet in the gym during the afternoon if you're interested! 
