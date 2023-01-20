@@ -95,7 +95,7 @@ Player: What should I do?
         <<SetSprite Middle Stan/Laughing>>
         Stan: You could barely put up a half-decent fight back at the plaza. 
         <<SetSprite Middle Stan/Passive>>
-        Stan: Still... I have to give you some credit for getting onto here. Coach is super diligent about who he lets onto this field.
+        Stan: Still... I have to give you some credit for getting onto here. Coach is super picky about who he lets onto this field.
         <<SetSprite Middle Stan/Giggle>>
         Stan: Not even Tommy levels of money could bribe him into letting you onto the field.
         <<SetSprite Middle Stan/Grin>>
@@ -110,11 +110,22 @@ Player: What should I do?
         <<SaveInt "Stan_Intro" 1>>
     <<elseif GetRelationshipScore("Stan") < 100>> //Strangers
         <<if $Stan_Dialogue == 1>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Why are you following me around like a stray puppy? 
+            <<SetSprite Middle Stan/Pitiful>>
+            Stan: Get lost. 
+            <<SetSprite Middle Stan/Passive>>
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
+            Stan: If you keep standing in the middle of the field, you're going to get hit by a ball. 
         <<elseif $Stan_Dialogue == 3>>
-            Stan: 
+            Stan: Oh you're working out? Do you need a spotter?
+            -> Yes
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: Sounds like your problem, not mine.
+                <<SetSprite Middle Stan/Smiling>>
+            -> No
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: With arms like those? I think you should reconsider.
         <<elseif $Stan_Dialogue == 4>> 
             Stan: 
         <<else>> 
@@ -122,7 +133,7 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 100 && GetRelationshipScore("Stan") < 200>> //Acquaintances
         <<if $Stan_Dialogue == 1>>
-            Stan:
+            Stan: 
         <<elseif $Stan_Dialogue == 2>>
             Stan: 
         <<elseif $Stan_Dialogue == 3>>
@@ -171,9 +182,34 @@ Player: What should I do?
                 <<SetSprite Middle Stan/Question>>
                 <<Shake Middle>>
                 Stan: Oh...
-                Stan: 
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: You're joking right? 
+                <<SetSprite Middle Stan/Question>>
+                Stan: Unless...?
+                -> I'm not joking
+                    <<AddRelationshipScore Stan 10>>
+                    <<Shake Middle>>
+                    Stan: Huh? 
+                    <<SetSprite Middle Stan/Pitiful>>
+                    Stan: Err... I mean I get that I'm really hot and tall and strong or whatever...
+                    <<SetSprite Middle Stan/Laughing>>
+                    Stan: But genuinely what the hell is wrong with you? 
+                    Stan: I haven't been anything except mean to you and you're in love with me?
+                    <<SetSprite Middle Stan/Grin>>
+                    Stan: You're more messed up than I thought. I guess we're kind of similar in that regard.
+                    Stan: In all seriousness, we're in a field; go touch grass. 
+                -> Haha just kidding! 
+                    <<AddRelationshipScore Stan 10>>
+                    <<SetSprite Middle Stan/Smiling>>
+                    Stan: Heh. You're pretty fun to banter with.
             -> No
-                Stan: 
+                <<SetSprite Middle Stan/Smiling>>
+                Stan: Oh really? 
+                <<SetSprite Middle Stan/Grin>>
+                Stan: You know, I am one of the most popular football players amongst the students here...
+                Stan: I guess people have a weak spot for the emotionally unavailable bad boy. 
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: Maybe it won't be much longer before you fall for my charm.
         <<elseif $Stan_Dialogue == 3>>
             <<SetSprite Middle Stan/Grin>>
             Stan: It's really important to train both your body and your mind. 
@@ -184,10 +220,32 @@ Player: What should I do?
             Stan: I hope to take over the family business one day, but it's going to take a lot to impress my old man enough to trust me with even a sliver of it. 
             -> You'll get there someday!
                 Stan: Easy for you to say, you haven't even met my dad. 
-                Stan: He's smart and I respect his work ethic a lot, but 
+                <<SetSprite Middle Stan/Question>>
+                Stan: He's smart and I respect his work ethic a lot, but...
+                Stan: He can definitely be tough...
+                <<SetSprite Middle Stan/Passive>>
+                Stan: I get that you're trying to make me feel better, but it's more important to me that people are honest rather than kind.
+                Stan: You don't find many honest people these days...
+            -> Fat chance! 
+                <<SetSprite Middle Stan/Laughing>>
+                Stan: You're funny! I like you.
+                <<SetSprite Middle Stan/Grin>>
+                Stan: Let's see who makes more money after graduation. 
+                <<SetSprite Middle Stan/Unhinged2>>
+                Stan: Loser cleans the winner's house for a week or something. 
         <<elseif $Stan_Dialogue == 4>> 
         <<else>> 
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: I'm not sure why you're still hanging around me... 
+            Stan: Haven't I been kind of awful to you? 
+            Stan: I can't be fun to hang around...
+            Stan: Why are you still here? Don't I scare you? 
+            -> AH!
+                Stan: Hahaha... good to know I'm not going soft.
+            -> You don't scare me!
+                Stan: I'm not going soft by hanging around you am I? 
+                Stan: Don't answer that. 
+                Stan: I'm going to go do a hundred pushups. 
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>> //Crushing
         <<if $Stan_Dialogue == 1>>
@@ -215,7 +273,14 @@ Player: What should I do?
         <<elseif $Stan_Dialogue == 4>> 
             Stan: 
         <<else>> 
-            Stan: 
+            Stan: I heard your school is hosting a school dance sometime soon. 
+            Stan: I had my doubts about how fun it could be, but I was looking on social media and they're putting a lot of effort into this. 
+            Stan: The catering company they're hiring is really good and there's going to be a boba bar too. 
+            Stan: I think the dance committee is still debating on whether or not to buy a bouncy castle. 
+            Stan: I'm not sure why they're putting so much money into the dance when your school looks like...that... but it seems fun. 
+            Stan: I'd... 
+            <<SetSprite >>
+            Stan: I'd like to go to the dance with you. 
         <<endif>>  
     <<endif>>
     <<jump Stan>>
@@ -234,7 +299,7 @@ Player: What should I do?
         <<SetSprite Middle Stan/Passive>>
     <<else>>
         // Not their key item gift
-        Stan: Oh! This looks important, but it's not mine...
+        Stan: I think that belongs to someone else... 
         <<if $GiftScoreK == 0>> // Ellie's
             <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
         <<elseif $GiftScoreK == 1>> // Stan's
@@ -269,12 +334,14 @@ Player: What should I do?
             <<SetActiveChar Date>>
             <<SetBackground Backgrounds/Date>>
             <<SetSprite Bottom Backgrounds/Table>>
-            <<SetSprite Date Stan/lbcm>>
+            <<SetSprite Date Stan/Smiling>>
             <<Fade true>>
             <<DateMinigame>>
             <<Wait 4>>
-            Stan: I really needed a break from studying...
-            Stan: ...Thank you for taking me out!
+            <<SetSprite Middle Stan/Smiling>>
+            Stan: I usually don't go to restaurants like these. My family always eats at the same famous restaurants. 
+            <<SetSprite Middle Stan/Giggle>>
+            Stan: The restaurant interior isn't the most impressive, but the food is really good! 
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -285,11 +352,14 @@ Player: What should I do?
             <<else>>
                     <<SetBackground Backgrounds/Field/Night>>
             <<endif>>
-            <<SetSprite Middle Stan/lbcm>>
+            <<SetSprite Middle Stan/Smiling>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            Stan: I usually eat junk food or instant noodles... so thank you for the pasta!
-            <<SetSprite Middle Stan/Passive>>
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: It's nice to try something different and local. 
+            <<SetSprite Middle Stan/GrinBlush>>
+            Stan: I really enjoyed this date. Thank you. 
+            <<SetSprite Middle Stan/Smiling>>
             <<jump Stan>>
         <<else>>
             <<SetSprite Middle Stan/Question>>

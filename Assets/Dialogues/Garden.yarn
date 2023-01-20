@@ -116,7 +116,16 @@ Player: What should I do?
     //Friends, Crushing, and Lovers. Normally, these are in increments of 100 (ie Strangers = 0-99)
     //but since USC is "rare" and shows up at night, I decided to lower his standards. 
     <<if $USCIntro != 1>>
-        Tommy: INTRO TEXT HERE
+        Tommy: Wait... you seem familiar...
+        Tommy: Oh! You're that one UCL kid! The one Stan and I almost dunked in the trash can! 
+        Tommy: What are you doing in the garden? This is USC's territory! 
+        -> What are you talking about? This is UCL's garden!
+            Tommy: No it's not! It's USC's! Can you even read? Look at the sign!
+            Tommy: ...
+            Tommy: ... Uhhhh... huh...
+            Tommy: Ok I guess this is UCL's garden... I drove here using my Tesla's GPS... 
+            Tommy: Uhh... yeah! It listed this garden as USC's garden!
+            Tommy: I guess it's time to upgrade to the new model.
         <<SaveInt "USC_Intro" 1>>
     <<elseif GetRelationshipScore("Tommy") < 80>>
         <<SetSprite Middle Tommy/Frown>>
