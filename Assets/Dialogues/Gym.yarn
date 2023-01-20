@@ -1089,7 +1089,15 @@ Player: What should I do?
     <<SetActiveChar Middle>>
     <<set $UCSBDialogueGym = Dice(5)>>
     <<if $UCSBIntroGym != 1>>
-        Santana: INTRO TEXT HERE
+        Santana: Are you ok? You look a little lost. 
+        <<SetSprite Middle Santana/bliss>>
+        Santana: Are you new to campus? I remember how I felt when I first started going here. It's definitely a little overwhelming but just take things slow!
+        <<SetSprite Middle Santana/Idle>>
+        Santana: Be careful not to feed the wildlife around here. The squirrels can get a little... quirky... at night. 
+        Santana: I'm usually in the garden in the mornings and afternoons since I'm the garden specialist. 
+        <<SetSprite Middle Santana/bliss>>
+        Santana: I hope you grow into the campus soon!
+        <<SetSprite Middle Santana/Idle>>
         <<SaveInt "UCSB_Intro" 1>>
     <<elseif GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSBDialogueGym == 1>>
