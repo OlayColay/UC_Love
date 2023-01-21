@@ -22,6 +22,14 @@ position: -88,-7
 <<endif>>
 <<Fade true>>
 
+<<set $FieldPermissions = LoadInt("Field")>>
+<<if $FieldPermissions == 0>>
+    Player: Oh, only pro-atheletes are allowed on here. 
+    Player: I better go before security tackles me. 
+    Player: Maybe if got some mega gainz at the gym I could use this field...
+    -> Leave
+        <<LoadScene MapScene>>
+<<endif>>
 //Flavor Text
 <<set $FlavorTextField = Dice(5)>>
 <<if $TimeOfDayField == 0>>
@@ -116,7 +124,9 @@ Player: What should I do?
             Stan: Get lost. 
             <<SetSprite Middle Stan/Passive>>
         <<elseif $Stan_Dialogue == 2>>
+            <<SetSprite Middle Stan/Irritated>>
             Stan: If you keep standing in the middle of the field, you're going to get hit by a ball. 
+            <<SetSprite Middle Stan/Passive>>
         <<elseif $Stan_Dialogue == 3>>
             Stan: Oh you're working out? Do you need a spotter?
             -> Yes
@@ -133,7 +143,15 @@ Player: What should I do?
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 100 && GetRelationshipScore("Stan") < 200>> //Acquaintances
         <<if $Stan_Dialogue == 1>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: I'm not sure why you're still hanging around me... 
+            Stan: Haven't I been kind of awful to you? 
+            Stan: I can't be fun to hang around...
+            Stan: Why are you still here? Don't I scare you? 
+            -> AH!
+                Stan: Hahaha... good to know I'm not going soft.
+            -> You don't scare me!
+                Stan: Oh really? You seem so flustered. 
         <<elseif $Stan_Dialogue == 2>>
             Stan: 
         <<elseif $Stan_Dialogue == 3>>
@@ -234,26 +252,32 @@ Player: What should I do?
                 <<SetSprite Middle Stan/Unhinged2>>
                 Stan: Loser cleans the winner's house for a week or something. 
         <<elseif $Stan_Dialogue == 4>> 
-        <<else>> 
             <<SetSprite Middle Stan/Question>>
-            Stan: I'm not sure why you're still hanging around me... 
-            Stan: Haven't I been kind of awful to you? 
-            Stan: I can't be fun to hang around...
-            Stan: Why are you still here? Don't I scare you? 
-            -> AH!
-                Stan: Hahaha... good to know I'm not going soft.
-            -> You don't scare me!
-                Stan: I'm not going soft by hanging around you am I? 
-                Stan: Don't answer that. 
-                Stan: I'm going to go do a hundred pushups. 
+            Stan: Even though Tommy and I are friends, we don't have many things in common. 
+            <<SetSprite Middle Stan/>>
+            Stan: He invites me to go to a club with him, but the loud music and trashy dancing isn't exactly my taste.
+            <<SetSprite Middle Stan/Question>>
+            Stan: Though to be fair, I don't think chess is his favorite activity either. 
+            <<SetSprite Middle Stan/Giggle>>
+            Stan: Last time we were playing chess, he was sleeping in between turns!
+            <<SetSprite Middle Stan/Smiling>>
+            Stan: He's a funny guy though and an honest friend. 
+        <<else>> 
+            Stan: 
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>> //Crushing
         <<if $Stan_Dialogue == 1>>
-            Stan: 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: You're kind of small for an athlete... but you put in a lot of work. 
+            <<SetSprite Middle Stan/GrinBlush>>
+            Stan: It's kind of cute actually... how small you are compared to me. 
+            <<SetSprite Middle Stan/Smiling>>
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
-            <<SetSprite Middle Stan/sad>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: I'm about to go on a warmup run if you want to join me. 
+            <<SetSprite Middle Stan/SmilingBlush>>
+            Stan: We can go at whatver speed you feel comfortable at.
+            <<SetSprite Middle Stan/Smiling>>
         <<elseif $Stan_Dialogue == 3>>
             Stan: 
         <<elseif $Stan_Dialogue == 4>> 
@@ -273,14 +297,22 @@ Player: What should I do?
         <<elseif $Stan_Dialogue == 4>> 
             Stan: 
         <<else>> 
+            <<SetSprite Middle Stan/Smiling>>
             Stan: I heard your school is hosting a school dance sometime soon. 
+            <<SetSprite Middle Stan/Question>>
             Stan: I had my doubts about how fun it could be, but I was looking on social media and they're putting a lot of effort into this. 
+            <<SetSprite Middle Stan/Smiling>>
             Stan: The catering company they're hiring is really good and there's going to be a boba bar too. 
+            <<SetSprite Middle Stan/Question>>
             Stan: I think the dance committee is still debating on whether or not to buy a bouncy castle. 
             Stan: I'm not sure why they're putting so much money into the dance when your school looks like...that... but it seems fun. 
-            Stan: I'd... 
-            <<SetSprite >>
-            Stan: I'd like to go to the dance with you. 
+            <<SetSprite Middle Stan/Giggle>>
+            Stan: I know I make fun of you and your school a lot but I'd... umm..
+            <<SetSprite Middle Stan/Grin>>
+            Stan: This is a little silly but...
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: I'd really like to go to the dance with you. 
+            <<SetSprite Middle Stan/Smiling>>
         <<endif>>  
     <<endif>>
     <<jump Stan>>
@@ -295,7 +327,7 @@ Player: What should I do?
     <<AddRelationshipScore Stan {$GiftScoreStan}>>
     <<if $GiftScoreStan == -10>>
         <<SetSprite Middle Stan/Angry>>
-        Stan: Is this a joke?
+        Stan: Uhhh.... no thank you.
         <<SetSprite Middle Stan/Passive>>
     <<else>>
         // Not their key item gift
