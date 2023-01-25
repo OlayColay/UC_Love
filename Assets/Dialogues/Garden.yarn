@@ -1624,7 +1624,7 @@ Player: What should I do?
             <<Fade true>>
             <<DateMinigame>>
             <<Wait 4>>
-            Irene: This place is really cool! It rally hits the spot...
+            Irene: This place is really cool! It really hits the spot...
             Irene: Thanks for the food bro!
             <<Fade false>>
             <<ClearSprite Bottom>>

@@ -156,20 +156,46 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("DateMinigame")]
     public static IEnumerator DateMinigame()
     {
-        var sceneLoad = SceneManager.LoadSceneAsync("Dundertale", LoadSceneMode.Additive);
+        BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
+        Camera vnCamera = Camera.main;
+        GameObject vnCanvas = GameObject.Find("BG Canvas");
+        vnCanvas.SetActive(false);
+
+        int gameNo = YarnFunctions.Dice(2);
+        
+        var sceneLoad = SceneManager.LoadSceneAsync("DatingMaze" + gameNo, LoadSceneMode.Additive);
         while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
         {
             yield return null;
         }
 
-        while (!DundertaleManager.minigameDone)
+        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
+        vnCamera.gameObject.SetActive(false);
+        Background.Instance.gameObject.SetActive(false);
+        BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
+
+        while (!MazeController.gameOver)
         {
             yield return null;
         }
 
-        DOTween.Clear();
+        BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
+        yield return new WaitForSecondsRealtime(1f);
 
-        SceneManager.UnloadSceneAsync("Dundertale");
+        var unload = SceneManager.UnloadSceneAsync("DatingMaze" + gameNo);
+        while (!unload.isDone) // We have to wait for the scene to finish unloading
+        {
+            yield return null;
+        }
+
+        vnCanvas.SetActive(true);
+        vnCamera.gameObject.SetActive(true);
+        vnCamera.GetComponent<AudioListener>().enabled = true;
+        Background.Instance.gameObject.SetActive(true);
+        BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
+
+        yield return new WaitForSecondsRealtime(1f);
     }
 
     [YarnCommand("LoadScene")]

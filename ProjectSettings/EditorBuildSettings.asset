@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dundertale.unity
     guid: 61108df7cfdfe0045b208987a9a2ebdb
+  - enabled: 1
+    path: Assets/Scenes/Dating Mazes/DatingMaze1.unity
+    guid: 40f6ea0478caf04448ac1d85cacac501
+  - enabled: 1
+    path: Assets/Scenes/Dating Mazes/DatingMaze2.unity
+    guid: 29b77c8c9b9db4642aa1b1cff98cc7c9
   m_configObjects: {}
