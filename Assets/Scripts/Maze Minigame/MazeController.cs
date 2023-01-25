@@ -57,6 +57,7 @@ public class MazeController : MonoBehaviour
             gameOver = true;
             gameWon = false;
             timer.TimerOn = false;
+            playerInput.Disable();
         }
         else if ((collision.gameObject.tag == "Goal") && (!gameOver))
         {
@@ -64,13 +65,15 @@ public class MazeController : MonoBehaviour
             gameOver = true;
             gameWon = true;
             timer.TimerOn = false;
+            playerInput.Disable();
         }
     }
 
     public void TimeUp()
     {
-        Debug.Log("you lose!!!!!!!!!!!!!!!!!!");
+        Debug.Log("time up!!!!!!!!!!!!!!!!!!");
         gameOver = true;
         gameWon = false;
+        playerInput.Disable();
     }
 }
