@@ -136,24 +136,25 @@ Player: What should I do?
             -> No
                 <<SetSprite Middle Stan/Pitiful>>
                 Stan: With arms like those? I think you should reconsider.
+                <<SetSprite Middle Stan/Passive>>
         <<elseif $Stan_Dialogue == 4>> 
-            Stan: 
+            <<SetSprite Middle Stan/Unhinged2>>
+            <<Shake Middle>>
+            Stan: How fast do you think I can make you cry "uncle"?
+            <<SetSprite Middle Stan/Passive>>
         <<else>> 
             Stan: 
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 100 && GetRelationshipScore("Stan") < 200>> //Acquaintances
         <<if $Stan_Dialogue == 1>>
-            <<SetSprite Middle Stan/Question>>
-            Stan: I'm not sure why you're still hanging around me... 
-            Stan: Haven't I been kind of awful to you? 
-            Stan: I can't be fun to hang around...
-            Stan: Why are you still here? Don't I scare you? 
-            -> AH!
-                Stan: Hahaha... good to know I'm not going soft.
-            -> You don't scare me!
-                Stan: Oh really? You seem so flustered. 
+            <<SetSprite Middle Stan/Irritated>>
+            Stan: A lot of fangirls try to give me gifts thinking that it'd make me like them...
+            Stan: Do they think they can buy my attention with cheap gifts or something?
+            <<SetSprite Middle Stan/Passive>>
+            Stan: I hate that. People you can trust are way more important than people that give you useless crap.
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
+            Stan: It's so funny to prank Tommy. He can be so gullible at times. 
+            Stan: Yesterday, I told him that bottled water contains high levels of hydrogen dioxide 
         <<elseif $Stan_Dialogue == 3>>
             Stan: 
         <<elseif $Stan_Dialogue == 4>> 
@@ -209,9 +210,9 @@ Player: What should I do?
                     <<Shake Middle>>
                     Stan: Huh? 
                     <<SetSprite Middle Stan/Pitiful>>
-                    Stan: Err... I mean I get that I'm really hot and tall and strong or whatever...
+                    Stan: Uhh... I mean I get that I'm really tall, strong, and handsome...
                     <<SetSprite Middle Stan/Laughing>>
-                    Stan: But genuinely what the hell is wrong with you? 
+                    Stan: But what the hell is wrong with you? 
                     Stan: I haven't been anything except mean to you and you're in love with me?
                     <<SetSprite Middle Stan/Grin>>
                     Stan: You're more messed up than I thought. I guess we're kind of similar in that regard.
@@ -227,30 +228,14 @@ Player: What should I do?
                 Stan: You know, I am one of the most popular football players amongst the students here...
                 Stan: I guess people have a weak spot for the emotionally unavailable bad boy. 
                 <<SetSprite Middle Stan/Pitiful>>
-                Stan: Maybe it won't be much longer before you fall for my charm.
+                Stan: Maybe it won't be much longer before you fall for my charms.
         <<elseif $Stan_Dialogue == 3>>
-            <<SetSprite Middle Stan/Grin>>
+            <<SetSprite Middle Stan/Question>>
             Stan: It's really important to train both your body and your mind. 
             Stan: I spend a lot of time practicing on the field, but I also hit the books just as hard. 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: My economics homework isn't going to finish itself. 
             <<SetSprite Middle Stan/Question>>
-            Stan: Have you heard of my dad, Harvey Ford? He's the head of Ford Realty. He owns like half of the houses in California. 
-            <<SetSprite Middle Stan/Sweating>>
-            Stan: I hope to take over the family business one day, but it's going to take a lot to impress my old man enough to trust me with even a sliver of it. 
-            -> You'll get there someday!
-                Stan: Easy for you to say, you haven't even met my dad. 
-                <<SetSprite Middle Stan/Question>>
-                Stan: He's smart and I respect his work ethic a lot, but...
-                Stan: He can definitely be tough...
-                <<SetSprite Middle Stan/Passive>>
-                Stan: I get that you're trying to make me feel better, but it's more important to me that people are honest rather than kind.
-                Stan: You don't find many honest people these days...
-            -> Fat chance! 
-                <<SetSprite Middle Stan/Laughing>>
-                Stan: You're funny! I like you.
-                <<SetSprite Middle Stan/Grin>>
-                Stan: Let's see who makes more money after graduation. 
-                <<SetSprite Middle Stan/Unhinged2>>
-                Stan: Loser cleans the winner's house for a week or something. 
         <<elseif $Stan_Dialogue == 4>> 
             <<SetSprite Middle Stan/Question>>
             Stan: Even though Tommy and I are friends, we don't have many things in common. 
@@ -261,9 +246,16 @@ Player: What should I do?
             <<SetSprite Middle Stan/Giggle>>
             Stan: Last time we were playing chess, he was sleeping in between turns!
             <<SetSprite Middle Stan/Smiling>>
-            Stan: He's a funny guy though and an honest friend. 
+            Stan: He's a funny guy though and a good friend. 
         <<else>> 
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Do you know Harvey Ford? The real estate magnate? 
+            <<SetSprite Middle Stan/Smiling>>
+            Stan: He's my dad and runs the family real estate business. One day, I hope to take over the family business. 
+            Stan: That's one of the main reasons that I'm studying economics. 
+            <<SetSprite Middle Stan/Sweating>>
+            Stan: It's pretty tough to impress my old man though.
+            <<SetSprite Middle Stan/Smiling>>
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>> //Crushing
         <<if $Stan_Dialogue == 1>>
@@ -279,9 +271,34 @@ Player: What should I do?
             Stan: We can go at whatver speed you feel comfortable at.
             <<SetSprite Middle Stan/Smiling>>
         <<elseif $Stan_Dialogue == 3>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Did you remember to put on sunblock today? You seem a little red.
+            <<SetSprite Middle Stan/GrinBlush>>
+            Stan: Or are you just flustered around me? 
+            <<SetSprite Middle Stan/Smiling>>
         <<elseif $Stan_Dialogue == 4>> 
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Hey, can you swear that you won't tell anyone about what I'm going to tell you?
+            -> I swear!
+                <<SetSprite Middle Stan/Passive>>
+                Stan: I have an upcoming interschool debate for this one class, but I'm going against Kelly from UCL. 
+                <<SetSprite Middle Stan/Question>>
+                Stan: She and I have been rivals since elementary school. 
+                Stan: Do you know her? The tall-ish super serious glasses-chick from your school? Political science and computer science double major? 
+                <<SetSprite Middle Stan/Furious2>>
+                Stan: I fear no man... but that girl... she scares me. 
+                <<SetSprite Middle Stan/Question>>
+                Stan: She just has this dead fish nonchalant stare on her all the time. You can hardly tell what she's thinking. 
+                <<SetSprite Middle Stan/Passive>>
+                Stan: She gives me the creeps. 
+            -> No way!
+                <<AddRelationshipScore Stan -20>>
+                <<SetSprite Middle Stan/Irritated>>
+                <<Shake Middle>>
+                Stan: And here I thought that I could start to trust you. 
+                <<SetSprite Middle Stan/Furious2>>
+                Stan: I guess I thought wrong. 
+                <<SetSprite Middle Stan/Passive>>
         <<else>> 
             Stan: 
         <<endif>>    
@@ -289,8 +306,6 @@ Player: What should I do?
         <<if $Stan_Dialogue == 1>>
             Stan: 
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
-            <<SetSprite Middle Stan/sad>>
             Stan: 
         <<elseif $Stan_Dialogue == 3>>
             Stan: 
