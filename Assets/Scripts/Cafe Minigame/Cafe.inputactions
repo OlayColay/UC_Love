@@ -162,8 +162,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "946a4ce3-0a9e-4a7d-a776-df4c91cc77b1",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "24ece946-7e32-4a48-82ac-3568974bb3d1",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

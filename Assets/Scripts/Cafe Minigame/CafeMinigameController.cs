@@ -27,6 +27,7 @@ public class CafeMinigameController : MonoBehaviour
     
     public Transform Blender;
     public TextMeshProUGUI Words;
+    public TextMeshProUGUI FullOrder;
     public TextMeshProUGUI Timer;
 
     private AudioClip ding;
@@ -208,6 +209,12 @@ public class CafeMinigameController : MonoBehaviour
         {
             Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
         }
+
+        foreach (string ingredient in currentOrder)
+        {
+            FullOrder.text += controls.FindAction(ingredient).GetBindingDisplayString(0) + ", ";
+        }
+        FullOrder.text = FullOrder.text.Remove(FullOrder.text.Length - 2);
     }
 
     void AddIngredient(string attemptedIngredient)
@@ -230,10 +237,19 @@ public class CafeMinigameController : MonoBehaviour
             AddToBlender(attemptedIngredient);
   
             i++;
-            if (i < currentOrder.Length)
+            if (i < (currentOrder.Length - 1))
             {
                 nextIngredient = currentOrder[i];
                 Words.text = "Add " + currentOrder[i];
+                if (showControls)
+                {
+                    Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
+                }
+            }
+            else if (i < currentOrder.Length)
+            {
+                nextIngredient = currentOrder[i];
+                Words.text = currentOrder[i];
                 if (showControls)
                 {
                     Words.text += " (" + controls.FindAction(currentOrder[i]).GetBindingDisplayString(0) + ")";
@@ -244,6 +260,7 @@ public class CafeMinigameController : MonoBehaviour
                 // Add stuff that happens when you successfully finish an order here
                 FinishOrder();
                 Words.text = "START (Press space)";
+                FullOrder.text = "";
 
                 // Debug.Log("Order finished!");
                 orderStarted = false;
