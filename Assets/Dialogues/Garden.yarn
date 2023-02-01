@@ -528,6 +528,7 @@ Player: What should I do?
                 Tommy: I should definitely expand my horizons a bit more!
                 <<SetSprite Date Tommy/Snickering>>
                 Tommy: Thank you for showing me this place!
+                <<AddRelationshipScore Tommy 15>>
             <<else>>
                 <<SetSprite Date Tommy/Flustered>>
                 <<Shake Date>>
@@ -535,6 +536,7 @@ Player: What should I do?
                 <<SetSprite Date Tommy/Angry>>
                 Tommy: I mean, I would've, but not if you demand it like that. Geez...
                 Tommy: Am I just a meal ticket for you? I thought we were on a date!
+                <<AddRelationshipScore Tommy -10>>
             <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>

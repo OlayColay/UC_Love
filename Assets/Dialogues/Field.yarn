@@ -140,7 +140,7 @@ Player: What should I do?
         <<elseif $Stan_Dialogue == 4>> 
             <<SetSprite Middle Stan/Unhinged2>>
             <<Shake Middle>>
-            Stan: How fast do you think I can make you cry "uncle"?
+            Stan: Hey shrimp, how fast do you think I can make you cry "uncle"?
             <<SetSprite Middle Stan/Passive>>
         <<else>> 
             Stan: 
@@ -153,8 +153,35 @@ Player: What should I do?
             <<SetSprite Middle Stan/Passive>>
             Stan: I hate that. People you can trust are way more important than people that give you useless crap.
         <<elseif $Stan_Dialogue == 2>>
+            <<SetSprite Middle Stan/Laughing>>
             Stan: It's so funny to prank Tommy. He can be so gullible at times. 
-            Stan: Yesterday, I told him that bottled water contains high levels of hydrogen dioxide 
+            Stan: Yesterday, I told him that bottled water contains high levels of hydrogen dioxide and he started spitting out his water.
+            -> Haha! Tommy's so stupid!
+                <<SetSprite Middle Stan/Blackout>>
+                <<Shake Middle>>
+                Stan: Tommy might not be the sharpest tool in the shed, but he's my friend. 
+                <<SetSprite Middle Stan/Furious2>>
+                <<Shake Middle>>
+                Stan: Don't talk about him like that. Got it? 
+                <<SetSprite Middle Stan/Passive>>
+                <<AddRelationshipScore Stan -10>>
+            -> That's kind of mean... you shouldn't do that...
+                <<SetSprite Middle Stan/Passive>>
+                Stan: Tch. It's all in good fun. He pranks me back just as hard if not harder. 
+                <<SetSprite Middle Stan/Laughing>>
+                Stan: One time, he put this hentai sticker on the back of my car just before I drove off.
+                <<SetSprite Middle Stan/Grin>>
+                Stan: I was getting weird stares from other drivers all day and I couldn't figure out why until after I parked. 
+                Stan: I admit, it was a pretty funny prank. 
+                <<SetSprite Middle Stan/Question>>
+                Stan: Though I have to wonder, why did he have that hentai sticker?
+                <<SetSprite Middle Stan/Smiling>>
+            -> Haha! That's a funny prank!
+                <<SetSprite Middle Stan/Giggle>>
+                Stan: Yeah, Tommy and I prank each other quite a bit. 
+                Stan: We might seem a little harsh to each other from an outsider's perspective, but our friendship is just like that. 
+                <<SetSprite Middle Stan/Smiling>>
+                Stan: Tommy is one of my closest friends. I'm really grateful to have him in my life. 
         <<elseif $Stan_Dialogue == 3>>
             Stan: 
         <<elseif $Stan_Dialogue == 4>> 
@@ -372,10 +399,17 @@ Player: What should I do?
         <<set $AskStan = true>>
         <<if GetRelationshipScore("Stan") >= 300>>
             <<AddRelationshipScore Stan 10>>
-            <<SetSprite Middle Stan/lbom>>
-            Stan: Oh! Um...let me check my schedule...
-            <<SetSprite Middle Stan/lbcm>>
-            Stan: I can make time for a date!
+            <<if GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>>
+                <<SetSprite Middle Stan/Question>>
+                Stan: A date? with you?
+                <<SetSprite Middle Stan/Smirk>>
+                Stan: Fallen for my charms, haven't you? 
+                Stan: Sure, why not. Let's see where this goes.
+            <<else>>
+                <<SetSprite Middle Stan/Smirk>>
+                Stan: A date? I'd love to. 
+                Stan: Choose any place you'd like but let me take care of the bill this time alright?
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Middle>>
             <<SetActiveChar Date>>
@@ -383,12 +417,35 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Stan/Smiling>>
             <<Fade true>>
+            <<Wait 1>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
+            <<endif>>
             <<DateMinigame>>
-            <<Wait 4>>
-            <<SetSprite Middle Stan/Smiling>>
-            Stan: I usually don't go to restaurants like these. My family always eats at the same famous restaurants. 
-            <<SetSprite Middle Stan/Giggle>>
-            Stan: The restaurant interior isn't the most impressive, but the food is really good! 
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Stan/Smiling>>
+                Stan: I usually don't go to restaurants like these. My family always eats at the same famous restaurants. 
+                <<SetSprite Date Stan/Giggle>>
+                Stan: The restaurant interior isn't the most impressive, but the food is really good! 
+            <<else>>
+                <<SetSprite Date Stan/Irritated>>
+                <<Shake Date>>
+                Stan: God, you're getting food everywhere. Stop eating like a slob, you're embarassing me.
+                <<SetSprite Date Stan/Blackout>>
+                Stan: I hope no one sees me in public like this...
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -399,14 +456,26 @@ Player: What should I do?
             <<else>>
                     <<SetBackground Backgrounds/Field/Night>>
             <<endif>>
-            <<SetSprite Middle Stan/Smiling>>
-            <<SetActiveChar Middle>>
-            <<Fade true>>
-            <<SetSprite Middle Stan/GiggleBlush>>
-            Stan: It's nice to try something different and local. 
-            <<SetSprite Middle Stan/GrinBlush>>
-            Stan: I really enjoyed this date. Thank you. 
-            <<SetSprite Middle Stan/Smiling>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Stan/Smiling>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                <<SetSprite Middle Stan/GiggleBlush>>
+                Stan: It's nice to try something different and local. 
+                Stan: Time and time again, you never fail to surprise me. 
+                <<SetSprite Middle Stan/GrinBlush>>
+                Stan: I really enjoyed this date. Thank you. 
+                <<SetSprite Middle Stan/Smiling>>
+                <<AddRelationshipScore Stan 15>>
+            <<else>>
+                <<SetSprite Middle Stan/Irritated>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Stan: Look, I like you, but have got to have better table manners if we're going to be seen in public together. 
+                <<SetSprite Middle Stan/Passive>>
+                Stan: Maybe go to the library and pick up a book on table etiquitte. 
+                <<AddRelationshipScore Stan -10>>
+            <<endif>>
             <<jump Stan>>
         <<else>>
             <<SetSprite Middle Stan/Question>>

@@ -85,6 +85,7 @@ Player: What should I do?
             <<SetRelationshipScore Irene 100>>
             <<SetRelationshipScore Riviera 100>>
             <<SetRelationshipScore Tommy 80>>
+            <<SetRelationshipScore Stan 100>>
         -> Set All Relationship Scores to Friends Stage
             <<SetRelationshipScore Kelly 200>>
             <<SetRelationshipScore Ellie 200>>
@@ -92,6 +93,7 @@ Player: What should I do?
             <<SetRelationshipScore Irene 200>>
             <<SetRelationshipScore Riviera 200>>
             <<SetRelationshipScore Tommy 160>>
+            <<SetRelationshipScore Stan 200>>
         -> Set All Relationship Scores to Crushing Stage
             <<SetRelationshipScore Kelly 300>>
             <<SetRelationshipScore Ellie 300>>
@@ -99,6 +101,7 @@ Player: What should I do?
             <<SetRelationshipScore Irene 300>>
             <<SetRelationshipScore Riviera 300>>
             <<SetRelationshipScore Tommy 240>>
+            <<SetRelationshipScore Stan 300>>
         -> Set All Relationship Scores to Lovers Stage
             <<SetRelationshipScore Kelly 500>>
             <<SetRelationshipScore Ellie 500>>
@@ -106,6 +109,7 @@ Player: What should I do?
             <<SetRelationshipScore Irene 500>>
             <<SetRelationshipScore Riviera 500>>
             <<SetRelationshipScore Tommy 520>>
+            <<SetRelationshipScore Stan 500>>
         Player: Done!
         <<jump Dorm>>
     -> Print Money
