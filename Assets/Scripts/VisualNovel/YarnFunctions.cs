@@ -44,6 +44,12 @@ public static class YarnFunctions
         return CafeMinigameController.gameWon;
     }
 
+    [YarnFunction("DateMinigameWon")]
+    public static bool DateMinigameWon()
+    {
+        return MazeController.gameWon;
+    }
+
     [YarnFunction("LoadInt")]
     public static int LoadInt(string name)
     {

@@ -30,6 +30,7 @@ tags:
 <<SaveString "Watch" "false">>
 <<SaveInt "Computer_Info" 1>>
 <<SaveInt "Dwayne" 0>>
+<<SaveInt "FirstDate" 0>>
 <<Fade true 0>>
 // <<PlayMusic Music/Emotional>>
 System: Created new save file! Do you want to play the intro? It is recommended for new players.

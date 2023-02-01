@@ -1434,12 +1434,31 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Santana/LB>>
             <<Fade true>>
-            <<DateMinigame>>
-            <<Wait 4>>
             <<SetSprite Date Santana/bliss>>
-            Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
-            <<SetSprite Date Santana/LB>>
-            Santana: It's really nice to be able to share this meal with you!
+            <<Wait 3>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a converswation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+            <<endif>>
+            <<DateMinigame>>
+            <<Wait 2>>
+            <<if DateMinigameWon()>>
+                Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
+                <<SetSprite Date Santana/LB>>
+                Santana: It's really nice to be able to share this meal with you!
+            <<else>>
+                <<SetSprite Middle Santana/Angry>>
+                <<Shake Middle>>
+                Santana: Do I have something in my teeth? Why are you staring at me like that? 
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -1456,7 +1475,17 @@ Player: What should I do?
             <<SetSprite Middle Santana/bliss>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            Santana: I had a really great time! Thank you for taking me out!
+            //COPY ADD AFTER FADE
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Santana/LB>>
+                Santana: I had a really great time! Thank you for taking me out!
+                <<AddRelationshipScore Santana 15>>
+            <<else>>
+                <<SetSprite Middle Santana/bliss>>
+                Santana: That date was a little awkward... but maybe things will be less awkward next time. 
+                <<AddRelationshipScore Santana -10>>
+            <<endif>>
+            //COPY STOP COPYING SHOULD BE SET IDLE NEXT LINE
             <<SetSprite Middle Santana/Idle>>
             <<jump UCSBGym>>
         <<else>>
