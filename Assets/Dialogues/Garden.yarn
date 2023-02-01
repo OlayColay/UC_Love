@@ -494,7 +494,7 @@ Player: What should I do?
         <<set $AskTommy = true>>
         <<if GetRelationshipScore("Tommy") >= 240>>
             <<AddRelationshipScore Tommy 10>>
-            Tommy: Alright, but it better be to someplace nice!
+            Tommy: Alright, but it better be to some place nice!
             <<Fade false>>
             <<ClearSprite Middle>>
             <<SetActiveChar Date>>
@@ -502,15 +502,40 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Tommy/Idle>>
             <<Fade true>>
-            <<Wait 4>>
-            <<SetSprite Date Tommy/Awkward>>
-            Tommy: I didn't know that this area had such good food!
-            <<SetSprite Date Tommy/Snickering>>
-            Tommy: The flavors are really simple, but they combine so well together!
-            <<SetSprite Date Tommy/Idle>>
-            Tommy: I should definitely expand my horizons a bit more!
-            <<SetSprite Date Tommy/Snickering>>
-            Tommy: Thank you for showing me this place!
+            <<Wait 1>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
+            <<endif>>
+            <<DateMinigame>>
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Tommy/Awkward>>
+                Tommy: I didn't know that this area had such good food!
+                <<SetSprite Date Tommy/Snickering>>
+                Tommy: The flavors are really simple, but they combine so well together!
+                <<SetSprite Date Tommy/Idle>>
+                Tommy: I should definitely expand my horizons a bit more!
+                <<SetSprite Date Tommy/Snickering>>
+                Tommy: Thank you for showing me this place!
+            <<else>>
+                <<SetSprite Date Tommy/Flustered>>
+                <<Shake Date>>
+                Tommy: Wait you're demanding that I pay the bill? 
+                <<SetSprite Date Tommy/Angry>>
+                Tommy: I mean, I would've, but not if you demand it like that. Geez...
+                Tommy: Am I just a meal ticket for you? I thought we were on a date!
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -519,7 +544,15 @@ Player: What should I do?
             <<SetActiveChar Middle>>
             <<Fade true>>
             <<SetSprite Middle Tommy/Idle>>
-            Tommy: I had a really good time! Thank you. 
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Tommy/Snickering>>
+                Tommy: I had a really good time! Thank you. 
+                <<AddRelationshipScore Tommy 15>>
+            <<else>>
+                <<SetSprite Middle Tommy/Awkward>>
+                Tommy: Geez... I didn't expect the date to go like that... I hope that things are better next time. 
+                <<AddRelationshipScore Tommy -10>>
+            <<endif>>
             <<jump USCGarden>>
         <<else>>
             <<SetSprite Middle Tommy/Angry>>
@@ -1105,29 +1138,31 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Santana/LB>>
             <<Fade true>>
-            <<DateMinigame>>
-            <<Wait 3>>
+            <<SetSprite Date Santana/bliss>>
+            <<Wait 1>>
             <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
                 BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
                 BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
                 BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
-                BearBox: Don't screw up a converswation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
                 <<SetSprite Right BearBox/Blush>>
                 BearBox: That's all from me! Good luck on your date champ! 
                 <<ClearSprite Right>>
                 <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
             <<endif>>
             <<DateMinigame>>
-            <<Wait 2>>
+            <<Wait 1>>
             <<if DateMinigameWon()>>
                 Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
                 <<SetSprite Date Santana/LB>>
                 Santana: It's really nice to be able to share this meal with you!
             <<else>>
-                <<SetSprite Middle Santana/Angry>>
-                <<Shake Middle>>
+                <<SetSprite Date Santana/Angry>>
+                <<Shake Date>>
                 Santana: Do I have something in my teeth? Why are you staring at me like that? 
             <<endif>>
             <<Fade false>>

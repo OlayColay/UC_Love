@@ -19,6 +19,7 @@ Player: What should I do?
         -> Leave
             <<LoadScene MapScene>>
         -> Hit snooze (Pass More Time)
+            <<Fade false>>
             <<jump AdditionalNap>>
 -> Scroll on Social Media
     <<set $Computer_Info to LoadInt("Computer_Info")>>
