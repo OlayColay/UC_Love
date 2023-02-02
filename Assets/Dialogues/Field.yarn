@@ -190,15 +190,7 @@ Player: What should I do?
                 <<SetSprite Middle Stan/Smiling>>
                 Stan: Tommy is one of my closest friends. I'm really grateful to have him in my life. 
         <<elseif $Stan_Dialogue == 3>>
-            <<SetSprite Middle Stan/Question>>
-            Stan: I have to ask, why are you still hanging around me? 
-            <<SetSprite Middle Stan/Passive>>
-            Stan: We didn't exactly start off on the right foot, and it's not like I've been much better to you since then. 
-            <<SetSprite Middle Stan/Question>>
-            Stan: So then, may I ask why? Why are you still here? 
-            -> You seem lonely...
-            -> I want to work out and 
-            -> 
+            Stan: 
         <<elseif $Stan_Dialogue == 4>> 
             Stan: 
         <<else>> 
@@ -291,10 +283,9 @@ Player: What should I do?
             Stan: He's a funny guy though and a good friend. 
         <<else>> 
             <<SetSprite Middle Stan/Question>>
-            Stan: Do you know Harvey Ford? The senator? 
+            Stan: Do you know Harvey Ford? The real estate magnate? 
             <<SetSprite Middle Stan/Smiling>>
-            Stan: He's my dad and he works hard as the senator, but he also runs the family real estate business. 
-            Stan: One day, I hope to take over the family business if he passes it on to me. 
+            Stan: He's my dad and runs the family real estate business. One day, I hope to take over the family business. 
             Stan: That's one of the main reasons that I'm studying economics. 
             <<SetSprite Middle Stan/Sweating>>
             Stan: It's pretty tough to impress my old man though.
@@ -343,24 +334,7 @@ Player: What should I do?
                 Stan: I guess I thought wrong. 
                 <<SetSprite Middle Stan/Passive>>
         <<else>> 
-            <<SetSprite Middle Stan/Question>>
-            Stan: Say, do you like "boba" by any chance? 
-            -> Yes
-                <<SetSprite Middle Stan/Sweating>>
-                Stan: I can't say I'm a fan of boba. I could never get used to the texture and the drinks are quite sweet. 
-                <<SetSprite Middle Stan/Question>>
-                Stan: If you like boba though, I think a new boba place just opened around here. 
-                <<SetSprite Middle Stan/GrinBlush>>
-                Stan: If you want we can go together...
-                <<SetSprite Middle Stan/Smiling>>
-                Stan: I probably won't get anything though, but it would be nice to spend some time with you outside of sports practice.
-            -> No
-                <<SetSprite Middle Stan/Smiling>>
-                Stan: Me neither. I can't get used to the texture and the drinks are too sweet for my taste. 
-                <<SetSprite Middle Stan/Question>>
-                Stan: I would choose a good old-fashioned cup of tea over boba any day of the week. 
-                <<SetSprite Middle Stan/Smiling>>
-                Stan: I'm glad we're on the same page.
+            Stan: 
         <<endif>>    
     <<else>> //Lovers
         <<if $Stan_Dialogue == 1>>
