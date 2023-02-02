@@ -97,7 +97,14 @@ Player: What should I do?
     <<AddRelationshipScore Stan 10>>
     <<set $Stan_Dialogue = Dice(5)>>
     <<if $StanIntro != 1>>
+        //COMMENT THIS OUT LATER
+        <<SetSprite Middle Stan/Furious2>>
+        Stan: Hey, no peeking! 
         <<SetSprite Middle Stan/Pitiful>>
+        Stan: You better wait for the official release of UC Love on February 14th! 
+        <<SetSprite Middle Stan/Grin>>
+        Stan: I'll see you then. It's going to be good!
+        // COMMENT THIS OUT LATER
         Stan: Well if it isn't my favorite UC Loser... Did you come here looking for my attention?
         Stan: I'm surprised they allowed you onto this field. Usually it's reserved for the best athletes. 
         <<SetSprite Middle Stan/Laughing>>
