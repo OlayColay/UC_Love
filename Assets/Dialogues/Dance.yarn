@@ -38,13 +38,27 @@ position: -99,4
     Riviera: I think I see my friend's catering booth over there!
     <<SetSprite Middle Riviera/LB>>
     Riviera: Thank you for inviting me. It's really nice to be able to spend the evening with you like this!
-<<else>>
+<<elseif $DancePartner == 5>>
     <<SetSprite Middle Tommy/Idle>>
     Player: Woah... the dance looks amazing!
     Tommy: Definitely. 
     Tommy: For the first time in my life, I kind of wish I went here. 
     Tommy: The dance is definitely nice...
     Tommy: But this campus has a surprising amount of charm to it.
+<<else>>
+    <<SetSprite Middle Stan/Smiling>>
+    Player: Woah... the dance looks amazing!
+    <<SetSprite Middle Stan/Question>>
+    Stan: It really does. My expectations for these kind of events are usually pretty high.
+    <<SetSprite Middle Stan/Smiling>>
+    Stan: I have to say though, I'm quite impressed. 
+    <<SetSprite Middle Stan/Question>>
+    Stan: Though, I have to wonder... if your school is so underfunded that they need to throw a fundraiser...
+    Stan: Where did they get the money for all of these amenities? It's just not quite adding up.
+    <<SetSprite Middle Stan/Grin>>
+    Stan: The lighting, decorations, and setup all look amazing.
+    <<SetSprite Middle Stan/GrinBlush>>
+    Stan: You look amazing as well. Thank you for inviting me here. 
 <<endif>>
 <<SetSprite Left BearBox/Idle>>
 <<Flip Left 0>>
@@ -79,6 +93,41 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
         BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
     -> You've got it all wrong!
         Player: I know Tommy was a bit of a bully, but he's had a change of heart!
+        BearBox: ... I'll keeping my eye on you mister...
+        BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
+    <<SetSprite Left BearBox/Idle>>
+    <<SetActiveChar Left>>
+    BearBox: Stay out of trouble you two!
+<<elseif $DancePartner == 6>>
+    BearBox: Now who might this lovely gentleman be...
+    <<SetSprite Left BearBox/Angry>>
+    <<Shake Left>>
+        <<if $PlayerPronouns == 0>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HIM ON THE FIRST DAY!
+        <<elseif $PlayerPronouns == 1>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HER ON THE FIRST DAY!
+        <<else>>
+            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED THEM ON THE FIRST DAY!
+        <<endif>>
+    BearBox: Grrrr....
+    BearBox: Is he bothering you? 
+    -> Yes! Can you get him away from me?
+        <<SetSprite Middle Stan/Blackout>>
+        <<SetActiveChar Middle>>
+        <<Shake Middle>>
+        Stan: I went through all the trouble of coming here and now you're going to throw me under the bus?
+        -> I'm just kidding... He's with me BearBox!
+        <<SetSprite Middle Stan/Sweating>>
+        <<SetActiveChar Middle>>
+        BearBox: If you say so...
+        BearBox: ... I'll keeping my eye on you mister...
+        BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
+    -> You've got it all wrong!
+        Player: I know Stan was a bit of a bully, but he's had a change of heart!
+        BearBox: ... a bit? 
+        <<SetSprite Left BearBox/Idle>>
+        BearBox: Are you... ok? Like seriously I'd understand if you went for Tommy but Stan? Stan Ford??
+        <<SetSprite Left BearBox/Angry>>
         BearBox: ... I'll keeping my eye on you mister...
         BearBox: If you so much at look at your date the wrong way, I WILL run over your toes!
     <<SetSprite Left BearBox/Idle>>
@@ -285,12 +334,27 @@ BearBox: What should we do with the budget?
         Riviera: I've been telling them all about you... and they've been really excited to meet you!
         <<SetSprite Middle Riviera/HB>>
         Riviera: Let's hit the dance floor to practice our dance moves!
-    <<else>>
+    <<elseif $DancePartner == 5>>
         <<SetSprite Middle Tommy/Idle>>
         Tommy: Even though I don't go here, I'm glad that you decided to keep the school!
         Tommy: I'd be able to visit you often since I'm in the area. 
         Tommy: I think... I've started to like you...
         Tommy: Let's go dance on the dance floor!
+    <<else>>
+        <<SetSprite Middle Stan/Smiling>>
+        Stan: Looks like we'll be sharing a field for a while longer shrimp. 
+        <<SetSprite Middle Stan/Question>>
+        Stan: Though, I guess you're not as shrimpy now huh? 
+        <<SetSprite Middle Stan/Sus>>
+        <<Shake Middle>>
+        Stan: I bet I could still pin you easily in a wrestling match though.
+        <<SetSprite Middle Stan/SmilingBlush>>
+        Stan: To be honest though, seeing you each day does give me the strength to put in an extra rep or two. 
+        <<SetSprite Middle Stan/GrinBlush>>
+        Stan: I'm glad that you're sticking around...
+        <<SetSprite Middle Stan/Sus>>
+        <<Shake Middle>>
+        Stan: I'm still not going to go easy on you though!
     <<endif>>
     <<ClearSprite Middle>>
     <<Fade false>>
@@ -426,8 +490,9 @@ Player: Oh shoot! I'm running late to class again!
     <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
-<<else>>
+<<elseif $DancePartner == 5>>
     <<SetActiveChar Middle>>
+    <<SetSprite Middle Tommy/Snickering>>
     Tommy: Oh hey! There you are! How have you been?
     -> Wait... you don't even go here! What are you doing here?
         <<SetSprite Middle Tommy/Flustered>>
@@ -458,6 +523,13 @@ Player: Oh shoot! I'm running late to class again!
     Tommy: But we gotta get going soon! I think I parked in a tow-away zone!
     <<SetSprite Middle Tommy/Idle>>
     Player: Yes!
+    <<PlayMusic Music/Title>>
+    <<Fade false>>
+    <<LoadScene Credits>>
+<<else>>
+    <<SetSprite Middle>>
+    <<SetActiveChar Middle Stan/Smiling>>
+    //CONTINUE OFF HERE
     <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
@@ -516,11 +588,29 @@ position: 138,2
     <<SetSprite Middle Riviera/HB>>
     Riviera: Say, once I make it big, I'll buy a ticket to come and visit you wherever you are ok?
     <<SetSprite Middle Right/Idle>>
-<<else>>
+<<elseif $DancePartner == 5>>
     <<SetActiveChar Middle>>
+    <<SetSprite Middle Tommy/Awkward>>
+    Tommy: You're really breaking up the school? After everything...?
     Tommy: I'm really going to miss seeing you around...
     Tommy: I really liked walking around the garden with you at night. 
+    <<Wait 2>>
     Tommy: Have a safe trip back home ok?
+<<else>>
+    <<SetActiveChar Middle>>
+    <<SetSprite Middle Stan/Question>>
+    Stan: You're... breaking up the school?
+    Stan: Did... the way I treated you... make you want this?
+    <<SetSprite Middle Stan/Blackout>>
+    Stan: ...I... 
+    <<Shake Middle>>
+    Stan: ...I'm sorry... 
+    <<Wait 1>>
+    Stan: I'll stay out of your life from now on...
+    <<SetSprite Middle Stan/Smiling>>
+    Stan: I really... really liked getting to know you...
+    <<SetSprite Middle Stan/Blackout>>
+    Stan: ...I'm sorry. Goodbye. 
 <<endif>>
 <<Fade false>>
 <<ClearSprite Middle>>

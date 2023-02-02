@@ -98,12 +98,12 @@ Player: What should I do?
     <<set $Stan_Dialogue = Dice(5)>>
     <<if $StanIntro != 1>>
         //COMMENT THIS OUT LATER
-        <<SetSprite Middle Stan/Furious2>>
-        Stan: Hey, no peeking! 
-        <<SetSprite Middle Stan/Pitiful>>
-        Stan: You better wait for the official release of UC Love on February 14th! 
-        <<SetSprite Middle Stan/Grin>>
-        Stan: I'll see you then. It's going to be good!
+        //<<SetSprite Middle Stan/Furious2>>
+        //Stan: Hey, no peeking! 
+        //<<SetSprite Middle Stan/Pitiful>>
+        //Stan: You better wait for the official release of UC Love on February 14th! 
+        //<<SetSprite Middle Stan/Grin>>
+        //Stan: I'll see you then. It's going to be good!
         // COMMENT THIS OUT LATER
         Stan: Well if it isn't my favorite UC Loser... Did you come here looking for my attention?
         Stan: I'm surprised they allowed you onto this field. Usually it's reserved for the best athletes. 
@@ -150,7 +150,16 @@ Player: What should I do?
             Stan: Hey shrimp, how fast do you think I can make you cry "uncle"?
             <<SetSprite Middle Stan/Passive>>
         <<else>> 
-            Stan: 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: We used to have a tradition where the newbies would have to carry around their seniors' sports equipment for a couple months after they joined. 
+            <<SetSprite Middle Stan/Laughing>>
+            Stan: Coach recently got rid of that though, saying that it created a "hostile environment" or whatever.
+            <<SetSprite Middle Stan/Pitiful>>
+            Stan: What a shame... 
+            <<SetSprite Middle Stan/Unhinged2>>
+            <<Shake Middle>>
+            Stan: I really would've liked to see you struggle under all that weight. 
+            <<SetSprite Middle Stan/Smiling>>
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 100 && GetRelationshipScore("Stan") < 200>> //Acquaintances
         <<if $Stan_Dialogue == 1>>
@@ -190,9 +199,71 @@ Player: What should I do?
                 <<SetSprite Middle Stan/Smiling>>
                 Stan: Tommy is one of my closest friends. I'm really grateful to have him in my life. 
         <<elseif $Stan_Dialogue == 3>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: I have to ask, why are you still hanging around me? 
+            <<SetSprite Middle Stan/Passive>>
+            Stan: We didn't exactly start off on the right foot, and it's not like I've been much better to you since then. 
+            <<SetSprite Middle Stan/Question>>
+            Stan: So then, may I ask why? Why are you still here? 
+            -> You seem lonely...
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: Lonely? Tch... Me? Lonely? 
+                Stan: I'm not lonely... I have Tommy and... 
+                <<SetSprite Middle Stan/Question>>
+                Stan: My studies and sports... and...
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: Look. I don't need many friends. I prefer to keep to myself, so bug off!
+                <<SetSprite Middle Stan/Blackout>>
+                <<Wait 1>>
+                <<Shake Middle>>
+                <<SetSprite Middle Stan/Passive>>
+            -> I want to work out and get stronger! 
+                <<SetSprite Middle Stan/Laughing>>
+                Stan: Do you really expect me to believe that? 
+                Stan: We're in a gigantic field, but somehow, coincidentially, you choose to practice right next to me every single time. 
+                Stan: Why don't you be honest and tell me why you're following me like a puppy?
+                -> You seem lonely...
+                    <<SetSprite Middle Stan/Pitiful>>
+                    Stan: Lonely? Tch... Me? Lonely? 
+                    Stan: I'm not lonely... I have Tommy and... 
+                    <<SetSprite Middle Stan/Question>>
+                    Stan: My studies and sports... and...
+                    <<SetSprite Middle Stan/Pitiful>>
+                    Stan: Look. I don't need many friends. I prefer to keep to myself, so bug off!
+                    <<SetSprite Middle Stan/Blackout>>
+                    <<Wait 1>>
+                    <<Shake Middle>>
+                    <<SetSprite Middle Stan/Passive>>
+                -> I have a humiliation kink
+                    <<SetSprite Middle Stan/Blackout>>
+                    <<Shake Middle>>
+                    Stan: ...You what?
+                    <<SetSprite Middle Stan/Pitiful>>
+                    Stan: You have a humiliation kink? 
+                    Stan: You're... joking right? 
+                    <<SetSprite Middle Stan/Question>>
+                    Stan: You're... not joking...
+                    <<SetSprite Middle Stan/Sweating>>
+                    <<Wait 1>>
+                    <<SetSprite Middle Stan/Blackout>>
+                    Stan: Go touch grass this instant. Now. 
+                    <<SetSprite Middle Stan/Passive>> 
+            -> I have a humiliation kink
+                <<SetSprite Middle Stan/Blackout>>
+                <<Shake Middle>>
+                Stan: ...You what?
+                <<SetSprite Middle Stan/Pitiful>>
+                Stan: You have a humiliation kink? 
+                Stan: You're... joking right? 
+                <<SetSprite Middle Stan/Question>>
+                Stan: You're... not joking...
+                <<SetSprite Middle Stan/Sweating>>
+                <<Wait 1>>
+                <<SetSprite Middle Stan/Blackout>>
+                Stan: Go touch grass this instant. Now. 
+                <<SetSprite Middle Stan/Passive>> 
         <<elseif $Stan_Dialogue == 4>> 
-            Stan: 
+            Stan:
         <<else>> 
             Stan: 
         <<endif>>
@@ -279,6 +350,7 @@ Player: What should I do?
             Stan: Though to be fair, I don't think chess is his favorite activity either. 
             <<SetSprite Middle Stan/Giggle>>
             Stan: Last time we were playing chess, he was sleeping in between turns!
+            Stan: I started just taking random pieces of his while he was dozing off as a prank and he didn't even realize until his king was missing.
             <<SetSprite Middle Stan/Smiling>>
             Stan: He's a funny guy though and a good friend. 
         <<else>> 
@@ -334,11 +406,37 @@ Player: What should I do?
                 Stan: I guess I thought wrong. 
                 <<SetSprite Middle Stan/Passive>>
         <<else>> 
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Say, do you like boba by any chance? 
+            -> Yes
+                <<SetSprite Middle Stan/Sweating>>
+                Stan: I can't say I'm a fan of boba. I could never get used to the texture and the drinks are quite sweet. 
+                <<SetSprite Middle Stan/Question>>
+                Stan: If you like boba though, I think a new boba place just opened around here. 
+                <<SetSprite Middle Stan/GrinBlush>>
+                Stan: If you want we can go together...
+                <<SetSprite Middle Stan/Smiling>>
+                Stan: I probably won't get anything though, but it would be nice to spend some time with you outside of sports practice.
+            -> No
+                <<SetSprite Middle Stan/Smiling>>
+                Stan: Me neither. I can't get used to the texture and the drinks are too sweet for my taste. 
+                <<SetSprite Middle Stan/Question>>
+                Stan: I would choose a good old-fashioned cup of tea over boba any day of the week. 
+                <<SetSprite Middle Stan/Smiling>>
+                Stan: I'm glad we're on the same page.
         <<endif>>    
     <<else>> //Lovers
         <<if $Stan_Dialogue == 1>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: Have you heard of Harvey Ford? 
+            Stan: You might know him as the senator, but he's also my dad. 
+            Stan: He's quite strict, but I admire him a lot. 
+            Stan: He also runs Ford Motor Company with an iron fist. 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: I want to take over the family business someday. It's part of the reason why I'm studying economics. 
+            <<SetSprite Middle Stan/Question>>
+            Stan: My old man is pretty old fashioned and tough to impress though, so I definitely have my work cut out for me.
+            <<SetSprite Middle Stan/Idle>>
         <<elseif $Stan_Dialogue == 2>>
             Stan: 
         <<elseif $Stan_Dialogue == 3>>
@@ -496,8 +594,10 @@ Player: What should I do?
         <<if GetRelationshipScore("Stan") >= 400>>
             Player: Would you like to go to the dance with me?
             <<SetSprite Middle Stan/Question>>
-            Stan: Y-yes! I'd love to!
-            <<set $DancePartner = 0>>
+            Stan: The dance? 
+            <<SetSprite Middle Stan/GrinBlush>>
+            Stan: I would be honored. 
+            <<set $DancePartner = 6>>
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Stan/Question>>
