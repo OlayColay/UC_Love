@@ -1101,17 +1101,19 @@ Player: What should I do?
         <<SaveInt "UCSB_Intro" 1>>
     <<elseif GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSBDialogueGym == 1>>
-            Santana: Hello there! Have you visited the garden yet?
+            Santana: You're new to campus right? Have you visited the garden yet?
             <<SetSprite Middle Santana/bliss>>
             Santana: We just opened for the season! Be sure to check out the Ancient Forests section! 
             Santana: There are some really nifty trees in there. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSBDialogueGym == 2>>
-            Santana: If you want to feed the koi in the koi pond, there's a koi feed machine by the gate entrance!
-            Santana: Watch out for the squirrels though! They will attack you for food.
+            <<SetSprite Middle Santana/bliss>>
+            Santana: The gym here is a great way to stay healthy!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: Usually, I just do a bit of easy yoga here at night to unwind after a long day.
+            Santana: If you're really into athletics though, I heard that the sports coach scouts for people who hit the gym really hard! 
         <<elseif $UCSBDialogueGym == 3>>
-            Santana: If you have any questions about the plants or animals at the garden, don't hesitate to ask me!
-            Santana: I'm interning there for one of my biology major requirements!
+            Santana: I forgot if I told you or not, but I'm interning at the school garden for one of my biology major requirements!
             Santana: Some people think that it's cumbersome, but I think that it's a great way to learn about nature in some place other than a classroom.
         <<elseif $UCSBDialogueGym == 4>> 
             Santana: I heard that if you take a walk around the West end of the garden, weird things can happen to you.
@@ -1127,7 +1129,7 @@ Player: What should I do?
             Santana: If you get the chance, you should check out the Eschscholzia Californica's in the garden! 
             Santana: They're only in bloom for a short while each year.
         <<elseif $UCSBDialogueGym == 2>>
-            Santana: Be careful of the squirrels if you take a walk. They're a bit weird!
+            Santana: Be careful of the squirrels when walking around campus. They're a bit weird!
         <<elseif $UCSBDialogueGym == 3>>
             Santana: Working at the garden is a pretty great job overall!
             <<SetSprite Middle Santana/bliss>>
