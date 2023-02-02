@@ -402,11 +402,11 @@ Player: What should I do?
             <<if GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>>
                 <<SetSprite Middle Stan/Question>>
                 Stan: A date? with you?
-                <<SetSprite Middle Stan/Smirk>>
+                <<SetSprite Middle Stan/Grin>>
                 Stan: Fallen for my charms, haven't you? 
                 Stan: Sure, why not. Let's see where this goes.
             <<else>>
-                <<SetSprite Middle Stan/Smirk>>
+                <<SetSprite Middle Stan/Grin>>
                 Stan: A date? I'd love to. 
                 Stan: Choose any place you'd like but let me take care of the bill this time alright?
             <<endif>>
