@@ -1688,10 +1688,34 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
+            <<Wait 1>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
+            <<endif>>
             <<DateMinigame>>
-            <<Wait 4>>
-            Irene: This place is really cool! It really hits the spot...
-            Irene: Thanks for the food bro!
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Irene/IdleLB>>
+                Irene: This place is really cool! It really hits the spot...
+                Irene: Thanks for the food bro!
+            <<else>>
+                <<SetSprite Date Irene/Angry>>
+                <<Shake Date>>
+                Irene: Uh... are you doing ok?
+                Irene: You're kind of foaming at the mouth...
+                Irene: There's a napkin right there... if you need it...
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -1708,9 +1732,22 @@ Player: What should I do?
             <<SetSprite Middle Irene/Flirty>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            <<SetSprite Middle Irene/ExcitedLB>>
-            Irene: Next time, let's go for ramen! My treat!
-            <<SetSprite Middle Irene/Idle>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Next time, let's go for ramen! My treat!
+                <<SetSprite Middle Irene/Idle>>
+                <<AddRelationshipScore Irene 15>>
+            <<else>>
+                <<SetSprite Middle Irene/Angry>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Irene: Are you feeling better? You were acting really weird back there at the restaurant. 
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Negative rizz moment haha!
+                <<SetSprite Middle Irene/Idle>>
+                Irene: Maybe lay off the dating sims for a while and talk to a real girl. 
+                <<AddRelationshipScore Irene -10>>
+            <<endif>>
             <<jump UCIGarden>>
         <<else>>
             <<SetSprite Middle Irene/sad>>

@@ -1352,9 +1352,18 @@ Player: What should I do?
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
             <<DateMinigame>>
-            <<Wait 4>>
-            Irene: This place is really cool! It really hits the spot...
-            Irene: Thanks for the food bro!
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Irene/IdleLB>>
+                Irene: This place is really cool! It really hits the spot...
+                Irene: Thanks for the food bro!
+            <<else>>
+                <<SetSprite Date Irene/Angry>>
+                <<Shake Date>>
+                Irene: Uh... are you doing ok?
+                Irene: You're kind of foaming at the mouth...
+                Irene: There's a napkin right there... if you need it...
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -1371,9 +1380,22 @@ Player: What should I do?
             <<SetSprite Middle Irene/Flirty>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            <<SetSprite Middle Irene/ExcitedLB>>
-            Irene: Next time, let's go for ramen! My treat!
-            <<SetSprite Middle Irene/Idle>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Next time, let's go for ramen! My treat!
+                <<SetSprite Middle Irene/Idle>>
+                <<AddRelationshipScore Irene 15>>
+            <<else>>
+                <<SetSprite Middle Irene/Angry>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Irene: Are you feeling better? You were acting really weird back there at the restaurant. 
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Negative rizz moment haha!
+                <<SetSprite Middle Irene/Idle>>
+                Irene: Maybe lay off the dating sims for a while and talk to a real girl. 
+                <<AddRelationshipScore Irene -10>>
+            <<endif>>
             <<jump UCICafe>>
         <<else>>
             <<SetSprite Middle Irene/sad>>

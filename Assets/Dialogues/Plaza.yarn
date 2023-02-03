@@ -109,7 +109,22 @@ Player: What should I do?
     <<AddRelationshipScore Irene 10>>
     <<set $UCIDialoguePlaza = Dice(5)>>
     <<if $UCIIntroPlaza != 1>>
-        Irene: INTRO TEXT HERE
+        <<SetSprite Middle Irene/Idle>>
+        Irene: ... need... caffeine...
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: Wait... you there... the way you're standing...
+        <<SetSprite Middle Irene/Excited>>
+        Irene: The way you're holding your backpack...
+        <<Shake Middle>>
+        Irene: IS THAT A BOBO'S REFERENCE? 
+        Irene: YOOOOOOOO!!! I love Bobo's Very Normal Adventures!! 
+        Irene: Wait you weren't making a Bobo's reference? You were just standing normally?
+        <<SetSprite Middle Irene/Awkward>>
+        Irene: Whoops, that's a little cringe of me to assume you were making a reference. Sorry about that pogchamp. 
+        <<SetSprite Middle Irene/Flirty>>
+        Irene: My name's Irene! I really love anime and gaming, so if you want to nerd out together, I think we'd be great friends! 
+        Irene: See you around campus, gamer! 
+        <<SetSprite Middle Irene/Idle>>
         <<SaveInt "UCI_Intro" 1>>
     <<elseif GetRelationshipScore("Irene") < 100>> //Strangers
         <<if $UCIDialoguePlaza == 1>>
@@ -537,9 +552,18 @@ Player: What should I do?
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
             <<DateMinigame>>
-            <<Wait 4>>
-            Irene: This place is really cool! It really hits the spot...
-            Irene: Thanks for the food bro!
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Irene/IdleLB>>
+                Irene: This place is really cool! It really hits the spot...
+                Irene: Thanks for the food bro!
+            <<else>>
+                <<SetSprite Date Irene/Angry>>
+                <<Shake Date>>
+                Irene: Uh... are you doing ok?
+                Irene: You're kind of foaming at the mouth...
+                Irene: There's a napkin right there... if you need it...
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -556,9 +580,25 @@ Player: What should I do?
             <<SetSprite Middle Irene/Flirty>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            <<SetSprite Middle Irene/ExcitedLB>>
-            Irene: Next time, let's go for ramen! My treat!
-            <<SetSprite Middle Irene/Idle>>
+            <<SetSprite Middle Irene/Flirty>>
+            <<SetActiveChar Middle>>
+            <<Fade true>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Irene/ExcitedLB>>
+                Irene: Next time, let's go for ramen! My treat!
+                <<SetSprite Middle Irene/Idle>>
+                <<AddRelationshipScore Irene 15>>
+            <<else>>
+                <<SetSprite Middle Irene/Angry>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Irene: Are you feeling better? You were acting really weird back there at the restaurant. 
+                <<SetSprite Middle Irene/Awkward>>
+                Irene: Negative rizz moment haha!
+                <<SetSprite Middle Irene/Idle>>
+                Irene: Maybe lay off the dating sims for a while and talk to a real girl. 
+                <<AddRelationshipScore Irene -10>>
+            <<endif>>
             <<jump UCIPlaza>>
         <<else>>
             <<SetSprite Middle Irene/sad>>
