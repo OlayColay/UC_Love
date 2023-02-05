@@ -805,7 +805,7 @@ Player: What should I do?
                 <<AddRelationshipScore Ellie -10>>
                 <<SetSprite Middle Ellie/Angry>>
                 Ellie: No worries! I completeley understand!
-                <<SetSprite Middle Ellie/>>
+                <<SetSprite Middle Ellie/cmc>>
                 Ellie: Sorry to bother you...
                 <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue_Library == 3>>

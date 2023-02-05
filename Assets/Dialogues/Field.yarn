@@ -623,6 +623,7 @@ Player: What should I do?
             <<SetSprite Middle Stan/Question>>
             Stan: I don't care enough about you right now to warrant the social embarassment of going to that dinky old dance.
             <<AddRelationshipScore Stan -5>>
+            <<jump Stan>>
         <<else>>
             <<SetSprite Middle Stan/Question>>
             Stan: You? Me? That dinky old dance?
