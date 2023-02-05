@@ -582,11 +582,11 @@ Player: What should I do?
     <<if $UCLAIntroGym != 1>>
         <<SetSprite Middle Ellie/Idle>>
         Ellie: Hey there! You're new here right? Welcome to UCL! 
-        <<SetSprite Middle Ellie/Angry>>
+        <<SetSprite Middle Ellie/angry>>
         Ellie: I know that your first few days at a new school can be a little scary. It's taking a bit of time for everyone to adjust to the consolidation of the UCs. 
         <<SetSprite Middle Ellie/smc>>
         Ellie: You're definitely not alone though! 
-        <<SetSprite Middle Ellie/Angry>>
+        <<SetSprite Middle Ellie/angry>>
         Ellie: My sister Kelly was absolutely inconsolable when she heard UC Berkeley would also be integrated into the UC consolidation. 
         <<SetSprite Middle Ellie/smc>>
         Ellie: I'm pretty busy between all my clubs and organizations, but feel free to come chat with me on campus if you ever need anything! 
@@ -601,7 +601,7 @@ Player: What should I do?
                 Ellie: Let me know if you need help finding anything! I'm late for a volleyball practice but I'd love to help you out if you need any help!
                 <<SetSprite Middle Ellie/Idle>>
             -> Actually, I've been here for a while!
-                <<SetSprite Middle Ellie/Angry>>
+                <<SetSprite Middle Ellie/angry>>
                 Ellie: Ah! Sorry, I'm in a lot of club activities and have trouble keeping track of everyone I meet!
                 Ellie: I think I remember you... your name is.... 
                 Player: ...
@@ -656,7 +656,7 @@ Player: What should I do?
                 Ellie: I'll see you around!
                 <<SetSprite Middle Ellie/Idle>>
             -> I think you're mistaken!
-                <<SetSprite Middle Ellie/Angry>>
+                <<SetSprite Middle Ellie/angry>>
                 Ellie: Oh... my bad! Sorry, you looked a lot like one of the students in that class.
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: You should take the class if you have the chance! It's a really fun class.
@@ -665,7 +665,7 @@ Player: What should I do?
                 <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue_Gym == 3>>
             Ellie: Have you joined any of the clubs on campus yet? There's a ton of extracurriculars here at UCL!
-            <<SetSprite Middle Ellie/Angry>>
+            <<SetSprite Middle Ellie/angry>>
             Ellie: I would know... I'm in way too many of them!
             <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue_Gym == 4>> 
@@ -712,11 +712,11 @@ Player: What should I do?
                 Ellie: I try to get her to take breaks from her work and whatnot but she just keeps working herself to the bone.
                 Ellie: I don't know what to do...
                 -> Try to talk to her again! Persistence is key and words are powerful!
-                    <<SetSprite Middle Ellie/Angry>>
+                    <<SetSprite Middle Ellie/angry>>
                     Ellie: I told you that I tried that already, but I'll try it again I suppose...
                     <<SetSprite Middle Ellie/Idle>>
                 -> Give her a hug! Maybe physical affection is what she needs!
-                    <<SetSprite Middle Ellie/Angry>>
+                    <<SetSprite Middle Ellie/angry>>
                     Ellie: Uhhh... I don't think you know my sister that well... She hates hugs...
                     <<SetSprite Middle Ellie/Idle>>
                 -> Do small tasks for her to let her know you care!
@@ -725,7 +725,7 @@ Player: What should I do?
                     Player: Like helping her organize her stuff or cutting some fruit for her when she's studying late!
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Oh! I haven't thought about that!
-                    <<SetSprite Middle Ellie/Angry>>
+                    <<SetSprite Middle Ellie/angry>>
                     Ellie: My sister does tend to eat a lot of instant meals... I think I could try cooking for her or bringing her some fruit to save some time for her to study.
                     <<SetSprite Middle Ellie/smc>>
                     Ellie: Thank you for the advice! I really appreciate it!
@@ -743,7 +743,7 @@ Player: What should I do?
                     Player: I think that you should join the board!
                     -> You can defintely make room in your schedule.
                         <<AddRelationshipScore Ellie -10>>
-                        <<SetSprite Middle Ellie/Angry>>
+                        <<SetSprite Middle Ellie/angry>>
                         Ellie: I don't think you've really been listening to me...
                         <<SetSprite Middle Ellie/Idle>>
                     -> Your friend needs you!
@@ -753,7 +753,7 @@ Player: What should I do?
                 -> Turn her down...
                     -> I don't think that you can handle it.
                         <<AddRelationshipScore Ellie -10>>
-                        <<SetSprite Middle Ellie/Angry>>
+                        <<SetSprite Middle Ellie/angry>>
                         Ellie: Jeez... I do have a lot on my plate but that's... kind of harsh. 
                         <<SetSprite Middle Ellie/cmo>>
                         Ellie: Thanks for the advice I guess...
@@ -813,14 +813,14 @@ Player: What should I do?
                             Ellie: I'm always here if you need to vent, kay?
             -> Sorry, I'm kind of busy...
                 <<AddRelationshipScore Ellie -10>>
-                <<SetSprite Middle Ellie/Angry>>
+                <<SetSprite Middle Ellie/angry>>
                 Ellie: No worries! I completeley understand!
                 <<SetSprite Middle Ellie/cmc>>
                 Ellie: Sorry to bother you...
                 <<SetSprite Middle Ellie/Idle>>
         <<elseif $UCLA_Dialogue_Gym == 3>>
             Ellie: I don't know if you've noticed, but I'm kind of a pushover!
-            <<SetSprite Middle Ellie/Angry>>
+            <<SetSprite Middle Ellie/angry>>
             Ellie: When I was a kid, there was this girl in my class who would ask to borrow my toys but would never give them back!
             Ellie: She even took my teddy bear, which was my favorite toy.
             Ellie: I didn't want to confront her or say no because I felt bad!
@@ -854,7 +854,7 @@ Player: What should I do?
                                 Ellie: I know... but so many people rely on me to keep their clubs running.
                                 Ellie: I can't just back out all of a sudden. 
                                 -> Just drop some clubs! No one is stopping you!
-                                    <<SetSprite Middle Ellie/Angry>>
+                                    <<SetSprite Middle Ellie/angry>>
                                     Ellie: These are people that I care about! I can't just leave them hanging like that...
                                     Ellie: You wouldn't do that to someone you cared about would you?
                                 -> Why don't you try phasing out your involvement?
@@ -878,7 +878,7 @@ Player: What should I do?
                                 <<set $UCLA_Quit to false>>
                                 Player: I think that you're struggling with time management...
                                 Player: I'm sure that you could fit everything into your schedule if you tried hard enough.
-                                <<SetSprite Middle Ellie/Angry>>
+                                <<SetSprite Middle Ellie/angry>>
                                 Ellie: Yeah, sure. I guess if I stop eating or showering I guess I might have enough time. 
                                 Ellie: I need a more practical solution...
                                 <<SetSprite Middle Ellie/Idle>>
@@ -919,7 +919,7 @@ Player: What should I do?
                 <<SetSprite Middle Ellie/cmo>>
                 Ellie: I ended up leaving a couple of clubs that I'm involved in. 
                 Ellie: The workload just got too overwhelming at a certain point and I just had to suddenly drop out.
-                <<SetSprite Middle Ellie/Angry>>
+                <<SetSprite Middle Ellie/angry>>
                 Ellie: I wish I was able to recognize my limit a little earlier to give my friends and clubmates some notice, but better late than never!
                 <<SetSprite Middle Ellie/smc>>
                 Ellie: I feel a lot less burned out and I have more time and energy to devote towards a few clubs that I really care about. 
@@ -1009,7 +1009,7 @@ Player: What should I do?
         Ellie: That's so sweet of you!
         <<SetSprite Middle Ellie/Idle>>
     <<elseif $GiftScoreEGym == -10>> //Hated Gift
-        <<SetSprite Middle Ellie/Angry>>
+        <<SetSprite Middle Ellie/angry>>
         Ellie: Ehhhm….. thanks?
         <<SetSprite Middle Ellie/Idle>>
     <<elseif $GiftScoreEGym == 40>>
@@ -1061,8 +1061,20 @@ Player: What should I do?
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
             <<DateMinigame>>
-            <<Wait 4>>
-            Ellie: Thanks for taking me out! The food here is really good!
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Ellie/lb>>
+                Ellie: Thanks for taking me out! The food here is really good!
+            <<else>>
+                <<SetSprite Date Ellie/Irritated>>
+                <<Shake Date>>
+                <<SetSprite Date Ellie/angry>>
+                Ellie: Hey! I don't know if you know this, but that is not a nice thing to say...
+                <<SetSprite Date Ellie/cmo>>
+                Ellie: Kelly is my sister! Don't talk negatively about her... you don't know what she might be going through.
+                <<SetSprite Date Ellie/cmc>>
+                Ellie: If you're not going to say something nice, don't say it at all.
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Date>>
             <<ClearSprite Bottom>>
@@ -1077,10 +1089,24 @@ Player: What should I do?
             <<SetSprite Middle Ellie/Idle>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            Ellie: That was really fun! Thank you for the food!
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Ellie/lb>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Ellie: That was really fun! Thank you for the food!
+                <<AddRelationshipScore Ellie 15>>
+            <<else>>
+                <<SetSprite Middle Ellie/cmc>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                Ellie: I hope that you didn't mean what you said back at the restaurant...
+                <<SetSprite Middle Ellie/angry>>
+                Ellie: Hopefully things will be a little better on our next date!
+                <<AddRelationshipScore Ellie -10>>
+            <<endif>>
             <<jump UCLAGym>>
         <<else>>
-            <<SetSprite Middle Ellie/Angry>>
+            <<SetSprite Middle Ellie/angry>>
             Ellie: Umm.. sorry... I have... ummm... back-to-back club meetings that day...
             Player: Oh ok! What about tomorrow?
             <<SetSprite Middle Ellie/cmc>>
@@ -1097,7 +1123,7 @@ Player: What should I do?
             <<set $DancePartner = 1>>
             <<jump Dance>>
         <<else>>
-            <<SetSprite Middle Ellie/Angry>>
+            <<SetSprite Middle Ellie/angry>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
             <<AddRelationshipScore Ellie -20>>
             <<jump UCLAGym>>
