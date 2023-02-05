@@ -94,7 +94,7 @@ position: 153,-9
 Player: What should I do?
 -> Talk to Stan <<if $TalkStan == false>>
     <<set $TalkStan to true>>
-    <<AddRelationshipScore Stan 10>>
+    <<AddRelationshipScore Stan 15>>
     <<set $Stan_Dialogue = Dice(5)>>
     <<if $StanIntro != 1>>
         //COMMENT THIS OUT LATER
@@ -281,10 +281,10 @@ Player: What should I do?
             Stan: Wouldn't it be cute if I made you do my laundry? Or if I made you answer each command with "yes sir"?
             <<SetSprite Middle Stan/Question>>
             Stan: Coach said that if he heard of anyone hazing the newbies, he'd kick them off the team. 
+            <<Shake Middle>>
             <<SetSprite Middle Stan/Blackout>>
             Stan: If there's one person that I don't want to piss off, it's him. 
             <<SetSprite Middle Stan/Pitiful>>
-            <<Shake Middle>>
             Stan: Count yourself lucky... for now.
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 200 && GetRelationshipScore("Stan") < 300>> //Friends
@@ -364,7 +364,7 @@ Player: What should I do?
         <<elseif $Stan_Dialogue == 4>> 
             <<SetSprite Middle Stan/Question>>
             Stan: Even though Tommy and I are friends, we don't have many things in common. 
-            <<SetSprite Middle Stan/>>
+            <<SetSprite Middle Stan/Blackout>>
             Stan: He invites me to go to a club with him, but the loud music and trashy dancing isn't exactly my taste.
             <<SetSprite Middle Stan/Question>>
             Stan: Though to be fair, I don't think chess is his favorite activity either. 
@@ -619,6 +619,10 @@ Player: What should I do?
             Stan: I would be honored. 
             <<set $DancePartner = 6>>
             <<jump Dance>>
+        <<elseif GetRelationshipScore("Stan") < 400 || GetRelationshipScore("Stan") >= 200>>
+            <<SetSprite Middle Stan/Question>>
+            Stan: I don't care enough about you right now to warrant the social embarassment of going to that dinky old dance.
+            <<AddRelationshipScore Stan -5>>
         <<else>>
             <<SetSprite Middle Stan/Question>>
             Stan: You? Me? That dinky old dance?
@@ -628,7 +632,7 @@ Player: What should I do?
             <<SetSprite Middle Stan/Laughing>>
             Stan: That's the most hilarious thing anyone has said to me this century!
             <<SetSprite Middle Stan/Passive>>
-            <<AddRelationshipScore Stan -20>>
+            <<AddRelationshipScore Stan -10>>
             <<jump Stan>>
         <<endif>>
     -> Cancel
