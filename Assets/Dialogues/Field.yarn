@@ -458,11 +458,31 @@ Player: What should I do?
             Stan: My old man is pretty old fashioned and tough to impress though, so I definitely have my work cut out for me.
             <<SetSprite Middle Stan/Idle>>
         <<elseif $Stan_Dialogue == 2>>
-            Stan: 
+            <<SetSprite Middle Stan/Giggle>>
+            Stan: Your backpack looks pretty heavy. Let me hold it for you!
+            -> Alright!
+                <<SetSprite Middle Stan/Grin>>
+                Stan: There we go! 
+                <<SetSprite Middle Stan/GiggleBlush>>
+                Stan: See? Don't your shoulders feel a little better now? 
+            -> No it's ok!
+                <<SetSprite Middle Stan/Question>>
+                Stan: You're holding your backpack on one shoulder. It's going to mess up your balance over time. 
+                <<SetSprite Middle Stan/GiggleBlush>>
+                Stan: Now hand it over before I pick you up with it too!
         <<elseif $Stan_Dialogue == 3>>
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: It's pretty hot today... Have you been drinking enough water? 
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: If you forgot your water bottle, you can take a couple sips from mine.
         <<elseif $Stan_Dialogue == 4>> 
-            Stan: 
+            Stan: I heard that coach is making us do pair exercises for our drills today. 
+            <<SetSprite Middle Stan/SmilingBlush>>
+            Stan: If you don't have a partner yet, I think we should team up.
+            <<SetSprite Middle Stan/Grin>>
+            Stan: I don't mind if you're not the strongest or fastest teammate.
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: It would just be nice to spend some time with you. 
         <<else>> 
             <<SetSprite Middle Stan/Smiling>>
             Stan: I heard your school is hosting a school dance sometime soon. 

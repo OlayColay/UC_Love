@@ -1050,21 +1050,6 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
-            <<DateMinigame>>
-            <<Wait 1>>
-            <<if DateMinigameWon()>>
-                <<SetSprite Date Ellie/lb>>
-                Ellie: Thanks for taking me out! The food here is really good!
-            <<else>>
-                <<SetSprite Date Ellie/Irritated>>
-                <<Shake Date>>
-                <<SetSprite Date Ellie/angry>>
-                Ellie: Hey! I don't know if you know this, but that is not a nice thing to say...
-                <<SetSprite Date Ellie/cmo>>
-                Ellie: Kelly is my sister! Don't talk negatively about her... you don't know what she might be going through.
-                <<SetSprite Date Ellie/cmc>>
-                Ellie: If you're not going to say something nice, don't say it at all.
-            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
