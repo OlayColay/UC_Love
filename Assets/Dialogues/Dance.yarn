@@ -254,8 +254,11 @@ BearBox: Woah! Congratulations!
     <<SetSprite Middle Riviera/Happy>>
     Riviera: Nice job! You deserve it!
     <<SetSprite Middle Riviera/Idle>>
-<<else>>
+<<elseif $DancePartner == 5>>
     Tommy: Good for you!
+<<else>>
+    <<SetSprite Middle Stan/Grin>>
+    Stan: Hey! Lucky you!
 <<endif>>
 <<if $DancePartner == 5>>
     <<SetActiveChar Right>>
@@ -529,7 +532,53 @@ Player: Oh shoot! I'm running late to class again!
 <<else>>
     <<SetSprite Middle>>
     <<SetActiveChar Middle Stan/Smiling>>
-    //CONTINUE OFF HERE
+    Stan: How's my favorite UC Loser? 
+        -> Good morning?
+            Stan: I thought I would stop by to see how you were doing after the dance last night.
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: After all, things did get pretty crazy as the night wore on...
+            <<Wait 1>>
+            <<SetSprite Middle Stan/Blackout>>
+            Stan: I really cannot believe that Professor BearBox tried to crowdsurf in a crowd of undergrads that have never heard of arm day. 
+            Stan: That bag of bolts was one fall away from ending up in the e-waste bin.
+        -> Are you going to dump me into a trash can again? 
+            <<SetSprite Middle Stan/Sus>>
+            Stan: Do you want me to? 
+            <<SetSprite Middle Stan/Unhinged2>>
+            <<Shake Middle>>
+            Stan: Because I could! 
+        -> (Say Nothing)
+            <<SetSprite Middle Stan/Grin>>
+            Stan: At a loss for words I see...
+    <<SetSprite Middle Stan/SmilingBlush>>
+    Stan: To be honest, after the dance last night, I couldn't get you off of my mind...
+    <<SetSprite Middle Stan/Question>>
+    Stan: Seeing you and your school put in so much effort into the fundraising event...
+    <<SetSprite Stan/Smiling>>
+    Stan: It was really impressive. You have my respect!
+    <<SetSprite Middle Stan/Giggle>>
+    Stan: Though UCL doesn't have as many resources as my university or Tommy's, you guys really give it your all. 
+    <<SetSprite Middle Stan/GrinBlush>>
+    Stan: I really admire that in a person.
+    <<SetSprite Middle Stan/Question>>
+    Stan: Say, if you don't have any plans after graduation... 
+    <<SetSprite Middle Stan/GrinBlush>>
+    Stan: Maybe... we should be business partners...
+    <<SetSprite Middle Stan/Question>>
+    Stan: Is that... the sound of the twelve o'clock bell? 
+    <<SetSprite Middle Stan/Irritated>>
+    <<Shake Middle>>
+    Stan: We're... late for practice...
+    <<SetSprite Middle Stan/Grin>>
+    Stan: Quick! Get in my arms! I'll carry us both to the practice field. 
+    <<SetSprite Middle Stan/GiggleBlush>>
+    Stan: Are you flustered or something? You're all red. 
+    <<SetSprite Middle Stan/GrinBlush>>
+    Stan: Don't worry your cute little head about it too much.
+    <<SetSprite Middle Stan/GiggleBlush>>
+    Stan: You can admire me all you want while I run us over there. 
+    <<SetSprite Middle Stan/GrinBlush>>
+    Stan: Now let's go!
     <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>

@@ -551,6 +551,21 @@ Player: What should I do?
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
+            <<Wait 1>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
+            <<endif>>
             <<DateMinigame>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
@@ -1015,10 +1030,34 @@ position: 212,-6
             <<SetSprite Bottom Backgrounds/Table>>
             <<SetSprite Date Riviera/LB>>
             <<Fade true>>
+            <<Wait 1>>
+            <<if LoadInt("FirstDate") == 0>>
+                <<SetActiveChar Right>>
+                <<SetSprite Right BearBox/Idle>>
+                BearBox: Pssst! Hey buddy!
+                BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
+                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
+                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
+                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                <<SetSprite Right BearBox/Blush>>
+                BearBox: That's all from me! Good luck on your date champ! 
+                <<ClearSprite Right>>
+                <<SaveInt "FirstDate" 1>>
+                <<SetActiveChar Date>>
+            <<endif>>
             <<DateMinigame>>
-            <<Wait 4>>
-            Riviera: Wow! The food here is top notch!
-            Riviera: Thank you for treating me out!
+            <<Wait 1>>
+            <<if DateMinigameWon()>>
+                <<SetSprite Date Riviera/HB>>
+                Riviera: Wow! The food here is top notch!
+                Riviera: Thank you for treating me out!
+            <<else>>
+                <<SetSprite Date Riviera/Sad>>
+                <<Shake Date>>
+                Riviera: Can you stop snapping at the waitstaff? It's really rude! 
+                <<SetSprite Data Riviera/Angry>>
+                Riviera: Can't you see that they're busy? Please be patient with them!
+            <<endif>>
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
@@ -1035,8 +1074,20 @@ position: 212,-6
             <<SetSprite Middle Riviera/LB>>
             <<SetActiveChar Middle>>
             <<Fade true>>
-            <<SetSprite Middle Riviera/HB>>
-            Riviera: I had such a great time! We should do this again sometime!
+            <<if DateMinigameWon()>>
+                <<SetSprite Middle Riviera/HB>>
+                Riviera: I had such a great time! We should do this again sometime!
+                <<AddRelationshipScore Riviera 15>>
+            <<else>>
+                <<SetSprite Middle Riviera/Angry>>
+                <<SetActiveChar Middle>>
+                <<Fade true>>
+                <<SetSprite Middle Riviera/VeryAngry>>
+                Riviera: Sigh... I can't believe you did that to the waitstaff back there. 
+                <<SetSprite Middle Riviera/Sad>>
+                Riviera: Next time, please be a little more courteous to the waitstaff alright?
+                <<AddRelationshipScore Riviera -10>>
+            <<endif>>
             <<SetSprite Middle Riviera/Idle>>
             <<jump UCRPlaza>>
         <<else>>
@@ -1057,6 +1108,7 @@ position: 212,-6
             <<SetSprite Middle Riviera/Angry>>
             Riviera: I respect your courage but I think you might be a bit too forward. 
             <<AddRelationshipScore Riviera -20>>
+            //
             <<jump UCRPlaza>>
         <<endif>>
     -> Cancel
