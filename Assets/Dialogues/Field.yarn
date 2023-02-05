@@ -263,9 +263,29 @@ Player: What should I do?
                 Stan: Go touch grass this instant. Now. 
                 <<SetSprite Middle Stan/Passive>> 
         <<elseif $Stan_Dialogue == 4>> 
-            Stan:
+            <<SetSprite Middle Stan/Giggle>>
+            Stan: The field is nice isn't it? 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: It's nice to have a little privacy when you practice away from fangirls.
+            <<SetSprite Middle Stan/Laughing>>
+            Stan: Though it is a bit of a shame that I have to share it with YOU now. 
+            <<SetSprite Middle Stan/Question>>
+            Stan: There are worse things in the world I guess. 
+            <<SetSprite Middle Stan/Pitiful>>
+            Stan: Don't get too comfortable here though.
         <<else>> 
-            Stan: 
+            <<SetSprite Middle Stan/Question>>
+            Stan: I wish coach didn't pass that ban on hazing right when you joined.
+            <<SetSprite Middle Stan/Unhinged2>>
+            Stan: I had so many good ideas for what to do to you...
+            Stan: Wouldn't it be cute if I made you do my laundry? Or if I made you answer each command with "yes sir"?
+            <<SetSprite Middle Stan/Question>>
+            Stan: Coach said that if he heard of anyone hazing the newbies, he'd kick them off the team. 
+            <<SetSprite Middle Stan/Blackout>>
+            Stan: If there's one person that I don't want to piss off, it's him. 
+            <<SetSprite Middle Stan/Pitiful>>
+            <<Shake Middle>>
+            Stan: Count yourself lucky... for now.
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 200 && GetRelationshipScore("Stan") < 300>> //Friends
         <<if $Stan_Dialogue == 1>>
