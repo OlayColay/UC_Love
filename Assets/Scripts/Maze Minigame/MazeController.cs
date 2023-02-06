@@ -17,6 +17,7 @@ public class MazeController : MonoBehaviour
     private Vector2 moveInput;
     private Rigidbody2D rb;
     private Vector3 currentVelocityPlayer = Vector3.zero;
+    private Animator animator;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class MazeController : MonoBehaviour
         
         playerInput = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -40,6 +42,12 @@ public class MazeController : MonoBehaviour
     void Update()
     {
         moveInput = playerInput.Player.Move.ReadValue<Vector2>();
+
+        if (Mathf.Abs(moveInput.x) >= float.Epsilon || Mathf.Abs(moveInput.y) >= float.Epsilon)
+        {
+            animator.SetFloat("horizontal", moveInput[0]);
+            animator.SetFloat("vertical", moveInput[1]);
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +55,8 @@ public class MazeController : MonoBehaviour
     {
         Vector2 targetVelocity = moveInput * maxSpeed;
         rb.velocity =  Vector3.SmoothDamp(rb.velocity, targetVelocity, ref currentVelocityPlayer, smoothTime);
+        // Wheels spin only if moving
+        animator.speed = rb.velocity.magnitude / maxSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
