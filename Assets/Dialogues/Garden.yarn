@@ -33,13 +33,27 @@ position: -107,2
     <<set $UC_Hastings to Dice(5)>>
     <<if $UC_Hastings == 1>>
         <<SetSprite Middle Cameo/Crystal>>
-        Crystal: Eh?
+        Crystal: *slug noises*
+        Player: Wait! I think I have GooGoo Translate on my phone!
+        Crystal: *slug noises* (Eh?) 
+        Crystal: *slurping noises* (Oh, a human! Nice to meet you!)
+        Crystal: *squishing noises* (Am Crystal! Am slug!! !!) 
+        // slimy, mucous, slippery, gloopy, 
         -> Do you go here?
-            Crystal: CONTINUE
+            Crystal: *confused squelching noises* (Oh, friend thinks Crystal student? Crystal not student here.)
         -> Can I take you on a date? 
-            Crystal: CONTINUE
+            Crystal: *confused squelching noises* (Date? Crystal from other planet.)
+            Crystal: *explanatory squishing noises* (Only here to study Earth plants. Crystal return to Slug planet tonight.)
+            Crystal: *pitying gloopy noises* (Plus Crystal only date slugs.)
+        Crystal: *urgent slimy noises* (Has friend seen plants nearby? Crystal studying Earth plants for medicine for slugs.)
+        Crystal: *emphatic mucous sounds* (Very important to Crystal.)
+        -> They're over there!
+            Crystal: *happy slippery noises* (!! Thank you friend!! Crystal very happy.)
+            Crystal: *relieved bubbling noises* (Crystal promise Earth and Slug truce. Slugs planet will not invade Earth.)
+            Crystal: *happy slug noises* (Goodbye friend! Remember to eat banana!)
         <<ClearSprite Middle>>
         <<Wait 1>>
+        Player: That was... strange...
         <<SetSprite Middle BearBox/Idle>>
         BearBox: Oh hey buddy!
         <<SetSprite Middle BearBox/Blush>>
@@ -47,15 +61,19 @@ position: -107,2
         <<SetSprite Middle BearBox/Idle>>
         BearBox: She's... a little eccentric.
         BearBox: I'm not really sure what's up with her. 
-        BearBox: Administration thinks she actually might be an alien slug of some sort... but you didn't hear it from me.
+        <<Wait 1>>
+        <<Flip Middle 0>>
+        <<Wait 1>>
+        <<Flip Middle 0>>
+        <<Wait 1>>
+        BearBox: You didn't hear it from me, but administration thinks she actually might be an alien slug of some sort... 
         BearBox: Well, I have some errands around campus to run. 
         <<SetSprite Middle BearBox/Blush>>
         BearBox: Stay out of trouble!
         <<ClearSprite Middle>>
-        <<SaveInt "UC_Hastings_Cameo" 1>>
+        <<SaveInt "UCSC_Cameo" 1>>
     <<endif>>
 <<endif>>
-
 <<set $FlavorTextGarden = Dice(5)>>
 <<if $TimeOfDayGarden == 0>>
     <<if $FlavorTextGarden == 1>>
