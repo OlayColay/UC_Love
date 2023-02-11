@@ -475,11 +475,19 @@ Player: What should I do?
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
                 BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
-                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
-                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
-                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
+                BearBox: Like adding raspberry syrup. 
+                <<Wait 1>>
+                <<Flip Middle 0>>
+                <<Flip Middle 0>>
+                <<Wait 1>>
+                BearBox: Pretend that made sense. 
+                BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
+                BearBox: Don't screw up your date by doing something out of place, like putting raspberry syrup on chocolate. 
+                BearBox: Y'know what this metaphor doesn't make sense. 
+                BearBox: Raspberry syrup sucks, especially when it gets in my tires, so avoid the red bars and your date should go well. 
                 <<SetSprite Right BearBox/Blush>>
-                BearBox: That's all from me! Good luck on your date champ! 
+                BearBox: That's all from me! Good luck on your date champ! Stay out of trouble!
                 <<ClearSprite Right>>
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
@@ -942,11 +950,19 @@ position: 207,66
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
                 BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
-                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
-                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
-                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
+                BearBox: Like adding raspberry syrup. 
+                <<Wait 1>>
+                <<Flip Middle 0>>
+                <<Flip Middle 0>>
+                <<Wait 1>>
+                BearBox: Pretend that made sense. 
+                BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
+                BearBox: Don't screw up your date by doing something out of place, like putting raspberry syrup on chocolate. 
+                BearBox: Y'know what this metaphor doesn't make sense. 
+                BearBox: Raspberry syrup sucks, especially when it gets in my tires, so avoid the red bars and your date should go well. 
                 <<SetSprite Right BearBox/Blush>>
-                BearBox: That's all from me! Good luck on your date champ! 
+                BearBox: That's all from me! Good luck on your date champ! Stay out of trouble!
                 <<ClearSprite Right>>
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
@@ -1473,11 +1489,19 @@ Player: What should I do?
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
                 BearBox: I heard it was your first date, so I rolled over as fast as I could to give you some last minute tutorial advice. 
-                BearBox: Expressing your feelings to your date is very important to building a relationship with them, so be sure to not mess it up. 
-                BearBox: Navigate your feelings using the WASD or arrow keys to get to the end goal. 
-                BearBox: Don't screw up a conversation by letting other thoughts cloud your head, so be sure to avoid the clouds. 
+                BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
+                BearBox: Like adding raspberry syrup. 
+                <<Wait 1>>
+                <<Flip Middle 0>>
+                <<Flip Middle 0>>
+                <<Wait 1>>
+                BearBox: Pretend that made sense. 
+                BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
+                BearBox: Don't screw up your date by doing something out of place, like putting raspberry syrup on chocolate. 
+                BearBox: Y'know what this metaphor doesn't make sense. 
+                BearBox: Raspberry syrup sucks, especially when it gets in my tires, so avoid the red bars and your date should go well. 
                 <<SetSprite Right BearBox/Blush>>
-                BearBox: That's all from me! Good luck on your date champ! 
+                BearBox: That's all from me! Good luck on your date champ! Stay out of trouble!
                 <<ClearSprite Right>>
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
