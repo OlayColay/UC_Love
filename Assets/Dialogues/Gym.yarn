@@ -29,6 +29,77 @@ tags:
 <<Fade true>>
 
 
+<<if LoadInt("UCSF_Cameo") == 0>>
+    <<set $UCSF to Dice(5)>>
+    <<if $UCSF == 1>>
+        <<SetSprite Middle Cameo/Francesca>>
+        Francesca: Oh hello! Do you mind participating in a quick study?
+        Francesca: I'm collecting the heart rates of the students here to see if there is a correlation between activity levels and resting heart rates. 
+        Francesca: Is it ok if I measure yours? 
+        -> Yes
+            Francesca: Alright, one moment... 
+            <<Wait 2>>
+            Francesca: All done! 
+            Francesca: Well... your heart rate is significantly above the mean of the ones I've collected thus far.
+            Francesca: Either you're two boba drinks away from a heart attack or something's got you riled up.
+            Francesca: Thanks for participating in the study! 
+        -> No!
+            Francesca: Well... I guess I can't force you to. 
+        Francesca: Do you have any questions for me?
+        -> Do you go here?
+            Francesca: 
+            Francesca: 
+            -> Can I take you on a date? 
+                Francesca: Oh my... 
+                Francesca: Apologies darling, but it would be quite unethical for a scientist to date while on the job! 
+                Francesca: Quite a conflict of interest, I must say. 
+                Francesca: I'm only here for today to conduct a short study. 
+                Francesca: Plus you're a little young right now for little old me!
+                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+            -> Mommy?
+                <<Shake Middle>>
+                Francesca: Oh my... 
+                Francesca: Maybe Sigmund Freud was right about some things...
+                Francesca: This is truly... confounding. 
+                Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
+                Francesca: Quite a conflict of interest, I must say. 
+                Francesca: I'm only here for today to conduct a short study. 
+                Francesca: Plus you're a little young right now for little old me!
+                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+        -> Can I take you on a date? 
+            Francesca: Oh my... 
+                Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
+                Francesca: Quite a conflict of interest, I must say. 
+                Francesca: I'm only here for today to conduct a short study. 
+                Francesca: Plus you're a little young right now for little old me!
+                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+        -> Mommy?
+            <<Shake Middle>>
+                Francesca: Oh my... 
+                Francesca: Maybe Sigmund Freud was right about some things...
+                Francesca: This is truly... confounding. 
+                Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
+                Francesca: Quite a conflict of interest, I must say. 
+                Francesca: I'm only here for today to conduct a short study. 
+                Francesca: Plus you're a little young right now for little old me!
+                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh hey buddy!
+        <<Shake Middle>>
+        BearBox: Woah... why are you so red?
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: Anyways, I see you've met one of our guests! Francesca's just visiting from up north, so don't get attached.
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: She's doing a study on heart rates right now. It's really important for finding ways to identify and prevent early heart disease. 
+        BearBox: Well, I have some errands around campus to run. 
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: Stay out of trouble!
+        <<ClearSprite Middle>>
+        <<SaveInt "UCSF_Cameo" 1>>
+    <<endif>>
+<<endif>>
 <<set $FlavorTextGym = Dice(5)>>
 <<if $TimeOfDayGym == 0>>
     <<if $FlavorTextGym == 1>>

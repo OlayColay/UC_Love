@@ -34,6 +34,8 @@ tags:
 <<SaveInt "UCD_Cameo" 0>>
 <<SaveInt "UCM_Cameo" 0>>
 <<SaveInt "UCSC_Cameo" 0>>
+<<SaveInt "UCSF_Cameo" 0>>
+<<SaveInt "UCSD_Cameo" 0>>
 <<SaveInt "UC_Hastings_Cameo" 0>>
 <<Fade true 0>>
 // <<PlayMusic Music/Emotional>>

@@ -44,14 +44,14 @@ position: -61,-4
             -> Can I take you on a date? 
                 Hailey: Oh my... 
                 Hailey: I'm only in town for a short while, so I'm not looking for anything romantic right now. 
-                Hailey: Plus you're a little young for my taste... I prefer someone more... experienced...
+                Hailey: Plus you're a little...young for my taste... I prefer someone more... experienced...
                 Hailey: I only date graduate students. 
                 Hailey: You seem like a bright student though, coming to the library and all.
                 Hailey: Maybe consider law school. The world could use some more bright minds in law like yours. 
             -> Mommy?
                 Hailey: Oh my... 
                 Hailey: I'm only in town for a short while, so I'm not looking for anything romantic right now. 
-                Hailey: Plus you're a little young for my taste... I prefer someone more... experienced...
+                Hailey: Plus you're a little...young for my taste... I prefer someone more... experienced...
                 Hailey: I only date graduate students. 
                 Hailey: You seem like a bright student, coming to the library and all.
                 Hailey: Maybe consider law school. The world could use some more bright minds in law like yours. 
@@ -60,7 +60,7 @@ position: -61,-4
         -> Can I take you on a date? 
             Hailey: Oh my... 
             Hailey: I'm only in town for a short while, so I'm not looking for anything romantic right now. 
-            Hailey: Plus you're a little young for my taste... I prefer someone more... experienced...
+            Hailey: Plus you're a little...young for my taste... I prefer someone more... experienced...
             Hailey: I only date graduate students. 
             Hailey: You seem like a bright student, coming to the library and all.
             Hailey: Maybe consider law school. The world could use some more bright minds in law like yours. 
@@ -80,6 +80,7 @@ position: -61,-4
         <<SetSprite Middle BearBox/Idle>>
         BearBox: I heard she got a perfect score on her LSAT and is one of the country's best law students. 
         BearBox: She's truly a force to be reckoned with.
+        BearBox: She's only visiting though, so don't get attached.
         BearBox: Well, I have some errands around campus to run. 
         <<SetSprite Middle BearBox/Blush>>
         BearBox: Stay out of trouble!

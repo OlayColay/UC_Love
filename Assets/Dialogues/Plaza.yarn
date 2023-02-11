@@ -53,6 +53,7 @@ tags:
         <<SetSprite Middle BearBox/Idle>>
         BearBox: Oh! Hey buddy! How are you doing?
         BearBox: I see you've met one of our guests! She's Riviera's little sister and here for a college tour. 
+        BearBox: She's also 17, so don't even think about romancing her or Riviera's going to kill you.
         <<SetSprite Middle BearBox/Angry>>
         BearBox: I do wish Mercedes took a little more after her sister though! The little rebel!
         BearBox: My batteries are near empty from chasing her around all day!
