@@ -76,8 +76,10 @@ position: -61,-4
         <<SetSprite Middle BearBox/Idle>>
         BearBox: Oh hey buddy!
         <<SetSprite Middle BearBox/Blush>>
-        BearBox: I see you've met one of our guests! She's just visiting so don't get too attached. 
+        BearBox: I see you've met one of our guests! Hailey's well known in the law community. 
         <<SetSprite Middle BearBox/Idle>>
+        BearBox: I heard she got a perfect score on her LSAT and is one of the country's best law students. 
+        BearBox: She's truly a force to be reckoned with.
         BearBox: Well, I have some errands around campus to run. 
         <<SetSprite Middle BearBox/Blush>>
         BearBox: Stay out of trouble!

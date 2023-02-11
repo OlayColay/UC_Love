@@ -29,9 +29,9 @@ position: -107,2
 <<endif>>
 <<Fade true>>
 
-<<if LoadInt("UC_Hastings_Cameo") == 0>>
-    <<set $UC_Hastings to Dice(5)>>
-    <<if $UC_Hastings == 1>>
+<<if LoadInt("UCSC_Cameo") == 0>>
+    <<set $UCSC to Dice(5)>>
+    <<if $UCSC == 1>>
         <<SetSprite Middle Cameo/Crystal>>
         Crystal: *slug noises*
         Player: Wait! I think I have GooGoo Translate on my phone!

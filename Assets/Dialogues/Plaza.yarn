@@ -28,7 +28,42 @@ tags:
 <<endif>>
 <<Fade true>>
 
-
+<<if LoadInt("UCM_Cameo") == 0>>
+    <<set $UCM_ to Dice(5)>>
+    <<if $UCM == 1>>
+        <<SetSprite Middle Cameo/Mercedes>>
+        Mercedes: Hey dude! You go here right? Do you know any good places to skate? 
+        Mercedes: My big sis made me go on this stupid "college tour" or whatever. 
+        Mercedes: She thinks it will inspire me to start writing my college applications and stuff.
+        Mercedes: But like come ON! I'm just a high school junior. College apps are next year's problem y'know? 
+        Mercedes: I get that she's concerned but like... chillax sis.
+        Mercedes: I have to say though, maybe big sis does have a point. 
+        Mercedes: I might apply here someday. The campus is pretty nice...
+        Mercedes: FOR SKATING! HA!
+        Mercedes: Anyways, this box robot has been following me around all day after I kept running off from the tour group.
+        Mercedes: ... You're not gonna snitch... right? 
+        Mercedes: Shoot I think I see him coming. Catch ya later skater! 
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        <<SetSprite Middle BearBox/Angry>>
+        <<Flip Middle 0>>
+        <<Flip Middle 0>>
+        BearBox: Mercedes! Mercedes! Get back here!
+        BearBox: Please! Your sister is going to kill me! 
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh! Hey buddy! How are you doing?
+        BearBox: I see you've met one of our guests! She's Riviera's little sister and here for a college tour. 
+        <<SetSprite Middle BearBox/Angry>>
+        BearBox: I do wish Mercedes took a little more after her sister though! The little rebel!
+        BearBox: My batteries are near empty from chasing her around all day!
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: I've gotta go catch her before she fails a kickflip on a railing and lands us in a civil damages lawsuit.
+        BearBox: Please... stay out of trouble!
+        <<SetSprite Middle BearBox/Idle>>
+        <<ClearSprite Middle>>
+        <<SaveInt "UCM_Cameo" 1>>
+    <<endif>>
+<<endif>>
 <<set $FlavorTextPlaza = Dice(5)>>
 <<if $TimeOfDayPlaza == 0>>
     <<if $FlavorTextPlaza == 1>>
