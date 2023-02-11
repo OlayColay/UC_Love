@@ -29,6 +29,32 @@ position: -107,2
 <<endif>>
 <<Fade true>>
 
+<<if LoadInt("UC_Hastings_Cameo") == 0>>
+    <<set $UC_Hastings to Dice(5)>>
+    <<if $UC_Hastings == 1>>
+        <<SetSprite Middle Cameo/Crystal>>
+        Crystal: Eh?
+        -> Do you go here?
+            Crystal: CONTINUE
+        -> Can I take you on a date? 
+            Crystal: CONTINUE
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh hey buddy!
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: I see you've met one of our guests! She's just visiting so don't get too attached. 
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: She's... a little eccentric.
+        BearBox: I'm not really sure what's up with her. 
+        BearBox: Administration thinks she actually might be an alien slug of some sort... but you didn't hear it from me.
+        BearBox: Well, I have some errands around campus to run. 
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: Stay out of trouble!
+        <<ClearSprite Middle>>
+        <<SaveInt "UC_Hastings_Cameo" 1>>
+    <<endif>>
+<<endif>>
 
 <<set $FlavorTextGarden = Dice(5)>>
 <<if $TimeOfDayGarden == 0>>
@@ -833,12 +859,10 @@ Player: What should I do?
         <<elseif $UCSB_Dialogue == 2>>
             Santana: Be careful of the squirrels if you take a walk. They're a bit weird!
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: Working at the garden is a pretty great job overall!
+            Santana: There's nothing that I love more than being able to spend time in nature.
+            Santana: We only have one planet, and I'm doing my best to take care of it!
             <<SetSprite Middle Santana/bliss>>
-            Santana: I get to spend a lot of my time with the plants and animals. The natural environment is really soothing for the soul.
-            <<SetSprite Middle Santana/Angry>>
-            Santana: Sometimes visitors make the job kind of stressful though... especially when they're rude.
-            <<SetSprite Middle Santana/Idle>>
+            Santana: I try to thrift all my clothes and to compost any food scraps I make! Every bit helps!
         <<elseif $UCSB_Dialogue == 4>> 
             <<SetSprite Middle Santana/sad>>
             Santana: Sometimes the visitors here can get really rude...
@@ -934,13 +958,14 @@ Player: What should I do?
                     Santana: I appreciate the advice though...
                     <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: Oh! Please be careful!
-            Santana: You'll hurt the flowers over there!
-            -> Thanks for telling me about it!
-                Santana: Looks like that they are fine!
-                Santana: That's a relief.
-            -> Oh damn... I'm really sorry.
-                Santana: No..it's okay
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sometimes, I feel like I'm so behind compared to all my peers. 
+            Santana: Some people I know are working in this big shot companies already. 
+            Santana: Coming from a smaller town, I feel like I didn't have as many opportunities as the big city folks. 
+            <<SetSprite Middle Santana/bliss>>
+            Santana: It's a little hard not to compare myself to them... but we all grow at our own pace right? 
+            <<SetSprite Middle Santana/Angry>>
+            Santana: Sigh...
         <<elseif $UCSB_Dialogue == 4>> 
             Santana: I'm hosting a bouquet-making workshop soon! You should come by!
             <<SetSprite Middle Santana/bliss>>

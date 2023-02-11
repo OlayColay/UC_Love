@@ -688,7 +688,12 @@ position: 212,-6
                 Riviera: Oh! Thank you. I really appreciate it!
                 <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialoguePlaza == 4>> 
-            Riviera: Sorry, I'm in a bit of a rush right now.
+            Riviera: My little sister Mercedes is applying to college soon. 
+            <<SetSprite Middle Riviera/Angry>>
+            Riviera: She SHOULD be starting her college applications but she's been putting them off. 
+            Riviera: I've been trying to talk some sense into her but she's a bit bull-headed!
+            <<SetSprite Middle Riviera/Happy>>
+            Riviera: I guess it runs in our family!
             <<SetSprite Middle Riviera/Idle>>
         <<else>> 
             <<SetSprite Middle Riviera/Messy>>
@@ -737,15 +742,15 @@ position: 212,-6
             Riviera: Punching the punching bags is a good stress reliever and a good workout.
         <<elseif $UCRDialoguePlaza == 3>>
             <<SetSprite Middle Riviera/Angry>>
-            Riviera: Ugh... my brother took my stationery pad again!
-            Riviera: My little brothers are always getting into my bag looking for things to play with.
+            Riviera: Ugh... my little sister took my stationery pad again!
+            Riviera: She and my little brothers are always getting into my bag looking for things to play with.
             <<SetSprite Middle Riviera/happy>>
             Riviera: One of the cons of having a large family I guess... but I wouldn't trade them for the world.
             <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialoguePlaza == 4>> 
             Riviera: I really want to win the upcoming startup competition.
             <<SetSprite Middle Riviera/happy>>
-            Riviera: My little brothers are cheering me on. They really look up to me and I don't want to let them down!
+            Riviera: My siblings are cheering me on. They really look up to me and I don't want to let them down!
             <<SetSprite Middle Riviera/Idle>>
         <<else>>
             Riviera: My mom is a little old-fashioned... 
@@ -830,7 +835,11 @@ position: 212,-6
                 Riviera: I'll definitely be sure to be more mindful of my hand gestures! Thanks!
                 <<SaveInt RivieraHelp {$RivieraHelp+1}>>
                 <<SetSprite Middle Riviera/Idle>>
-            -> Cheat with flashcards! // TODO
+            -> Cheat with flashcards! 
+                <<SetSprite Middle Riviera/Angry>>
+                <<AddRelationshipScore Riviera -10>>
+                Riviera: I can't believe that you would suggest that. 
+                Riviera: I'd rather lose with my honest best than win by cheating. 
                 <<SetSprite Middle Riviera/Idle>>
         <<elseif $UCRDialoguePlaza == 3>>
             Riviera: A while ago, my brothers made me a tote bag that they decorated as a good luck charm.
@@ -901,8 +910,10 @@ position: 212,-6
             Riviera: My family will be coming out to support me... but it'd mean a lot to me if you came out too...
             <<SetSprite Middle Riviera/Idle>>
         <<else>>
-            Riviera: I was going through my emails yesterday when I realized that I've always been a really independent person.
             Riviera: My mom told me that when I was a kid, whenever I fell or got hurt I never cried. Apparently, I would just get up and get a bandaid all by myself. 
+            <<SetSprite Middle Riviera/Happy>>
+            Riviera: She says that she wishes my little sister Mercedes was more like me. Mercedes is sweet but is a bit of a crybaby.
+            <<SetSprite Middle Riviera/Idle>>
             Riviera: I think that going into business really made me realize how independent I am. 
             Riviera: I used to think that getting help from other people meant that you were weak, but now I think that it takes courage to ask for help when you need it.
             <<SetSprite Middle Riviera/lb>>
@@ -933,6 +944,7 @@ position: 212,-6
             Riviera: I want to introduce you to my family sometime. 
             <<SetSprite Middle Riviera/happy>>
             Riviera: I think my brothers would love you... They're a little rambunctious, but they're really sweet...
+            Riviera: My sister is always really skeptical of new people, but if you laugh at her jokes or find a common interest she'll adore you.
             Riviera: My dad seems a little tough at first, but he's actually a big softie. 
             Riviera: My mom is a little old-fashioned, but she's good at heart. I'm sure that she'd love to have you over for dinner sometime. 
             <<SetSprite Middle Riviera/Idle>>
