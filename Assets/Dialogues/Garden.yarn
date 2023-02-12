@@ -885,10 +885,12 @@ Player: What should I do?
         <<elseif $UCSB_Dialogue == 2>>
             Santana: Be careful of the squirrels if you take a walk. They're a bit weird!
         <<elseif $UCSB_Dialogue == 3>>
-            Santana: There's nothing that I love more than being able to spend time in nature.
-            Santana: We only have one planet, and I'm doing my best to take care of it!
+            Santana: Do you believe in angel numbers? 
             <<SetSprite Middle Santana/bliss>>
-            Santana: I try to thrift all my clothes and to compost any food scraps I make! Every bit helps!
+            Santana: I know that it's a little silly, but each time that it's 11:11, I make a wish!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: I know that it probably doesn't do anything, but sometimes it helps me to work towards a goal of mine. 
+            Santana: Lately, that goal has been becoming more assertive, but I still have a long way to go there!
         <<elseif $UCSB_Dialogue == 4>> 
             <<SetSprite Middle Santana/sad>>
             Santana: Sometimes the visitors here can get really rude...

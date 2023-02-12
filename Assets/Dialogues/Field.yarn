@@ -505,8 +505,15 @@ Player: What should I do?
     <<set $GiftScoreStan = GetItemScore("Stan")>>
     <<AddRelationshipScore Stan {$GiftScoreStan}>>
     <<if $GiftScoreStan == -10>>
-        <<SetSprite Middle Stan/Angry>>
-        Stan: Uhhh.... no thank you.
+        <<if GetRelationshipScore("Stan") >= 200>>
+            <<SetSprite Middle Stan/Irritated>>
+            Stan: Uhhh.... no thank you.
+        <<else>>
+            <<SetSprite Middle Stan/Laughing>>
+            Stan: HA! What the hell is this?
+            <<SetSprite Middle Stan/Pitiful>>
+            Stan: If you think you can win me over with gifts, you're mistaken.
+        <<endif>>
         <<SetSprite Middle Stan/Passive>>
     <<else>>
         // Not their key item gift

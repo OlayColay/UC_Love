@@ -1272,14 +1272,15 @@ Player: What should I do?
         <<SaveInt "UCSB_Intro" 1>>
     <<elseif GetRelationshipScore("Santana") < 100>> //Strangers
         <<if $UCSBDialogueGym == 1>>
-            Santana: Hello there! Have you visited the garden yet?
+            Santana: Have you visited the garden yet?
             <<SetSprite Middle Santana/bliss>>
             Santana: We just opened for the season! Be sure to check out the Ancient Forests section! 
-            Santana: There are some really nifty trees in there. 
+            Santana: There are some really nifty trees in there! I planted some of them myself. 
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSBDialogueGym == 2>>
-            Santana: If you want to feed the koi in the koi pond, there's a koi feed machine by the gate entrance!
-            Santana: Watch out for the squirrels though! They will attack you for food.
+            Santana: Oh! Um...if you're new to gym, I recommend the yoga classes. 
+            <<SetSprite Middle Santana/bliss>>
+            Santana: They're really beginner friendly!
         <<elseif $UCSBDialogueGym == 3>>
             Santana: If you have any questions about the plants or animals at the garden, don't hesitate to ask me!
             Santana: I'm interning there for one of my biology major requirements!
@@ -1300,16 +1301,20 @@ Player: What should I do?
         <<elseif $UCSBDialogueGym == 2>>
             Santana: Be careful of the squirrels around campus. They're a bit weird!
         <<elseif $UCSBDialogueGym == 3>>
-            Santana: There's nothing that I love more than being able to spend time in nature.
-            Santana: We only have one planet, and I'm doing my best to take care of it!
+            Santana: Do you believe in angel numbers? 
             <<SetSprite Middle Santana/bliss>>
-            Santana: I try to thrift all my clothes and to compost any food scraps I make! Every bit helps!
+            Santana: I know that it's a little silly, but each time that it's 11:11, I make a wish!
+            <<SetSprite Middle Santana/Idle>>
+            Santana: I know that it probably doesn't do anything, but sometimes it helps me to work towards a goal of mine. 
+            Santana: Lately, that goal has been becoming more assertive, but I still have a long way to go there!
         <<elseif $UCSBDialogueGym == 4>> 
             <<SetSprite Middle Santana/sad>>
             Santana: Sometimes the visitors at the garden can be really rude...
             Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
             Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
             Santana: It really upset me... I wish that I could stand up to them more but I get really nervous.
+            <<SetSprite Middle Santana/bliss>>
+            Santana; I guess I've always been a little shy! I can't really help it. 
             <<SetSprite Middle Santana/Idle>> 
         <<else>> 
             Santana: Some garden guests are really nice but others are really mean.
@@ -1514,7 +1519,7 @@ Player: What should I do?
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSBDialogueGym == 3>>
             <<SetSprite Middle Santana/LB>>
-            Santana: Say, have you thought about going to the dance coming up?
+            Santana: Have you thought about going to the dance coming up?
             Santana: I kind of want to go... but I'm a little shy and don't want to go alone...
             <<SetSprite Middle Santana/Idle>>
         <<elseif $UCSBDialogueGym == 4>> 
