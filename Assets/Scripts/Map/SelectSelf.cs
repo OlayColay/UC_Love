@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class SelectSelf : MonoBehaviour, ISelectHandler
 {
+    public GameObject externalCameraTarget;
+
     CameraControl cameraControl;
     DisplayLocation display;
 
@@ -18,7 +20,7 @@ public class SelectSelf : MonoBehaviour, ISelectHandler
     // When selected.
     public void OnSelect(BaseEventData eventData)
     {
-        cameraControl.PanCamera(transform.GetChild(0).gameObject);
+        cameraControl.PanCamera(externalCameraTarget != null ? externalCameraTarget : transform.GetChild(0).gameObject);
         display.Display(name);
     }
 }

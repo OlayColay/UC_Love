@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &134591074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &232890444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &509476731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,6 +3377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &960267557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,6 +4151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 41623889}
 --- !u!114 &1139543105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4845,7 +4850,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!95 &1305433707
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4862,7 +4867,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1368821410
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,6 +5456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -5467,6 +5473,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: f982a66664368a04e84a7bd8d79340cc, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1429423413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5898,6 +5905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &1589053646
 GameObject:
   m_ObjectHideFlags: 0
@@ -6423,6 +6431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &1678488636
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,6 +6758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d725b2ccf0a4c4a949e7beb6f60220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalCameraTarget: {fileID: 0}
 --- !u!1 &1790994278
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,7 +7517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 31.092}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.02, y: -4}
+  m_AnchoredPosition: {x: -10.53, y: -4.0977}
   m_SizeDelta: {x: 5.92463, y: 3.70558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143075047
