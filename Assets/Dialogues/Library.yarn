@@ -538,7 +538,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Kelly/hbcm>>
@@ -1134,7 +1136,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Ellie/lb>>

@@ -170,8 +170,7 @@ public class YarnCommands : MonoBehaviour
             yield return null;
         }
 
-        vnCamera.GetComponent<AudioListener>().enabled = false; // Prevent double AudioListener warning
-        vnCamera.gameObject.SetActive(false);
+        vnCamera.enabled = false;
         Background.Instance.gameObject.SetActive(false);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);
 
@@ -190,7 +189,7 @@ public class YarnCommands : MonoBehaviour
         }
 
         vnCanvas.SetActive(true);
-        vnCamera.gameObject.SetActive(true);
+        vnCamera.enabled = true;
         vnCamera.GetComponent<AudioListener>().enabled = true;
         Background.Instance.gameObject.SetActive(true);
         BlackScreen.Instance.GetComponent<Image>().DOFade(0f, 1f);

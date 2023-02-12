@@ -589,7 +589,9 @@ position: 241,-105
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Riviera/HB>>
@@ -1173,7 +1175,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Ellie/lb>>
                 Ellie: Thanks for taking me out! The food here is really good!
@@ -1633,7 +1637,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
