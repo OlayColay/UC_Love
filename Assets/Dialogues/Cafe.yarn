@@ -492,7 +492,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Kelly/hbcm>>
@@ -967,7 +969,9 @@ position: 207,66
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Riviera/HB>>
@@ -1506,7 +1510,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Irene/IdleLB>>

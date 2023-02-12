@@ -569,7 +569,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Tommy/Awkward>>
@@ -1215,7 +1217,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 Santana: The food here is amazing! You can really taste the freshness of the basil and tomatoes!
@@ -1770,7 +1774,9 @@ Player: What should I do?
                 <<SaveInt "FirstDate" 1>>
                 <<SetActiveChar Date>>
             <<endif>>
+            <<PlayMusic Music/Minigame>>
             <<DateMinigame>>
+            <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
                 <<SetSprite Date Irene/IdleLB>>

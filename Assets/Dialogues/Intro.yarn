@@ -44,6 +44,13 @@ System: Created new save file! Do you want to play the intro? It is recommended 
     <<PlayMusic Music/Gameplay>>
     <<jump AltV2>>
 -> Skip Intro
+    System: What are your preferred pronouns? 
+    -> he/him
+        <<set $PlayerPronouns = 0>>
+    -> she/her
+        <<set $PlayerPronouns = 1>>
+    -> they/them
+        <<set $PlayerPronouns = 2>>
     <<Fade false 0>>
     <<PlayMusic Music/Gameplay>>
     <<LoadScene MapScene>>
