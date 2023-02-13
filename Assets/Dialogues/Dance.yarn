@@ -8,10 +8,10 @@ position: -99,4
 <<Fade true>>
 <<SetActiveChar Middle>>
 <<if $DancePartner == 0>>
-    <<SetSprite Middle Kelly/lbom>>
+    <<SetSprite Middle Kelly/Dance/lbom>>
     Player: Woah... the dance looks amazing!
     Kelly: It's a bit crowded... but I'm really happy to be here with you.
-    <<SetSprite Middle Kelly/lbcm>>
+    <<SetSprite Middle Kelly/Dance/lbcm>>
     Kelly: Thank you for inviting me. I don't think I would've went if you didn't ask me.
 <<elseif $DancePartner == 1>>
     <<SetSprite Middle Ellie/lb>>
@@ -138,9 +138,9 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     <<SetActiveChar Middle>>
     <<if $DancePartner == 0>>
         Player: This is Kelly!
-        <<SetSprite Middle Kelly/lbcm>>
+        <<SetSprite Middle Kelly/Dance/lbcm>>
         Kelly: Good evening Professor BearBox!
-        <<SetSprite Middle Kelly/Idle>>
+        <<SetSprite Middle Kelly/Dance/Idle>>
     <<elseif $DancePartner == 1>>
         Player: This is Ellie!
         <<SetSprite Middle Ellie/smc>>
@@ -237,7 +237,7 @@ Player: That's me!
 BearBox: Woah! Congratulations!
 <<SetActiveChar Middle>>
 <<if $DancePartner == 0>>
-    <<SetSprite Middle Kelly/lbcm>>
+    <<SetSprite Middle Kelly/Dance/lbcm>>
     Kelly: Congrats!
 <<elseif $DancePartner == 1>>
     <<SetSprite Middle Ellie/smc>>
@@ -292,13 +292,13 @@ BearBox: What should we do with the budget?
     <<ClearSprite Left>>
     <<SetActiveChar Middle>>
     <<if $DancePartner == 0>>
-        <<SetSprite Middle Kelly/lbom>>
+        <<SetSprite Middle Kelly/Dance/lbom>>
         Kelly: I'm really glad that you're deciding to stay...
-        <<SetSprite Middle Kelly/sad>>
+        <<SetSprite Middle Kelly/Dance/sad>>
         Kelly: Everyone is dancing... but I don't really know how to dance...
-        <<SetSprite Middle Kelly/hbom>>
+        <<SetSprite Middle Kelly/Dance/hbom>>
         Kelly: Say... do you think that you could show me?
-        <<SetSprite Middle Kelly/hbcm>>
+        <<SetSprite Middle Kelly/Dance/hbcm>>
         Kelly: I might look a little silly, but I don't care as long as I'm with you. 
     <<elseif $DancePartner == 1>>
         <<SetSprite Middle Ellie/smc>>

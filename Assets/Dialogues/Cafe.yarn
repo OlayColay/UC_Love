@@ -544,6 +544,7 @@ Player: What should I do?
             <<SetSprite Middle Kelly/hbom>>
             Player: Would you like to go to the dance with me?
             Kelly: Y-yes! I'd love to!
+            <<ClearSprite Middle>>
             <<set $DancePartner = 0>>
             <<jump Dance>>
         <<else>>
