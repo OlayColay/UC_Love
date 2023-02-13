@@ -19,41 +19,6 @@ tags:
 <<Fade true>>
 <<set $TimeOfDayCafe to GetTimeOfDay()>>
 
-<<if LoadInt("UCD_Cameo") == 0>>
-    <<set $UCD to Dice(5)>>
-    <<if $UCD == 1>>
-        <<SetSprite Middle Cameo/Davina>>
-        Davina: Oh hey! Go ahead for the cafe I'm not in line!
-        -> Do you go here?
-            Davina: Oh no, I'm just here to drop off some cafe supplies.
-            Davina: I'm part of the off-campus student farm a little up north. 
-            Davina: We supply a lot of the university's food and produce. Sourcing locally instead of internationally helps to cut down on carbon emissions and food waste.
-            Davina: It's a good student program. You get a lot of hands on experience with plants and animals and agriculture. 
-            Davina: Do you have any questions for me? 
-            -> Can I take you on a date? 
-                Davina: Sorry to disappoint, but I'm just visiting! I'm not really looking for anything right now. 
-                Davina: I have to get going but take care!
-                Davina: Oh! And try a latte or something from the cafe! This week's batch of milk is really good! 
-        -> Can I take you on a date? 
-            Davina: Sorry to disappoint, but I'm just visiting! I'm not really looking for anything right now. 
-            Davina: I have to get going but take care!
-            Davina: Oh! And try a latte or something from the cafe! This week's batch of milk is really good! 
-        <<ClearSprite Middle>>
-        <<Wait 1>>
-        <<SetSprite Middle BearBox/Idle>>
-        BearBox: Oh hey buddy!
-        <<SetSprite Middle BearBox/Blush>>
-        BearBox: I see you've met one of our guests!
-        <<SetSprite Middle BearBox/Idle>>
-        BearBox: She might have told you already, but Davina's a part of the off-campus student farm, so don't get attached.
-        BearBox: Well, I have some errands around campus to run. 
-        <<SetSprite Middle BearBox/Blush>>
-        BearBox: Stay out of trouble!
-        <<ClearSprite Middle>>
-        <<SaveInt "UCD_Cameo" 1>>
-    <<endif>>
-<<endif>>
-
 <<set $FlavorTextCafe = Dice(5)>>
 <<if $TimeOfDayCafe == 0>>
     <<if $FlavorTextCafe == 1>>
@@ -102,6 +67,41 @@ tags:
     <<else>>
         Player: Do I order a pastry...?
         Player: ...I'll refrain for tonight.
+    <<endif>>
+<<endif>>
+
+<<if LoadInt("UCD_Cameo") == 0>>
+    <<set $UCD to Dice(5)>>
+    <<if $UCD == 1>>
+        <<SetSprite Middle Cameo/Davina>>
+        Davina: Oh hey! Go ahead for the cafe I'm not in line!
+        -> Do you go here?
+            Davina: Oh no, I'm just here to drop off some cafe supplies.
+            Davina: I'm part of the off-campus student farm a little up north. 
+            Davina: We supply a lot of the university's food and produce. Sourcing locally instead of internationally helps to cut down on carbon emissions and food waste.
+            Davina: It's a good student program. You get a lot of hands on experience with plants and animals and agriculture. 
+            Davina: Do you have any questions for me? 
+            -> Can I take you on a date? 
+                Davina: Sorry to disappoint, but I'm just visiting! I'm not really looking for anything right now. 
+                Davina: I have to get going but take care!
+                Davina: Oh! And try a latte or something from the cafe! This week's batch of milk is really good! 
+        -> Can I take you on a date? 
+            Davina: Sorry to disappoint, but I'm just visiting! I'm not really looking for anything right now. 
+            Davina: I have to get going but take care!
+            Davina: Oh! And try a latte or something from the cafe! This week's batch of milk is really good! 
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh hey buddy!
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: I see you've met one of our guests!
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: She might have told you already, but Davina's a part of the off-campus student farm, so don't get attached.
+        BearBox: Well, I have some errands around campus to run. 
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: Stay out of trouble!
+        <<ClearSprite Middle>>
+        <<SaveInt "UCD_Cameo" 1>>
     <<endif>>
 <<endif>>
 
