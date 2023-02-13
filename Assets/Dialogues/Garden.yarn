@@ -623,6 +623,7 @@ Player: What should I do?
             <<SetSprite Middle Tommy/Snickering>>
             Tommy: I'd be honored to go!
             <<set $DancePartner = 5>>
+            <<ClearSprite Middle>>
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Tommy/Angry>>
