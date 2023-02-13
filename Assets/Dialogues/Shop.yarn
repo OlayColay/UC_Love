@@ -4,6 +4,33 @@ tags:
 <<SetBackground Backgrounds/Store/store>>
 <<Fade true>>
 
+// Cameo
+<<if LoadInt("UCSD_Cameo") == 0>>
+    <<set $UCSD to Dice(5)>>
+    <<if $UCSD == 1>>
+        <<SetSprite Middle Cameo/UCSD>>
+        Diana: Hey! Can you help me find where the B-Fuel and sheet masks are? I'm having trouble finding them.
+        Diana: ... OH! Wait sorry! I thought you were an employee here!
+        Diana: OOPS! My bad, I totally forgot to introduce myself!
+        Diana: The name's Diana! I'm a second year cognitive science major!
+        Diana: I'm actually running a little late! I'm studying abroad in Hawaii for the rest of the year and my flight is in a few hours!
+        Diana: I'm super excited for it! I mean, I'll still have to do schoolwork and all, but I can spend my free time lounging on the beach or surfing!
+        Diana: I have to get going to catch my bus, but maybe I'll see you around campus some other time! 
+        Diana: See ya! 
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh! Hey buddy! How are you doing?
+        BearBox: I see you've met one of our guests! Diana is studying abroad for the rest of the year, so don't get attached! 
+        BearBox: I've gotta go check on the garden walking path! A lot of students have reported finding money or weird encounters with squirrels there.
+        BearBox: After all, we all have to do our part to protect the school from civil damages lawsuits! 
+        BearBox: Stay out of trouble!
+        <<SetSprite Middle BearBox/Idle>>
+        <<ClearSprite Middle>>
+        <<SaveInt "UCSD_Cameo" 1>>
+    <<endif>>
+<<endif>>
+
 // Adding Items to Shop
 // <<AddToShop index LAScore BScore SBScore RScore IScore USCScore spritePath name cost isKeyItem?>>
 <<if IsComputer()>>

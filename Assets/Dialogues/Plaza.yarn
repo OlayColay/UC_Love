@@ -115,6 +115,7 @@ tags:
         BearBox: Please... stay out of trouble!
         <<SetSprite Middle BearBox/Idle>>
         <<ClearSprite Middle>>
+        <<Flip Middle 0>>
         <<SaveInt "UCM_Cameo" 1>>
     <<endif>>
 <<endif>>
