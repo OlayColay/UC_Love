@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dating Mazes/DatingMaze2.unity
     guid: 29b77c8c9b9db4642aa1b1cff98cc7c9
+  - enabled: 1
+    path: Assets/Scenes/Dating Mazes/DatingMaze3.unity
+    guid: 2b9b9c44f8e0b664eb6dab5410292c58
+  - enabled: 1
+    path: Assets/Scenes/Dating Mazes/DatingMaze4.unity
+    guid: fa4bd923082ed8c4294efcd11abfba37
+  - enabled: 1
+    path: Assets/Scenes/Dating Mazes/DatingMaze5.unity
+    guid: d3c5984d7a1115b43a961de1ef9b8bf3
   m_configObjects: {}

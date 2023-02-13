@@ -162,7 +162,7 @@ public class YarnCommands : MonoBehaviour
         GameObject vnCanvas = GameObject.Find("BG Canvas");
         vnCanvas.SetActive(false);
 
-        int gameNo = YarnFunctions.Dice(2);
+        int gameNo = YarnFunctions.Dice(5);
         
         var sceneLoad = SceneManager.LoadSceneAsync("DatingMaze" + gameNo, LoadSceneMode.Additive);
         while (!sceneLoad.isDone) // We have to wait for the scene to finish loading before finding objects in it
