@@ -29,53 +29,6 @@ position: -107,2
 <<endif>>
 <<Fade true>>
 
-<<if LoadInt("UCSC_Cameo") == 0>>
-    <<set $UCSC to Dice(5)>>
-    <<if $UCSC == 1>>
-        <<SetSprite Middle Cameo/Crystal>>
-        Crystal: *slug noises*
-        Player: Wait! I think I have GooGoo Translate on my phone!
-        Crystal: *slug noises* (Eh?) 
-        Crystal: *slurping noises* (Oh, a human! Nice to meet you!)
-        Crystal: *squishing noises* (Am Crystal! Am slug!! !!) 
-        // slimy, mucous, slippery, gloopy, 
-        -> Do you go here?
-            Crystal: *confused squelching noises* (Oh, friend thinks Crystal student? Crystal not student here.)
-        -> Can I take you on a date? 
-            Crystal: *confused squelching noises* (Date? Crystal from other planet.)
-            Crystal: *explanatory squishing noises* (Only here to study Earth plants. Crystal return to Slug planet tonight.)
-            Crystal: *pitying gloopy noises* (Plus Crystal only date slugs.)
-        Crystal: *urgent slimy noises* (Has friend seen plants nearby? Crystal studying Earth plants for medicine for slugs.)
-        Crystal: *emphatic mucous sounds* (Very important to Crystal.)
-        -> They're over there!
-            Crystal: *happy slippery noises* (!! Thank you friend!! Crystal very happy.)
-            Crystal: *relieved bubbling noises* (Crystal promise Earth and Slug truce. Slugs planet will not invade Earth.)
-            Crystal: *happy slug noises* (Goodbye friend! Remember to eat banana!)
-        <<ClearSprite Middle>>
-        <<Wait 1>>
-        Player: That was... strange...
-        Player: She was probably on something... 
-        <<SetSprite Middle BearBox/Idle>>
-        BearBox: Oh hey buddy!
-        <<SetSprite Middle BearBox/Blush>>
-        BearBox: I see you've met one of our guests! She's just visiting so don't get too attached. 
-        <<SetSprite Middle BearBox/Idle>>
-        BearBox: She's... a little eccentric.
-        BearBox: I'm not really sure what's up with her. 
-        BearBox: Our official statement regarding her is that she's a little fond of... "grass"...
-        <<Wait 1>>
-        <<Flip Middle 0>>
-        <<Wait 1>>
-        <<Flip Middle 0>>
-        <<Wait 1>>
-        BearBox: You didn't hear it from me, but administration thinks she actually might be an alien slug of some sort...
-        BearBox: Well, I have some errands around campus to run. 
-        <<SetSprite Middle BearBox/Blush>>
-        BearBox: Stay out of trouble!
-        <<ClearSprite Middle>>
-        <<SaveInt "UCSC_Cameo" 1>>
-    <<endif>>
-<<endif>>
 <<set $FlavorTextGarden = Dice(5)>>
 <<if $TimeOfDayGarden == 0>>
     <<if $FlavorTextGarden == 1>>
@@ -127,6 +80,55 @@ position: -107,2
         Player: It almost seems magical to come here in the dark.
         Player: No one's really comes out here at this time, after all.
     <<endif>>
+<<endif>>
+
+<<if LoadInt("UCSC_Cameo") == 0>>
+    <<set $UCSC to Dice(5)>>
+    <<if $UCSC == 1>>
+        <<SetSprite Middle Cameo/Crystal>>
+        Crystal: *slug noises*
+        Player: Wait! I think I have GooGoo Translate on my phone!
+        Crystal: *slug noises* (Eh?) 
+        Crystal: *slurping noises* (Oh, a human! Nice to meet you!)
+        Crystal: *squishing noises* (Am Crystal! Am slug!! !!) 
+        // slimy, mucous, slippery, gloopy, 
+        -> Do you go here?
+            Crystal: *confused squelching noises* (Oh, friend thinks Crystal student? Crystal not student here.)
+        -> Can I take you on a date? 
+            Crystal: *confused squelching noises* (Date? Crystal from other planet.)
+            Crystal: *explanatory squishing noises* (Only here to study Earth plants. Crystal return to Slug planet tonight.)
+            Crystal: *pitying gloopy noises* (Plus Crystal only date slugs.)
+        Crystal: *urgent slimy noises* (Has friend seen plants nearby? Crystal studying Earth plants for medicine for slugs.)
+        Crystal: *emphatic mucous sounds* (Very important to Crystal.)
+        -> They're over there!
+            Crystal: *happy slippery noises* (!! Thank you friend!! Crystal very happy.)
+            Crystal: *relieved bubbling noises* (Crystal promise Earth and Slug truce. Slugs planet will not invade Earth.)
+            Crystal: *happy slug noises* (Goodbye friend! Remember to eat banana!)
+        <<ClearSprite Middle>>
+        <<Wait 1>>
+        Player: That was... strange...
+        Player: She was probably on something... 
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: Oh hey buddy!
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: I see you've met one of our guests! She's just visiting so don't get too attached. 
+        <<SetSprite Middle BearBox/Idle>>
+        BearBox: She's... a little eccentric.
+        BearBox: I'm not really sure what's up with her. 
+        BearBox: Our official statement regarding her is that she's a little fond of... "grass"...
+        <<Wait 1>>
+        <<Flip Middle 0>>
+        <<Wait 1>>
+        <<Flip Middle 0>>
+        <<Wait 1>>
+        BearBox: You didn't hear it from me, but administration thinks she actually might be an alien slug of some sort...
+        BearBox: Well, I have some errands around campus to run. 
+        <<SetSprite Middle BearBox/Blush>>
+        BearBox: Stay out of trouble!
+        <<ClearSprite Middle>>
+        <<SaveInt "UCSC_Cameo" 1>>
+    <<endif>>
+    Player: Huh...what a weird moment.
 <<endif>>
 
 Player: Hmm..what should I do?
