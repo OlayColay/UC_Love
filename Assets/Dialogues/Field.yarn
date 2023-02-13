@@ -647,6 +647,7 @@ Player: What should I do?
             <<SetSprite Middle Stan/GrinBlush>>
             Stan: I would be honored. 
             <<set $DancePartner = 6>>
+            <<ClearSprite Middle>>
             <<jump Dance>>
         <<elseif GetRelationshipScore("Stan") < 400 || GetRelationshipScore("Stan") >= 200>>
             <<SetSprite Middle Stan/Question>>
