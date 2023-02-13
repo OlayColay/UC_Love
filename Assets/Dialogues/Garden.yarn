@@ -54,6 +54,7 @@ position: -107,2
         <<ClearSprite Middle>>
         <<Wait 1>>
         Player: That was... strange...
+        Player: She was probably on something... 
         <<SetSprite Middle BearBox/Idle>>
         BearBox: Oh hey buddy!
         <<SetSprite Middle BearBox/Blush>>
@@ -61,12 +62,13 @@ position: -107,2
         <<SetSprite Middle BearBox/Idle>>
         BearBox: She's... a little eccentric.
         BearBox: I'm not really sure what's up with her. 
+        BearBox: Our official statement regarding her is that she's a little fond of... "grass"...
         <<Wait 1>>
         <<Flip Middle 0>>
         <<Wait 1>>
         <<Flip Middle 0>>
         <<Wait 1>>
-        BearBox: You didn't hear it from me, but administration thinks she actually might be an alien slug of some sort... 
+        BearBox: You didn't hear it from me, but administration thinks she actually might be an alien slug of some sort...
         BearBox: Well, I have some errands around campus to run. 
         <<SetSprite Middle BearBox/Blush>>
         BearBox: Stay out of trouble!

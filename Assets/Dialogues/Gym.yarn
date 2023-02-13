@@ -32,7 +32,7 @@ tags:
 <<if LoadInt("UCSF_Cameo") == 0>>
     <<set $UCSF to Dice(5)>>
     <<if $UCSF == 1>>
-        <<SetSprite Middle Cameo/Francesca>>
+        <<SetSprite Middle Cameo/UCSF>>
         Francesca: Oh hello! Do you mind participating in a quick study?
         Francesca: I'm collecting the heart rates of the students here to see if there is a correlation between activity levels and resting heart rates. 
         Francesca: Is it ok if I measure yours? 
@@ -40,49 +40,70 @@ tags:
             Francesca: Alright, one moment... 
             <<Wait 2>>
             Francesca: All done! 
+            <<SetSprite Middle Cameo/UCSF2>>
             Francesca: Well... your heart rate is significantly above the mean of the ones I've collected thus far.
             Francesca: Either you're two boba drinks away from a heart attack or something's got you riled up.
+            <<SetSprite Middle Cameo/UCSF>>
             Francesca: Thanks for participating in the study! 
         -> No!
+            <<SetSprite Middle Cameo/UCSF2>>
             Francesca: Well... I guess I can't force you to. 
+        <<SetSprite Middle Cameo/UCSF>>
         Francesca: Do you have any questions for me?
         -> Do you go here?
-            Francesca: 
-            Francesca: 
+            Francesca: Oh no, I'm a little old to be going here! I finished my undergraduate education quite a while ago!
+            <<SetSprite Middle Cameo/UCSF2>>
+            Francesca: Do I look that young? I guess wearing all that sunblock does pay off!
+            <<SetSprite Middle Cameo/UCSF>>
+            Francesca: I'm currently doing a little medical research as part of my graduate program up north!
             -> Can I take you on a date? 
+                <<SetSprite Middle Cameo/UCSF2>>
                 Francesca: Oh my... 
                 Francesca: Apologies darling, but it would be quite unethical for a scientist to date while on the job! 
                 Francesca: Quite a conflict of interest, I must say. 
+                <<SetSprite Middle Cameo/UCSF>>
                 Francesca: I'm only here for today to conduct a short study. 
+                <<SetSprite Middle Cameo/UCSF2>>
                 Francesca: Plus you're a little young right now for little old me!
+                <<SetSprite Middle Cameo/UCSF>>
                 Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
             -> Mommy?
+                <<SetSprite Middle Cameo/UCSF2>>
                 <<Shake Middle>>
                 Francesca: Oh my... 
                 Francesca: Maybe Sigmund Freud was right about some things...
                 Francesca: This is truly... confounding. 
                 Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
                 Francesca: Quite a conflict of interest, I must say. 
+                <<SetSprite Middle Cameo/UCSF>>
                 Francesca: I'm only here for today to conduct a short study. 
+                <<SetSprite Middle Cameo/UCSF2>>
                 Francesca: Plus you're a little young right now for little old me!
+                <<SetSprite Middle Cameo/UCSF>>
                 Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
         -> Can I take you on a date? 
+            <<SetSprite Middle Cameo/UCSF2>>
             Francesca: Oh my... 
-                Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
-                Francesca: Quite a conflict of interest, I must say. 
-                Francesca: I'm only here for today to conduct a short study. 
-                Francesca: Plus you're a little young right now for little old me!
-                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+            Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
+            Francesca: Quite a conflict of interest, I must say. 
+            Francesca: I'm only here for today to conduct a short study. 
+            Francesca: Plus you're a little young right now for little old me!
+            <<SetSprite Middle Cameo/UCSF>>
+            Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
         -> Mommy?
+            <<SetSprite Middle Cameo/UCSF2>>
             <<Shake Middle>>
-                Francesca: Oh my... 
-                Francesca: Maybe Sigmund Freud was right about some things...
-                Francesca: This is truly... confounding. 
-                Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
-                Francesca: Quite a conflict of interest, I must say. 
-                Francesca: I'm only here for today to conduct a short study. 
-                Francesca: Plus you're a little young right now for little old me!
-                Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+            Francesca: Oh my... 
+            Francesca: Maybe Sigmund Freud was right about some things...
+            Francesca: This is truly... confounding. 
+            Francesca: Apologies darling, but it would be quite unethical for a scientist to date her own test subject hmm? 
+            Francesca: Quite a conflict of interest, I must say. 
+            Francesca: I'm only here for today to conduct a short study. 
+            <<SetSprite Middle Cameo/UCSF2>>
+            Francesca: Plus you're a little young right now for little old me!
+            <<SetSprite Middle Cameo/UCSF>>
+            Francesca: Though, if you go to medical school after you graduate and we cross paths again, I'd be open to that date!
+        Francesca: Have a great rest of your day alright? Lay off the sugar and caffeine for better heart health too!
         <<ClearSprite Middle>>
         <<Wait 1>>
         <<SetSprite Middle BearBox/Idle>>
