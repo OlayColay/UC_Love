@@ -39,7 +39,7 @@ position: -99,4
     <<SetSprite Middle Riviera/LB>>
     Riviera: Thank you for inviting me. It's really nice to be able to spend the evening with you like this!
 <<elseif $DancePartner == 5>>
-    <<SetSprite Middle Tommy/Idle>>
+    <<SetSprite Middle Tommy/Dance/Idle>>
     Player: Woah... the dance looks amazing!
     Tommy: Definitely. 
     Tommy: For the first time in my life, I kind of wish I went here. 
@@ -82,11 +82,11 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     BearBox: Grrrr....
     BearBox: Is he bothering you? 
     -> Yes! Can you get him away from me?
-        <<SetSprite Middle Tommy/Flustered>>
+        <<SetSprite Middle Tommy/Dance/Flustered>>
         <<SetActiveChar Middle>>
         Tommy: Wait what? You invited me to the dance!
         -> I'm just kidding... He's with me BearBox!
-        <<SetSprite Middle Tommy/Idle>>
+        <<SetSprite Middle Tommy/Dance/Idle>>
         <<SetActiveChar Middle>>
         BearBox: If you say so...
         BearBox: ... I'll keeping my eye on you mister...
@@ -264,7 +264,7 @@ BearBox: Woah! Congratulations!
     <<SetActiveChar Right>>
     Squirrel: Can I please leave now? Something around here smells like a really bad women's perfume.
     <<SetActiveChar Middle>>
-    <<SetSprite Middle Tommy/Flustered>>
+    <<SetSprite Middle Tommy/Dance/Flustered>>
     Tommy: H-hey!
     <<SetActiveChar Right>>
     Squirrel: I'm out, they don't pay me enough for this. 
@@ -338,7 +338,7 @@ BearBox: What should we do with the budget?
         <<SetSprite Middle Riviera/HB>>
         Riviera: Let's hit the dance floor to practice our dance moves!
     <<elseif $DancePartner == 5>>
-        <<SetSprite Middle Tommy/Idle>>
+        <<SetSprite Middle Tommy/Dance/Idle>>
         Tommy: Even though I don't go here, I'm glad that you decided to keep the school!
         Tommy: I'd be able to visit you often since I'm in the area. 
         Tommy: I think... I've started to like you...
@@ -495,36 +495,36 @@ Player: Oh shoot! I'm running late to class again!
     <<LoadScene Credits>>
 <<elseif $DancePartner == 5>>
     <<SetActiveChar Middle>>
-    <<SetSprite Middle Tommy/Snickering>>
+    <<SetSprite Middle Tommy/Dance/Snickering>>
     Tommy: Oh hey! There you are! How have you been?
     -> Wait... you don't even go here! What are you doing here?
-        <<SetSprite Middle Tommy/Flustered>>
+        <<SetSprite Middle Tommy/Dance/Flustered>>
         Tommy: I just wanted to see how the campus remodel was coming along... 
-        <<SetSprite Middle Tommy/Idle>>
+        <<SetSprite Middle Tommy/Dance/Idle>>
         Tommy: The campus looks really nice thanks to you!
-        <<SetSprite Middle Tommy/Flushed>>
+        <<SetSprite Middle Tommy/Dance/Flushed>>
         Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
     -> I'm doing good! How are you doing?
-        <<SetSprite Middle Tommy/Snickering>>
+        <<SetSprite Middle Tommy/Dance/Snickering>>
         Tommy: I'm doing good too! 
-        <<SetSprite Middle Tommy/Idle>>
+        <<SetSprite Middle Tommy/Dance/Idle>>
         Tommy: You're probably wondering what I'm doing here since I don't even go here...
         Tommy: I just wanted to see how the campus remodel was coming along... the campus looks really nice thanks to you!
-        <<SetSprite Middle Tommy/Flushed>>
+        <<SetSprite Middle Tommy/Dance/Flushed>>
         Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
-    <<SetSprite Middle Tommy/Awkward>>
+    <<SetSprite Middle Tommy/Dance/Awkward>>
     Tommy: Anyways, don't you have a class or something to get to?
-    <<SetSprite Middle Tommy/Flustered>>
+    <<SetSprite Middle Tommy/Dance/Flustered>>
     Player: Oh shoot! I forgot that I'm running late to class!
-    <<SetSprite Middle Tommy/Awkward>>
+    <<SetSprite Middle Tommy/Dance/Awkward>>
     Tommy: Well.. if you're going to be late anyways...
-    <<SetSprite Middle Tommy/Idle>>
+    <<SetSprite Middle Tommy/Dance/Idle>>
     Tommy: Would you want to ditch and get lunch together?
     Tommy: We can go to wherever you want, my treat!
-    <<SetSprite Middle Tommy/Flustered>>
+    <<SetSprite Middle Tommy/Dance/Flustered>>
     <<Shake Middle>>
     Tommy: But we gotta get going soon! I think I parked in a tow-away zone!
-    <<SetSprite Middle Tommy/Idle>>
+    <<SetSprite Middle Tommy/Dance/Idle>>
     Player: Yes!
     <<PlayMusic Music/Title>>
     <<Fade false>>
@@ -639,7 +639,7 @@ position: 138,2
     <<SetSprite Middle Right/Idle>>
 <<elseif $DancePartner == 5>>
     <<SetActiveChar Middle>>
-    <<SetSprite Middle Tommy/Awkward>>
+    <<SetSprite Middle Tommy/Dance/Awkward>>
     Tommy: You're really breaking up the school? After everything...?
     Tommy: I'm really going to miss seeing you around...
     Tommy: I really liked walking around the garden with you at night. 
