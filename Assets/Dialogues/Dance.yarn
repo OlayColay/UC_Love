@@ -495,89 +495,89 @@ Player: Oh shoot! I'm running late to class again!
     <<LoadScene Credits>>
 <<elseif $DancePartner == 5>>
     <<SetActiveChar Middle>>
-    <<SetSprite Middle Tommy/Dance/Snickering>>
+    <<SetSprite Middle Tommy/Snickering>>
     Tommy: Oh hey! There you are! How have you been?
     -> Wait... you don't even go here! What are you doing here?
-        <<SetSprite Middle Tommy/Dance/Flustered>>
+        <<SetSprite Middle Tommy/Flustered>>
         Tommy: I just wanted to see how the campus remodel was coming along... 
-        <<SetSprite Middle Tommy/Dance/Idle>>
+        <<SetSprite Middle Tommy/Idle>>
         Tommy: The campus looks really nice thanks to you!
-        <<SetSprite Middle Tommy/Dance/Flushed>>
+        <<SetSprite Middle Tommy/Flushed>>
         Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
     -> I'm doing good! How are you doing?
-        <<SetSprite Middle Tommy/Dance/Snickering>>
+        <<SetSprite Middle Tommy/Snickering>>
         Tommy: I'm doing good too! 
-        <<SetSprite Middle Tommy/Dance/Idle>>
+        <<SetSprite Middle Tommy/Idle>>
         Tommy: You're probably wondering what I'm doing here since I don't even go here...
         Tommy: I just wanted to see how the campus remodel was coming along... the campus looks really nice thanks to you!
-        <<SetSprite Middle Tommy/Dance/Flushed>>
+        <<SetSprite Middle Tommy/Flushed>>
         Tommy: It's not like I'm randomly hanging around here to try to bump into you or anything! Don't get it mixed up!
-    <<SetSprite Middle Tommy/Dance/Awkward>>
+    <<SetSprite Middle Tommy/Awkward>>
     Tommy: Anyways, don't you have a class or something to get to?
-    <<SetSprite Middle Tommy/Dance/Flustered>>
+    <<SetSprite Middle Tommy/Flustered>>
     Player: Oh shoot! I forgot that I'm running late to class!
-    <<SetSprite Middle Tommy/Dance/Awkward>>
+    <<SetSprite Middle Tommy/Awkward>>
     Tommy: Well.. if you're going to be late anyways...
-    <<SetSprite Middle Tommy/Dance/Idle>>
+    <<SetSprite Middle Tommy/Idle>>
     Tommy: Would you want to ditch and get lunch together?
     Tommy: We can go to wherever you want, my treat!
-    <<SetSprite Middle Tommy/Dance/Flustered>>
+    <<SetSprite Middle Tommy/Flustered>>
     <<Shake Middle>>
     Tommy: But we gotta get going soon! I think I parked in a tow-away zone!
-    <<SetSprite Middle Tommy/Dance/Idle>>
+    <<SetSprite Middle Tommy/Idle>>
     Player: Yes!
     <<PlayMusic Music/Title>>
     <<Fade false>>
     <<LoadScene Credits>>
 <<else>>
-    <<SetSprite Middle>>
-    <<SetActiveChar Middle Stan/Dance/Smiling>>
+    <<SetSprite Middle Stan/Smiling>>
+    <<SetActiveChar Middle>>
     Stan: How's my favorite UC Loser? 
         -> Good morning?
             Stan: I thought I would stop by to see how you were doing after the dance last night.
-            <<SetSprite Middle Stan/Dance/GiggleBlush>>
+            <<SetSprite Middle Stan/GiggleBlush>>
             Stan: After all, things did get pretty crazy as the night wore on...
             <<Wait 1>>
-            <<SetSprite Middle Stan/Dance/Blackout>>
+            <<SetSprite Middle Stan/Blackout>>
             Stan: I really cannot believe that Professor BearBox tried to crowdsurf in a crowd of undergrads that have never heard of arm day. 
             Stan: That bag of bolts was one fall away from ending up in the e-waste bin.
         -> Are you going to dump me into a trash can again? 
-            <<SetSprite Middle Stan/Dance/Sus>>
+            <<SetSprite Middle Stan/Sus>>
             Stan: Do you want me to? 
-            <<SetSprite Middle Stan/Dance/Unhinged2>>
+            <<SetSprite Middle Stan/Unhinged2>>
             <<Shake Middle>>
             Stan: Because I could! 
         -> (Say Nothing)
-            <<SetSprite Middle Stan/Dance/Grin>>
+            <<SetSprite Middle Stan/Grin>>
             Stan: At a loss for words I see...
-    <<SetSprite Middle Stan/Dance/SmilingBlush>>
+    <<SetSprite Middle Stan/SmilingBlush>>
     Stan: To be honest, after the dance last night, I couldn't get you off of my mind...
-    <<SetSprite Middle Stan/Dance/Question>>
+    <<SetSprite Middle Stan/Question>>
     Stan: Seeing you and your school put in so much effort into the fundraising event...
-    <<SetSprite Stan/Dance/Smiling>>
+    <<SetSprite Stan/Smiling>>
     Stan: It was really impressive. You have my respect!
-    <<SetSprite Middle Stan/Dance/Giggle>>
+    <<SetSprite Middle Stan/Giggle>>
     Stan: Though UCL doesn't have as many resources as my university or Tommy's, you guys really give it your all. 
-    <<SetSprite Middle Stan/Dance/GrinBlush>>
+    <<SetSprite Middle Stan/GrinBlush>>
     Stan: I really admire that in a person.
-    <<SetSprite Middle Stan/Dance/Question>>
+    <<SetSprite Middle Stan/Question>>
     Stan: Say, if you don't have any plans after graduation... 
-    <<SetSprite Middle Stan/Dance/GrinBlush>>
+    <<SetSprite Middle Stan/GrinBlush>>
     Stan: Maybe... we should be business partners...
-    <<SetSprite Middle Stan/Dance/Question>>
+    <<SetSprite Middle Stan/Question>>
     Stan: Is that... the sound of the twelve o'clock bell? 
-    <<SetSprite Middle Stan/Dance/Irritated>>
+    <<SetSprite Middle Stan/Irritated>>
     <<Shake Middle>>
     Stan: We're... late for practice...
-    <<SetSprite Middle Stan/Dance/Grin>>
+    <<SetSprite Middle Stan/Grin>>
     Stan: Quick! Get in my arms! I'll carry us both to the practice field. 
-    <<SetSprite Middle Stan/Dance/GiggleBlush>>
+    <<SetSprite Middle Stan/GiggleBlush>>
     Stan: Are you flustered or something? You're all red. 
-    <<SetSprite Middle Stan/Dance/GrinBlush>>
+    <<SetSprite Middle Stan/GrinBlush>>
     Stan: Don't worry your cute little head about it too much.
-    <<SetSprite Middle Stan/Dance/GiggleBlush>>
+    <<SetSprite Middle Stan/GiggleBlush>>
     Stan: You can admire me all you want while I run us over there. 
-    <<SetSprite Middle Stan/Dance/GrinBlush>>
+    <<SetSprite Middle Stan/GrinBlush>>
     Stan: Now let's go!
     <<PlayMusic Music/Title>>
     <<Fade false>>
