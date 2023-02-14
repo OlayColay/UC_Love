@@ -554,7 +554,7 @@ Player: Oh shoot! I'm running late to class again!
     Stan: To be honest, after the dance last night, I couldn't get you off of my mind...
     <<SetSprite Middle Stan/Question>>
     Stan: Seeing you and your school put in so much effort into the fundraising event...
-    <<SetSprite Stan/Smiling>>
+    <<SetSprite Middle Stan/Smiling>>
     Stan: It was really impressive. You have my respect!
     <<SetSprite Middle Stan/Giggle>>
     Stan: Though UCL doesn't have as many resources as my university or Tommy's, you guys really give it your all. 

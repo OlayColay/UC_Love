@@ -999,7 +999,6 @@ position: 207,66
             <<else>>
                 <<SetSprite Middle Riviera/Angry>>
                 <<SetActiveChar Middle>>
-                <<Fade true>>
                 <<SetSprite Middle Riviera/VeryAngry>>
                 Riviera: Sigh... I can't believe you did that to the waitstaff back there. 
                 <<SetSprite Middle Riviera/Sad>>
