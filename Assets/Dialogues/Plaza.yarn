@@ -1125,7 +1125,7 @@ position: 212,-6
                 <<SetSprite Date Riviera/Sad>>
                 <<Shake Date>>
                 Riviera: Can you stop snapping at the waitstaff? It's really rude! 
-                <<SetSprite Data Riviera/Angry>>
+                <<SetSprite Date Riviera/Angry>>
                 Riviera: Can't you see that they're busy? Please be patient with them!
             <<endif>>
             <<Fade false>>
