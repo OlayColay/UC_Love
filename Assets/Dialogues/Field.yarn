@@ -23,7 +23,7 @@ position: -88,-7
 <<Fade true>>
 
 <<set $FieldPermissions = LoadInt("Field")>>
-<<if $FieldPermissions == 0>>
+<<if $FieldPermissions == 0 && IsComputer()>>
     Player: Oh, only pro-atheletes are allowed on here. 
     Player: I better go before security tackles me. 
     Player: Maybe if got some mega gainz at the gym I could use this field...
@@ -562,7 +562,7 @@ Player: What should I do?
             <<SetSprite Date Stan/Smiling>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!

@@ -588,7 +588,7 @@ position: 241,-105
             <<SetSprite Date Riviera/LB>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
@@ -638,6 +638,7 @@ position: 241,-105
                 <<SetBackground Backgrounds/Gym/Night>>
                 //Sets background as Gym Night if it Evening
             <<endif>>
+            <<Fade true>>
             <<if DateMinigameWon()>>
                 <<SetSprite Middle Riviera/HB>>
                 Riviera: I had such a great time! We should do this again sometime!
@@ -645,7 +646,6 @@ position: 241,-105
             <<else>>
                 <<SetSprite Middle Riviera/Angry>>
                 <<SetActiveChar Middle>>
-                <<Fade true>>
                 <<SetSprite Middle Riviera/VeryAngry>>
                 Riviera: Sigh... I can't believe you did that to the waitstaff back there. 
                 <<SetSprite Middle Riviera/Sad>>
@@ -1174,7 +1174,7 @@ Player: What should I do?
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
@@ -1636,7 +1636,7 @@ Player: What should I do?
             <<Fade true>>
             <<SetSprite Date Santana/bliss>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!

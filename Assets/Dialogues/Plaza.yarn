@@ -590,7 +590,7 @@ Player: What should I do?
             <<SetSprite Date Irene/IdleLB>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
@@ -1091,7 +1091,7 @@ position: 212,-6
             <<SetSprite Date Riviera/LB>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!
@@ -1679,7 +1679,7 @@ Player: What should I do?
             <<SetSprite Date Ellie/lb>>
             <<Fade true>>
             <<Wait 1>>
-            <<if LoadInt("FirstDate") == 0>>
+            <<if LoadInt("FirstDate") == 0 && IsComputer()>>
                 <<SetActiveChar Right>>
                 <<SetSprite Right BearBox/Idle>>
                 BearBox: Pssst! Hey buddy!

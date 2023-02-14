@@ -156,6 +156,13 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("DateMinigame")]
     public static IEnumerator DateMinigame()
     {
+        // Automatically win if we are on mobile
+        if (!YarnFunctions.IsComputer())
+        {
+            MazeController.gameWon = true;
+            yield break;
+        }
+
         BlackScreen.Instance.GetComponent<Image>().DOFade(1f, 1f);
         yield return new WaitForSecondsRealtime(1f);
         Camera vnCamera = Camera.main;
