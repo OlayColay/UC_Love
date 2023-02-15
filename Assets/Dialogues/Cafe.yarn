@@ -532,6 +532,8 @@ Player: What should I do?
                 Kelly: ...I'll try to be more interesting next time.
                 <<AddRelationshipScore Kelly -10>>
             <<endif>>
+            <<SetSprite Middle Kelly/Idle>>
+            <<jump UCBLibrary>>
         <<else>>
             <<SetSprite Middle Kelly/Angry>>
             Kelly: No, I have a test to study for.
