@@ -1594,6 +1594,9 @@ Player: What should I do?
 title: CafeWork
 position: -36,93
 ---
+<<if GamepadConnected()>>
+    System: WARNING! Gamepads are not supported for this minigame (there are too many buttons). Please set your gamepad down and use your keyboard, thanks!
+<<endif>>
 -> Go!
     <<PlayMusic Music/Minigame>>
     <<CafeMinigame>>

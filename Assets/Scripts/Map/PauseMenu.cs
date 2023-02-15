@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     [SerializeField] GameObject pauseMenuUI;
     private AudioClip pop;
+
+    public GameObject resumeButton;
+    public GameObject menuButton;
 
     private void Awake()
     {
@@ -33,12 +38,26 @@ public class PauseMenu : MonoBehaviour
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(false);
+
+        // If a gamepad is connected, we'll highlight the menu button when closing the pause menu
+        if (Gamepad.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(menuButton);
+        }
     }
 
     public void Pause()
     {
         MusicPlayer.audioSource.PlayOneShot(pop);
         pauseMenuUI.SetActive(true);
+
+        // If a gamepad is connected, we'll highlight the resume button when opening the pause menu
+        if (Gamepad.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(resumeButton);
+        }
     }
 
     public void LoadMenu()

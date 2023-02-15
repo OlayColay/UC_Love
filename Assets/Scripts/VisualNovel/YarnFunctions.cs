@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Yarn.Unity;
 
 /// <summary> Static Yarn Spinner functions. Functions return variables (int, string, etc.) </summary>
@@ -74,5 +75,11 @@ public static class YarnFunctions
     public static bool IsComputer()
     {
         return !Application.isMobilePlatform;
+    }
+
+    [YarnFunction("GamepadConnected")]
+    public static bool GamepadConnected()
+    {
+        return Gamepad.current != null;
     }
 }

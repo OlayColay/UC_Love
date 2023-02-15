@@ -137,6 +137,14 @@ ScriptedImporter:
     description: Implicitly declared in Garden.yarn, node Garden
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
+  - name: $UCSC
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Garden.yarn, node Garden
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 5df98630ed8e322498521df366e781f5, type: 3}
   - name: $USCIntro
     typeName: Number
     defaultValueBool: 0
@@ -321,6 +329,14 @@ ScriptedImporter:
     description: Implicitly declared in Library.yarn, node Library
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UC_Hastings
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Library.yarn, node Library
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
   - name: $UCBIntroLibrary
     typeName: Number
     defaultValueBool: 0
@@ -377,6 +393,22 @@ ScriptedImporter:
     description: Implicitly declared in Library.yarn, node UCLALibrary
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $LibraryWorkDialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Library.yarn, node LibraryWork
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 121438914b2cb8e42be993d55ec94f57, type: 3}
+  - name: $UCSD
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Shop.yarn, node Store
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: b0de4173aeac5394c996ef379b49055b, type: 3}
   - name: $TalkRiviera
     typeName: Bool
     defaultValueBool: 0
@@ -410,6 +442,14 @@ ScriptedImporter:
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
   - name: $FlavorTextGym
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Gym.yarn, node Gym
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $UCSF
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
@@ -513,6 +553,14 @@ ScriptedImporter:
     description: Implicitly declared in Gym.yarn, node UCSBGym
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
+  - name: $Dwayne
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Gym.yarn, node GymWork
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 67c0ee1943edf6a4284cb3d4dae8f5fe, type: 3}
   - name: $TimeOfDayPlaza
     typeName: Number
     defaultValueBool: 0
@@ -522,6 +570,14 @@ ScriptedImporter:
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
   - name: $FlavorTextPlaza
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Plaza.yarn, node Plaza
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 077a553b493b0b04d96abc17394073da, type: 3}
+  - name: $UCM
     typeName: Number
     defaultValueBool: 0
     defaultValueNumber: 0
@@ -625,6 +681,14 @@ ScriptedImporter:
     description: Implicitly declared in Cafe.yarn, node Cafe
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
+  - name: $UCD
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Cafe.yarn, node Cafe
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 19fdcac984f465f47ae5d5c4cf68a365, type: 3}
   - name: $UCBIntroCafe
     typeName: Number
     defaultValueBool: 0
@@ -710,7 +774,7 @@ ScriptedImporter:
     defaultValueBool: 0
     defaultValueNumber: 0
     defaultValueString: 
-    description: Implicitly declared in Intro.yarn, node Orientation
+    description: Implicitly declared in Intro.yarn, node NewGame
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: a57c54f571a03e94cb9406355914bd21, type: 3}
   - name: $TimeOfDayDorm
@@ -745,11 +809,92 @@ ScriptedImporter:
     description: Implicitly declared in Dorm.yarn, node AdditionalNap
     isImplicit: 1
     sourceYarnAsset: {fileID: 6391573757903218779, guid: 21bed28c12e6a694cb1a00569acd25ec, type: 3}
+  - name: $TalkStan
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $GiftStan
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $AskStan
+    typeName: Bool
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $TimeOfDayField
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $FieldPermissions
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $FlavorTextField
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Field
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $StanIntro
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Stan
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $Stan_Dialogue
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Stan
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $GiftScoreStan
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Stan
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
+  - name: $TimeofDayField
+    typeName: Number
+    defaultValueBool: 0
+    defaultValueNumber: 0
+    defaultValueString: 
+    description: Implicitly declared in Field.yarn, node Stan
+    isImplicit: 1
+    sourceYarnAsset: {fileID: 6391573757903218779, guid: 3f91906efe2f1e34d85c9a13f65ce8f7, type: 3}
   defaultLanguage: en-US
   languagesToSourceAssets: []
   useAddressableAssets: 0
   searchAllAssembliesForActions: 1
-  assembliesToSearch: []
+  assembliesToSearch:
+  - {fileID: 5897886265953266890, guid: 656e461844099ae43a609ff6109b0877, type: 3}
   ListOfFunctions:
   - Name: GetDay
     ReturnType: -> Int32
@@ -811,6 +956,9 @@ ScriptedImporter:
   - Name: CafeMinigameWon
     ReturnType: -> Boolean
     Parameters: []
+  - Name: DateMinigameWon
+    ReturnType: -> Boolean
+    Parameters: []
   - Name: LoadInt
     ReturnType: -> Int32
     Parameters:
@@ -820,6 +968,9 @@ ScriptedImporter:
     Parameters:
     - name
   - Name: IsComputer
+    ReturnType: -> Boolean
+    Parameters: []
+  - Name: GampadConnected
     ReturnType: -> Boolean
     Parameters: []
   - Name: Random
