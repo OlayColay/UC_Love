@@ -368,7 +368,7 @@ BearBox: What should we do with the budget?
     BearBox: I was hoping that the campus would grow on you a bit... but...
     BearBox: I respect your decision.
     BearBox: We'll put the budget towards splitting up the school.
-    BearBox: Thank you for coming everyone! It's been a great here at UCL, but all good things must come to an end.
+    BearBox: Thank you for coming everyone! It's been a great year at UCL, but all good things must come to an end.
     <<SetSprite Left BearBox/Blush>>
     BearBox: Though we may part, you all will be in my heart!
     BearBox: I'll go make the preparations!
@@ -588,15 +588,15 @@ title: BreakUCL
 position: 138,2
 ---
 <<if $DancePartner == 0>>
-    <<SetSprite Middle Kelly/sad>>
+    <<SetSprite Middle Kelly/Dance/sad>>
     <<SetActiveChar Middle>>
     Kelly: Oh... you're leaving?
     Kelly: I understand...
-    <<SetSprite Middle Kelly/lbom>>
+    <<SetSprite Middle Kelly/Dance/lbom>>
     Kelly: I'm not very good with words and that kind of stuff...
-    <<SetSprite Middle Kelly/hbom>>
+    <<SetSprite Middle Kelly/Dance/hbom>>
     Kelly: But I hope that you're alright... wherever you go...
-    <<SetSprite Middle Kelly/hbcm>>
+    <<SetSprite Middle Kelly/Dance/hbcm>>
     Kelly: ...I hope that you are happy. 
 <<elseif $DancePartner == 1>>
     <<SetSprite Middle Ellie/Angry>>
@@ -678,7 +678,7 @@ position: 132,89
 ---
 <<PlayMusic Music/Minigame>>
 <<if $DancePartner == 0>>
-    <<SetSprite Middle Kelly/Idle>>
+    <<SetSprite Middle Kelly/Dance/Idle>>
     <<SetActiveChar Middle>>
     Kelly: Well... that was... unexpected.
 <<elseif $DancePartner == 1>>

@@ -61,6 +61,11 @@ public class MazeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameOver)
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("you lose!!!!!!!!!!!!!!!!!!");
@@ -69,7 +74,7 @@ public class MazeController : MonoBehaviour
             timer.TimerOn = false;
             playerInput.Disable();
         }
-        else if ((collision.gameObject.tag == "Goal") && (!gameOver))
+        else if (collision.gameObject.tag == "Goal")
         {
             Debug.Log("you win!!!!!!!!!!!!!!!!!!!");
             gameOver = true;

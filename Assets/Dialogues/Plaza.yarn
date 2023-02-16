@@ -598,8 +598,9 @@ Player: What should I do?
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
@@ -1099,8 +1100,9 @@ position: 212,-6
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
@@ -1687,8 +1689,9 @@ Player: What should I do?
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 

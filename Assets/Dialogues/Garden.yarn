@@ -559,8 +559,9 @@ Player: What should I do?
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
@@ -899,7 +900,7 @@ Player: What should I do?
             Santana: I know that it probably doesn't do anything, but sometimes it helps me to work towards a goal of mine. 
             Santana: Lately, that goal has been becoming more assertive, but I still have a long way to go there!
         <<elseif $UCSB_Dialogue == 4>> 
-            <<SetSprite Middle Santana/sad>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: Sometimes the visitors here can get really rude...
             Santana: One time, we were closing up for the evening, and this lady came in at the last minute and demanded to be let in.
             Santana: I tried to tell her that we were closing but then she called me names and pushed me aside...
@@ -909,7 +910,7 @@ Player: What should I do?
             Santana: Some garden guests are really nice but others are really mean.
             <<SetSprite Middle Santana/bliss>>
             Santana: One of our regulars brought me a bouquet of fresh flowers as a thank you for taking such good care of the garden.
-            <<SetSprite Middle Santana/sad>>
+            <<SetSprite Middle Santana/Angry>>
             Santana: On the other hand, someone once chucked a fist-full of koi feed at me after I warned him about feeding the squirrels.
             <<SetSprite Middle Santana/bliss>>
             Santana: His hand got bit immediately after though.
@@ -1093,7 +1094,7 @@ Player: What should I do?
                     Santana: I'd still be here tending to the garden. Hopefully, you'd still visit me though!
                     <<SetSprite Middle Santana/Idle>>
                 -> I really hate worms...
-                    <<SetSprite Middle Santana/sad>>
+                    <<SetSprite Middle Santana/Angry>>
                     Santana: Why? Worms are really important to each ecosystem!
                     Santana: They break down dead matter and air out the soil, which makes it possible for plants to take root. 
                     Santana: Every plant, animal, and insect are important to their ecosystems! Even the squirrels that run around here are critical to the garden's health.
@@ -1208,8 +1209,9 @@ Player: What should I do?
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
@@ -1765,8 +1767,9 @@ Player: What should I do?
                 BearBox: Just like chocolate, there are a lot of ways that you can mess up a date!
                 BearBox: Like adding raspberry syrup. 
                 <<Wait 1>>
-                <<Flip Middle 0>>
-                <<Flip Middle 0>>
+                <<Flip Right 0>>
+                <<Wait 0.25>>
+                <<Flip Right 0>>
                 <<Wait 1>>
                 BearBox: Pretend that made sense. 
                 BearBox: Anyways, navigate your feelings using the WASD or arrow keys to get to the heart end goal. 
