@@ -8,7 +8,7 @@ public class DisplayLocation : MonoBehaviour
 {
     private Text textField;
 
-    private void Start()
+    private void Awake()
     {
         // Initialize
         textField = GetComponent<Text>();

@@ -45,6 +45,7 @@ System: Created new save file! Do you want to play the intro? It is recommended 
     <<PlayMusic Music/Gameplay>>
     <<jump AltV2>>
 -> Skip Intro
+    System: If you need help, you can find a tutorial on the Map by clicking the question mark.
     System: What are your preferred pronouns? 
     -> he/him
         <<set $PlayerPronouns = 0>>
