@@ -1,5 +1,6 @@
 ﻿title: Alt
 tags:
+position: -166,-68
 ---
 <<FadeBackground Backgrounds/Dorm 2>>
 Player: Ugh… my head… I shouldn't have slept so late last night…
@@ -189,6 +190,7 @@ BearBox: Stay out of trouble!
 ===
 title: AltV2
 tags:
+position: 92,-61
 ---
 <<FadeBackground Backgrounds/Dorm 2>>
 Player: Ugh… my head… I shouldn't have slept so late last night…
@@ -377,6 +379,12 @@ BearBox: "You can save your game by hitting the top floppy disk icon in the top 
 BearBox: "You can also toggle auto-save on or off by clicking the BearBox icon!"
 BearBox: "Plus, you can check your inventory by clicking the backpack icon in the top right!"
 BearBox: I'm not sure what that means... but have a good first day alright?
+BearBox: Do you want a quick tutorial on how to succeed here before you go?
+-> Sure! I could use some advice for my rizz.
+    BearBox: Uh... okay then.
+    <<jump Tutorial>>
+-> No thanks! I definitely know what I'm doing
+BearBox: No worries! If you do end up needing my help, you can always find me on the Map!
 BearBox: Stay out of trouble!
 <<Fade false>>
 <<PlayMusic Music/Gameplay>>
