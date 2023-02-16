@@ -621,6 +621,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCBLibrary>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===

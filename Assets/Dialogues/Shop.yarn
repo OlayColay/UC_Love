@@ -58,5 +58,6 @@ tags:
     <<OpenShop>>
     <<jump ActualStore>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===

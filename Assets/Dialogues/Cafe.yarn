@@ -118,6 +118,7 @@ Player: What should I do?
 -> Work <<if IsComputer()>>
     <<jump CafeWork>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: UCBCafe
@@ -558,6 +559,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCBCafe>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1034,6 +1036,7 @@ position: 207,66
     -> Cancel
         <<jump UCRCafe>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1591,6 +1594,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCICafe>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===

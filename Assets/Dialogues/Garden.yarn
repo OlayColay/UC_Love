@@ -145,6 +145,7 @@ Player: Hmm..what should I do?
         <<jump USCGarden>>
     <<endif>>  
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: USCGarden
@@ -638,6 +639,7 @@ Player: What should I do?
     -> Cancel
         <<jump USCGarden>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -839,6 +841,7 @@ position: 125,-26
     <<AddMoney -100>>
 <<endif>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1290,6 +1293,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCSBGarden>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1858,6 +1862,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCIGarden>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===

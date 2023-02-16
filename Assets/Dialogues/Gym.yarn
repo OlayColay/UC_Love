@@ -189,6 +189,7 @@ Player: What should I do?
 -> Work as a workout trainer <<if IsComputer()>>
     <<jump GymWork>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: UCRGym
@@ -678,6 +679,7 @@ position: 241,-105
     -> Cancel
         <<jump UCRGym>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1727,6 +1729,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCSBGym>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1770,11 +1773,25 @@ position: -5,87
     <<SetActiveChar Middle>>
     <<Wait 1>>
     BearBox: Uhhh...
-    <<Wait 1>>
+    <<Wait 0.5>>
     BearBox: Anyways, there's three parts to working here, and the client will choose which order to do them in: Lifting, Punching, and Push-Ups.
     BearBox: When they're Lifting, encourage your client by mashing the SPACE button!
-    BearBox: When you're client is Punching, tell them which side of the punching bag to punch with LEFT CLICK and RIGHT CLICK (or LEFT ARROW and RIGHT ARROW)
-    BearBox: Finally, during Push-Ups, instruct your client when it's the right time to lift themselves up with the SPACE button.
+    BearBox: When you're client is Punching, tell them which side of the punching bag to punch with LEFT CLICK and RIGHT CLICK (or LEFT ARROW and RIGHT ARROW).
+    <<SetSprite Right Dwayne/Cole>>
+    <<SetActiveChar Right>>
+    Cole: DON'T SPAM CLICKS! Wait for the prompt to show which button to click! I'm talking to you, streamers who don't read the boring instructions on camera!
+    <<SetActiveChar Middle>>
+    <<Wait 1>>
+    <<Flip Middle>>
+    <<SetSprite Middle BearBox/Angry>>
+    BearBox: Can you go?! I'm trying to help a student here.
+    <<SetActiveChar Right>>
+    Cole: YOU CANNOT PERCEIVE MY FORM!!!
+    <<ClearSprite Right>>
+    <<SetActiveChar Middle>>
+    <<SetSprite Middle BearBox/Idle>>
+    <<Flip Middle>>
+    BearBox: Ugh. Finally, during Push-Ups, instruct your client when it's the right time to lift themselves up with the SPACE button.
     <<SetSprite Middle BearBox/Blush>>
     BearBox: Easy, right? There's three different difficulties, so start somewhere comfortable, then move up the difficulty to earn more dough!
     BearBox: Have fun!

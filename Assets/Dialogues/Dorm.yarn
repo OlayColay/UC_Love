@@ -117,6 +117,7 @@ Player: What should I do?
         Player: I just printed $5000!
         <<jump Dorm>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: AdditionalNap
@@ -134,6 +135,7 @@ Player: Wow... that was a good nap! Oh! Would you look at the time!
                 Player: It's already evening!
             <<endif>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 -> Hit snooze (Pass More Time)
     <<Fade false>>

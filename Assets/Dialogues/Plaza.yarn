@@ -133,6 +133,7 @@ Player: What should I do?
 -> Work as a BearBox Driver <<if IsComputer()>>
     <<jump PlazaWork>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: UCIPlaza
@@ -692,6 +693,7 @@ Player: What should I do?
     -> Cancel
         <<jump UCIPlaza>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
@@ -1186,6 +1188,7 @@ position: 212,-6
     -> Cancel
         <<jump UCRPlaza>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===

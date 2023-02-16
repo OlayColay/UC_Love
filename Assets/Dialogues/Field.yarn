@@ -83,6 +83,7 @@ Player: Hmm..what should I do?
 -> Meet someone
     <<jump Stan>>
 -> Leave
+    <<Fade false>>
     <<LoadScene MapScene>>
 ===
 title: Stan
@@ -670,6 +671,7 @@ Player: What should I do?
     -> Cancel
         <<jump Stan>>
 -> Leave
+    <<Fade false 0.5>>
     <<UpdateTimeOfDay>>
     <<LoadScene MapScene>>
 ===
