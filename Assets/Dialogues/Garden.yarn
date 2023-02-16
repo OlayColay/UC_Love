@@ -848,7 +848,7 @@ position: 125,-26
 title: UCSBGarden
 position: 126,-113
 ---
-<<set $UCSBIntroPlaza to LoadInt("UCSB_Intro")>>
+<<set $UCSBIntroGarden to LoadInt("UCSB_Intro")>>
 <<SetSprite Middle Santana/Idle>>
 <<SetActiveChar Middle>>
 Player: What should I do?

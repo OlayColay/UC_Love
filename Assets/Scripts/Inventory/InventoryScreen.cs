@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class InventoryScreen : MonoBehaviour
     [SerializeField] Sprite itemsBackground;
     [SerializeField] Sprite keyItemsBackground;
     public GameObject cancelButton;
+    public GameObject invButton;
     [HideInInspector] public static Item selectedItem = null;
     [HideInInspector] public static bool canceled = false;
     private bool isKeyItems = false;
@@ -54,7 +56,7 @@ public class InventoryScreen : MonoBehaviour
         }
 
         if (Gamepad.current != null)
-            UnityEngine.EventSystems.EventSystem.current?.SetSelectedGameObject(itemButtons[0].activeSelf ? itemButtons[0] : itemSwitch);
+            UnityEngine.EventSystems.EventSystem.current?.SetSelectedGameObject(itemSwitch);
     }
 
     void OnDisable()
@@ -65,6 +67,13 @@ public class InventoryScreen : MonoBehaviour
             item.GetComponent<Image>().sprite = null;
             item.GetComponent<Button>().onClick.RemoveAllListeners();
             item.SetActive(false);
+        }
+        
+        // If a gamepad is connected, we'll highlight the menu button when closing the pause menu
+        if (Gamepad.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(invButton);
         }
     }
 

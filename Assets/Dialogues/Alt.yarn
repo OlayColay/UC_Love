@@ -320,7 +320,7 @@ Player: Hey! HEY! Put me down!
 <<SetActiveChar Left>>
 <<SetSprite Left BearBox/Angry>>
 BearBox: Tommy Trojan and Stan Ford! Just what do you two think you're doing?!
-<<SetActiveChar Right>>
+<<SetActiveChar Middle>>
 <<SetSprite Middle Stan/Irritated>>
 <<Shake Middle>>
 Stan: Professor BearBox!
