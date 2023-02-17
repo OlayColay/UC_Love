@@ -127,8 +127,8 @@ position: -107,2
         BearBox: Stay out of trouble!
         <<ClearSprite Middle>>
         <<SaveInt "UCSC_Cameo" 1>>
+        Player: Huh...what a weird moment.
     <<endif>>
-    Player: Huh...what a weird moment.
 <<endif>>
 
 -> Meet someone
