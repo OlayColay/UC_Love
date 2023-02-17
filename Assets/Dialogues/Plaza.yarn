@@ -145,7 +145,7 @@ position: 211,-126
 Player: What should I do?
 -> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
     <<set $TalkIrene to true>>
-    <<AddRelationshipScore Irene 10>>
+    <<AddRelationshipScore Irene 15>>
     <<set $UCIDialoguePlaza = Dice(5)>>
     <<if $UCIIntroPlaza != 1>>
         <<SetSprite Middle Irene/Idle>>
@@ -687,7 +687,6 @@ Player: What should I do?
             <<SetSprite Middle Irene/Awkward>>
             Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
             Irene: I don't think that I want to do that in public...
-            <<AddRelationshipScore Irene -20>>
             <<SetSprite Middle Irene/Idle>>
             <<jump UCIPlaza>>
         <<endif>>
@@ -708,7 +707,7 @@ position: 212,-6
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
     <<set $TalkRiviera to true>>
-    <<AddRelationshipScore Riviera 10>>
+    <<AddRelationshipScore Riviera 15>>
     <<if $UCRIntroPlaza != 1>>
         Riviera: Oh hey! My name is Riviera! I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
@@ -1181,9 +1180,7 @@ position: 212,-6
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Riviera/Angry>>
-            Riviera: I respect your courage but I think you might be a bit too forward. 
-            <<AddRelationshipScore Riviera -20>>
-            //
+            Riviera: I respect your courage but I think you might be a bit too forward.
             <<jump UCRPlaza>>
         <<endif>>
     -> Cancel
@@ -1203,7 +1200,7 @@ Player: What should I do?
 -> Talk to Ellie <<if $TalkEllie == false>>
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Plaza = Dice(5)>>
-    <<AddRelationshipScore Ellie 10>>
+    <<AddRelationshipScore Ellie 15>>
     <<if $UCLAIntroPlaza != 1>>
         <<SetSprite Middle Ellie/Idle>>
         Ellie: Hey there! You're new here right? Welcome to UCL! 
@@ -1774,7 +1771,6 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Ellie/angry>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
-            <<AddRelationshipScore Ellie -20>>
             <<jump UCLAPlaza>>
         <<endif>>
     -> Cancel

@@ -95,7 +95,7 @@ position: 153,-9
 Player: What should I do?
 -> Talk to Stan <<if $TalkStan == false>>
     <<set $TalkStan to true>>
-    <<AddRelationshipScore Stan 15>>
+    <<AddRelationshipScore Stan 20>>
     <<set $Stan_Dialogue = Dice(5)>>
     <<if $StanIntro != 1>>
         Stan: Well if it isn't my favorite UC Loser... Did you come here looking for my attention?
@@ -654,7 +654,6 @@ Player: What should I do?
         <<elseif GetRelationshipScore("Stan") < 400 && GetRelationshipScore("Stan") >= 200>>
             <<SetSprite Middle Stan/Question>>
             Stan: I don't care enough about you right now to warrant the social embarassment of going to that dinky old dance.
-            <<AddRelationshipScore Stan -5>>
             <<jump Stan>>
         <<else>>
             <<SetSprite Middle Stan/Question>>
@@ -665,7 +664,6 @@ Player: What should I do?
             <<SetSprite Middle Stan/Laughing>>
             Stan: That's the most hilarious thing anyone has said to me this century!
             <<SetSprite Middle Stan/Passive>>
-            <<AddRelationshipScore Stan -10>>
             <<jump Stan>>
         <<endif>>
     -> Cancel

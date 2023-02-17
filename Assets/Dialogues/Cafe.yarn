@@ -130,7 +130,7 @@ position: 216,-14
 Player: What should I do?
 -> Talk to Kelly <<if $TalkKelly == false>>
     <<set $TalkKelly to true>>
-    <<AddRelationshipScore Kelly 10>>
+    <<AddRelationshipScore Kelly 15>>
     <<set $UCBDialogueCafe = Dice(5)>>
     <<if $UCBIntroCafe != 1>>
         <<SetSprite Middle Kelly/Angry>>
@@ -553,7 +553,6 @@ Player: What should I do?
             <<jump Dance>>
         <<else>>
             Kelly: I have a project I have to work on...
-            <<AddRelationshipScore Kelly -20>>
             <<jump UCBCafe>>
         <<endif>>
     -> Cancel
@@ -573,7 +572,7 @@ position: 207,66
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
     <<set $TalkRiviera to true>>
-    <<AddRelationshipScore Riviera 10>>
+    <<AddRelationshipScore Riviera 15>>
     <<if $UCRIntroC != 1>>
         Riviera: Oh hey! My name is Riviera! I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
@@ -1029,8 +1028,7 @@ position: 207,66
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Riviera/Angry>>
-            Riviera: I respect your courage but I think you might be a bit too forward. 
-            <<AddRelationshipScore Riviera -20>>
+            Riviera: I respect your courage but I think you might be a bit too forward.
             <<jump UCRCafe>>
         <<endif>>
     -> Cancel
@@ -1049,7 +1047,7 @@ position: 203,-155
 Player: What should I do?
 -> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
     <<set $TalkIrene to true>>
-    <<AddRelationshipScore Irene 10>>
+    <<AddRelationshipScore Irene 15>>
     <<set $UCIDialogueCafe = Dice(5)>>
     <<if $UCIIntroCafe != 1>>
         <<SetSprite Middle Irene/Idle>>
@@ -1579,7 +1577,6 @@ Player: What should I do?
             <<SetSprite Middle Irene/Awkward>>
             Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
             Irene: I don't think that I want to do that in public...
-            <<AddRelationshipScore Irene -20>>
             <<SetSprite Middle Irene/Idle>>
             <<jump UCICafe>>
         <<endif>>

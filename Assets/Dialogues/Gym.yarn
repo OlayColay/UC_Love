@@ -202,7 +202,7 @@ position: 241,-105
 <<SetActiveChar Middle>>
 -> Talk to Riviera <<if $TalkRiviera == false>>
     <<set $TalkRiviera to true>>
-    <<AddRelationshipScore Riviera 10>>
+    <<AddRelationshipScore Riviera 15>>
     <<if $UCRIntroGym != 1>>
         Riviera: Oh hey! My name is Riviera! I'm starting a marketing technology startup.
         Riviera: It's a software I developed that helps companies to analyze sentiments across social media platforms so that they can estimate how the public perceives them!
@@ -672,8 +672,7 @@ position: 241,-105
             <<jump Dance>>
         <<else>>
             <<SetSprite Middle Riviera/Angry>>
-            Riviera: I respect your courage but I think you might be a bit too forward. 
-            <<AddRelationshipScore Riviera -20>>
+            Riviera: I respect your courage but I think you might be a bit too forward.
             <<jump UCRGym>>
         <<endif>>
     -> Cancel
@@ -694,7 +693,7 @@ Player: What should I do?
 -> Talk to Ellie <<if $TalkEllie == false>>
     <<set $TalkEllie to true>>
     <<set $UCLA_Dialogue_Gym = Dice(5)>>
-    <<AddRelationshipScore Ellie 10>>
+    <<AddRelationshipScore Ellie 15>>
     <<if $UCLAIntroGym != 1>>
         <<SetSprite Middle Ellie/Idle>>
         Ellie: Hey there! You're new here right? Welcome to UCL! 
@@ -1265,7 +1264,6 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Ellie/angry>>
             Ellie: Umm.. sorry... I might have... ummm... a retreat for... lettuce club that day.
-            <<AddRelationshipScore Ellie -20>>
             <<jump UCLAGym>>
         <<endif>>
     -> Cancel
@@ -1283,7 +1281,7 @@ position: 242,62
 Player: What should I do?
 -> Talk to Santana <<if $TalkSantana == false>>
     <<set $TalkSantana to true>>
-    <<AddRelationshipScore Santana 10>>
+    <<AddRelationshipScore Santana 15>>
     <<SetSprite Middle Santana/Idle>>
     <<SetActiveChar Middle>>
     <<set $UCSBDialogueGym = Dice(5)>>
@@ -1722,7 +1720,6 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Santana/Angry>>
             Santana: Oh... I'm flattered but I don't know if I'm going to go...
-            <<AddRelationshipScore Santana -20>>
             <<jump UCSBGym>>
         <<endif>>
     -> Cancel
