@@ -157,7 +157,7 @@ Player: What should I do?
         <<if $Stan_Dialogue == 1>>
             <<SetSprite Middle Stan/Irritated>>
             Stan: A lot of fangirls try to give me gifts thinking that it'd make me like them...
-            Stan: Do they think they can buy my attention with cheap gifts or something?
+            Stan: Do they think they can buy my attention with gifts or something? It's so superficual. 
             <<SetSprite Middle Stan/Passive>>
             Stan: I hate that. People you can trust are way more important than people that give you useless crap.
         <<elseif $Stan_Dialogue == 2>>
@@ -507,7 +507,7 @@ Player: What should I do?
     <<if $GiftScoreStan == -10>>
         <<if GetRelationshipScore("Stan") >= 200>>
             <<SetSprite Middle Stan/Irritated>>
-            Stan: Uhhh.... no thank you.
+            Stan: Uhhh.... no thank you. Gifts aren't really my thing.
         <<else>>
             <<SetSprite Middle Stan/Laughing>>
             Stan: HA! What the hell is this?
