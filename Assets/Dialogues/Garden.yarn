@@ -156,7 +156,7 @@ position: 139,58
 Player: What should I do?
 -> Talk to Tommy <<if $TalkTommy == false>>
     <<set $TalkTommy to true>>
-    <<AddRelationshipScore Tommy 10>>
+    <<AddRelationshipScore Tommy 15>>
     <<set $USC_Dialogue = Dice(5)>>
     //10 points will be added to the relationship score for just talking to USC. 
     //Different lines from different dialogue "pools" will be pulled depending on the player's 
@@ -632,7 +632,6 @@ Player: What should I do?
             <<SetSprite Middle Tommy/Angry>>
             Tommy: Uhhhh... no thanks. I wouldn't step foot in there even for a Bucci x Bouis Vuitton collaboration.
             <<SetSprite Middle Tommy/Idle>>
-            <<AddRelationshipScore Tommy -20>>
             <<jump USCGarden>>
         <<endif>>
     -> Cancel
@@ -853,7 +852,7 @@ position: 126,-113
 Player: What should I do?
 -> Talk to Santana <<if $TalkSantana == false>>
     <<set $TalkSantana to true>>
-    <<AddRelationshipScore Santana 10>>
+    <<AddRelationshipScore Santana 15>>
     <<SetSprite Middle Santana/Idle>>
     <<SetActiveChar Middle>>
     <<set $UCSB_Dialogue = Dice(5)>>
@@ -1286,7 +1285,6 @@ Player: What should I do?
         <<else>>
             <<SetSprite Middle Santana/Angry>>
             Santana: Oh... I'm flattered but I don't know if I'm going to go...
-            <<AddRelationshipScore Santana -20>>
             <<jump UCSBGarden>>
         <<endif>>
     -> Cancel
@@ -1305,7 +1303,7 @@ position: 128,-182
 Player: What should I do?
 -> Talk to Irene <<if $TalkIrene == false>> //Very In Progress
     <<set $TalkIrene to true>>
-    <<AddRelationshipScore Irene 10>>
+    <<AddRelationshipScore Irene 15>>
     <<set $UCI_Dialogue = Dice(5)>>
     <<if $UCIIntroGarden != 1>>
         <<SetSprite Middle Irene/Idle>>
@@ -1855,7 +1853,6 @@ Player: What should I do?
             <<SetSprite Middle Irene/Awkward>>
             Irene: Er... the only dancing I want to do right now is emoting after no-scoping an opponent.
             Irene: I don't think that I want to do that in public...
-            <<AddRelationshipScore Irene -20>>
             <<SetSprite Middle Irene/Idle>>
             <<jump UCIGarden>>
         <<endif>>
