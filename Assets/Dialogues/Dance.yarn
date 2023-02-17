@@ -72,13 +72,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     BearBox: Now who might this lovely gentleman be...
     <<SetSprite Left BearBox/Angry>>
     <<Shake Left>>
-        <<if $PlayerPronouns == 0>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HIM ON THE FIRST DAY!
-        <<elseif $PlayerPronouns == 1>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HER ON THE FIRST DAY!
-        <<else>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED THEM ON THE FIRST DAY!
-        <<endif>>
+    BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND PICKED ON STUDENTS!
     BearBox: Grrrr....
     BearBox: Is he bothering you? 
     -> Yes! Can you get him away from me?
@@ -102,13 +96,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     BearBox: Now who might this lovely gentleman be...
     <<SetSprite Left BearBox/Angry>>
     <<Shake Left>>
-        <<if $PlayerPronouns == 0>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HIM ON THE FIRST DAY!
-        <<elseif $PlayerPronouns == 1>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED HER ON THE FIRST DAY!
-        <<else>>
-            BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND BOTHERED THEM ON THE FIRST DAY!
-        <<endif>>
+    BearBox: WAIT A SECOND! I REMEMBER YOU! YOU WERE THE HOOLIGAN THAT INTRUDED OUR SCHOOL CAMPUS AND PICKED ON STUDENTS!
     BearBox: Grrrr....
     BearBox: Is he bothering you? 
     -> Yes! Can you get him away from me?
