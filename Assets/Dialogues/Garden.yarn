@@ -78,7 +78,7 @@ position: -107,2
         Player: It sure is clean without any litter!
     <<else>>
         Player: It almost seems magical to come here in the dark.
-        Player: No one's really comes out here at this time, after all.
+        Player: No one really comes out here at this time, after all.
     <<endif>>
 <<endif>>
 
