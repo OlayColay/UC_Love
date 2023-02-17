@@ -340,8 +340,11 @@ Stan: Our... friend... here just tripped.
 BearBox: Don't try that with me, Stan Ford! I heard everything from around the corner!
 BearBox: Just because your father is the senator doesn't give you the right to act like such a pretentious nugget!
 BearBox: In fact, why don't we give him a call right now?
+<<SetActiveChar Right>>
 Tommy: Uh oh...
+<<SetActiveChar Middle>>
 Stan: We better get going...
+<<SetActiveChar Left>>
 BearBox: I BET YOU GUYS FAKED YOUR WAY ONTO THE ROWING TEAM! COWARDS!
 <<Fade false>>
 <<SetBackground Backgrounds/Plaza/plaza_morning>>
@@ -383,7 +386,7 @@ BearBox: Do you want a quick tutorial on how to succeed here before you go?
 -> Sure! I could always use some advice for my rizz.
     BearBox: Uh... okay then.
     <<jump Tutorial>>
--> No thanks! I definitely know what I'm doing
+-> No thanks! I definitely know what I'm doing.
 BearBox: No worries! If you do end up needing my help, you can always find me on the Map by clicking on the question mark!
 BearBox: Stay out of trouble!
 <<Fade false>>
