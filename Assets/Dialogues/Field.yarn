@@ -367,13 +367,15 @@ Player: What should I do?
             Stan: He's a funny guy though and a good friend. 
         <<else>> 
             <<SetSprite Middle Stan/Question>>
-            Stan: Do you know Harvey Ford? The real estate magnate? 
-            <<SetSprite Middle Stan/Smiling>>
-            Stan: He's my dad and runs the family real estate business. One day, I hope to take over the family business. 
-            Stan: That's one of the main reasons that I'm studying economics. 
-            <<SetSprite Middle Stan/Sweating>>
-            Stan: It's pretty tough to impress my old man though.
-            <<SetSprite Middle Stan/Smiling>>
+            Stan: Have you heard of Harvey Ford? 
+            Stan: You might know him as the senator, but he's also my dad. 
+            Stan: He's quite strict, but I admire him a lot. 
+            Stan: He also runs Ford Motor Company with an iron fist. 
+            <<SetSprite Middle Stan/Grin>>
+            Stan: I want to take over the family business someday. It's part of the reason why I'm studying economics. 
+            <<SetSprite Middle Stan/Question>>
+            Stan: My old man is pretty old fashioned and tough to impress though, so I definitely have my work cut out for me.
+            <<SetSprite Middle Stan/Idle>>
         <<endif>>
     <<elseif GetRelationshipScore("Stan") >= 300 && GetRelationshipScore("Stan") < 400>> //Crushing
         <<if $Stan_Dialogue == 1>>
@@ -440,15 +442,13 @@ Player: What should I do?
     <<else>> //Lovers
         <<if $Stan_Dialogue == 1>>
             <<SetSprite Middle Stan/Question>>
-            Stan: Have you heard of Harvey Ford? 
-            Stan: You might know him as the senator, but he's also my dad. 
-            Stan: He's quite strict, but I admire him a lot. 
-            Stan: He also runs Ford Motor Company with an iron fist. 
+            Stan: Even though I'm almost out of college, I don't have many people I'd consider friends. 
+            Stan: I guess I've always been a bit of a lone wolf.
+            <<SetSprite Middle Stan/GiggleBlush>>
+            Stan: I guess aside from Tommy, you're the only person I've met in college that I actually like being around.
             <<SetSprite Middle Stan/Grin>>
-            Stan: I want to take over the family business someday. It's part of the reason why I'm studying economics. 
-            <<SetSprite Middle Stan/Question>>
-            Stan: My old man is pretty old fashioned and tough to impress though, so I definitely have my work cut out for me.
-            <<SetSprite Middle Stan/Idle>>
+            Stan: I'm glad to have you in my life.
+            <<SetSprite Middle Stan/Smiling>>
         <<elseif $Stan_Dialogue == 2>>
             <<SetSprite Middle Stan/Giggle>>
             Stan: Your backpack looks pretty heavy. Let me hold it for you!
@@ -558,7 +558,7 @@ Player: What should I do?
             <<else>>
                 <<SetSprite Middle Stan/Grin>>
                 Stan: A date? I'd love to. 
-                Stan: Choose any place you'd like but let me take care of the bill this time alright?
+                Stan: Choose any place you'd like but let me take care of the bill alright?
             <<endif>>
             <<Fade false>>
             <<ClearSprite Middle>>
@@ -596,10 +596,12 @@ Player: What should I do?
             <<PlayMusic Music/Gameplay>>
             <<Wait 1>>
             <<if DateMinigameWon()>>
-                <<SetSprite Date Stan/Smiling>>
+                <<SetSprite Date Stan/Grin>>
                 Stan: I usually don't go to restaurants like these. My family always eats at the same famous restaurants. 
                 <<SetSprite Date Stan/Giggle>>
                 Stan: The restaurant interior isn't the most impressive, but the food is really good! 
+                <<SetSprite Date Stan/GrinBlush>>
+                Stan: There's something special about being able to share a meal with you. 
             <<else>>
                 <<SetSprite Date Stan/Irritated>>
                 <<Shake Date>>
