@@ -105,7 +105,6 @@ tags:
     <<endif>>
 <<endif>>
 
-
 -> Meet someone
     <<if $TimeOfDayCafe == 0>>
         <<jump UCBCafe>>

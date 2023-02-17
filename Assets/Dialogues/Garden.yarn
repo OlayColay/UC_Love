@@ -279,8 +279,10 @@ Player: What should I do?
             Tommy: I saw a tortoise walking around away from water so I picked him up and put him back in the water.
                 -> Wait... tortoises can't swim!
                     Tommy: ...
+                    <<SetSprite Middle Tommy/Flustered>>
                     <<Shake Middle>>
                     Tommy: They what?!
+                    <<SetSprite Middle Tommy/Flushed>>
                     Tommy: Wait right here! I gotta go fish him out!
                     <<ClearSprite Middle>>
                     <<SetSprite Middle Tommy/Idle>>
@@ -429,7 +431,7 @@ Player: What should I do?
                     Tommy: Oh! It's pretty cool! I tutor kids in English and in public speaking. 
                     <<SetSprite Middle Tommy/Idle>>
                     Tommy: There's this one kid that comes from a poor family, but he works really hard and he's really smart.
-                    Tommy: That's thing, actually.
+                    Tommy: That's the thing, actually.
                     <<SetSprite Middle Tommy/Frown>>
                     Tommy: I usually don't like poor people, since they're too lazy to make money for themselves.
                     -> Huh? Where did you hear that from?
@@ -441,7 +443,7 @@ Player: What should I do?
                         <<Shake Middle>>
                         Tommy: R-really? If you say so, then maybe Stan really meant that for some poor people.
                     <<SetSprite Middle Tommy/Frown>>
-                    Tommy: Knowing about this made me think about how lucky I am to be born off in a well-off family...
+                    Tommy: Knowing about this made me think about how lucky I am to be born into a well-off family...
                     Tommy: My parents hired tutors for me and paid for a lot of my extracurriculars.
                     Tommy: If anything, I know I'm not that smart, but I always love learning new stuff!
                     <<SetSprite Middle Tommy/Idle>>
