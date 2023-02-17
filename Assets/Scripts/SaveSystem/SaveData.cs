@@ -24,6 +24,7 @@ public class SaveData
         relationshipScores[3] = Inventory.relationshipScores["Riviera"];
         relationshipScores[4] = Inventory.relationshipScores["Irene"];
         relationshipScores[5] = Inventory.relationshipScores["Tommy"];
+        relationshipScores[6] = Inventory.relationshipScores["Stan"];
 
         // 2. Inventory
         inventory = new SerializableItem[Inventory.list.Count];
