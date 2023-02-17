@@ -497,46 +497,52 @@ Player: What should I do?
     <<jump Stan>>
 //Stan should dislike all gifts
 -> Give Gift <<if $GiftStan == false && (GetInventoryLength(false) > 0 || GetInventoryLength(true) > 0)>>
-    <<OpenInventory>>
-    <<if GetInventoryCanceled() == true>>
-        <<jump Stan>>
-    <<endif>> 
     <<set $GiftStan = true>>
-    <<set $GiftScoreStan = GetItemScore("Stan")>>
-    <<AddRelationshipScore Stan {$GiftScoreStan}>>
-    <<if $GiftScoreStan == -10>>
-        <<if GetRelationshipScore("Stan") >= 200>>
+    <<if GetRelationshipScore("Stan") >= 200>>
             <<SetSprite Middle Stan/Irritated>>
             Stan: Uhhh.... no thank you. Gifts aren't really my thing.
         <<else>>
-            <<SetSprite Middle Stan/Laughing>>
-            Stan: HA! What the hell is this?
             <<SetSprite Middle Stan/Pitiful>>
             Stan: If you think you can win me over with gifts, you're mistaken.
         <<endif>>
         <<SetSprite Middle Stan/Passive>>
-    <<else>>
-        // Not their key item gift
-        Stan: I think that belongs to someone else... 
-        <<if $GiftScoreK == 0>> // Ellie's
-            <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
-        <<elseif $GiftScoreK == 1>> // Stan's
-            <<AddRelationshipScore Stan -1>>
-            <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
-        <<elseif $GiftScoreK == 2>> // Santana's
-            <<AddRelationshipScore Stan -2>>
-            <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
-        <<elseif $GiftScoreK == 3>> // Riviera's
-            <<AddRelationshipScore Stan -3>>
-            <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
-        <<elseif $GiftScoreK == 4>> // Irene's
-            <<AddRelationshipScore Stan -4>>
-            <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
-        <<else>> // Tommy's
-            <<AddRelationshipScore Stan -5>>
-            <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
-        <<endif>>
-    <<endif>>
+    <<jump Stan>>
+    // <<set $GiftStan = true>>
+    // <<set $GiftScoreStan = GetItemScore("Stan")>>
+    // <<AddRelationshipScore Stan {$GiftScoreStan}>>
+    // <<if $GiftScoreStan == -10>>
+    //     <<if GetRelationshipScore("Stan") >= 200>>
+    //         <<SetSprite Middle Stan/Irritated>>
+    //         Stan: Uhhh.... no thank you. Gifts aren't really my thing.
+    //     <<else>>
+    //         <<SetSprite Middle Stan/Laughing>>
+    //         Stan: HA! What the hell is this?
+    //         <<SetSprite Middle Stan/Pitiful>>
+    //         Stan: If you think you can win me over with gifts, you're mistaken.
+    //     <<endif>>
+    //     <<SetSprite Middle Stan/Passive>>
+    // <<else>>
+    //     // Not their key item gift
+    //     Stan: I think that belongs to someone else... 
+    //     <<if $GiftScoreK == 0>> // Ellie's
+    //         <<AddItem 40 0 0 0 0 0 "Gifts/Cookbook" "Cookbook" true>>
+    //     <<elseif $GiftScoreK == 1>> // Stan's
+    //         <<AddRelationshipScore Stan -1>>
+    //         <<AddItem 1 40 1 1 1 1 "Gifts/Diary" "Diary" true>>
+    //     <<elseif $GiftScoreK == 2>> // Santana's
+    //         <<AddRelationshipScore Stan -2>>
+    //         <<AddItem 2 2 40 2 2 2 "Gifts/Spade" "Spade" true>>
+    //     <<elseif $GiftScoreK == 3>> // Riviera's
+    //         <<AddRelationshipScore Stan -3>>
+    //         <<AddItem 3 3 3 40 3 3 "Gifts/ToteBag" "ToteBag" true>>
+    //     <<elseif $GiftScoreK == 4>> // Irene's
+    //         <<AddRelationshipScore Stan -4>>
+    //         <<AddItem 4 4 4 4 40 4 "Gifts/Keychain" "Keychain" true>>
+    //     <<else>> // Tommy's
+    //         <<AddRelationshipScore Stan -5>>
+    //         <<AddItem 5 5 5 5 5 40 "Gifts/Watch" "Watch" true>>
+    //     <<endif>>
+    // <<endif>>
     <<jump Stan>>
 -> Ask <<if $AskStan == false>>
     -> Ask on a date
