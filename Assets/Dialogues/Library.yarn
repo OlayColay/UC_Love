@@ -145,8 +145,6 @@ position: -61,-4
 <<endif>>
 
 
-
-Player: What should I do? 
 -> Meet someone
     <<if $TimeofDayLibrary == 1 || $TimeofDayLibrary == 2>>
         <<jump UCBLibrary>>

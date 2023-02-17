@@ -106,7 +106,6 @@ tags:
 <<endif>>
 
 
-Player: What should I do?
 -> Meet someone
     <<if $TimeOfDayCafe == 0>>
         <<jump UCBCafe>>

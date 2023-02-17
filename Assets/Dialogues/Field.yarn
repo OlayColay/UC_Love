@@ -79,7 +79,6 @@ position: -88,-7
         Player: Looks like a game is about to start. The stands are packed!
     <<endif>>
 <<endif>>
-Player: Hmm..what should I do?
 -> Meet someone
     <<jump Stan>>
 -> Leave

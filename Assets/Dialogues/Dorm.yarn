@@ -2,7 +2,6 @@
 tags:
 ---
 <<set $TimeOfDayDorm to GetTimeOfDay()>>
-Player: What should I do?
 -> Take a nap (Pass Time)
         <<Fade false>>
         <<Fade true>>

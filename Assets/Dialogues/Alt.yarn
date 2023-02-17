@@ -81,6 +81,7 @@ Tommy: S-Stan...
 -> Sorry to interrupt your lovers' spat, but can you just finish up with bullying me? I'm running late to class.
     <<SetSprite Middle Stan/Irritated>>
     <<SetSprite Right Tommy/Angry>>
+    <<SetActiveChar Right>>
     Tommy: The lower class doesn't even have the virtue of patience these days...
     <<SetSprite Middle Stan/Sus>>
     <<SetActiveChar Middle>>

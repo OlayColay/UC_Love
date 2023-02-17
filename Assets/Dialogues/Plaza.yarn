@@ -121,7 +121,6 @@ tags:
 <<endif>>
 
 
-Player: What should I do? 
 -> Meet someone
     <<if $TimeOfDayPlaza == 0>>
         <<jump UCIPlaza>>

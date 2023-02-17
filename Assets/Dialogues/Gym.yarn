@@ -177,7 +177,6 @@ tags:
 
 
 //-----------------------------------------------------------------
-Player: What should I do?
 -> Meet someone
     <<if $TimeOfDayGym == 0>>
         <<jump UCRGym>>

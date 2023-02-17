@@ -131,7 +131,6 @@ position: -107,2
     Player: Huh...what a weird moment.
 <<endif>>
 
-Player: Hmm..what should I do?
 -> Meet someone
     <<if $TimeOfDayGarden == 0 || $TimeOfDayGarden == 1>>
         <<jump UCSBGarden>>
