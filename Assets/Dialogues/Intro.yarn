@@ -270,30 +270,40 @@ position: 0,0
 <<PlayMusic Music/Title>>
 <<SetSprite Middle BearBox/Idle>>
 <<Fade true>>
-BearBox: So there's a lot of moving parts to the campus that you'll need to balance in order to succeed here!
-<<SetSprite Middle BearBox/Blush>>
-BearBox: Let's talk about the most important thing first though: making some sweet sweet moolah!
-<<SetSprite Middle BearBox/Idle>>
-BearBox: Working at the Library will earn you a easy passive income, but other jobs bring the high-risk, high-reward!
-BearBox: You should also be able to find some money strewn about sometimes by taking a walk around the Garden. Just watch for squirrels!
-BearBox: The best thing to find at the Garden though are SPECIAL GIFTS. These are lost items that I'm sure people will greatly appreciate if you return them.
-BearBox: Other items can be purchased at the school Shop.
-<<SetSprite Middle BearBox/Blush>>
-BearBox: Don't know who to give items to? Check Bearstagram at your dorm to see if you can get the low-down on students' interests!
-<<SetSprite Middle BearBox/Idle>>
-BearBox: Once you have the gifts and the know-how on who to give them to, you can start meeting people!
-BearBox: There are four things you can do when you meet someone. The first one is talking - introduce yourself and then get to know them!
-<<SetSprite Middle BearBox/Blush>>
-BearBox: This will steadily strengthen your relationship, but giving the right gift will do wonders, especially if it's their SPECIAL GIFT!
-<<SetSprite Middle BearBox/Idle>>
-BearBox: If you've been getting to know someone for a while, you might be able to ask them on a date! If you navigate your feelings well during a date, you'll get much closer to them!
-BearBox: After a few dates, you can ask them to the dance, and raise enough money to improve UCL or restore the UCs!
-Player: That all sounds good, but where can I find these people?
-BearBox: Oh that's easy! They're all college students, so their schedules should be pretty regular, even if they move throughout the day.
-BearBox: You'll probably find someone a certain place every morning, afternoon, and evening! For example, you might find someone in the Cafe in the morning, but in the Library in the afternoon and evening.
-<<SetSprite Middle BearBox/Blush>>
-BearBox: That should cover everything! Now go get 'em, champ!
-<<Fade false>>
-<<PlayMusic Music/Gameplay>>
-<<LoadScene MapScene>>
+BearBox: There's a lot of moving parts to the campus that you'll need to balance in order to succeed here!
+<<jump Tutorial2>>
+===
+title: Tutorial2
+position: 2,-138
+---
+BearBox: What can I help you with?
+-> Making money and getting gifts!
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Let's talk about the most important thing first: making some sweet sweet moolah!
+    <<SetSprite Middle BearBox/Idle>>
+    BearBox: Working at the Library will earn you a easy passive income, but other jobs bring the high-risk, high-reward!
+    BearBox: You should also be able to find some money strewn about sometimes by taking a walk around the Garden. Just watch for squirrels!
+    BearBox: The best thing to find at the Garden though are SPECIAL GIFTS. These are lost items that I'm sure people will greatly appreciate if you return them.
+    BearBox: Other items can be purchased at the school Shop.
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Don't know who to give items to? Check Bearstagram at your dorm to see if you can get the low-down on students' interests!
+    <<SetSprite Middle BearBox/Idle>>
+-> Getting dates!
+    BearBox: Once you have the gifts and the know-how on who to give them to, you can start meeting people!
+    BearBox: There are four things you can do when you meet someone. The first one is talking - introduce yourself and then get to know them!
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: This will steadily strengthen your relationship, but giving the right gift will do wonders, especially if it's their SPECIAL GIFT!
+    <<SetSprite Middle BearBox/Idle>>
+    BearBox: If you've been getting to know someone for a while, you might be able to ask them on a date! If you navigate your feelings well during a date, you'll get much closer to them!
+    BearBox: After a few dates, you can ask them to the dance, and raise enough money to improve UCL or restore the UCs!
+    Player: That all sounds good, but where can I find these people?
+    BearBox: Oh that's easy! They're all college students, so their schedules should be pretty regular, even if they move throughout the day.
+    BearBox: You'll probably find someone a certain place every morning, afternoon, and evening! For example, you might find someone in the Cafe in the morning, but in the Library in the afternoon and evening.
+-> Nothing, I'm all good!
+    <<SetSprite Middle BearBox/Blush>>
+    BearBox: Now go get 'em, champ!
+    <<Fade false>>
+    <<PlayMusic Music/Gameplay>>
+    <<LoadScene MapScene>>
+<<jump Tutorial2>>
 ===
