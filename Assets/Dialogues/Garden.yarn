@@ -1464,8 +1464,9 @@ Player: What should I do?
             Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
         <<elseif $UCI_Dialogue == 2>>
             Irene: It's late, but I sure could go for some ramen right now.
+            // Add another choice here
             -> That's a great idea. Can't be hungry when you have to focus on your games.
-                <<SetSprite Middle Irene/Excited>>>
+                <<SetSprite Middle Irene/Excited>>
                 Irene: You got that right! I always like switching savory to sweet, vice versa.
                 Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
                 Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!

@@ -302,8 +302,9 @@ Player: What should I do?
             Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
         <<elseif $UCIDialoguePlaza == 2>>
             Irene: I sure could go for some ramen right now.
+            // Add another choice here
             -> Me too! I love ramen!
-                <<SetSprite Middle Irene/Excited>>>
+                <<SetSprite Middle Irene/Excited>>
                 Irene: You got that right! I always like switching savory to sweet, vice versa.
                 Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
                 Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!
@@ -633,13 +634,13 @@ Player: What should I do?
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
             <<if $TimeOfDayPlaza == 0>>
-                <<SetBackground Backgrounds/Plaza/Morning>>
+                <<SetBackground Backgrounds/Plaza/plaza_morning>>
                 //Sets background as Plaza Morning if it is Daytime
             <<elseif $TimeOfDayPlaza == 1>>
-                <<SetBackground Backgrounds/Plaza/Noon>>
+                <<SetBackground Backgrounds/Plaza/plaza_noon>>
                 //Sets background as Plaza Afternoon if it is Afternoon
             <<else>>
-                <<SetBackground Backgrounds/Plaza/NightWarm>>
+                <<SetBackground Backgrounds/Plaza/plaza_night>>
                 //Sets background as Plaza Night if it Evening
             <<endif>>
             <<SetSprite Middle Irene/Flirty>>
@@ -1387,7 +1388,7 @@ Player: What should I do?
                         Ellie: Sigh... you're right. I'm already in so many clubs...
                         Ellie: I feel like I'm biting off more than I can chew... I feel like I have to help my friends and support all these causes...
                         Ellie: But I've been spreading myself thin lately... I think I need to start setting boundaries and cutting back on extracurriculars. 
-                        <<SetSprite Middle /smc>>
+                        <<SetSprite Middle Ellie/smc>>
                         Ellie: I feel a lot better now. Thank you for listening to me.
                         Ellie: I'm always here if you need to vent, kay?
                         Ellie: Friends should look out for each other!
@@ -1397,7 +1398,7 @@ Player: What should I do?
                             <<AddRelationshipScore Ellie 10>>
                             Player: You don't have to join the club's board to support your friend!
                             Player: You can help your friend advertise for the club!
-                            <<SetSprite Middle /smc>>
+                            <<SetSprite Middle Ellie/smc>>
                             Ellie: Oh! I didn't think about that! 
                             Ellie: Yeah! I think that I could offer to help her spread the word instead. I have a lot of connections that I can ask to help her out!
                             Ellie: I think that that would be a good way to support my friend without overcommitting to another role on top of what I'm already doing. 
@@ -1413,7 +1414,7 @@ Player: What should I do?
                             Ellie: Oh! I didn't think about that! 
                             Ellie: Yeah! I have a friend named Irene who's really great at art stuff and was looking to get more leadership experience! 
                             Ellie: I'll ask Irene if she's interested and recommend Irene to my friend!
-                            <<SetSprite Middle /smc>>
+                            <<SetSprite Middle Ellie/smc>>
                             Ellie: Thanks for the advice. I really appreciate it.
                             Ellie: I'm always here if you need to vent, kay?
                             <<SetSprite Middle Ellie/Idle>>
@@ -1431,7 +1432,7 @@ Player: What should I do?
                             <<SetSprite Middle Ellie/Idle>>
                             Ellie: Oh! I didn't think about that! 
                             Ellie: I didn't think that I could still cheer them on without joining the board. 
-                            <<SetSprite Middle /smc>>
+                            <<SetSprite Middle Ellie/smc>>
                             Ellie: Thanks for the advice. I really appreciate it.
                             Ellie: I'm always here if you need to vent, kay?
             -> Sorry, I'm kind of busy...
@@ -1715,7 +1716,6 @@ Player: What should I do?
                 <<SetSprite Date Ellie/lb>>
                 Ellie: Thanks for taking me out! The food here is really good!
             <<else>>
-                <<SetSprite Date Ellie/Irritated>>
                 <<Shake Date>>
                 <<SetSprite Date Ellie/angry>>
                 Ellie: Hey! I don't know if you know this, but that is not a nice thing to say...

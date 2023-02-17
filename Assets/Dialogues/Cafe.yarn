@@ -1206,8 +1206,9 @@ Player: What should I do?
             Irene: It's like RNJesus or something rolls dice to determine my dialogue lines. 
         <<elseif $UCIDialogueCafe == 2>>
             Irene: I sure could go for some ramen right now.
+            // Add another choice here
             -> Me too! I love ramen!
-                <<SetSprite Middle Irene/Excited>>>
+                <<SetSprite Middle Irene/Excited>>
                 Irene: You got that right! I always like switching savory to sweet, vice versa.
                 Irene: And as a backup, I always got seaweed flavored potato chips. That, with some cola is the best combo!
                 Irene: If you dip the potato chips into the cola, you get the best flavor combo ever!
@@ -1536,16 +1537,7 @@ Player: What should I do?
             <<Fade false>>
             <<ClearSprite Bottom>>
             <<ClearSprite Date>>
-            <<if $TimeOfDayCafe == 0>>
-                <<SetBackground Backgrounds/Cafe/Morning>>
-                //Sets background as Cafe Morning if it is Daytime
-            <<elseif $TimeOfDayCafe == 1>>
-                <<SetBackground Backgrounds/Cafe/Noon>>
-                //Sets background as Cafe Afternoon if it is Afternoon
-            <<else>>
-                <<SetBackground Backgrounds/Cafe/NightWarm>>
-                //Sets background as Cafe Night if it Evening
-            <<endif>>
+            <<SetBackground Backgrounds/Cafe/Cafe>>
             <<SetSprite Middle Irene/Flirty>>
             <<SetActiveChar Middle>>
             <<Fade true>>
