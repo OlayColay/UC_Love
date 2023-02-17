@@ -243,6 +243,7 @@ public static class Inventory
         Inventory.relationshipScores["Riviera"] = data.relationshipScores[3];
         Inventory.relationshipScores["Irene"] = data.relationshipScores[4];
         Inventory.relationshipScores["Tommy"] = data.relationshipScores[5];
+        Inventory.relationshipScores["Stan"] = data.relationshipScores[6];
 
         // 2. Reconstruct day
         day = data.day;
