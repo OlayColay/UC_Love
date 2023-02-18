@@ -137,7 +137,7 @@ BearBox: Oh! I see you brought a date! Great! We'll be able to meet our fundrais
     <<elseif $DancePartner == 2>>
         Player: This is Santana!
         <<SetSprite Middle Santana/bliss>>
-        Ellie: Good evening Professor BearBox!
+        Santana: Good evening Professor BearBox!
         <<SetSprite Middle Santana/Idle>>
     <<elseif $DancePartner == 3>>
         Player: This is Irene!
@@ -696,13 +696,13 @@ BearBox: Bouncy castle! Bouncy castle! Bouncy castle!
 <<ClearSprite Left>>
 <<SetSprite Middle BearBox/Blush>>
 <<SetBackground Backgrounds/BouncyCastle>>
+<<SetActiveChar Middle>>
 <<Fade true>>
 <<Shake Middle 500 60>>
 BearBox: Bouncy! Bouncy castle! Bounce! Bounce! Bounce!
 Player: Well... we might not have a nicer university...
 Player: Or have brought back our old campuses...
 Player: But at least we have... a bouncy castle??
-<<SetActiveChar Middle>>
 <<Shake Middle 500 60>>
 BearBox: Bounce! Bounce! Bounce!
 <<Fade false>>

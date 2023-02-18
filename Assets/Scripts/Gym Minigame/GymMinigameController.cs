@@ -52,6 +52,7 @@ public class GymMinigameController : MonoBehaviour
     public Image weight1;
     public Image weight2;
     public Image keyboard;
+    public Image keyboardUnpressed;
     public Image handle;
 
     /// <summary> Constructor of the Gym minigame where difficulties are set <summary>
@@ -124,7 +125,7 @@ public class GymMinigameController : MonoBehaviour
         weight2.DOFade(1f, 1f);
         handle.DOFade(1f, 1f);
         yield return new WaitForSecondsRealtime(1f);
-        keyboard.enabled = true;
+        StartCoroutine("FlashKeyboard");
 
         // Initialize variables
         gymControls.GymActions.Lift.Enable();
@@ -162,9 +163,25 @@ public class GymMinigameController : MonoBehaviour
         weight1.DOFade(0f, 1f);
         weight2.DOFade(0f, 1f);
         handle.DOFade(0f, 1f);
+        StopCoroutine("FlashKeyboard");
         keyboard.enabled = false;
+        keyboardUnpressed.enabled = false;
 
         yield return new WaitForSecondsRealtime(1f);
+    }
+    IEnumerator FlashKeyboard()
+    {
+        while (true)
+        {
+            keyboard.enabled = true;
+            keyboardUnpressed.enabled = false;
+            yield return new WaitForSecondsRealtime(0.15f);
+
+            keyboard.enabled = false;
+            keyboardUnpressed.enabled = true;
+            yield return new WaitForSecondsRealtime(0.15f);
+        }
+        
     }
 
     void Lift()
@@ -187,7 +204,7 @@ public class GymMinigameController : MonoBehaviour
         gymControls.GymActions.Cross.Enable();
         curPunches = 0;
         float currentTime = 0f;
-        NewPunch();
+        StartCoroutine(NewPunch());
 
         // Repeat every frame until punch target is reached or time limit is exceeded
         while (curPunches < punchTarget && currentTime < punchTime)
@@ -228,12 +245,15 @@ public class GymMinigameController : MonoBehaviour
             if (curPunches < punchTarget)
             {
                 audioSource.PlayOneShot(punchSFX[0]);
-                NewPunch();
+                StartCoroutine(NewPunch());
             }
         }
         else
         {
-            PunchFail();
+            gymControls.GymActions.Jab.Disable();
+            gymControls.GymActions.Cross.Disable();
+            
+            RightClick.transform.DOShakePosition(1f, 30f).OnComplete(PunchFail);
         }
     }
 
@@ -251,12 +271,14 @@ public class GymMinigameController : MonoBehaviour
             if (curPunches < punchTarget)
             {
                 audioSource.PlayOneShot(punchSFX[0]);
-                NewPunch();
+                StartCoroutine(NewPunch());
             }
         }
         else
         {
-            PunchFail();
+            gymControls.GymActions.Jab.Disable();
+            gymControls.GymActions.Cross.Disable();
+            LeftClick.transform.DOShakePosition(1f, 30f).OnComplete(PunchFail);
         }
     }
 
@@ -266,10 +288,11 @@ public class GymMinigameController : MonoBehaviour
         punchingBag.sprite = punchingBagSprites[0];
     }
 
-    void NewPunch()
+    IEnumerator NewPunch()
     {
         punchSide = YarnFunctions.RandomRange(0, 1);
         // Debug.Log((punchSide == 0) ? "Punch left!" : "Punch right!");
+        yield return new WaitForSecondsRealtime(0.25f);
 
         if (punchSide == 0)
         {
@@ -284,11 +307,6 @@ public class GymMinigameController : MonoBehaviour
     void PunchFail()
     {
         StopCoroutine(currentMicrogame);
-        gymControls.GymActions.Jab.Disable();
-        gymControls.GymActions.Cross.Disable();
-
-        gymControls.GymActions.Jab.Disable();
-        gymControls.GymActions.Cross.Disable();
         
         punchingBag.DOFade(0f, 1f);
 

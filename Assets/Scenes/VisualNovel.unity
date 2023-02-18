@@ -668,6 +668,7 @@ MonoBehaviour:
   itemsBackground: {fileID: 21300000, guid: 40b211e9b70aa274bade54af827299e5, type: 3}
   keyItemsBackground: {fileID: 21300000, guid: 76f9f4291ebd917448f348b5c4115db1, type: 3}
   cancelButton: {fileID: 97648208}
+  invButton: {fileID: 0}
 --- !u!223 &183817269
 Canvas:
   m_ObjectHideFlags: 0
@@ -2933,7 +2934,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
