@@ -17,7 +17,7 @@ public class SaveData
     public void CopyFromGame()
     {
         // 1. Copy RelationshipScores
-        relationshipScores = new int[6];
+        relationshipScores = new int[7];
         relationshipScores[0] = Inventory.relationshipScores["Ellie"];
         relationshipScores[1] = Inventory.relationshipScores["Kelly"];
         relationshipScores[2] = Inventory.relationshipScores["Santana"];
