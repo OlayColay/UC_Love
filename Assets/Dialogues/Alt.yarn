@@ -3,7 +3,7 @@ tags:
 position: -166,-68
 ---
 <<FadeBackground Backgrounds/Dorm 2>>
-Player: Ugh… my head… I shouldn't have slept so late last night…
+Player: Ugh… my head… I shouldn't have stayed up so late last night…
 Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
 Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
 Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
@@ -180,7 +180,7 @@ BearBox: If you go and bring a date with you, we might have a good shot at raisi
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
 BearBox: Before you go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the second icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the third icon for you younger kids that don't know what a floppy disk is!"
 BearBox: "You can also toggle auto-save on or off by clicking the BearBox icon!"
 BearBox: "Plus, you can check your inventory by clicking the backpack icon in the top right!"
 BearBox: I'm not sure what that means... but have a good first day alright?
@@ -194,7 +194,7 @@ tags:
 position: 92,-61
 ---
 <<FadeBackground Backgrounds/Dorm 2>>
-Player: Ugh… my head… I shouldn't have slept so late last night…
+Player: Ugh… my head… I shouldn't have stayed up so late last night…
 Player: I can't really help it though. Ever since the University of California announced the merger I've been stressed non-stop.
 Player: Something about budget cuts or something, but all the UC schools are being forced to merge together in order to save money.
 Player: Sigh… it's 20XX already but they'll do anything besides tax the rich. 
@@ -379,7 +379,7 @@ BearBox: If you go and bring a date with you, we might have a good shot at raisi
 BearBox: I have to go help the other students with orientation, but have a good first day of school ok?
 BearBox: Before you go, administration told me to pass on this message for new students!
 <<SetSprite Middle BearBox/Idle>>
-BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the second icon for you younger kids that don't know what a floppy disk is!"
+BearBox: "You can save your game by hitting the top floppy disk icon in the top right corner! It's the third icon for you younger kids that don't know what a floppy disk is!"
 BearBox: "You can also toggle auto-save on or off by clicking the BearBox icon!"
 BearBox: "Plus, you can check your inventory by clicking the backpack icon in the top right!"
 BearBox: I'm not sure what that means... but have a good first day alright?
